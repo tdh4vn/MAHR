@@ -1,4 +1,4 @@
-package vn.edu.techkids.mahr;
+package vn.edu.techkids.mahr.activity;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import vn.edu.techkids.mahr.R;
 
 
 public class ListJobsActivity extends AppCompatActivity {

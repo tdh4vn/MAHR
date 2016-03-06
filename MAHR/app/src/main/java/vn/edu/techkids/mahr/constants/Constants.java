@@ -1,4 +1,4 @@
-package vn.edu.techkids.mahr;
+package vn.edu.techkids.mahr.constants;
 
 /**
  * Created by hungtran on 3/6/16.
