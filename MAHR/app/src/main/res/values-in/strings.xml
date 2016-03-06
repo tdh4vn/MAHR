@@ -5,13 +5,13 @@
     <string name="indonesia">Indonesia</string>
     <string name="listJobMainName">Jenis jabatan</string>
 
-    <string-array name="employee_property_names">
-        <item name="expertise">Keahlian</item>
-        <item name="age">Usia</item>
-        <item name="height">Tinggi</item>
-        <item name="weight">Berat</item>
-        <item name="language">Bahasa</item>
-        <item name="experience">Pengalaman</item>
-        <item name="degree">Gelar</item>
-    </string-array>
+
+    <string name="expertise">Keahlian</string>
+    <string name="age">Usia</string>
+    <string name="height">Tinggi</string>
+    <string name="weight">Berat</string>
+    <string name="language">Bahasa</string>
+    <string name="experience">Pengalaman</string>
+    <string name="degree">Gelar</string>
+
 </resources>
