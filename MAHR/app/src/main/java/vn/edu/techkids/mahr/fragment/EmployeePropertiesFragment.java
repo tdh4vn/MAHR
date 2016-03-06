@@ -3,7 +3,7 @@ package vn.edu.techkids.mahr.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +74,7 @@ public class EmployeePropertiesFragment extends Fragment {
                             parent, false);
                 }
 
-                TextView txvEmployeeProperty = (TextView)convertView.findViewById(
+                TextView txvEmployeeProperty = (TextView)convertView.findViewById (
                         R.id.txv_employee_property);
 
                 txvEmployeeProperty.setText(mEmployeeProperites[position]);

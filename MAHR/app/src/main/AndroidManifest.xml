@@ -16,10 +16,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:parentActivityName=".activity.MainActivity"
             android:name=".activity.ListJobsActivity"
             android:label="@string/listJobMainName"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment;
+import vn.edu.techkids.mahr.fragment.ListJobsActivityFragment;
 
 
 public class ListJobsActivity extends AppCompatActivity {
@@ -29,6 +31,8 @@ public class ListJobsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4CAF50")));
+
+        openFragment(new EmployeePropertiesFragment(), true);
     }
 
     private void getIntances() {

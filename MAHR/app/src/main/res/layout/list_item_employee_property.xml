@@ -5,5 +5,6 @@
     <TextView
         android:id="@+id/txv_employee_property"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:textSize="@dimen/large_selection_text_size"/>
 </LinearLayout>

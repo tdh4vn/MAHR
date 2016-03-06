@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
+/*import android.support.app.Fragment;*/
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

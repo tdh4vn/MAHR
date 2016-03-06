@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
             }
         });
+
         btnVietnam.setOnClickListener(new View.OnClickListener() {
 
             @Override
