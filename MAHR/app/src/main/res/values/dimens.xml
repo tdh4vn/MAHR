@@ -7,7 +7,10 @@
     <dimen name="main_activity_button_padding">18dp</dimen>
     <dimen name="main_activity_button_text_size">32sp</dimen>
 
-    <dimen name="large_selection_text_size">24sp</dimen>
+    <dimen name="large_selection_text_size">18sp</dimen>
+    <dimen name="large_selection_margin_within">4dp</dimen>
+    <dimen name="large_selection_margin_left">12dp</dimen>
+    <dimen name="large_selection_icon_margin">12dp</dimen>
     <dimen name="large_selection_margin">8dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>

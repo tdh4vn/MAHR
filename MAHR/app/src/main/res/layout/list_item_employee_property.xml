@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imv_employee_property"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/large_selection_icon_margin"/>
     <TextView
         android:id="@+id/txv_employee_property"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="@dimen/large_selection_text_size"
-        android:layout_marginTop="@dimen/large_selection_margin"
-        android:layout_marginBottom="@dimen/large_selection_margin"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/large_selection_text_size"/>
 </LinearLayout>
