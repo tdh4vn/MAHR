@@ -8,6 +8,13 @@
 
 #import "JobDetailViewController.h"
 #import "DetailCell.h"
+#import "ExpertiseViewController.h"
+#import "LanguageViewController.h"
+#import "EducationViewController.h"
+#import "AgeViewController.h"
+#import "HeightViewController.h"
+#import "WeightViewController.h"
+#import "ExperienceViewController.h"
 
 @interface JobDetailViewController ()
 
@@ -77,6 +84,51 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    
+    if (indexPath.row == 0) {
+        
+        ExpertiseViewController *expertiseViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"expertise"];
+        
+        [self.navigationController pushViewController:expertiseViewController animated:YES];
+        
+        
+    } else if (indexPath.row == 1){
+        
+        AgeViewController *ageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"age"];
+        
+        [self.navigationController pushViewController:ageViewController animated:YES];
+        
+    } else if (indexPath.row == 2){
+        
+        HeightViewController *heightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"height"];
+        
+        [self.navigationController pushViewController:heightViewController animated:YES];
+        
+    } else if (indexPath.row == 3){
+        
+        WeightViewController *weightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"weight"];
+        
+        [self.navigationController pushViewController:weightViewController animated:YES];
+        
+    } else if (indexPath.row == 4){
+        
+        LanguageViewController *languageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"language"];
+        
+        [self.navigationController pushViewController:languageViewController animated:YES];
+        
+    } else if (indexPath.row == 5){
+        
+        ExperienceViewController *experienceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"experience"];
+        
+        [self.navigationController pushViewController:experienceViewController animated:YES];
+        
+    } else if (indexPath.row == 6){
+        EducationViewController *educationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"education"];
+        
+        [self.navigationController pushViewController:educationViewController animated:YES];
+    }
+    
 }
 
 @end

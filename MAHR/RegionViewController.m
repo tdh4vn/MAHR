@@ -26,8 +26,6 @@
     
     [_btnIndonesia custom];
     
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
