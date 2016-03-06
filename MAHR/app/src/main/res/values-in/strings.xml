@@ -4,6 +4,10 @@
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
     <string name="listJobMainName">Jenis jabatan</string>
+    <string name="male_employee">Pekerja laki-laki</string>
+    <string name="female_employee">Pekerja perempuan</string>
+    <string name="house_mate">Housemate</string>
+    
 
 
     <string name="expertise">Keahlian</string>

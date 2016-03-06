@@ -4,6 +4,9 @@
     <string name="vietnam">越南</string>
     <string name="indonesia">印尼</string>
     <string name="listJobMainName">职位类型</string>
+    <string name="male_employee">男性厂</string>
+    <string name="female_employee">女工厂</string>
+    <string name="house_mate">室友</string>
 
 
     <string name="expertise">专门 知识</string>
