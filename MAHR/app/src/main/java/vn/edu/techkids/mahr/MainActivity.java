@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		getSupportActionBar().hide();
+        this.initListener();
     }
-
+    //Them listener cho 2 button chon nhan cong nguoi Viet hoac Indo
     private void initListener(){
         Button btnIndonesia = (Button) this.findViewById(R.id.btnIndonesia);
         Button btnVietnam = (Button) this.findViewById(R.id.btnVietnam);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
                 intent.putExtra(Constants.KEY_INDONESIA,Constants.KEY_INDONESIA);
+                startActivity(intent);
             }
         });
         btnVietnam.setOnClickListener(new View.OnClickListener(){
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
                 intent.putExtra(Constants.KEY_VIETNAM, Constants.KEY_VIETNAM);
+                startActivity(intent);
             }
         });
     }
