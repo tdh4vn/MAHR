@@ -5,4 +5,14 @@
     <string name="indonesia">印尼</string>
     <string name="listJobMainName">职位类型</string>
 
+    <string-array name="employee_property_names">
+        <item name="expertise">专门知识</item>
+        <item name="age">年龄</item>
+        <item name="height">高度</item>
+        <item name="weight">重量</item>
+        <item name="language">语言</item>
+        <item name="experience">经验</item>
+        <item name="degree">度</item>
+    </string-array>
+
 </resources>

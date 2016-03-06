@@ -6,4 +6,12 @@
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
     <string name="listJobMainName">Job type</string>
+    <string-array name="employee_property_names">
+        <item name="expertise">Expertise</item>
+        <item name="age">Age</item>
+        <item name="height">Height</item>
+        <item name="language">Language</item>
+        <item name="experience">Experience</item>
+        <item name="degree">Degree</item>
+    </string-array>
 </resources>

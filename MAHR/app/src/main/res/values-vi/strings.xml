@@ -4,4 +4,13 @@
     <string name="vietnam">Việt Nam</string>
     <string name="indonesia">Indonesia</string>
     <string name="listJobMainName">Loại công việc</string>
+    <string-array name="employee_property_names">
+        <item name="expertise">Nghề nghiệp</item>
+        <item name="age">Tuổi</item>
+        <item name="height">Chiều cao</item>
+        <item name="weight">Cân nặng</item>
+        <item name="language">Ngôn ngữ</item>
+        <item name="experience">Kinh nghiệm</item>
+        <item name="degree">Trình độ văn hóa</item>
+    </string-array>
 </resources>
