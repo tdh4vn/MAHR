@@ -6,13 +6,13 @@
     <string name="listJobMainName">职位类型</string>
 
     <string-array name="employee_property_names">
-        <item name="expertise">专门知识</item>
-        <item name="age">年龄</item>
-        <item name="height">高度</item>
-        <item name="weight">重量</item>
-        <item name="language">语言</item>
-        <item name="experience">经验</item>
-        <item name="degree">度</item>
+        <item name="expertise">专门 知识</item>
+        <item name="age">年 龄</item>
+        <item name="height">高 度</item>
+        <item name="weight">重 量</item>
+        <item name="language">语 言</item>
+        <item name="experience">经 验</item>
+        <item name="degree">学 位</item>
     </string-array>
 
 </resources>
