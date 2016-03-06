@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.activity;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -72,13 +73,12 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
             fragmentTransaction.addToBackStack(fragment.getClass().getName());
         }
 
-
         fragmentTransaction.commit();
     }
 
     @Override
     public boolean back() {
-        if (mFragmentManager.getBackStackEntryCount() != 0) {
+        if (mFragmentManager.getBackStackEntryCount() > 1) {
             mFragmentManager.popBackStack();
             return true;
         } else {
@@ -96,6 +96,12 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
         getSupportActionBar().hide();
     }
 
+
+    @Override
+    public void showDialogFragment(DialogFragment dialogFragment, String tag) {
+        dialogFragment.show(mFragmentManager, tag);
+    }
+
     @Override
     public void changeTitleOfActionBar(String titles) {
         getSupportActionBar().setTitle(titles);
@@ -103,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
     @Override
     public void onBackPressed() {
-        back();
+        if(!back())
+            super.onBackPressed();
     }
 }

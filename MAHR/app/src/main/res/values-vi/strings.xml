@@ -16,5 +16,20 @@
     <string name="language">Ngôn ngữ</string>
     <string name="experience">Kinh nghiệm</string>
     <string name="degree">Trình độ văn hóa</string>
+    <string name="college">Cao Đẳng</string>
+    <string name="cnc">CNC</string>
+    <string name="electronics">Điện tử</string>
+    <string name="food">Thực phẩm</string>
+    <string name="from">Từ</string>
+    <string name="high_school">Cấp ba</string>
+    <string name="mechanic">Cơ khí</string>
+    <string name="ok">Nhập</string>
+    <string name="secondary_school">Cấp hai</string>
+    <string name="taiwan">Đài Loan</string>
+    <string name="textile">Dệt may</string>
+    <string name="to">Đến</string>
+    <string name="university">Đại học</string>
+    <string name="weld">Hàn</string>
+    <string name="woodwork">Đồ mộc</string>
 
 </resources>

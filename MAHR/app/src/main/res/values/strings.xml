@@ -5,6 +5,8 @@
 
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
+    <string name="taiwan">Taiwan</string>
+
     <string name="listJobMainName">Job type</string>
     <string name="male_employee">Male Workers</string>
     <string name="female_employee">Female Workers</string>
@@ -19,6 +21,24 @@
     <string name="language">Language</string>
     <string name="experience">Experience</string>
     <string name="degree">Degree</string>
+
+    <string name="cnc">CNC</string>
+    <string name="textile">Textile</string>
+    <string name="mechanic">Mechanic</string>
+    <string name="woodwork">Woodwork</string>
+    <string name="weld">Weld</string>
+    <string name="electronics">Electronics</string>
+    <string name="food">Food</string>
+
+    <string name="from">From</string>
+    <string name="to">To</string>
+
+    <string name="ok">OK</string>
+
+    <string name="secondary_school">Secondary school</string>
+    <string name="high_school">High school</string>
+    <string name="college">College</string>
+    <string name="university">University</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

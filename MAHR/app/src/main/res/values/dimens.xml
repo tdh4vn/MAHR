@@ -13,6 +13,16 @@
     <dimen name="large_selection_margin_left">12dp</dimen>
     <dimen name="large_selection_icon_margin">12dp</dimen>
     <dimen name="large_selection_margin">8dp</dimen>
+    
+    <dimen name="dialog_text_size">18dp</dimen>
+    <dimen name="dialog_text_margin">8dp</dimen>
+    <dimen name="dialog_padding">8dp</dimen>
+
+    <dimen name="medium_selection_text_size">18sp</dimen>
+    <dimen name="medium_selection_margin_within">4dp</dimen>
+    <dimen name="medium_selection_margin_left">12dp</dimen>
+    <dimen name="medium_selection_icon_margin">12dp</dimen>
+    <dimen name="medium_selection_margin">8dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>

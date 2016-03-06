@@ -17,5 +17,20 @@
     <string name="language">Bahasa</string>
     <string name="experience">Pengalaman</string>
     <string name="degree">Gelar</string>
+    <string name="college">Perguruan tinggi</string>
+    <string name="cnc">CNC</string>
+    <string name="electronics">Elektronik</string>
+    <string name="food">Makanan</string>
+    <string name="from">Dari</string>
+    <string name="high_school">SMA</string>
+    <string name="mechanic">Montir</string>
+    <string name="ok">Baik</string>
+    <string name="secondary_school">Sekolah menengah</string>
+    <string name="taiwan">Taiwan</string>
+    <string name="textile">Tekstil</string>
+    <string name="to">Untuk</string>
+    <string name="university">Universitas</string>
+    <string name="weld">Las</string>
+    <string name="woodwork">Kayu</string>
 
 </resources>

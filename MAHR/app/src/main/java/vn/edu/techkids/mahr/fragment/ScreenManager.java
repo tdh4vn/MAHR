@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 
 /**
@@ -7,6 +8,7 @@ import android.app.Fragment;
  */
 public interface ScreenManager {
     void openFragment(Fragment fragment, boolean addToBackStack);
+    void showDialogFragment(DialogFragment dialogFragment, String tag);
     boolean back();
     void showActionBar();
     void hideActionBar();

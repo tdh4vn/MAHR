@@ -6,14 +6,19 @@ import java.util.ArrayList;
  * Created by qhuydtvt on 3/6/2016.
  */
 public class JobProperty {
-    private String mPropertyName;
+    private int mPropertyNameId;
     private int mImageId;
 
-    public JobProperty(String propertyName, int imageId) {
-        this.mPropertyName = propertyName;
+    public JobProperty(int propertyNameId, int imageId) {
+        this.mPropertyNameId = propertyNameId;
         this.mImageId = imageId;
     }
 
-    public String getPropertyName (){ return mPropertyName;}
+    /*public JobProperty(String propertyName, int imageId) {
+        this.mPropertyName = propertyName;
+        this.mImageId = imageId;
+    }*/
+
+    public int getPropertyNameId (){ return mPropertyNameId;}
     public int getImageId() {return mImageId;}
 }

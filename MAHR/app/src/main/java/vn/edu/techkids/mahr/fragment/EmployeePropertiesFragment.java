@@ -1,8 +1,7 @@
 package vn.edu.techkids.mahr.fragment;
 
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -12,12 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -28,7 +26,8 @@ import vn.edu.techkids.mahr.enitity.JobProperty;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmployeePropertiesFragment extends BaseFragment {
+public class EmployeePropertiesFragment extends BaseFragment implements
+        AdapterView.OnItemClickListener {
 
     private ListView mEmployeeProperitesListView;
     //private String[] mEmployeeProperites;
@@ -64,9 +63,6 @@ public class EmployeePropertiesFragment extends BaseFragment {
     public void onStart() {
         getScreenManager().showActionBar();
         super.onStart();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
-        getScreenManager().changeTitleOfActionBar(getString(R.string.properties_filter));
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -95,13 +91,13 @@ public class EmployeePropertiesFragment extends BaseFragment {
 
     private void initData() {
         mJobPropertyList.clear();
-        mJobPropertyList.add(new JobProperty(getString(R.string.expertise), R.drawable.ic_build_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.age), R.drawable.ic_person_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.height), R.drawable.ic_swap_vert_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.weight), R.drawable.ic_view_module_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.language), R.drawable.ic_font_download_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.experience), R.drawable.ic_power_black_24dp));
-        mJobPropertyList.add(new JobProperty(getString(R.string.degree), R.drawable.ic_group_work_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.expertise, R.drawable.ic_build_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.age, R.drawable.ic_person_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.height, R.drawable.ic_swap_vert_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.weight, R.drawable.ic_view_module_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.language, R.drawable.ic_font_download_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.experience, R.drawable.ic_power_black_24dp));
+        mJobPropertyList.add(new JobProperty(R.string.degree, R.drawable.ic_group_work_black_24dp));
     }
 
     private void setupView() {
@@ -134,12 +130,50 @@ public class EmployeePropertiesFragment extends BaseFragment {
                         R.id.txv_employee_property);
                 ImageView imvJobProperty = (ImageView)convertView.findViewById(
                         R.id.imv_employee_property);
-                txvEmployeeProperty.setText(jobProperty.getPropertyName());
+                txvEmployeeProperty.setText(getString(jobProperty.getPropertyNameId()));
                 imvJobProperty.setImageResource(jobProperty.getImageId());
 
                 return convertView;
             }
         });
+        mEmployeeProperitesListView.setOnItemClickListener(this);
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.d("onItemClick", "onItemClick");
+        JobProperty jobProperty = mJobPropertyList.get(position);
+        DialogFragment dialogFragment = null;
+        switch (jobProperty.getPropertyNameId()) {
+            case R.string.expertise:
+                dialogFragment = new ExpertiseEditFragment();
+                break;
+            case R.string.age:
+                dialogFragment = new AgeEditFragment();
+                break;
+            case R.string.height:
+                dialogFragment = new HeightEditFragment();
+                break;
+            case R.string.weight:
+                dialogFragment = new WeightEditFragment();
+                break;
+            case R.string.language:
+                dialogFragment = new LanguageEditFragment();
+                break;
+            case R.string.experience:
+                dialogFragment = new ExperienceEditFragment();
+                break;
+            case R.string.degree:
+                dialogFragment = new DegreeEditFragment();
+                break;
+            default:
+                break;
+        }
+
+        if(dialogFragment != null) {
+            getScreenManager().showDialogFragment(dialogFragment, "");
+        }
     }
 }
 
