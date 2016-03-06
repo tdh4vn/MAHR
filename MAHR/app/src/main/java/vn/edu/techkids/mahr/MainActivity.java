@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 		getSupportActionBar().hide();
         this.initListener();
         this.addAnimation();
+
     }
     //Them listener cho 2 button chon nhan cong nguoi Viet hoac Indo
     private void initListener(){
