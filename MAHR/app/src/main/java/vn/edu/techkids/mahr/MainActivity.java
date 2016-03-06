@@ -23,7 +23,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
-                //intent.putExtra();
+                intent.putExtra(Constants.KEY_INDONESIA,Constants.KEY_INDONESIA);
+            }
+        });
+        btnVietnam.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
+                intent.putExtra(Constants.KEY_VIETNAM, Constants.KEY_VIETNAM);
             }
         });
     }
