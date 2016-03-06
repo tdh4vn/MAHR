@@ -21,17 +21,21 @@
            android:id="@+id/btnIndonesia"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
+           android:padding="@dimen/main_activity_button_padding"
            android:layout_margin="@dimen/main_activity_button_margin"
-           android:background="@color/ColorLanguageButtonBackground"
+           android:background="@drawable/selector_main_button"
            android:textColor="@color/ColorLanguageButtonText"
+           android:textSize="@dimen/main_activity_button_text_size"
            android:text="@string/vietnam"/>
        <Button
            android:id="@+id/btnVietnam"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
+           android:padding="@dimen/main_activity_button_padding"
            android:layout_margin="@dimen/main_activity_button_margin"
-           android:background="@color/ColorLanguageButtonBackground"
+           android:background="@drawable/selector_main_button"
            android:textColor="@color/ColorLanguageButtonText"
+           android:textSize="@dimen/main_activity_button_text_size"
            android:text="@string/indonesia" />
    </LinearLayout>
 </RelativeLayout>
