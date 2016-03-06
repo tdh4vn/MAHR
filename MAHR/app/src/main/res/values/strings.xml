@@ -5,4 +5,5 @@
 
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
+    <string name="listJobMainName">Job type</string>
 </resources>

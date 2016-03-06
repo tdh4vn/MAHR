@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 		getSupportActionBar().hide();
         this.initListener();
+        this.addAnimation();
     }
     //Them listener cho 2 button chon nhan cong nguoi Viet hoac Indo
     private void initListener(){
@@ -24,18 +25,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
-                intent.putExtra(Constants.KEY_INDONESIA,Constants.KEY_INDONESIA);
+                intent.putExtra(Constants.KEY_INDONESIA, Constants.KEY_INDONESIA);
                 startActivity(intent);
+                overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
             }
         });
-        btnVietnam.setOnClickListener(new View.OnClickListener(){
+        btnVietnam.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
                 intent.putExtra(Constants.KEY_VIETNAM, Constants.KEY_VIETNAM);
                 startActivity(intent);
+                overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
             }
         });
+    }
+    //Them animation
+    private void addAnimation(){
+        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
     }
 }

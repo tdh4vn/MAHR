@@ -3,5 +3,6 @@
 
     <string name="vietnam">越南</string>
     <string name="indonesia">印尼</string>
+    <string name="listJobMainName">职位类型</string>
 
 </resources>
