@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAHR</string>
+    <string name="app_name">MA HR</string>
     <string name="title_activity_list_jobs">ListJobsActivity</string>
     <string name="action_settings">Settings</string>
 
@@ -10,8 +10,8 @@
     <string name="female_employee">Female Workers</string>
     <string name="house_mate">Housemate</string>
    
-
-
+    <string name="list_employee">List Employee</string>
+    <string name="properties_filter">Properties Filter</string>
     <string name="expertise">Expertise</string>
     <string name="age">Age</string>
     <string name="height">Height</string>

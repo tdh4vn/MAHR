@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAHR</string>
+    <string name="app_name">MA HR</string>
 
     <string name="vietnam">Việt Nam</string>
     <string name="indonesia">Indonesia</string>
@@ -7,8 +7,8 @@
     <string name="male_employee">Nam Công Xưởng</string>
     <string name="female_employee">Nữ Công Xưởng</string>
     <string name="house_mate">Giúp Việc Nhà</string>
-    
-
+    <string name="list_employee">Danh sách</string>
+    <string name="properties_filter">Lọc</string>
     <string name="expertise">Nghề nghiệp</string>
     <string name="age">Tuổi</string>
     <string name="height">Chiều cao</string>

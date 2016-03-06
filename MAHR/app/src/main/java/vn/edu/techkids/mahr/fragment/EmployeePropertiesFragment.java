@@ -2,6 +2,7 @@ package vn.edu.techkids.mahr.fragment;
 
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -63,7 +64,9 @@ public class EmployeePropertiesFragment extends BaseFragment {
     public void onStart() {
         getScreenManager().showActionBar();
         super.onStart();
-
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
+        getScreenManager().changeTitleOfActionBar(getString(R.string.properties_filter));
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -77,7 +80,6 @@ public class EmployeePropertiesFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
 //        switch (item.getItemId()) {
 //            case R.id.action_filter:
-                Log.e("LOGEEEE", "FFASDSADASD");
                 getScreenManager().openFragment(new ItemFragment(),true);
 //                break;
 //        }

@@ -10,4 +10,5 @@ public interface ScreenManager {
     boolean back();
     void showActionBar();
     void hideActionBar();
+    void changeTitleOfActionBar(String titles);
 }

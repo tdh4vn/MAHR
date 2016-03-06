@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -43,6 +44,14 @@ public class ItemFragment extends BaseFragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ItemFragment() {
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
+        getScreenManager().changeTitleOfActionBar(getString(R.string.list_employee));
     }
 
     @Override

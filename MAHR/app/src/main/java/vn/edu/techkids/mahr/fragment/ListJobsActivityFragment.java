@@ -2,6 +2,7 @@ package vn.edu.techkids.mahr.fragment;
 
 /*import android.support.app.Fragment;*/
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,6 +30,9 @@ public class ListJobsActivityFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         getScreenManager().showActionBar();
+        getScreenManager().changeTitleOfActionBar(getString(R.string.listJobMainName));
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.trans_left_in,R.anim.trans_left_out);
         setHasOptionsMenu(true);
     }
 

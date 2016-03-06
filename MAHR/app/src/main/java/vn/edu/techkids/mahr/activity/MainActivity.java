@@ -65,11 +65,14 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
      */
     public void openFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
         fragmentTransaction.replace(R.id.fl_job_list, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(fragment.getClass().getName());
         }
+
+
         fragmentTransaction.commit();
     }
 
@@ -91,6 +94,11 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     @Override
     public void hideActionBar() {
         getSupportActionBar().hide();
+    }
+
+    @Override
+    public void changeTitleOfActionBar(String titles) {
+        getSupportActionBar().setTitle(titles);
     }
 
     @Override
