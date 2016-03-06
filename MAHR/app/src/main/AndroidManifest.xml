@@ -10,11 +10,10 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".activity.MainActivity"
-            android:parentActivityName=".activity.MainActivity">
-
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.MAIN" />s
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>"
