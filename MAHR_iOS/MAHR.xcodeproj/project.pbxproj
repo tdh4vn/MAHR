@@ -16,6 +16,9 @@
 		893D7B591C8CA178005AAE85 /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B581C8CA178005AAE85 /* EducationViewController.m */; };
 		893D7B5D1C8CA2B3005AAE85 /* ExpertiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */; };
 		893D7B5E1C8CA2B3005AAE85 /* ExpertiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */; };
+		89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C631C8CC121005148C2 /* WorkerViewController.m */; };
+		89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C661C8CC1B4005148C2 /* WorkerCell.m */; };
+		89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89505C671C8CC1B4005148C2 /* WorkerCell.xib */; };
 		89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0AB991C8C7598008F6457 /* MainViewController.m */; };
 		89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABA51C8C7F54008F6457 /* JobTypeViewController.m */; };
 		89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABAA1C8C821E008F6457 /* UIButton+Custom.m */; };
@@ -50,6 +53,11 @@
 		893D7B5A1C8CA2B3005AAE85 /* ExpertiseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertiseCell.h; sourceTree = "<group>"; };
 		893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertiseCell.m; sourceTree = "<group>"; };
 		893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertiseCell.xib; sourceTree = "<group>"; };
+		89505C621C8CC121005148C2 /* WorkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerViewController.h; sourceTree = "<group>"; };
+		89505C631C8CC121005148C2 /* WorkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerViewController.m; sourceTree = "<group>"; };
+		89505C651C8CC1B4005148C2 /* WorkerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerCell.h; sourceTree = "<group>"; };
+		89505C661C8CC1B4005148C2 /* WorkerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerCell.m; sourceTree = "<group>"; };
+		89505C671C8CC1B4005148C2 /* WorkerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkerCell.xib; sourceTree = "<group>"; };
 		89C0AB981C8C7598008F6457 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		89C0AB991C8C7598008F6457 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		89C0ABA41C8C7F54008F6457 /* JobTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTypeViewController.h; sourceTree = "<group>"; };
@@ -151,6 +159,15 @@
 			name = Education;
 			sourceTree = "<group>";
 		};
+		89505C611C8CC106005148C2 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				89505C621C8CC121005148C2 /* WorkerViewController.h */,
+				89505C631C8CC121005148C2 /* WorkerViewController.m */,
+			);
+			name = Worker;
+			sourceTree = "<group>";
+		};
 		89C0AB971C8C7578008F6457 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +204,9 @@
 				893D7B5A1C8CA2B3005AAE85 /* ExpertiseCell.h */,
 				893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */,
 				893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */,
+				89505C651C8CC1B4005148C2 /* WorkerCell.h */,
+				89505C661C8CC1B4005148C2 /* WorkerCell.m */,
+				89505C671C8CC1B4005148C2 /* WorkerCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -257,6 +277,7 @@
 				89C49CB11C8C64F600A16B83 /* Region */,
 				89C0ABA31C8C7F38008F6457 /* JobType */,
 				89C0ABB51C8C9764008F6457 /* JobDetail */,
+				89505C611C8CC106005148C2 /* Worker */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -355,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */,
+				89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */,
 				893D7B5E1C8CA2B3005AAE85 /* ExpertiseCell.xib in Resources */,
 				89C49CB41C8C672600A16B83 /* Language.json in Resources */,
 				89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */,
@@ -380,11 +402,13 @@
 				89C49C9B1C8C646500A16B83 /* main.m in Sources */,
 				893D7B4A1C8CA143005AAE85 /* AgeViewController.m in Sources */,
 				89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */,
+				89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */,
 				893D7B531C8CA167005AAE85 /* LanguageViewController.m in Sources */,
 				89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */,
 				89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */,
 				893D7B4D1C8CA150005AAE85 /* HeightViewController.m in Sources */,
 				89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */,
+				89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */,
 				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
 				893D7B591C8CA178005AAE85 /* EducationViewController.m in Sources */,
 			);

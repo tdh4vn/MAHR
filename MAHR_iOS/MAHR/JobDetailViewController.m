@@ -15,8 +15,11 @@
 #import "HeightViewController.h"
 #import "WeightViewController.h"
 #import "ExperienceViewController.h"
+#import "WorkerViewController.h"
 
 @interface JobDetailViewController ()
+
+@property(nonatomic,strong) UIBarButtonItem *barItem;
 
 @end
 
@@ -31,6 +34,16 @@
     
     _tbvDetails.tableFooterView = [[UIView alloc]init];
     
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Lọc" style:UIBarButtonItemStyleBordered target:self action:@selector(btnFilterDidTouch)];
+    self.navigationItem.rightBarButtonItem = _barItem;
+    
+}
+
+- (void)btnFilterDidTouch;
+{
+    WorkerViewController *workerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"worker"];
+    
+    [self.navigationController pushViewController:workerViewController animated:YES];
 }
 
 #pragma mark - Tableview Datasource
