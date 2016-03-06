@@ -10,10 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.fragment.dummy.DummyContent;
-import vn.edu.techkids.mahr.fragment.dummy.DummyContent.Person;
-
-import java.util.List;
+import vn.edu.techkids.mahr.enitity.dummy.DummyContent;
 
 /**
  * A fragment representing a list of Items.
@@ -21,7 +18,7 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ItemFragment extends Fragment {
+public class ItemFragment extends BaseFragment {
 
     // TODO: Customize parameters
     private int mColumnCount = 1;

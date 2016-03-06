@@ -4,7 +4,11 @@ package vn.edu.techkids.mahr.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -50,11 +54,36 @@ public class EmployeePropertiesFragment extends BaseFragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public void onStart() {
         getScreenManager().showActionBar();
         super.onStart();
-    }
 
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // TODO Add your menu entries here
+
+//        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_list_jobs, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_filter:
+                Log.e("LOGEEEE", "FFASDSADASD");
+                getScreenManager().openFragment(new ItemFragment(),true);
+//                break;
+//        }
+        return true;
+
+    }
     private void getIntances(View vLayoutRoot) {
         mEmployeeProperitesListView = (ListView)vLayoutRoot.
                 findViewById(R.id.ltvEmployeePropetiesList);

@@ -49,16 +49,15 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
         if(item.getItemId() != R.id.action_filter){
             onBackPressed();
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        } else if (item.getItemId() == R.id.action_filter){
+            openFragment(new ItemFragment(), true);
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         }
         return true;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_list_jobs, menu);
-        return true;
-    }
+
     /**
      * Open new screen
      * @param fragment

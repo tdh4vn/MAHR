@@ -1,4 +1,4 @@
-package vn.edu.techkids.mahr.fragment.dummy;
+package vn.edu.techkids.mahr.enitity.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

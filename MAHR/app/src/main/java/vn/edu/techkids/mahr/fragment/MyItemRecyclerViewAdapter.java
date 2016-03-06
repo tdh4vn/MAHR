@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.fragment.ItemFragment.OnListFragmentInteractionListener;
-import vn.edu.techkids.mahr.fragment.dummy.DummyContent.Person;
+import vn.edu.techkids.mahr.enitity.dummy.DummyContent.Person;
 
 import java.io.InputStream;
 import java.util.List;

@@ -4,6 +4,9 @@ package vn.edu.techkids.mahr.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,17 +29,22 @@ public class ListJobsActivityFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         getScreenManager().showActionBar();
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         View view =  inflater.inflate(R.layout.fragment_list_jobs, container, false);
         this.addListener(view);
         return view;
     }
+
     private void addListener(View view){
         Button btnMaleEmployee = (Button) view.findViewById(R.id.btnMaleEmployee);
         Button btnFemaleEmployee = (Button) view.findViewById(R.id.btnFemaleEmployee);
