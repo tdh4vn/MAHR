@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MAHR</string>
+    <string name="title_activity_list_jobs">ListJobsActivity</string>
+    <string name="action_settings">Settings</string>
 
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
