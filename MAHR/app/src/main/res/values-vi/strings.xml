@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MAHR</string>
 
-    <string name="vietnam">Vietnam</string>
+    <string name="vietnam">Việt Nam</string>
     <string name="indonesia">Indonesia</string>
+
 </resources>
