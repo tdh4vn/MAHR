@@ -49,7 +49,7 @@ public class ListJobsActivity extends AppCompatActivity {
      */
     public void openFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fr_job_list, fragment)
+        fragmentTransaction.replace(R.id.fl_job_list, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(fragment.getClass().getName());
