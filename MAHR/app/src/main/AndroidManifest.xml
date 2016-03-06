@@ -16,8 +16,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".ListJobsActivity"
-            android:label="@string/title_activity_list_jobs"
+            android:label="@string/listJobMainName"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
