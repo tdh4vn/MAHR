@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Constant.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //set up default navigation bar background image
+    UIImage *navBackgroundImage = [UIImage imageNamed:kNavigatiionBarBackGroundImage];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    
+    [self.window setTintColor:[UIColor whiteColor]];
+    
     return YES;
 }
 

@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-238" y="402"/>
         </scene>
-        <!--View Controller-->
+        <!--Quốc Gia-->
         <scene sceneID="tBj-zg-Gxo">
             <objects>
-                <viewController id="mtT-wx-kvQ" sceneMemberID="viewController">
+                <viewController id="mtT-wx-kvQ" customClass="RegionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="26a-hF-R27"/>
                         <viewControllerLayoutGuide type="bottom" id="ETM-qa-6VB"/>
@@ -33,14 +33,200 @@
                     <view key="view" contentMode="scaleToFill" id="g4O-l0-g4u">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpu-c9-UA4">
+                                <rect key="frame" x="50" y="404" width="500" height="70"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Indonesia">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnIndonesiaDidTouch:" destination="mtT-wx-kvQ" eventType="touchUpInside" id="RSS-F8-KNR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EcE-jw-b6j">
+                                <rect key="frame" x="50" y="214" width="500" height="70"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="d1c-gj-Rw2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Việt Nam">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnVietNamDidTouch:" destination="mtT-wx-kvQ" eventType="touchUpInside" id="fPE-LB-l1v"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hpu-c9-UA4" firstAttribute="height" secondItem="EcE-jw-b6j" secondAttribute="height" id="0wn-K2-ayO"/>
+                            <constraint firstItem="EcE-jw-b6j" firstAttribute="top" secondItem="26a-hF-R27" secondAttribute="bottom" constant="150" id="9X9-ZK-rwM"/>
+                            <constraint firstItem="EcE-jw-b6j" firstAttribute="leading" secondItem="g4O-l0-g4u" secondAttribute="leading" constant="50" id="Cif-8L-zYM"/>
+                            <constraint firstItem="hpu-c9-UA4" firstAttribute="width" secondItem="EcE-jw-b6j" secondAttribute="width" id="Fho-YR-pXp"/>
+                            <constraint firstItem="EcE-jw-b6j" firstAttribute="centerX" secondItem="g4O-l0-g4u" secondAttribute="centerX" id="G6Z-oA-Th5"/>
+                            <constraint firstItem="ETM-qa-6VB" firstAttribute="top" secondItem="hpu-c9-UA4" secondAttribute="bottom" constant="120" id="Qkh-Pd-nzP"/>
+                            <constraint firstItem="ETM-qa-6VB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hpu-c9-UA4" secondAttribute="bottom" constant="100" id="VYu-Da-SIU"/>
+                            <constraint firstItem="EcE-jw-b6j" firstAttribute="top" secondItem="26a-hF-R27" secondAttribute="bottom" constant="120" id="aev-Wy-8bL"/>
+                            <constraint firstItem="hpu-c9-UA4" firstAttribute="centerX" secondItem="g4O-l0-g4u" secondAttribute="centerX" id="dRD-TC-LIg"/>
+                            <constraint firstItem="hpu-c9-UA4" firstAttribute="top" secondItem="EcE-jw-b6j" secondAttribute="bottom" priority="900" constant="120" id="eC3-Zo-HX1"/>
+                            <constraint firstItem="EcE-jw-b6j" firstAttribute="top" relation="greaterThanOrEqual" secondItem="26a-hF-R27" secondAttribute="bottom" constant="100" id="oTt-Zh-YNp"/>
+                            <constraint firstAttribute="trailing" secondItem="EcE-jw-b6j" secondAttribute="trailing" constant="50" id="yFg-2e-suQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aev-Wy-8bL"/>
+                                <exclude reference="oTt-Zh-YNp"/>
+                                <exclude reference="Qkh-Pd-nzP"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="0gC-Br-V2S"/>
+                    <navigationItem key="navigationItem" title="Quốc Gia" id="0gC-Br-V2S"/>
+                    <connections>
+                        <outlet property="btnIndonesia" destination="hpu-c9-UA4" id="S81-D8-LqI"/>
+                        <outlet property="btnVietNam" destination="EcE-jw-b6j" id="dN6-vP-YyT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3L-If-jCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="428" y="403"/>
+        </scene>
+        <!--Job Type View Controller-->
+        <scene sceneID="JIy-QS-W4K">
+            <objects>
+                <viewController storyboardIdentifier="jobType" id="alc-Wf-Cjp" customClass="JobTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RYU-VY-SWz"/>
+                        <viewControllerLayoutGuide type="bottom" id="YJb-DG-yVi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tRE-QO-44F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIE-Yb-Fg1">
+                                <rect key="frame" x="50" y="120" width="500" height="70"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="edm-ig-Av4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Công xưởng nam">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMaleWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="aqt-aO-aA7"/>
+                                    <action selector="btnVietNamDidTouch:" destination="mtT-wx-kvQ" eventType="touchUpInside" id="eGG-rJ-Hdd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKx-K7-bOc">
+                                <rect key="frame" x="50" y="340" width="500" height="70"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="3dm-a8-Sp9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Giúp việc gia đình">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnHouseMaidWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="AM7-ZQ-FdE"/>
+                                    <action selector="btnVietNamDidTouch:" destination="mtT-wx-kvQ" eventType="touchUpInside" id="7Mt-bf-Nn0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sk-Gv-B1w">
+                                <rect key="frame" x="50" y="230" width="500" height="70"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="onc-jK-4ta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Công xưởng nữ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnFemaleWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="Cmo-04-wkd"/>
+                                    <action selector="btnVietNamDidTouch:" destination="mtT-wx-kvQ" eventType="touchUpInside" id="JXn-9f-Qc0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0sk-Gv-B1w" firstAttribute="top" secondItem="hIE-Yb-Fg1" secondAttribute="bottom" constant="40" id="CpJ-u6-Rms"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="top" secondItem="RYU-VY-SWz" secondAttribute="bottom" constant="100" id="JLx-t3-w7w"/>
+                            <constraint firstAttribute="trailing" secondItem="DKx-K7-bOc" secondAttribute="trailing" constant="50" id="Ohq-EL-Wi7"/>
+                            <constraint firstItem="DKx-K7-bOc" firstAttribute="top" secondItem="0sk-Gv-B1w" secondAttribute="bottom" constant="40" id="Ra4-gO-qE0"/>
+                            <constraint firstItem="YJb-DG-yVi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DKx-K7-bOc" secondAttribute="bottom" priority="900" constant="100" id="RfC-Sd-2oq"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="top" secondItem="RYU-VY-SWz" secondAttribute="bottom" constant="100" id="YeF-4M-C42"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="hgF-dZ-HzK"/>
+                            <constraint firstAttribute="trailing" secondItem="hIE-Yb-Fg1" secondAttribute="trailing" constant="50" id="jwW-rI-wRi"/>
+                            <constraint firstItem="DKx-K7-bOc" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="k9K-xj-HQg"/>
+                            <constraint firstAttribute="trailing" secondItem="0sk-Gv-B1w" secondAttribute="trailing" constant="50" id="typ-G9-gp6"/>
+                            <constraint firstItem="0sk-Gv-B1w" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="xVp-TM-3wf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JLx-t3-w7w"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="btnFemaleWorker" destination="0sk-Gv-B1w" id="XbI-RS-qGE"/>
+                        <outlet property="btnHouseMaid" destination="DKx-K7-bOc" id="4KU-Z3-0VA"/>
+                        <outlet property="btnMaleWorker" destination="hIE-Yb-Fg1" id="dty-jy-mWr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1D-la-sla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="403"/>
+        </scene>
+        <!--Job Detail View Controller-->
+        <scene sceneID="Brf-bD-188">
+            <objects>
+                <viewController storyboardIdentifier="jobDetail" id="W3X-Vi-no3" customClass="JobDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jgA-Bo-RCk"/>
+                        <viewControllerLayoutGuide type="bottom" id="TpQ-Qk-yrI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tdk-Ij-tIU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-9D-dfc">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="W3X-Vi-no3" id="6AV-ae-9MM"/>
+                                    <outlet property="delegate" destination="W3X-Vi-no3" id="qbt-G6-O2h"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TpQ-Qk-yrI" firstAttribute="top" secondItem="f7q-9D-dfc" secondAttribute="bottom" id="4OI-Mf-2t7"/>
+                            <constraint firstAttribute="trailing" secondItem="f7q-9D-dfc" secondAttribute="trailing" id="U1h-dc-osc"/>
+                            <constraint firstItem="f7q-9D-dfc" firstAttribute="top" secondItem="jgA-Bo-RCk" secondAttribute="bottom" id="nPV-iT-FHP"/>
+                            <constraint firstItem="f7q-9D-dfc" firstAttribute="top" secondItem="tdk-Ij-tIU" secondAttribute="top" id="pDm-15-eBB"/>
+                            <constraint firstItem="f7q-9D-dfc" firstAttribute="leading" secondItem="tdk-Ij-tIU" secondAttribute="leading" id="qhy-jL-Js4"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nPV-iT-FHP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tbvDetails" destination="f7q-9D-dfc" id="bmm-EP-ZW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHN-7V-JAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1775" y="396"/>
         </scene>
     </scenes>
 </document>

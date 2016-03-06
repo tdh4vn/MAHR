@@ -7,15 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0AB991C8C7598008F6457 /* MainViewController.m */; };
+		89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABA51C8C7F54008F6457 /* JobTypeViewController.m */; };
+		89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABAA1C8C821E008F6457 /* UIButton+Custom.m */; };
+		89C0ABAE1C8C8A37008F6457 /* JobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABAD1C8C8A37008F6457 /* JobDetailViewController.m */; };
+		89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABB11C8C8E2C008F6457 /* DetailCell.m */; };
+		89C0ABB41C8C8E2C008F6457 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C0ABB21C8C8E2C008F6457 /* DetailCell.xib */; };
 		89C49C9B1C8C646500A16B83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49C9A1C8C646500A16B83 /* main.m */; };
 		89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49C9D1C8C646500A16B83 /* AppDelegate.m */; };
 		89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA21C8C646500A16B83 /* Main.storyboard */; };
 		89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA51C8C646500A16B83 /* Assets.xcassets */; };
 		89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */; };
 		89C49CB41C8C672600A16B83 /* Language.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CB31C8C672600A16B83 /* Language.json */; };
+		89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49CB61C8C6D4700A16B83 /* RegionViewController.m */; };
+		89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49CBB1C8C71CF00A16B83 /* HexColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89C0AB981C8C7598008F6457 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		89C0AB991C8C7598008F6457 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		89C0ABA41C8C7F54008F6457 /* JobTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTypeViewController.h; sourceTree = "<group>"; };
+		89C0ABA51C8C7F54008F6457 /* JobTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTypeViewController.m; sourceTree = "<group>"; };
+		89C0ABA91C8C821E008F6457 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
+		89C0ABAA1C8C821E008F6457 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
+		89C0ABAC1C8C8A37008F6457 /* JobDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailViewController.h; sourceTree = "<group>"; };
+		89C0ABAD1C8C8A37008F6457 /* JobDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailViewController.m; sourceTree = "<group>"; };
+		89C0ABB01C8C8E2C008F6457 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		89C0ABB11C8C8E2C008F6457 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		89C0ABB21C8C8E2C008F6457 /* DetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		89C49C961C8C646500A16B83 /* MAHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C49C9A1C8C646500A16B83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89C49C9C1C8C646500A16B83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -25,6 +44,11 @@
 		89C49CA81C8C646500A16B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C49CAA1C8C646500A16B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89C49CB31C8C672600A16B83 /* Language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Language.json; sourceTree = "<group>"; };
+		89C49CB51C8C6D4700A16B83 /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegionViewController.h; path = ../../MAHR/RegionViewController.h; sourceTree = "<group>"; };
+		89C49CB61C8C6D4700A16B83 /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegionViewController.m; path = ../../MAHR/RegionViewController.m; sourceTree = "<group>"; };
+		89C49CB81C8C700100A16B83 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		89C49CBA1C8C71CF00A16B83 /* HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColors.h; sourceTree = "<group>"; };
+		89C49CBB1C8C71CF00A16B83 /* HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +62,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89C0AB971C8C7578008F6457 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				89C0AB981C8C7598008F6457 /* MainViewController.h */,
+				89C0AB991C8C7598008F6457 /* MainViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		89C0ABA31C8C7F38008F6457 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				89C0ABA41C8C7F54008F6457 /* JobTypeViewController.h */,
+				89C0ABA51C8C7F54008F6457 /* JobTypeViewController.m */,
+				89C0ABAC1C8C8A37008F6457 /* JobDetailViewController.h */,
+				89C0ABAD1C8C8A37008F6457 /* JobDetailViewController.m */,
+			);
+			name = Job;
+			sourceTree = "<group>";
+		};
+		89C0ABA81C8C81F3008F6457 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				89C0ABA91C8C821E008F6457 /* UIButton+Custom.h */,
+				89C0ABAA1C8C821E008F6457 /* UIButton+Custom.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		89C0ABAF1C8C8DD4008F6457 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				89C0ABB01C8C8E2C008F6457 /* DetailCell.h */,
+				89C0ABB11C8C8E2C008F6457 /* DetailCell.m */,
+				89C0ABB21C8C8E2C008F6457 /* DetailCell.xib */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
 		89C49C8D1C8C646500A16B83 = {
 			isa = PBXGroup;
 			children = (
@@ -57,10 +120,12 @@
 		89C49C981C8C646500A16B83 /* MAHR */ = {
 			isa = PBXGroup;
 			children = (
+				89C49CB81C8C700100A16B83 /* Constant.h */,
 				89C49C9C1C8C646500A16B83 /* AppDelegate.h */,
 				89C49C9D1C8C646500A16B83 /* AppDelegate.m */,
 				89C49CB01C8C64E100A16B83 /* UI */,
 				89C49CB21C8C66B500A16B83 /* Model */,
+				89C49CB91C8C719F00A16B83 /* Library */,
 				89C49CAA1C8C646500A16B83 /* Info.plist */,
 				89C49C991C8C646500A16B83 /* Supporting Files */,
 			);
@@ -78,19 +143,24 @@
 		89C49CB01C8C64E100A16B83 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				89C49CB11C8C64F600A16B83 /* New Group */,
 				89C49CA21C8C646500A16B83 /* Main.storyboard */,
 				89C49CA51C8C646500A16B83 /* Assets.xcassets */,
 				89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */,
+				89C0ABAF1C8C8DD4008F6457 /* CustomCell */,
+				89C0AB971C8C7578008F6457 /* MainViewController */,
+				89C49CB11C8C64F600A16B83 /* Region */,
+				89C0ABA31C8C7F38008F6457 /* Job */,
 			);
 			name = UI;
 			sourceTree = "<group>";
 		};
-		89C49CB11C8C64F600A16B83 /* New Group */ = {
+		89C49CB11C8C64F600A16B83 /* Region */ = {
 			isa = PBXGroup;
 			children = (
+				89C49CB51C8C6D4700A16B83 /* RegionViewController.h */,
+				89C49CB61C8C6D4700A16B83 /* RegionViewController.m */,
 			);
-			name = "New Group";
+			name = Region;
 			sourceTree = "<group>";
 		};
 		89C49CB21C8C66B500A16B83 /* Model */ = {
@@ -99,6 +169,24 @@
 				89C49CB31C8C672600A16B83 /* Language.json */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		89C49CB91C8C719F00A16B83 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				89C0ABA81C8C81F3008F6457 /* Category */,
+				89C49CBD1C8C71D500A16B83 /* HexColor */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		89C49CBD1C8C71D500A16B83 /* HexColor */ = {
+			isa = PBXGroup;
+			children = (
+				89C49CBA1C8C71CF00A16B83 /* HexColors.h */,
+				89C49CBB1C8C71CF00A16B83 /* HexColors.m */,
+			);
+			name = HexColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +251,7 @@
 				89C49CB41C8C672600A16B83 /* Language.json in Resources */,
 				89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */,
 				89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */,
+				89C0ABB41C8C8E2C008F6457 /* DetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +263,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */,
+				89C0ABAE1C8C8A37008F6457 /* JobDetailViewController.m in Sources */,
+				89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */,
 				89C49C9B1C8C646500A16B83 /* main.m in Sources */,
+				89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */,
+				89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */,
+				89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */,
+				89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */,
+				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +421,7 @@
 				89C49CAF1C8C646500A16B83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
