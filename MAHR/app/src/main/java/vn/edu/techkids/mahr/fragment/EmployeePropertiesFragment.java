@@ -23,7 +23,7 @@ import vn.edu.techkids.mahr.enitity.JobProperty;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmployeePropertiesFragment extends Fragment {
+public class EmployeePropertiesFragment extends BaseFragment {
 
     private ListView mEmployeeProperitesListView;
     //private String[] mEmployeeProperites;
@@ -47,6 +47,12 @@ public class EmployeePropertiesFragment extends Fragment {
         getIntances(vRet);
         setupView();
         return vRet;
+    }
+
+    @Override
+    public void onStart() {
+        getScreenManager().showActionBar();
+        super.onStart();
     }
 
     private void getIntances(View vLayoutRoot) {
@@ -99,7 +105,6 @@ public class EmployeePropertiesFragment extends Fragment {
                         R.id.imv_employee_property);
                 txvEmployeeProperty.setText(jobProperty.getPropertyName());
                 imvJobProperty.setImageResource(jobProperty.getImageId());
-
 
                 return convertView;
             }

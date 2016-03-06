@@ -1,52 +1,90 @@
 package vn.edu.techkids.mahr.activity;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
-import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment;
+import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
+import vn.edu.techkids.mahr.fragment.ScreenManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ScreenManager {
+
+    private FragmentManager mFragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-		getSupportActionBar().hide();
-        this.initListener();
-        this.addAnimation();
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4CAF50")));
+
+        hideActionBar();
+
+        getIntances();
+        openFragment(new NationalitySelectionFragment(), true);
     }
-    //Them listener cho 2 button chon nhan cong nguoi Viet hoac Indo
-    private void initListener(){
-        Button btnIndonesia = (Button) this.findViewById(R.id.btnIndonesia);
-        Button btnVietnam = (Button) this.findViewById(R.id.btnVietnam);
-        btnIndonesia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
-                intent.putExtra(Constants.KEY_INDONESIA, Constants.KEY_INDONESIA);
-                startActivity(intent);
-                overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-            }
-        });
 
-        btnVietnam.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListJobsActivity.class);
-                intent.putExtra(Constants.KEY_VIETNAM, Constants.KEY_VIETNAM);
-                startActivity(intent);
-                overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
-            }
-        });
+    private void getIntances() {
+        mFragmentManager = getFragmentManager();
     }
-    //Them animation
-    private void addAnimation(){
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
         overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        return true;
+    }
+
+    /**
+     * Open new screen
+     * @param fragment
+     * @param addToBackStack
+     */
+    public void openFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fl_job_list, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(fragment.getClass().getName());
+        }
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean back() {
+        if (mFragmentManager.getBackStackEntryCount() != 0) {
+            mFragmentManager.popBackStack();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public void showActionBar() {
+        getSupportActionBar().show();
+    }
+
+    @Override
+    public void hideActionBar() {
+        getSupportActionBar().hide();
+    }
+
+    @Override
+    public void onBackPressed() {
+        back();
     }
 }
