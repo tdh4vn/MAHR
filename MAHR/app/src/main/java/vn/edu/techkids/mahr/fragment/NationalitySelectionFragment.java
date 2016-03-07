@@ -60,6 +60,6 @@ public class NationalitySelectionFragment extends BaseFragment implements View.O
                 break;
         }
 
-        getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+        getScreenManager().openFragment(new ListJobsActivityFragment(), true);
     }
 }

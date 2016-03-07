@@ -5,15 +5,27 @@
 
     <dimen name="main_activity_button_margin">24dp</dimen>
     <dimen name="main_activity_button_padding">18dp</dimen>
-    <dimen name="main_activity_button_text_size">32sp</dimen>
+    <dimen name="main_activity_button_text_size">20sp</dimen>
+    <dimen name="list_job_activity_button_text_size">18sp</dimen>>
 
     <dimen name="large_selection_text_size">18sp</dimen>
     <dimen name="large_selection_margin_within">4dp</dimen>
     <dimen name="large_selection_margin_left">12dp</dimen>
     <dimen name="large_selection_icon_margin">12dp</dimen>
     <dimen name="large_selection_margin">8dp</dimen>
+    
+    <dimen name="dialog_text_size">18dp</dimen>
+    <dimen name="dialog_text_margin">8dp</dimen>
+    <dimen name="dialog_padding">8dp</dimen>
+
+    <dimen name="medium_selection_text_size">18sp</dimen>
+    <dimen name="medium_selection_margin_within">4dp</dimen>
+    <dimen name="medium_selection_margin_left">12dp</dimen>
+    <dimen name="medium_selection_icon_margin">12dp</dimen>
+    <dimen name="medium_selection_margin">8dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>
 

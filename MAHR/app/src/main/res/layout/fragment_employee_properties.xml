@@ -2,12 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment">
-
-    <ListView
-        android:id="@+id/ltvEmployeePropetiesList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
-
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <ListView
+            android:id="@+id/ltvEmployeePropetiesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/abc_floating_window_z"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/fbFilter"
+            android:longClickable="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/filter"
+            app:backgroundTint="@color/ColorLanguageButtonBackground"
+            app:borderWidth="0dp"
+            app:elevation="5dp"
+            app:fabSize="normal"/>
+    </RelativeLayout>
 </FrameLayout>

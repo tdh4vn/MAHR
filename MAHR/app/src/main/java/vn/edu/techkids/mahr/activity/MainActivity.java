@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.activity;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -8,10 +9,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment;
+import vn.edu.techkids.mahr.fragment.ItemFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
 import vn.edu.techkids.mahr.fragment.ScreenManager;
 
@@ -22,11 +25,12 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTheme(R.style.AppTheme_NoActionBar);
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4CAF50")));
@@ -43,10 +47,17 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
-        overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        if(item.getItemId() != R.id.action_filter){
+            onBackPressed();
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        } else if (item.getItemId() == R.id.action_filter){
+            openFragment(new ItemFragment(), true);
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
+        }
         return true;
     }
+
+    @Override
 
     /**
      * Open new screen
@@ -55,17 +66,19 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
      */
     public void openFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
         fragmentTransaction.replace(R.id.fl_job_list, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(fragment.getClass().getName());
         }
+
         fragmentTransaction.commit();
     }
 
     @Override
     public boolean back() {
-        if (mFragmentManager.getBackStackEntryCount() != 0) {
+        if (mFragmentManager.getBackStackEntryCount() > 1) {
             mFragmentManager.popBackStack();
             return true;
         } else {
@@ -83,8 +96,20 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
         getSupportActionBar().hide();
     }
 
+
+    @Override
+    public void showDialogFragment(DialogFragment dialogFragment, String tag) {
+        dialogFragment.show(mFragmentManager, tag);
+    }
+
+    @Override
+    public void changeTitleOfActionBar(String titles) {
+        getSupportActionBar().setTitle(titles);
+    }
+
     @Override
     public void onBackPressed() {
-        back();
+        if(!back())
+            super.onBackPressed();
     }
 }

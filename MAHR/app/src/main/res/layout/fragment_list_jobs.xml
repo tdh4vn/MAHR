@@ -8,6 +8,45 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".fragment.ListJobsActivityFragment"
     tools:showIn="@layout/activity_main">
+    tools:context=".fragment.ListJobsActivityFragment">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/female_employee"
+            android:id="@+id/btnMaleEmployee"
+            android:layout_alignParentTop="true"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/list_job_activity_button_text_size"
+            android:layout_alignStart="@+id/btnFemaleEmployee"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/selector_main_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/male_employee"
+            android:id="@+id/btnFemaleEmployee"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/list_job_activity_button_text_size"
+            android:layout_below="@+id/btnMaleEmployee"
+            android:layout_alignStart="@+id/btnHousemaid"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/selector_main_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/house_mate"
+            android:textAllCaps="false"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/list_job_activity_button_text_size"
+            android:id="@+id/btnHousemaid"
+            android:layout_below="@+id/btnFemaleEmployee"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/selector_main_button"/>
 
 </RelativeLayout>
