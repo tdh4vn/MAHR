@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
@@ -76,6 +77,7 @@ public class LanguageEditFragment extends DialogFragment implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        JobCriteria.getInst().setLanguage(mItems[position]);
         this.dismiss();
     }
 }

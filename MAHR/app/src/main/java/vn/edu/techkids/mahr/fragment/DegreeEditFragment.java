@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
@@ -78,6 +79,7 @@ public class DegreeEditFragment extends DialogFragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        JobCriteria.getInst().setDegree(mItems[position]);
         this.dismiss();
     }
 }

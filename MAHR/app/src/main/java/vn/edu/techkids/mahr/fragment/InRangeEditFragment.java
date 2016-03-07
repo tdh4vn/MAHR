@@ -11,14 +11,15 @@ import android.widget.NumberPicker;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
  */
 public class InRangeEditFragment extends DialogFragment implements View.OnClickListener {
 
-    private NumberPicker mFromPicker;
-    private NumberPicker mToPicker;
+    protected NumberPicker mFromPicker;
+    protected NumberPicker mToPicker;
     private Button mOKButton;
 
     @Nullable
@@ -30,7 +31,7 @@ public class InRangeEditFragment extends DialogFragment implements View.OnClickL
         return view;
     }
 
-    private void initLayout(View view) {
+    protected void initLayout(View view) {
         mFromPicker = (NumberPicker)view.findViewById(R.id.npFrom);
         mToPicker = (NumberPicker)view.findViewById(R.id.npTo);
         mOKButton = (Button)view.findViewById(R.id.btnOK);

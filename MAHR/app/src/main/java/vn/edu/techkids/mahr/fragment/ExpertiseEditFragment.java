@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
@@ -79,6 +80,7 @@ public class ExpertiseEditFragment extends DialogFragment implements AdapterView
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        JobCriteria.getInst().setExpertise(mItems[position]);
         this.dismiss();
     }
 }

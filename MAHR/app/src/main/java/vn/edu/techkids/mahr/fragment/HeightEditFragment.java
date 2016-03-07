@@ -11,6 +11,7 @@ import android.widget.NumberPicker;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
@@ -18,8 +19,15 @@ import vn.edu.techkids.mahr.constants.Constants;
 public class HeightEditFragment extends InRangeEditFragment {
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    protected void initLayout(View view) {
+        super.initLayout(view);
         setRange(Constants.MIN_HEIGHT, Constants.MAX_HEIGHT);
+    }
+
+    @Override
+    public void onClick(View v) {
+        JobCriteria.getInst().setMinHeight(mFromPicker.getValue());
+        JobCriteria.getInst().setMaxHeight(mToPicker.getValue());
+        super.onClick(v);
     }
 }

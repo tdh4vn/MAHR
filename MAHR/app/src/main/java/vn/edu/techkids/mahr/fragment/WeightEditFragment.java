@@ -11,11 +11,28 @@ import android.widget.NumberPicker;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
  */
-public class WeightEditFragment extends DialogFragment implements View.OnClickListener {
+public class WeightEditFragment extends InRangeEditFragment {
+
+    @Override
+    protected void initLayout(View view) {
+        super.initLayout(view);
+        setRange(Constants.MIN_HEIGHT, Constants.MAX_HEIGHT);
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        JobCriteria.getInst().setMinWeight(mFromPicker.getValue());
+        JobCriteria.getInst().setMaxWeight(mToPicker.getValue());
+    }
+}
+
+        /*extends DialogFragment implements View.OnClickListener {
 
     private NumberPicker mFromPicker;
     private NumberPicker mToPicker;
@@ -30,7 +47,9 @@ public class WeightEditFragment extends DialogFragment implements View.OnClickLi
         return view;
     }
 
-    private void initLayout(View view) {
+
+
+    *//*private void initLayout(View view) {
         mFromPicker = (NumberPicker)view.findViewById(R.id.npFrom);
         mToPicker = (NumberPicker)view.findViewById(R.id.npTo);
         mOKButton = (Button)view.findViewById(R.id.btnOK);
@@ -41,7 +60,7 @@ public class WeightEditFragment extends DialogFragment implements View.OnClickLi
         mToPicker.setMaxValue(Constants.MAX_WEIGHT);
 
         mOKButton.setOnClickListener(this);
-    }
+    }*//*
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -53,4 +72,4 @@ public class WeightEditFragment extends DialogFragment implements View.OnClickLi
     public void onClick(View v) {
         this.dismiss();
     }
-}
+}*/

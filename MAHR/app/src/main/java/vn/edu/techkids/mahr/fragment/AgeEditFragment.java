@@ -11,6 +11,7 @@ import android.widget.NumberPicker;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
@@ -51,6 +52,8 @@ public class AgeEditFragment extends DialogFragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        JobCriteria.getInst().setMinAge(mFromPicker.getValue());
+        JobCriteria.getInst().setMaxAge(mToPicker.getValue());
         this.dismiss();
     }
 }
