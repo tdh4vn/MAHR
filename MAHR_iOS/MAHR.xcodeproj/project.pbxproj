@@ -10,6 +10,14 @@
 		891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */; };
 		891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC661C8D5AF0008BCA23 /* MoreCell.m */; };
 		891ACC691C8D5AF0008BCA23 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891ACC671C8D5AF0008BCA23 /* MoreCell.xib */; };
+		891ACC7E1C8D8746008BCA23 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC6E1C8D8746008BCA23 /* SCLAlertView.m */; };
+		891ACC7F1C8D8746008BCA23 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC701C8D8746008BCA23 /* SCLAlertViewResponder.m */; };
+		891ACC801C8D8746008BCA23 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC721C8D8746008BCA23 /* SCLAlertViewStyleKit.m */; };
+		891ACC811C8D8746008BCA23 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC741C8D8746008BCA23 /* SCLButton.m */; };
+		891ACC821C8D8746008BCA23 /* SCLSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC771C8D8746008BCA23 /* SCLSwitchView.m */; };
+		891ACC831C8D8746008BCA23 /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC791C8D8746008BCA23 /* SCLTextView.m */; };
+		891ACC841C8D8746008BCA23 /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC7B1C8D8746008BCA23 /* SCLTimerDisplay.m */; };
+		891ACC851C8D8746008BCA23 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC7D1C8D8746008BCA23 /* UIImage+ImageEffects.m */; };
 		89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C631C8CC121005148C2 /* WorkerViewController.m */; };
 		89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C661C8CC1B4005148C2 /* WorkerCell.m */; };
 		89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89505C671C8CC1B4005148C2 /* WorkerCell.xib */; };
@@ -35,6 +43,23 @@
 		891ACC651C8D5AF0008BCA23 /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
 		891ACC661C8D5AF0008BCA23 /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
 		891ACC671C8D5AF0008BCA23 /* MoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
+		891ACC6D1C8D8746008BCA23 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		891ACC6E1C8D8746008BCA23 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		891ACC6F1C8D8746008BCA23 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		891ACC701C8D8746008BCA23 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		891ACC711C8D8746008BCA23 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		891ACC721C8D8746008BCA23 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		891ACC731C8D8746008BCA23 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		891ACC741C8D8746008BCA23 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
+		891ACC751C8D8746008BCA23 /* SCLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLMacros.h; sourceTree = "<group>"; };
+		891ACC761C8D8746008BCA23 /* SCLSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLSwitchView.h; sourceTree = "<group>"; };
+		891ACC771C8D8746008BCA23 /* SCLSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLSwitchView.m; sourceTree = "<group>"; };
+		891ACC781C8D8746008BCA23 /* SCLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLTextView.h; sourceTree = "<group>"; };
+		891ACC791C8D8746008BCA23 /* SCLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLTextView.m; sourceTree = "<group>"; };
+		891ACC7A1C8D8746008BCA23 /* SCLTimerDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLTimerDisplay.h; sourceTree = "<group>"; };
+		891ACC7B1C8D8746008BCA23 /* SCLTimerDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLTimerDisplay.m; sourceTree = "<group>"; };
+		891ACC7C1C8D8746008BCA23 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		891ACC7D1C8D8746008BCA23 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		89505C621C8CC121005148C2 /* WorkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerViewController.h; sourceTree = "<group>"; };
 		89505C631C8CC121005148C2 /* WorkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerViewController.m; sourceTree = "<group>"; };
 		89505C651C8CC1B4005148C2 /* WorkerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerCell.h; sourceTree = "<group>"; };
@@ -85,6 +110,30 @@
 				891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */,
 			);
 			name = JobMore;
+			sourceTree = "<group>";
+		};
+		891ACC6C1C8D8746008BCA23 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				891ACC6D1C8D8746008BCA23 /* SCLAlertView.h */,
+				891ACC6E1C8D8746008BCA23 /* SCLAlertView.m */,
+				891ACC6F1C8D8746008BCA23 /* SCLAlertViewResponder.h */,
+				891ACC701C8D8746008BCA23 /* SCLAlertViewResponder.m */,
+				891ACC711C8D8746008BCA23 /* SCLAlertViewStyleKit.h */,
+				891ACC721C8D8746008BCA23 /* SCLAlertViewStyleKit.m */,
+				891ACC731C8D8746008BCA23 /* SCLButton.h */,
+				891ACC741C8D8746008BCA23 /* SCLButton.m */,
+				891ACC751C8D8746008BCA23 /* SCLMacros.h */,
+				891ACC761C8D8746008BCA23 /* SCLSwitchView.h */,
+				891ACC771C8D8746008BCA23 /* SCLSwitchView.m */,
+				891ACC781C8D8746008BCA23 /* SCLTextView.h */,
+				891ACC791C8D8746008BCA23 /* SCLTextView.m */,
+				891ACC7A1C8D8746008BCA23 /* SCLTimerDisplay.h */,
+				891ACC7B1C8D8746008BCA23 /* SCLTimerDisplay.m */,
+				891ACC7C1C8D8746008BCA23 /* UIImage+ImageEffects.h */,
+				891ACC7D1C8D8746008BCA23 /* UIImage+ImageEffects.m */,
+			);
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 		89505C611C8CC106005148C2 /* Worker */ = {
@@ -226,6 +275,7 @@
 			children = (
 				89C0ABA81C8C81F3008F6457 /* Category */,
 				89C49CBD1C8C71D500A16B83 /* HexColor */,
+				891ACC6C1C8D8746008BCA23 /* SCLAlertView */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -316,17 +366,25 @@
 			files = (
 				89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */,
 				89C0ABAE1C8C8A37008F6457 /* JobDetailViewController.m in Sources */,
+				891ACC851C8D8746008BCA23 /* UIImage+ImageEffects.m in Sources */,
+				891ACC7F1C8D8746008BCA23 /* SCLAlertViewResponder.m in Sources */,
 				89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */,
 				891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */,
 				89C49C9B1C8C646500A16B83 /* main.m in Sources */,
 				89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */,
 				89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */,
+				891ACC811C8D8746008BCA23 /* SCLButton.m in Sources */,
+				891ACC841C8D8746008BCA23 /* SCLTimerDisplay.m in Sources */,
 				89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */,
 				89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */,
 				89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */,
 				89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */,
+				891ACC831C8D8746008BCA23 /* SCLTextView.m in Sources */,
 				891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */,
+				891ACC7E1C8D8746008BCA23 /* SCLAlertView.m in Sources */,
 				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
+				891ACC801C8D8746008BCA23 /* SCLAlertViewStyleKit.m in Sources */,
+				891ACC821C8D8746008BCA23 /* SCLSwitchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

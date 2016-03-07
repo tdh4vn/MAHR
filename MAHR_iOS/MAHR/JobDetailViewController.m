@@ -12,6 +12,7 @@
 #import "Constant.h"
 #import "JobMoreViewController.h"
 #import "HexColors.h"
+#import "SCLAlertView.h"
 
 @interface JobDetailViewController ()
 
@@ -71,8 +72,11 @@
     
     _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Lọc" style:UIBarButtonItemStyleBordered target:self action:@selector(btnFilterDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
+    [[UIView appearanceWhenContainedIn:[UIAlertController class], nil] setTintColor:[UIColor blackColor]];
     
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -204,43 +208,123 @@
         
         
     } else if (indexPath.row == Age){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
-                                                                       message:nil
-                                                                preferredStyle:UIAlertControllerStyleAlert];
         
-        alert.view.tintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+        alert.tintTopCircle = NO;
+        alert.iconTintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+        alert.useLargerIcon = NO;
+        alert.cornerRadius = 13.0f;
         
-        NSAttributedString *attributedString = [[NSAttributedString alloc]initWithString:@"Tuổi" attributes:@{NSForegroundColorAttributeName: [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]}];
+        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [alert setValue:attributedString forKey:@"attributedTitle"];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Huỷ" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [alert dismissViewControllerAnimated:YES completion:nil];
+        SCLTextView *toField = [alert addTextField:@"Đến"];
+        toField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [alert addButton:@"Xong" actionBlock:^{
+            if (fromField.text.length != 0) {
+                _ageFrom = [self intFromString:fromField.text];
+            }
+            
+            if (toField.text.length != 0) {
+                _ageTo = [self intFromString:toField.text];
+            }
+            
+            [_tbvDetails reloadData];
         }];
         
-        UIAlertAction *save = [UIAlertAction actionWithTitle:@"Xong" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            
-            
-        }];
         
-        [alert addAction:cancel];
-        [alert addAction:save];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
     } else if (indexPath.row == Height){
         
+        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+        alert.tintTopCircle = NO;
+        alert.iconTintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+        alert.useLargerIcon = NO;
+        alert.cornerRadius = 13.0f;
+        
+        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        fromField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        SCLTextView *toField = [alert addTextField:@"Đến"];
+        toField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [alert addButton:@"Xong" actionBlock:^{
+            if (fromField.text.length != 0) {
+                _heightFrom = [self intFromString:fromField.text];
+            }
+            
+            if (toField.text.length != 0) {
+                _heightTo = [self intFromString:toField.text];
+            }
+            
+            [_tbvDetails reloadData];
+        }];
+        
+        
+        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
     } else if (indexPath.row == Weight){
         
+        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+        alert.tintTopCircle = NO;
+        alert.iconTintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+        alert.useLargerIcon = NO;
+        alert.cornerRadius = 13.0f;
         
+        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        fromField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        SCLTextView *toField = [alert addTextField:@"Đến"];
+        toField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [alert addButton:@"Xong" actionBlock:^{
+            if (fromField.text.length != 0) {
+                _weightFrom = [self intFromString:fromField.text];
+            }
+            
+            if (toField.text.length != 0) {
+                _weightTo = [self intFromString:toField.text];
+            }
+            
+            [_tbvDetails reloadData];
+        }];
+        
+        
+        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
     } else if (indexPath.row == Language){
         
         [self showJobMoreViewWithJobDetail:Language type:_languageType];
         
     } else if (indexPath.row == Experience){
+        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+        alert.tintTopCircle = NO;
+        alert.iconTintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+        alert.useLargerIcon = NO;
+        alert.cornerRadius = 13.0f;
         
+        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        fromField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        SCLTextView *toField = [alert addTextField:@"Đến"];
+        toField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [alert addButton:@"Xong" actionBlock:^{
+            if (fromField.text.length != 0) {
+                _experienceFrom = [self intFromString:fromField.text];
+            }
+            
+            if (toField.text.length != 0) {
+                _experienceTo = [self intFromString:toField.text];
+            }
+            
+            [_tbvDetails reloadData];
+        }];
+        
+        
+        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
         
     } else if (indexPath.row == Education){
@@ -270,5 +354,18 @@
     [self.navigationController pushViewController:jobMoreViewController animated:NO];
 }
 
+- (int)intFromString:(NSString *)string;
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *number = [formatter numberFromString:string];
+    return [number intValue];
+
+}
+
+- (void)btnDoneDidTouch;
+{
+    [_tbvDetails becomeFirstResponder];
+}
 
 @end
