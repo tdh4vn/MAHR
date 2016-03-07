@@ -14,6 +14,8 @@
 
 @interface WorkerDetailViewController ()
 
+@property(nonatomic,strong) UIBarButtonItem *barItem;
+
 @end
 
 @implementation WorkerDetailViewController
@@ -23,6 +25,9 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Nguyễn Văn A";
+    
+    _barItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStyleBordered target:self action:@selector(btnShareDidTouch)];
+    
     
     _viewWeb.backgroundColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
     
@@ -37,13 +42,36 @@
         
         [_viewWeb loadHTMLString:HTML baseURL:nil];
         
+        self.navigationItem.rightBarButtonItem = _barItem;
+        
         return HTML;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
     
+}
+
+
+- (void)btnShareDidTouch;
+{
+    NSString *textToShare = @"https://docs.google.com/gview?embedded=true&url=techkids.edu.vn/YT001%20NGUYEN%20VAN%20TRUNG-修理發動機、電焊.xls";
     
+    NSArray *objectsToShare = @[textToShare];
     
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    activityVC.view.tintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
+    
+    NSArray *excludeActivities = @[UIActivityTypeAirDrop,
+                                   UIActivityTypePrint,
+                                   UIActivityTypeAssignToContact,
+                                   UIActivityTypeSaveToCameraRoll,
+                                   UIActivityTypeAddToReadingList,
+                                   UIActivityTypePostToFlickr,
+                                   UIActivityTypePostToVimeo];
+    
+    activityVC.excludedActivityTypes = excludeActivities;
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

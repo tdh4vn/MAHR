@@ -72,7 +72,6 @@
     
     _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Lọc" style:UIBarButtonItemStyleBordered target:self action:@selector(btnFilterDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
-    [[UIView appearanceWhenContainedIn:[UIAlertController class], nil] setTintColor:[UIColor blackColor]];
     
 }
 
