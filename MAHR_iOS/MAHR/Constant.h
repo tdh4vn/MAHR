@@ -9,6 +9,51 @@
 #ifndef Constant_h
 #define Constant_h
 
+//MARK: Enum
+
+typedef NS_ENUM(int, RegionType) {
+    VN,
+    IND,
+};
+
+typedef NS_ENUM(int, JobType) {
+    MaleWorker,
+    FemaleWorker,
+    HouseMaid,
+};
+
+typedef NS_ENUM(int, JobDetailType) {
+    Expertise,
+    Age,
+    Height,
+    Weight,
+    Language,
+    Experience,
+    Education,
+};
+
+typedef NS_ENUM(int, ExpertiseType) {
+    CNC,
+    Textile,
+    Mechanical,
+    Carpentry,
+    Welding,
+    Electronic,
+    Food,
+};
+
+typedef NS_ENUM(int, LanguageType) {
+    VietNam,
+    Taiwan,
+    Indonesia,
+};
+
+typedef NS_ENUM(int, EducationType) {
+    JuniorHigh,
+    High,
+    College,
+    University,
+};
 
 #endif /* Constant_h */
 

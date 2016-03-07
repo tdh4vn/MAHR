@@ -1,14 +1,14 @@
 //
-//  ExpertiseCell.m
+//  MoreCell.m
 //  MAHR
 //
 //  Created by Trung Đức on 3/7/16.
 //  Copyright © 2016 Trung Đức. All rights reserved.
 //
 
-#import "ExpertiseCell.h"
+#import "MoreCell.h"
 
-@implementation ExpertiseCell
+@implementation MoreCell
 
 - (void)awakeFromNib {
     // Initialization code

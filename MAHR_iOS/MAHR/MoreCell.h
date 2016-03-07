@@ -1,5 +1,5 @@
 //
-//  ExpertiseCell.h
+//  MoreCell.h
 //  MAHR
 //
 //  Created by Trung Đức on 3/7/16.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpertiseCell : UITableViewCell
+@interface MoreCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *imvCheck;
 
 @end

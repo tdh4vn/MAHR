@@ -7,15 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		893D7B411C8CA097005AAE85 /* ExpertiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B401C8CA097005AAE85 /* ExpertiseViewController.m */; };
-		893D7B4A1C8CA143005AAE85 /* AgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B491C8CA143005AAE85 /* AgeViewController.m */; };
-		893D7B4D1C8CA150005AAE85 /* HeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B4C1C8CA150005AAE85 /* HeightViewController.m */; };
-		893D7B501C8CA15D005AAE85 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B4F1C8CA15D005AAE85 /* WeightViewController.m */; };
-		893D7B531C8CA167005AAE85 /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B521C8CA167005AAE85 /* LanguageViewController.m */; };
-		893D7B561C8CA170005AAE85 /* ExperienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B551C8CA170005AAE85 /* ExperienceViewController.m */; };
-		893D7B591C8CA178005AAE85 /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B581C8CA178005AAE85 /* EducationViewController.m */; };
-		893D7B5D1C8CA2B3005AAE85 /* ExpertiseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */; };
-		893D7B5E1C8CA2B3005AAE85 /* ExpertiseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */; };
+		891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */; };
+		891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC661C8D5AF0008BCA23 /* MoreCell.m */; };
+		891ACC691C8D5AF0008BCA23 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891ACC671C8D5AF0008BCA23 /* MoreCell.xib */; };
 		89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C631C8CC121005148C2 /* WorkerViewController.m */; };
 		89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C661C8CC1B4005148C2 /* WorkerCell.m */; };
 		89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89505C671C8CC1B4005148C2 /* WorkerCell.xib */; };
@@ -36,23 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		893D7B3F1C8CA097005AAE85 /* ExpertiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertiseViewController.h; sourceTree = "<group>"; };
-		893D7B401C8CA097005AAE85 /* ExpertiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertiseViewController.m; sourceTree = "<group>"; };
-		893D7B481C8CA143005AAE85 /* AgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgeViewController.h; sourceTree = "<group>"; };
-		893D7B491C8CA143005AAE85 /* AgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgeViewController.m; sourceTree = "<group>"; };
-		893D7B4B1C8CA150005AAE85 /* HeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightViewController.h; sourceTree = "<group>"; };
-		893D7B4C1C8CA150005AAE85 /* HeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightViewController.m; sourceTree = "<group>"; };
-		893D7B4E1C8CA15D005AAE85 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
-		893D7B4F1C8CA15D005AAE85 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
-		893D7B511C8CA167005AAE85 /* LanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
-		893D7B521C8CA167005AAE85 /* LanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
-		893D7B541C8CA170005AAE85 /* ExperienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperienceViewController.h; sourceTree = "<group>"; };
-		893D7B551C8CA170005AAE85 /* ExperienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperienceViewController.m; sourceTree = "<group>"; };
-		893D7B571C8CA178005AAE85 /* EducationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewController.h; sourceTree = "<group>"; };
-		893D7B581C8CA178005AAE85 /* EducationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewController.m; sourceTree = "<group>"; };
-		893D7B5A1C8CA2B3005AAE85 /* ExpertiseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertiseCell.h; sourceTree = "<group>"; };
-		893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertiseCell.m; sourceTree = "<group>"; };
-		893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertiseCell.xib; sourceTree = "<group>"; };
+		891ACC621C8D53FA008BCA23 /* JobMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobMoreViewController.h; sourceTree = "<group>"; };
+		891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobMoreViewController.m; sourceTree = "<group>"; };
+		891ACC651C8D5AF0008BCA23 /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
+		891ACC661C8D5AF0008BCA23 /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
+		891ACC671C8D5AF0008BCA23 /* MoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
 		89505C621C8CC121005148C2 /* WorkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerViewController.h; sourceTree = "<group>"; };
 		89505C631C8CC121005148C2 /* WorkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerViewController.m; sourceTree = "<group>"; };
 		89505C651C8CC1B4005148C2 /* WorkerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerCell.h; sourceTree = "<group>"; };
@@ -96,67 +78,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		893D7B3E1C8CA080005AAE85 /* Expertise */ = {
+		891ACC611C8D53E8008BCA23 /* JobMore */ = {
 			isa = PBXGroup;
 			children = (
-				893D7B3F1C8CA097005AAE85 /* ExpertiseViewController.h */,
-				893D7B401C8CA097005AAE85 /* ExpertiseViewController.m */,
+				891ACC621C8D53FA008BCA23 /* JobMoreViewController.h */,
+				891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */,
 			);
-			name = Expertise;
-			sourceTree = "<group>";
-		};
-		893D7B421C8CA09F005AAE85 /* Age */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B481C8CA143005AAE85 /* AgeViewController.h */,
-				893D7B491C8CA143005AAE85 /* AgeViewController.m */,
-			);
-			name = Age;
-			sourceTree = "<group>";
-		};
-		893D7B431C8CA0B5005AAE85 /* Height */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B4B1C8CA150005AAE85 /* HeightViewController.h */,
-				893D7B4C1C8CA150005AAE85 /* HeightViewController.m */,
-			);
-			name = Height;
-			sourceTree = "<group>";
-		};
-		893D7B441C8CA0CA005AAE85 /* Weight */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B4E1C8CA15D005AAE85 /* WeightViewController.h */,
-				893D7B4F1C8CA15D005AAE85 /* WeightViewController.m */,
-			);
-			name = Weight;
-			sourceTree = "<group>";
-		};
-		893D7B451C8CA0D6005AAE85 /* Language */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B511C8CA167005AAE85 /* LanguageViewController.h */,
-				893D7B521C8CA167005AAE85 /* LanguageViewController.m */,
-			);
-			name = Language;
-			sourceTree = "<group>";
-		};
-		893D7B461C8CA0DF005AAE85 /* Experience */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B541C8CA170005AAE85 /* ExperienceViewController.h */,
-				893D7B551C8CA170005AAE85 /* ExperienceViewController.m */,
-			);
-			name = Experience;
-			sourceTree = "<group>";
-		};
-		893D7B471C8CA120005AAE85 /* Education */ = {
-			isa = PBXGroup;
-			children = (
-				893D7B571C8CA178005AAE85 /* EducationViewController.h */,
-				893D7B581C8CA178005AAE85 /* EducationViewController.m */,
-			);
-			name = Education;
+			name = JobMore;
 			sourceTree = "<group>";
 		};
 		89505C611C8CC106005148C2 /* Worker */ = {
@@ -201,12 +129,12 @@
 				89C0ABB01C8C8E2C008F6457 /* DetailCell.h */,
 				89C0ABB11C8C8E2C008F6457 /* DetailCell.m */,
 				89C0ABB21C8C8E2C008F6457 /* DetailCell.xib */,
-				893D7B5A1C8CA2B3005AAE85 /* ExpertiseCell.h */,
-				893D7B5B1C8CA2B3005AAE85 /* ExpertiseCell.m */,
-				893D7B5C1C8CA2B3005AAE85 /* ExpertiseCell.xib */,
 				89505C651C8CC1B4005148C2 /* WorkerCell.h */,
 				89505C661C8CC1B4005148C2 /* WorkerCell.m */,
 				89505C671C8CC1B4005148C2 /* WorkerCell.xib */,
+				891ACC651C8D5AF0008BCA23 /* MoreCell.h */,
+				891ACC661C8D5AF0008BCA23 /* MoreCell.m */,
+				891ACC671C8D5AF0008BCA23 /* MoreCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -216,13 +144,6 @@
 			children = (
 				89C0ABAC1C8C8A37008F6457 /* JobDetailViewController.h */,
 				89C0ABAD1C8C8A37008F6457 /* JobDetailViewController.m */,
-				893D7B3E1C8CA080005AAE85 /* Expertise */,
-				893D7B421C8CA09F005AAE85 /* Age */,
-				893D7B431C8CA0B5005AAE85 /* Height */,
-				893D7B441C8CA0CA005AAE85 /* Weight */,
-				893D7B451C8CA0D6005AAE85 /* Language */,
-				893D7B461C8CA0DF005AAE85 /* Experience */,
-				893D7B471C8CA120005AAE85 /* Education */,
 			);
 			name = JobDetail;
 			sourceTree = "<group>";
@@ -277,6 +198,7 @@
 				89C49CB11C8C64F600A16B83 /* Region */,
 				89C0ABA31C8C7F38008F6457 /* JobType */,
 				89C0ABB51C8C9764008F6457 /* JobDetail */,
+				891ACC611C8D53E8008BCA23 /* JobMore */,
 				89505C611C8CC106005148C2 /* Worker */,
 			);
 			name = UI;
@@ -375,9 +297,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891ACC691C8D5AF0008BCA23 /* MoreCell.xib in Resources */,
 				89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */,
 				89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */,
-				893D7B5E1C8CA2B3005AAE85 /* ExpertiseCell.xib in Resources */,
 				89C49CB41C8C672600A16B83 /* Language.json in Resources */,
 				89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */,
 				89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */,
@@ -392,25 +314,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				893D7B5D1C8CA2B3005AAE85 /* ExpertiseCell.m in Sources */,
-				893D7B501C8CA15D005AAE85 /* WeightViewController.m in Sources */,
-				893D7B411C8CA097005AAE85 /* ExpertiseViewController.m in Sources */,
 				89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */,
 				89C0ABAE1C8C8A37008F6457 /* JobDetailViewController.m in Sources */,
-				893D7B561C8CA170005AAE85 /* ExperienceViewController.m in Sources */,
 				89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */,
+				891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */,
 				89C49C9B1C8C646500A16B83 /* main.m in Sources */,
-				893D7B4A1C8CA143005AAE85 /* AgeViewController.m in Sources */,
 				89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */,
 				89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */,
-				893D7B531C8CA167005AAE85 /* LanguageViewController.m in Sources */,
 				89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */,
 				89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */,
-				893D7B4D1C8CA150005AAE85 /* HeightViewController.m in Sources */,
 				89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */,
 				89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */,
+				891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */,
 				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
-				893D7B591C8CA178005AAE85 /* EducationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

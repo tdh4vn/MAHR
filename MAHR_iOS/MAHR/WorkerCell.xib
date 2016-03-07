@@ -23,21 +23,21 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXl-D4-D4t">
-                        <rect key="frame" x="108" y="9" width="42" height="20.5"/>
+                        <rect key="frame" x="108" y="12" width="42" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ7-hE-Hza">
-                        <rect key="frame" x="104" y="35.5" width="42" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrC-87-tIc">
+                        <rect key="frame" x="169.5" y="37.5" width="37.5" height="18"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrC-87-tIc">
-                        <rect key="frame" x="108" y="71.5" width="37.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZ7-hE-Hza">
+                        <rect key="frame" x="108" y="37.5" width="37.5" height="18"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,16 +47,23 @@
                 <animations/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="yrC-87-tIc" secondAttribute="bottom" constant="3" id="16b-h9-94I"/>
-                    <constraint firstItem="yrC-87-tIc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KZ7-hE-Hza" secondAttribute="bottom" id="8XZ-LI-aN4"/>
+                    <constraint firstItem="yrC-87-tIc" firstAttribute="centerY" secondItem="KZ7-hE-Hza" secondAttribute="centerY" id="8mF-I9-mSP"/>
                     <constraint firstItem="UYO-DK-JrO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NEb-Cd-Q2c"/>
                     <constraint firstAttribute="bottom" secondItem="UYO-DK-JrO" secondAttribute="bottom" constant="2" id="QzQ-O9-4kf"/>
-                    <constraint firstItem="KZ7-hE-Hza" firstAttribute="top" secondItem="qXl-D4-D4t" secondAttribute="bottom" constant="2" id="Xo3-ZX-Zax"/>
-                    <constraint firstItem="qXl-D4-D4t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="b7j-ml-N9Z"/>
+                    <constraint firstItem="yrC-87-tIc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xfr-mK-WaQ"/>
+                    <constraint firstItem="KZ7-hE-Hza" firstAttribute="top" secondItem="qXl-D4-D4t" secondAttribute="bottom" constant="5" id="Xo3-ZX-Zax"/>
+                    <constraint firstItem="qXl-D4-D4t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="b7j-ml-N9Z"/>
                     <constraint firstItem="UYO-DK-JrO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="cNA-Ij-uBO"/>
                     <constraint firstItem="yrC-87-tIc" firstAttribute="leading" secondItem="qXl-D4-D4t" secondAttribute="leading" id="fap-I8-a80"/>
                     <constraint firstItem="KZ7-hE-Hza" firstAttribute="leading" secondItem="qXl-D4-D4t" secondAttribute="leading" id="vLs-NM-EYt"/>
                     <constraint firstItem="qXl-D4-D4t" firstAttribute="leading" secondItem="UYO-DK-JrO" secondAttribute="trailing" constant="10" id="xV4-Mr-Vhk"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="16b-h9-94I"/>
+                        <exclude reference="fap-I8-a80"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

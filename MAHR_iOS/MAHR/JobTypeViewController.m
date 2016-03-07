@@ -9,6 +9,7 @@
 #import "JobTypeViewController.h"
 #import "UIButton+Custom.h"
 #import "JobDetailViewController.h"
+#import "Constant.h"
 
 @implementation JobTypeViewController
 
@@ -21,7 +22,11 @@
     [_btnHouseMaid custom];
     
     
-    self.title = _region;
+    if (_regionType == VN) {
+        self.title = @"Việt Nam";
+    } else if (_regionType == IND){
+        self.title = @"Indonesia";
+    }
     
 }
 
@@ -29,8 +34,8 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.region = _region;
-    jobDetailViewController.jobType = @"Công xưởng nam";
+    jobDetailViewController.regionType = _regionType;
+    jobDetailViewController.jobType = MaleWorker;
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     
@@ -41,8 +46,8 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.region = _region;
-    jobDetailViewController.jobType = @"Công xưởng nữ";
+    jobDetailViewController.regionType = _regionType;
+    jobDetailViewController.jobType = FemaleWorker;
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     
@@ -54,9 +59,9 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.region = _region;
+    jobDetailViewController.regionType = _regionType;
 
-    jobDetailViewController.jobType = @"Giúp việc gia đình";
+    jobDetailViewController.jobType = HouseMaid;
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     

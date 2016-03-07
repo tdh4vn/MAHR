@@ -47,7 +47,7 @@
     
     JobTypeViewController *jobTypeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobType"];
     
-    jobTypeViewController.region = @"Việt Nam";
+    jobTypeViewController.regionType = VN;
     
     [self.navigationController pushViewController:jobTypeViewController animated:YES];
 
@@ -58,7 +58,7 @@
     
     JobTypeViewController *jobTypeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobType"];
     
-    jobTypeViewController.region = @"Indonesina";
+    jobTypeViewController.regionType = IND;
     
     [self.navigationController pushViewController:jobTypeViewController animated:YES];
     
