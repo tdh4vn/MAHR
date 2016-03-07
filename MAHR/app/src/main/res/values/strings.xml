@@ -6,7 +6,7 @@
     <string name="vietnam">Vietnam</string>
     <string name="indonesia">Indonesia</string>
     <string name="taiwan">Taiwan</string>
-
+    <string name="default_type_filter">Default"</string>
     <string name="listJobMainName">Job type</string>
     <string name="male_employee">Male Workers</string>
     <string name="female_employee">Female Workers</string>

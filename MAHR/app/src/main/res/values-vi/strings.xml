@@ -6,6 +6,7 @@
     <string name="listJobMainName">Loại công việc</string>
     <string name="male_employee">Nam Công Xưởng</string>
     <string name="female_employee">Nữ Công Xưởng</string>
+    <string name="default_type_filter">Mặc Định</string>
     <string name="house_mate">Giúp Việc Nhà</string>
     <string name="list_employee">Danh sách</string>
     <string name="properties_filter">Lọc</string>

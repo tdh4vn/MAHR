@@ -4,6 +4,7 @@ package vn.edu.techkids.mahr.fragment;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,7 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.JobProperty;
@@ -28,7 +28,7 @@ import vn.edu.techkids.mahr.enitity.JobProperty;
  */
 public class EmployeePropertiesFragment extends BaseFragment implements
         AdapterView.OnItemClickListener {
-
+    private FloatingActionButton floatingActionButton;
     private ListView mEmployeeProperitesListView;
     //private String[] mEmployeeProperites;
 
@@ -50,6 +50,13 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         initData();
         getIntances(vRet);
         setupView();
+        floatingActionButton = (FloatingActionButton) vRet.findViewById(R.id.fbFilter);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getScreenManager().openFragment(new ItemFragment(),true);
+            }
+        });
         return vRet;
     }
 
@@ -65,20 +72,7 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         super.onStart();
     }
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Add your menu entries here
-
-//        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_list_jobs, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_filter:
-                getScreenManager().openFragment(new ItemFragment(),true);
-//                break;
-//        }
         return true;
 
     }
@@ -130,9 +124,11 @@ public class EmployeePropertiesFragment extends BaseFragment implements
                         R.id.txv_employee_property);
                 ImageView imvJobProperty = (ImageView)convertView.findViewById(
                         R.id.imv_employee_property);
+                TextView txtDetailForFilter = (TextView)convertView.findViewById(
+                        R.id.txtFilerOfType);
                 txvEmployeeProperty.setText(getString(jobProperty.getPropertyNameId()));
                 imvJobProperty.setImageResource(jobProperty.getImageId());
-
+                txtDetailForFilter.setText("Default");
                 return convertView;
             }
         });

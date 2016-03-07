@@ -7,6 +7,7 @@
     <string name="male_employee">男性厂</string>
     <string name="female_employee">女工厂</string>
     <string name="house_mate">室友</string>
+    <string name="default_type_filter">Kegagalan</string>
     <string name="properties_filter">属性过滤器</string>
     <string name="list_employee">员工名单</string>
     <string name="expertise">专门 知识</string>

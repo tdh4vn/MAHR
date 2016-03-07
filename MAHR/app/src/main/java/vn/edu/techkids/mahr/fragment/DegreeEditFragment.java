@@ -24,6 +24,7 @@ public class DegreeEditFragment extends DialogFragment implements AdapterView.On
             R.string.high_school,
             R.string.college,
             R.string.university
+
     };
 
     @Nullable
