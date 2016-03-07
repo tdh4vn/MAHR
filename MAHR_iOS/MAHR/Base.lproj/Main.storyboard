@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-Ql-IEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2963" y="1117"/>
+            <point key="canvasLocation" x="1544" y="1133"/>
         </scene>
         <!--Job Type View Controller-->
         <scene sceneID="JIy-QS-W4K">
@@ -288,6 +288,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHN-7V-JAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2263" y="411"/>
+        </scene>
+        <!--Worker Detail View Controller-->
+        <scene sceneID="1P1-ma-GX2">
+            <objects>
+                <viewController storyboardIdentifier="workDetail" id="5Y7-BQ-izG" customClass="WorkerDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4vD-bF-DhN"/>
+                        <viewControllerLayoutGuide type="bottom" id="s0j-Fd-npe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CuR-WK-GN4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dp1-Dv-igS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dp1-Dv-igS" secondAttribute="bottom" id="EC7-Qm-KY0"/>
+                            <constraint firstAttribute="trailing" secondItem="dp1-Dv-igS" secondAttribute="trailing" id="gme-hf-jkq"/>
+                            <constraint firstItem="dp1-Dv-igS" firstAttribute="leading" secondItem="CuR-WK-GN4" secondAttribute="leading" id="no3-1L-fah"/>
+                            <constraint firstItem="dp1-Dv-igS" firstAttribute="top" secondItem="CuR-WK-GN4" secondAttribute="top" id="rlL-SK-49h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="viewWeb" destination="dp1-Dv-igS" id="wpr-vR-fZq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1RZ-iv-NPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2262" y="1076"/>
         </scene>
     </scenes>
 </document>

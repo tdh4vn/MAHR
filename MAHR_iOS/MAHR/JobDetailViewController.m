@@ -215,10 +215,10 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d tuổi",_ageFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:@"Đến"];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d tuổi",_ageTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
         [alert addButton:@"Xong" actionBlock:^{
@@ -236,6 +236,8 @@
         
         [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
+        [fromField becomeFirstResponder];
+        
     } else if (indexPath.row == Height){
         
         SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
@@ -244,10 +246,10 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d cm",_heightFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:@"Đến"];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d cm",_heightTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
         [alert addButton:@"Xong" actionBlock:^{
@@ -263,7 +265,9 @@
         }];
         
         
-        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
+        [alert showCustom:self image:[UIImage imageNamed:@"2"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
+        
+        [fromField becomeFirstResponder];
         
     } else if (indexPath.row == Weight){
         
@@ -273,10 +277,10 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d kg",_weightFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:@"Đến"];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d kg",_weightTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
         [alert addButton:@"Xong" actionBlock:^{
@@ -292,7 +296,9 @@
         }];
         
         
-        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
+        [alert showCustom:self image:[UIImage imageNamed:@"3"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
+        
+        [fromField becomeFirstResponder];
         
     } else if (indexPath.row == Language){
         
@@ -305,10 +311,10 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:@"Từ"];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d năm",_experienceFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:@"Đến"];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d năm",_experienceTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
         [alert addButton:@"Xong" actionBlock:^{
@@ -324,8 +330,9 @@
         }];
         
         
-        [alert showCustom:self image:[UIImage imageNamed:@"1"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
+        [alert showCustom:self image:[UIImage imageNamed:@"5"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
         
+        [fromField becomeFirstResponder];
         
     } else if (indexPath.row == Education){
      

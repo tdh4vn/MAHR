@@ -8,6 +8,7 @@
 
 #import "WorkerViewController.h"
 #import "WorkerCell.h"
+#import "WorkerDetailViewController.h"
 
 @interface WorkerViewController ()
 
@@ -61,6 +62,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    WorkerDetailViewController *workerDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"workDetail"];
+    
+    [self.navigationController pushViewController:workerDetailViewController animated:YES];
+    
 }
 
 
