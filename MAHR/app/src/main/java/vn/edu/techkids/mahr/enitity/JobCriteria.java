@@ -1,5 +1,8 @@
 package vn.edu.techkids.mahr.enitity;
 
+import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.constants.Constants;
+
 /**
  * Created by qhuydtvt on 3/7/2016.
  */
@@ -8,7 +11,7 @@ public class JobCriteria {
     private static JobCriteria inst = new JobCriteria();
 
     private String nationality;
-    private String jobType;
+    private String major;
     private int expertise = -1;
     private int minAge = -1;
     private int maxAge = -1;
@@ -46,18 +49,17 @@ public class JobCriteria {
         this.nationality = nationality;
     }
 
-    public String getJobType() {
-        return jobType;
+    public String getMajor() {
+        return major;
     }
 
-    public void setJobType(String jobType) {
-        this.jobType = jobType;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public int getExpertise() {
         return expertise;
     }
-
 
     public void setExpertise(int expertise) {
         this.expertise = expertise;
@@ -151,6 +153,15 @@ public class JobCriteria {
         notifyListener();
     }
 
+    public String getLanguageAPIString() {
+        switch (language){
+            case R.string.vietnam: return Constants.API_LANG_VIETNAM;
+            case R.string.indonesia: return Constants.API_LANG_INDONESIA;
+            case R.string.taiwan: return Constants.API_LANG_TAIWAN;
+        }
+        return null;
+    }
+
     public int getDegree() {
         return degree;
     }
@@ -170,9 +181,16 @@ public class JobCriteria {
         this.maxExperience = maxExperience;
     }
 
+    /*private void toAPIParam()
+
+    public String getAPIParams() {
+
+    }*/
+
     private void notifyListener() {
         if (this.mJobCriteriaListener != null) {
             mJobCriteriaListener.onJobCriteriaChange();
         }
     }
+
 }

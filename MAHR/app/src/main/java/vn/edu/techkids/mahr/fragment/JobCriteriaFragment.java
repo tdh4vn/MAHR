@@ -19,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.Expertise;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
@@ -26,11 +27,13 @@ import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmployeePropertiesFragment extends BaseFragment implements
+public class JobCriteriaFragment extends BaseFragment implements
         AdapterView.OnItemClickListener {
     private FloatingActionButton floatingActionButton;
     private ListView mEmployeeProperitesListView;
     private JobCriteria mJobCriteria;
+
+    private ArrayList<Expertise> expertiseArrayList;
 
     //private String[] mEmployeeProperites;
 
@@ -38,7 +41,7 @@ public class EmployeePropertiesFragment extends BaseFragment implements
 
     private ArrayList<JobCriteriaViewModel> mJobPropertyList;
 
-    public EmployeePropertiesFragment() {
+    public JobCriteriaFragment() {
         // Required empty public constructor
         mJobCriteria = JobCriteria.getInst();
         mJobPropertyList = new ArrayList<JobCriteriaViewModel>();
@@ -48,17 +51,11 @@ public class EmployeePropertiesFragment extends BaseFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vRet =  inflater.inflate(R.layout.fragment_employee_properties, container, false);
+        View vRet =  inflater.inflate(R.layout.fragment_job_criteria, container, false);
         initData();
         getIntances(vRet);
         setupView();
-        floatingActionButton = (FloatingActionButton) vRet.findViewById(R.id.fbFilter);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getScreenManager().openFragment(new ItemFragment(), true);
-            }
-        });
+
         return vRet;
     }
 
@@ -83,9 +80,12 @@ public class EmployeePropertiesFragment extends BaseFragment implements
                 findViewById(R.id.ltvEmployeePropetiesList);
         //mEmployeeProperites = getResources().getStringArray(R.array.employee_property_names);
         mLayoutInflater = getActivity().getLayoutInflater();
+        floatingActionButton = (FloatingActionButton) vLayoutRoot.findViewById(R.id.fbFilter);
     }
 
     private void initData() {
+        expertiseArrayList = Expertise.getExpertiseArrayList();
+
         mJobPropertyList.clear();
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.expertise, R.drawable.ic_build_black_24dp, JobCriteria.EXPERTISE));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.age, R.drawable.ic_person_black_24dp,JobCriteria.AGE));
@@ -101,13 +101,25 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         mJobCriteria.setJobCriteriaListener(jobCriteriaAdapter);
         mEmployeeProperitesListView.setAdapter(jobCriteriaAdapter);
         mEmployeeProperitesListView.setOnItemClickListener(this);
+
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getScreenManager().openFragment(new ItemFragment(), true);
+            }
+        });
     }
 
     private String getStringFromCriteria(int criteria) {
         switch (criteria) {
             case JobCriteria.EXPERTISE:
                 if (mJobCriteria.getExpertise() == -1) return null;
-                return getString(mJobCriteria.getExpertise());
+                for(Expertise expertise : expertiseArrayList) {
+                    if(expertise.getId() == mJobCriteria.getExpertise())
+                        return expertise.getName();
+                }
+                return null;
             case JobCriteria.AGE:
                 return mJobCriteria.getAgeRange();
             case JobCriteria.HEIGHT:

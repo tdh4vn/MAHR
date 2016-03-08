@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment">
+    tools:context=".fragment.JobCriteriaFragment">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

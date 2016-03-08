@@ -11,7 +11,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.Expertise;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 /**
@@ -20,14 +23,20 @@ import vn.edu.techkids.mahr.enitity.JobCriteria;
 public class ExpertiseEditFragment extends DialogFragment implements AdapterView.OnItemClickListener {
 
     private ListView mListView;
-    private final int[] mItems = new int[]{
+    private ArrayList<Expertise> mExpertisesArrayList;
+
+    public ExpertiseEditFragment() {
+        this.mExpertisesArrayList = Expertise.getExpertiseArrayList();
+    }
+
+    /*private final int[] mItems = new int[]{
             R.string.cnc,
             R.string.textile,
             R.string.mechanic,
             R.string.woodwork,
             R.string.electronics,
             R.string.food
-    };
+    };*/
 
     @Nullable
     @Override
@@ -41,14 +50,15 @@ public class ExpertiseEditFragment extends DialogFragment implements AdapterView
         mListView = (ListView)view.findViewById(R.id.ltv);
 
         mListView.setAdapter(new BaseAdapter() {
+
             @Override
             public int getCount() {
-                return mItems.length;
+                return mExpertisesArrayList.size();
             }
 
             @Override
             public Object getItem(int position) {
-                return mItems[position];
+                return mExpertisesArrayList.get(position);
             }
 
             @Override
@@ -58,13 +68,14 @@ public class ExpertiseEditFragment extends DialogFragment implements AdapterView
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                int titleId = mItems[position];
+                Expertise expertise = mExpertisesArrayList.get(position);
+
                 if (convertView == null) {
                     convertView = getActivity().getLayoutInflater().inflate(
                             R.layout.list_item_simple, parent, false);
                 }
                 TextView txvExpertise = (TextView) convertView.findViewById(R.id.txvTitle);
-                txvExpertise.setText(getString(titleId));
+                txvExpertise.setText(expertise.getName());
                 return convertView;
             }
         });
@@ -80,7 +91,7 @@ public class ExpertiseEditFragment extends DialogFragment implements AdapterView
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        JobCriteria.getInst().setExpertise(mItems[position]);
+        JobCriteria.getInst().setExpertise(mExpertisesArrayList.get(position).getId());
         this.dismiss();
     }
 }

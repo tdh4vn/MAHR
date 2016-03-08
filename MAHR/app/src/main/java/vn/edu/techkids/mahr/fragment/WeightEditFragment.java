@@ -21,7 +21,7 @@ public class WeightEditFragment extends InRangeEditFragment {
     @Override
     protected void initLayout(View view) {
         super.initLayout(view);
-        setRange(Constants.MIN_HEIGHT, Constants.MAX_HEIGHT);
+        setRange(Constants.MIN_WEIGHT, Constants.MAX_WEIGHT);
     }
 
     @Override

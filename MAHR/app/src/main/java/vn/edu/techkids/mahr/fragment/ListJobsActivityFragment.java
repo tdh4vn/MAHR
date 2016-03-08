@@ -1,13 +1,9 @@
 package vn.edu.techkids.mahr.fragment;
 
 /*import android.support.app.Fragment;*/
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -56,19 +52,19 @@ public class ListJobsActivityFragment extends BaseFragment {
         btnMaleEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
         });
         btnFemaleEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
         });
         btnHousemaid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
         });
     }

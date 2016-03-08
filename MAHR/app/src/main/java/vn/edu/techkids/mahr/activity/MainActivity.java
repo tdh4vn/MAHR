@@ -9,11 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment;
 import vn.edu.techkids.mahr.fragment.ItemFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
 import vn.edu.techkids.mahr.fragment.ScreenManager;
