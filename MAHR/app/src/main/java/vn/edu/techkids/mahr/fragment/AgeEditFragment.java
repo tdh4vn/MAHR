@@ -16,7 +16,22 @@ import vn.edu.techkids.mahr.enitity.JobCriteria;
 /**
  * Created by qhuydtvt on 3/7/2016.
  */
-public class AgeEditFragment extends DialogFragment implements View.OnClickListener {
+public class AgeEditFragment extends InRangeEditFragment {
+    @Override
+    protected void initLayout(View view) {
+        super.initLayout(view);
+        setRange(Constants.MIN_AGE, Constants.MAX_AGE);
+        setTitle(getString(R.string.age));
+    }
+
+    @Override
+    public void onClick(View v) {
+        JobCriteria.getInst().setAgeRange(mFromPicker.getValue(), mToPicker.getValue());
+        super.onClick(v);
+    }
+}
+
+        /*extends DialogFragment implements View.OnClickListener {
 
     private NumberPicker mFromPicker;
     private NumberPicker mToPicker;
@@ -56,4 +71,4 @@ public class AgeEditFragment extends DialogFragment implements View.OnClickListe
         JobCriteria.getInst().setMaxAge(mToPicker.getValue());
         this.dismiss();
     }
-}
+}*/

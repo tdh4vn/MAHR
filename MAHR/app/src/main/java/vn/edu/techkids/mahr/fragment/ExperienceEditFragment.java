@@ -22,12 +22,12 @@ public class ExperienceEditFragment extends InRangeEditFragment {
     protected void initLayout(View view) {
         super.initLayout(view);
         setRange(Constants.MIN_XP, Constants.MAX_XP);
+        setTitle(getString(R.string.experience));
     }
 
     @Override
     public void onClick(View v) {
-        JobCriteria.getInst().setMinExperience(mFromPicker.getValue());
-        JobCriteria.getInst().setMaxExperience(mToPicker.getValue());
+        JobCriteria.getInst().setExperienceRange(mFromPicker.getValue(), mToPicker.getValue());
         super.onClick(v);
     }
 }

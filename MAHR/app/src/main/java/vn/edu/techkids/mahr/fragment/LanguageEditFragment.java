@@ -71,7 +71,7 @@ public class LanguageEditFragment extends DialogFragment implements AdapterView.
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        getDialog().setTitle(getString(R.string.expertise));
+        getDialog().setTitle(getString(R.string.language));
         super.onViewCreated(view, savedInstanceState);
     }
 

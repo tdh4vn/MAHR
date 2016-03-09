@@ -106,6 +106,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Filter", JobCriteria.getInst().getAPIString());
                 getScreenManager().openFragment(new ItemFragment(), true);
             }
         });

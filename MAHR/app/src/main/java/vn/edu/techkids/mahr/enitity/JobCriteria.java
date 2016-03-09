@@ -66,6 +66,12 @@ public class JobCriteria {
         notifyListener();
     }
 
+    public void setAgeRange(int minAge, int maxAge) {
+        this.minAge = minAge;
+        this.maxAge = maxAge;
+        this.notifyListener();
+    }
+
     public String getAgeRange() {
         if(minAge == -1 || maxAge == -1) return null;
         return String.format("%d - %d", minAge, maxAge);
@@ -112,37 +118,43 @@ public class JobCriteria {
         return minHeight;
     }
 
-    public void setMinHeight(int minHeight) {
+/*    public void setMinHeight(int minHeight) {
         this.minHeight = minHeight;
         notifyListener();
-    }
+    }*/
 
     public int getMaxHeight() {
         return maxHeight;
     }
-
+/*
     public void setMaxHeight(int maxHeight) {
         this.maxHeight = maxHeight;
         notifyListener();
+    }*/
+
+    public void setHeightRange(int minHeight, int maxHeight) {
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
+        this.notifyListener();
     }
 
     public int getMinWeight() {
         return minWeight;
     }
 
-    public void setMinWeight(int minWeight) {
+    /*public void setMinWeight(int minWeight) {
         this.minWeight = minWeight;
         notifyListener();
-    }
+    }*/
 
     public int getMaxWeight() {
         return maxWeight;
     }
 
-    public void setMaxWeight(int maxWeight) {
+    /*public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
         notifyListener();
-    }
+    }*/
 
     public int getLanguage() {
         return language;
@@ -153,25 +165,36 @@ public class JobCriteria {
         notifyListener();
     }
 
-    public String getLanguageAPIString() {
+    public String getLanguageAPIParam() {
         switch (language){
-            case R.string.vietnam: return Constants.API_LANG_VIETNAM;
-            case R.string.indonesia: return Constants.API_LANG_INDONESIA;
-            case R.string.taiwan: return Constants.API_LANG_TAIWAN;
+            case R.string.vietnam: return Constants.API_VIETNAM;
+            case R.string.indonesia: return Constants.API_INDONESIA;
+            case R.string.taiwan: return Constants.API_TAIWAN;
         }
-        return null;
+        return "";
     }
 
     public int getDegree() {
         return degree;
     }
 
+    private String getDegreeAPIParam() {
+        switch (degree) {
+            case R.string.secondary_school: return Constants.API_PARAM_DEGREE_SECONDARY_SCHOOL;
+            case R.string.high_school: return Constants.API_PARAM_DEGREE_HIGH_SCHOOL;
+            case R.string.college: return Constants.API_PARAM_DEGREE_COLLEGE;
+            case R.string.university: return Constants.API_PARAM_DEGREE_UNIVERISTY;
+        }
+        return "";
+    }
+
+
     public void setDegree(int degree) {
         this.degree = degree;
         notifyListener();
     }
 
-    public void setMinExperience(int minExperience) {
+    /*public void setMinExperience(int minExperience) {
         notifyListener();
         this.minExperience = minExperience;
     }
@@ -179,6 +202,18 @@ public class JobCriteria {
     public void setMaxExperience(int maxExperience) {
         notifyListener();
         this.maxExperience = maxExperience;
+    }*/
+
+    public void setExperienceRange(int minExperience,int maxExperience) {
+        this.minExperience = minExperience;
+        this.maxExperience = maxExperience;
+        notifyListener();
+    }
+
+    public void setWeightRange(int minWeight,int maxWeight) {
+        this.minWeight = minWeight;
+        this.maxWeight = maxWeight;
+        notifyListener();
     }
 
     /*private void toAPIParam()
@@ -193,4 +228,64 @@ public class JobCriteria {
         }
     }
 
+    /***********************************************************************************************/
+    /******************************************* API ***********************************************/
+    /***********************************************************************************************/
+    private String getExpertiseAPIString() {
+        if(expertise == -1) return "";
+        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);
+    }
+
+    private String getAgeAPIString() {
+        if(this.minAge == -1 || this.maxAge == -1) return "";
+        return String.format(Constants.API_FILTER_AGE_FORMAT, this.minAge, this.maxAge);
+    }
+
+    private String getHeightAPIString() {
+        if(this.minHeight == -1 || this.maxHeight == -1) return "";
+        return String.format(Constants.API_FILTER_HEIGHT_FORMAT, this.minHeight, this.maxHeight);
+    }
+
+    private String getWeightAPIString() {
+        if(this.minWeight == -1 || this.maxWeight == -1) return "";
+        return String.format(Constants.API_FILTER_WEIGHT_FORMAT, this.minWeight, this.maxWeight);
+    }
+
+    private String getLangAPIString() {
+        if(this.getLanguageAPIParam() == "") return "";
+        return String.format(Constants.API_FILTER_LANG_FORMAT, this.getLanguageAPIParam());
+    }
+
+    private String getExperienceAPIString() {
+        if(minExperience == -1 || maxExperience == -1) return "";
+        return String.format(Constants.API_FILTER_EXP_FORMAT, this.minExperience, this.maxExperience);
+    }
+
+    private String getDegreeAPIString() {
+        if(degree == -1) return "";
+        return String.format(Constants.API_FILTER_DEGREE_FORMAT, getDegreeAPIParam());
+    }
+
+    private String getMajorAPIString() {
+        if(major == null) return "";
+        return String.format(Constants.API_FILTER_MAJOR_FORMAT, major);
+    }
+
+    private String getNationalityString() {
+        if(nationality == null) return "";
+        return String.format(Constants.API_FILTER_NATION_FORMAT, nationality);
+    }
+
+    public String getAPIString() {
+        return Constants.API_URL_PROFILE +
+                getExpertiseAPIString() +
+                getAgeAPIString() +
+                getHeightAPIString() +
+                getWeightAPIString() +
+                getLangAPIString() +
+                getExperienceAPIString() +
+                getDegreeAPIString() +
+                getMajorAPIString() +
+                getNationalityString();
+    }
 }

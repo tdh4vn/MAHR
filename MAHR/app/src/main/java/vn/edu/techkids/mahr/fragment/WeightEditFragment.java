@@ -26,9 +26,10 @@ public class WeightEditFragment extends InRangeEditFragment {
 
     @Override
     public void onClick(View v) {
+        JobCriteria.getInst().setWeightRange(mFromPicker.getValue(), mToPicker.getValue());
         super.onClick(v);
-        JobCriteria.getInst().setMinWeight(mFromPicker.getValue());
-        JobCriteria.getInst().setMaxWeight(mToPicker.getValue());
+        /*JobCriteria.getInst().setMinWeight();
+        JobCriteria.getInst().setMaxWeight();*/
     }
 }
 

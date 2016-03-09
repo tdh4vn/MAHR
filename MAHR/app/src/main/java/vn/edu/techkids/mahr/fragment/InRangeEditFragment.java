@@ -51,6 +51,10 @@ public class InRangeEditFragment extends DialogFragment implements View.OnClickL
         mToPicker.setMaxValue(max);
     }
 
+    protected  void setTitle(String title) {
+        getDialog().setTitle(title);
+    }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
