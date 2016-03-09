@@ -2,6 +2,7 @@ package vn.edu.techkids.mahr.fragment;
 
 
 import android.app.DialogFragment;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
@@ -16,19 +17,27 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
 import vn.edu.techkids.mahr.enitity.Expertise;
+import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
+import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class JobCriteriaFragment extends BaseFragment implements
-        AdapterView.OnItemClickListener {
+        AdapterView.OnItemClickListener, JSONPreDownloadHandler, JSONPostDownloadHandler {
     private FloatingActionButton floatingActionButton;
     private ListView mEmployeeProperitesListView;
     private JobCriteria mJobCriteria;
@@ -41,10 +50,14 @@ public class JobCriteriaFragment extends BaseFragment implements
 
     private ArrayList<JobCriteriaViewModel> mJobPropertyList;
 
+    /*private DownloadJSONTask downloadJSONTask;*/
+
+    private ProgressDialog progress;
+
     public JobCriteriaFragment() {
         // Required empty public constructor
         mJobCriteria = JobCriteria.getInst();
-        mJobPropertyList = new ArrayList<JobCriteriaViewModel>();
+        mJobPropertyList = new ArrayList<>();
     }
 
     @Override
@@ -78,7 +91,6 @@ public class JobCriteriaFragment extends BaseFragment implements
     private void getIntances(View vLayoutRoot) {
         mEmployeeProperitesListView = (ListView)vLayoutRoot.
                 findViewById(R.id.ltvEmployeePropetiesList);
-        //mEmployeeProperites = getResources().getStringArray(R.array.employee_property_names);
         mLayoutInflater = getActivity().getLayoutInflater();
         floatingActionButton = (FloatingActionButton) vLayoutRoot.findViewById(R.id.fbFilter);
     }
@@ -102,14 +114,31 @@ public class JobCriteriaFragment extends BaseFragment implements
         mEmployeeProperitesListView.setAdapter(jobCriteriaAdapter);
         mEmployeeProperitesListView.setOnItemClickListener(this);
 
+        floatingActionButton.setOnClickListener(new FloatingActionClickListener(this, this));
+    }
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Filter", JobCriteria.getInst().getAPIString());
-                getScreenManager().openFragment(new ItemFragment(), true);
+    private class FloatingActionClickListener implements View.OnClickListener {
+
+        private JSONPreDownloadHandler jsonPreDownloadHandler;
+        private JSONPostDownloadHandler jsonPostDownloadHandler;
+
+        public FloatingActionClickListener(JSONPreDownloadHandler preDownloadHandler,
+                                           JSONPostDownloadHandler postDownloadHandler) {
+            this.jsonPreDownloadHandler = preDownloadHandler;
+            this.jsonPostDownloadHandler = postDownloadHandler;
+        }
+
+        @Override
+        public void onClick(View v) {
+            try {
+                Log.d("floatingActionButton", JobCriteria.getInst().getAPIString());
+                DownloadJSONTask downloadJSONTask = new DownloadJSONTask(jsonPreDownloadHandler,
+                        jsonPostDownloadHandler);
+                downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             }
-        });
+        }
     }
 
     private String getStringFromCriteria(int criteria) {
@@ -175,6 +204,25 @@ public class JobCriteriaFragment extends BaseFragment implements
         }
     }
 
+    @Override
+    public void onPreDownload() {
+        progress = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+                getString(R.string.loading), true);
+    }
+
+    @Override
+    public void onPostDownload(JSONObject jsonObject) {
+        /* Parse JSON to WorkerList */
+        Log.d("onPostDownload", jsonObject.toString());
+        Worker.loadJsonToList(jsonObject);
+
+        if(progress != null) {
+            progress.dismiss();
+        }
+        /* Change screen */
+        getScreenManager().openFragment(new WorkerListFragment(), true);
+    }
+
     private class JobCriteriaAdapter extends BaseAdapter implements JobCriteriaListener {
 
         @Override
@@ -228,4 +276,3 @@ public class JobCriteriaFragment extends BaseFragment implements
         }
     }
 }
-

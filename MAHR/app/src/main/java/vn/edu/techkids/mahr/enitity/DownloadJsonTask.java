@@ -12,19 +12,36 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.logging.Logger;
 
 /**
  * Created by qhuydtvt on 3/9/2016.
  */
-public class DownloadJsonTask extends AsyncTask<URL, Integer, JSONObject>{
+public class DownloadJSONTask extends AsyncTask<URL, Integer, JSONObject>{
 
     private HttpURLConnection urlConnection = null;
     private BufferedReader bufferedReader = null;
-    private JSONDecoder jsonDecoder = null;
+    private JSONPostDownloadHandler jsonPostDownloadHandler = null;
+    private JSONPreDownloadHandler jsonPreDownloadHandler = null;
 
-    public void setJsonDecoder(JSONDecoder jsonDecoder) {
-        this.jsonDecoder = jsonDecoder;
+    public void setJsonPostDownloadHandler(JSONPostDownloadHandler jsonPostDownloadHandler) {
+        this.jsonPostDownloadHandler = jsonPostDownloadHandler;
+    }
+
+    public DownloadJSONTask() {
+    }
+
+    public DownloadJSONTask(JSONPreDownloadHandler preDownloadHandler,
+                            JSONPostDownloadHandler jsonPostDownloadHandler) {
+        this.jsonPreDownloadHandler = preDownloadHandler;
+        this.jsonPostDownloadHandler = jsonPostDownloadHandler;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        if(jsonPreDownloadHandler != null) {
+            jsonPreDownloadHandler.onPreDownload();
+        }
+        super.onPreExecute();
     }
 
     @Override
@@ -71,8 +88,8 @@ public class DownloadJsonTask extends AsyncTask<URL, Integer, JSONObject>{
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
-        if(jsonDecoder != null) {
-            jsonDecoder.decode(jsonObject);
+        if(jsonPostDownloadHandler != null) {
+            jsonPostDownloadHandler.onPostDownload(jsonObject);
         }
         super.onPostExecute(jsonObject);
     }

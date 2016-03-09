@@ -16,7 +16,7 @@ import java.util.Locale;
 public class Expertise {
     private int id;
     private String name;
-    private String chineseName;
+    private String chinese_name;
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -26,11 +26,15 @@ public class Expertise {
 
     private static ArrayList<Expertise> expertiseArrayList = new ArrayList<>();
 
+    public Expertise() {
+
+    }
+
     public Expertise(JSONObject jsonObject) {
         try {
             this.id = jsonObject.getInt(KEY_ID);
             this.name = jsonObject.getString(KEY_NAME);
-            this.chineseName = jsonObject.getString(KEY_CHINESE_NAME);
+            this.chinese_name = jsonObject.getString(KEY_CHINESE_NAME);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -42,8 +46,20 @@ public class Expertise {
         if (Locale.getDefault().getDisplayLanguage().contains("vi")) {
             return name;
         } else {
-            return chineseName;
+            return chinese_name;
         }
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setChinese_name(String chinese_name) {
+        this.chinese_name = chinese_name;
     }
 
     public static ArrayList<Expertise> getExpertiseArrayList() {

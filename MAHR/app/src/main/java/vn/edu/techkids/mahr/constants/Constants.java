@@ -38,7 +38,11 @@ public class Constants {
 
     public static final String API_URL_ROOT = "http://api.mahr.adcviet.com/v1";
     public static final String API_URL_EXPERTISE = API_URL_ROOT + "/experiences";
-    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?expand=";
+    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?expand=experiences";
+
+    public static final String API_KEY_ITEMS ="items";
+
+    public static final String API_DEFAULT_PHOTO_LINK = "http://rs829.pbsrc.com/albums/zz219/vinadragon/Son16.jpg~c200";
 
     public static String API_FILTER_PREFIX = "&filter[]=";
     public static String API_FILTER_EXPERTISE_FORMAT = API_FILTER_PREFIX + "exps+include+%s";

@@ -1,4 +1,4 @@
-package vn.edu.techkids.mahr.fragment;
+package vn.edu.techkids.mahr.adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,25 +13,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.fragment.ItemFragment.OnListFragmentInteractionListener;
-import vn.edu.techkids.mahr.enitity.dummy.DummyContent.Person;
+import vn.edu.techkids.mahr.enitity.Worker;
+import vn.edu.techkids.mahr.fragment.WorkerListFragment.OnListFragmentInteractionListener;
 
 import java.io.InputStream;
-import java.util.List;
+import java.util.ArrayList;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link Person} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
-public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
+public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Person> mValues;
+    /*private final List<Person> mValues;*/
     private final OnListFragmentInteractionListener mListener;
+    private ArrayList<Worker> mWorkerArrayList;
 
-    public MyItemRecyclerViewAdapter(List<Person> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+    public WorkerRecyclerViewAdapter(/*List<Person> items, */OnListFragmentInteractionListener listener) {
+        /*mValues = items;*/
         mListener = listener;
+        mWorkerArrayList = Worker.getWorkerArrayList();
     }
 
     @Override
@@ -44,10 +41,17 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        new DownloadImageTask(holder.imgViewPersonPhoto).execute(mValues.get(position).photoLink);
-        holder.txtName.setText(mValues.get(position).name);
-        holder.txtAge.setText(new Integer(mValues.get(position).age).toString());
-        holder.txtExpersion.setText(mValues.get(position).expersion);
+        Worker worker = mWorkerArrayList.get(position);
+
+        holder.txtName.setText(worker.getName());
+        holder.txtAge.setText(String.valueOf(worker.getAge()));
+        holder.txtExpersion.setText(worker.getExpertiseString());
+        new DownloadImageTask(holder.imgViewPersonPhoto).execute(worker.getAvatar());
+
+        /*
+        holder.txtName.setText(worker.getName());
+        holder.txtAge.setText(worker.getAge());
+        holder.txtExpersion.setText(worker.getCode());*/
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +67,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return mWorkerArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -83,6 +87,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         }
 
     }
+
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
