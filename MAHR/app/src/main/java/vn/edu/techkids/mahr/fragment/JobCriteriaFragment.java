@@ -96,7 +96,7 @@ public class JobCriteriaFragment extends BaseFragment implements
     }
 
     private void initData() {
-        expertiseArrayList = Expertise.getExpertiseArrayList();
+        expertiseArrayList = JobCriteria.getInst().getExpertiseArrayList();
 
         mJobPropertyList.clear();
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.expertise, R.drawable.ic_build_black_24dp, JobCriteria.EXPERTISE));
@@ -144,12 +144,7 @@ public class JobCriteriaFragment extends BaseFragment implements
     private String getStringFromCriteria(int criteria) {
         switch (criteria) {
             case JobCriteria.EXPERTISE:
-                if (mJobCriteria.getExpertise() == -1) return null;
-                for(Expertise expertise : expertiseArrayList) {
-                    if(expertise.getId() == mJobCriteria.getExpertise())
-                        return expertise.getName();
-                }
-                return null;
+                return mJobCriteria.getExpertiseString();
             case JobCriteria.AGE:
                 return mJobCriteria.getAgeRange();
             case JobCriteria.HEIGHT:
@@ -157,8 +152,9 @@ public class JobCriteriaFragment extends BaseFragment implements
             case JobCriteria.WEIGHT:
                 return mJobCriteria.getWeightRange();
             case JobCriteria.LANG:
-                if (mJobCriteria.getLanguage() == -1) return null;
-                return getString(mJobCriteria.getLanguage());
+                /*if (mJobCriteria.getLanguage() == -1) return null;
+                return getString(mJobCriteria.getLanguage());*/
+                return mJobCriteria.getLangString();
             case JobCriteria.EXP:
                 return mJobCriteria.getExpRange();
             case JobCriteria.DEGREE:

@@ -1,5 +1,11 @@
 package vn.edu.techkids.mahr.enitity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 
@@ -12,14 +18,21 @@ public class JobCriteria {
 
     private String nationality;
     private String major;
-    private int expertise = -1;
+    /*private int expertise = -1;*/
+    private ArrayList<Expertise> expertiseArrayList = new ArrayList<>();
     private int minAge = -1;
     private int maxAge = -1;
     private int minHeight = -1;
     private int maxHeight = -1;
     private int minWeight = -1;
     private int maxWeight = -1;
-    private int language = -1;
+    /*private int language = -1;*/
+    private Lang[] langs = new Lang[]{
+            new Lang(R.string.vietnam, false),
+            new Lang(R.string.indonesia, false),
+            new Lang(R.string.taiwan, false)
+    };
+
     private int minExperience = -1;
     private int maxExperience = -1;
     private int degree = -1;
@@ -57,14 +70,38 @@ public class JobCriteria {
         this.major = major;
     }
 
-    public int getExpertise() {
+    public String getExpertiseString() {
+        String ret = "";
+        for(int idx = 0; idx < expertiseArrayList.size(); idx++) {
+            Expertise expertise = expertiseArrayList.get(idx);
+            if(expertise.getSelected()) {
+                if (ret != "")
+                    ret += " | ";
+                ret += expertise.getName();
+            }
+        }
+        return ret;
+    }
+
+    public String getLangString() {
+        String ret = "";
+        for (int idx = 0; idx < langs.length; idx++) {
+            if (langs[idx].isSelected()) {
+                if (ret != "") ret += " | ";
+                ret += langs[idx].getAPIParam();
+            }
+        }
+        return ret;
+    }
+
+    /*public int getExpertise() {
         return expertise;
     }
 
     public void setExpertise(int expertise) {
         this.expertise = expertise;
         notifyListener();
-    }
+    }*/
 
     public void setAgeRange(int minAge, int maxAge) {
         this.minAge = minAge;
@@ -126,6 +163,12 @@ public class JobCriteria {
     public int getMaxHeight() {
         return maxHeight;
     }
+
+    public ArrayList<Expertise> getExpertiseArrayList() {
+        return this.expertiseArrayList;
+    }
+
+    public Lang[] getLangs() { return this.langs; }
 /*
     public void setMaxHeight(int maxHeight) {
         this.maxHeight = maxHeight;
@@ -156,22 +199,31 @@ public class JobCriteria {
         notifyListener();
     }*/
 
-    public int getLanguage() {
+    /*public int getLanguage() {
         return language;
     }
 
     public void setLanguage(int language) {
         this.language = language;
         notifyListener();
-    }
+    }*/
 
     public String getLanguageAPIParam() {
-        switch (language){
+        /*switch (language){
             case R.string.vietnam: return Constants.API_VIETNAM;
             case R.string.indonesia: return Constants.API_INDONESIA;
             case R.string.taiwan: return Constants.API_TAIWAN;
         }
-        return "";
+        return "";*/
+
+        String ret = "";
+        for (int idx = 0; idx < langs.length; idx++) {
+            if (langs[idx].isSelected()) {
+                if (ret != "") ret += ",";
+                ret += langs[idx].getAPIParam();
+            }
+        }
+        return ret;
     }
 
     public int getDegree() {
@@ -222,7 +274,20 @@ public class JobCriteria {
 
     }*/
 
-    private void notifyListener() {
+    public  void loadExperiseArrayList(JSONObject jsonObject) {
+        try {
+            JSONArray jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
+            expertiseArrayList.clear();
+            for(int i = 0; i < jsonArray.length(); i++) {
+                Expertise expertise = new Expertise(jsonArray.getJSONObject(i));
+                expertiseArrayList.add(expertise);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void notifyListener() {
         if (this.mJobCriteriaListener != null) {
             mJobCriteriaListener.onJobCriteriaChange();
         }
@@ -232,8 +297,26 @@ public class JobCriteria {
     /******************************************* API ***********************************************/
     /***********************************************************************************************/
     private String getExpertiseAPIString() {
-        if(expertise == -1) return "";
-        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);
+        String param = getExpertiseAPIParam();
+        if(param != null && param != "") return String.format(Constants.API_FILTER_EXPERTISE_FORMAT,
+                param);
+        return "";
+    }
+
+    private String getExpertiseAPIParam() {
+        /*if(expertise == -1) return "";
+        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);*/
+
+        String ret = "";
+        for(int idx = 0; idx < expertiseArrayList.size(); idx++) {
+            Expertise expertise = expertiseArrayList.get(idx);
+            if(expertise.getSelected()) {
+                if (ret != "")
+                    ret += ",";
+                ret += expertise.getName();
+            }
+        }
+        return ret;
     }
 
     private String getAgeAPIString() {

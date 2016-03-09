@@ -14,9 +14,11 @@ import java.util.Locale;
  * Created by qhuydtvt on 3/9/2016.
  */
 public class Expertise {
+
     private int id;
     private String name;
     private String chinese_name;
+    private boolean selected;
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -24,7 +26,7 @@ public class Expertise {
 
     private static final String KEY_ITEMS = "items";
 
-    private static ArrayList<Expertise> expertiseArrayList = new ArrayList<>();
+    /*private static ArrayList<Expertise> expertiseArrayList = new ArrayList<>();*/
 
     public Expertise() {
 
@@ -58,16 +60,19 @@ public class Expertise {
         this.name = name;
     }
 
+    public boolean getSelected() { return selected; }
+    public void setSelected(boolean selected) { this.selected = selected; }
+
     public void setChinese_name(String chinese_name) {
         this.chinese_name = chinese_name;
     }
 
-    public static ArrayList<Expertise> getExpertiseArrayList() {
+    /*public static ArrayList<Expertise> getExpertiseArrayList() {
         return expertiseArrayList;
-    }
+    }*/
 
-    public static void loadExperiseArrayList(JSONObject jsonObject) {
-        Log.d("loadExperiseArrayList", jsonObject.toString());
+    /*public static void loadExperiseArrayList(JSONObject jsonObject) {
+        //Log.d("loadExperiseArrayList", jsonObject.toString());
         try {
             JSONArray jsonArray = jsonObject.getJSONArray(KEY_ITEMS);
             expertiseArrayList.clear();
@@ -78,5 +83,5 @@ public class Expertise {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

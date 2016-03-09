@@ -37,8 +37,8 @@ public class Constants {
     public static String API_MAJOR_HOUSEMAID = "3";
 
     public static final String API_URL_ROOT = "http://api.mahr.adcviet.com/v1";
-    public static final String API_URL_EXPERTISE = API_URL_ROOT + "/experiences";
-    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?expand=experiences";
+    public static final String API_URL_EXPERTISE = API_URL_ROOT + "/skills";
+    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?expand=skills";
 
     public static final String API_KEY_ITEMS ="items";
 

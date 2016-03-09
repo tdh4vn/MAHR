@@ -8,6 +8,6 @@ import org.json.JSONObject;
 public class ExpertiseJSONPostDownloadHandler implements JSONPostDownloadHandler {
     @Override
     public void onPostDownload(JSONObject jsonObject) {
-        Expertise.loadExperiseArrayList(jsonObject);
+        JobCriteria.getInst().loadExperiseArrayList(jsonObject);
     }
 }

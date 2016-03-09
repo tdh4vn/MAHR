@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import vn.edu.techkids.mahr.constants.Constants;
 
@@ -34,7 +33,7 @@ public class Worker {
     private String excel_path;
     private int age;
 
-    public List<Expertise> experiences;
+    private List<Expertise> skills;
 
     private static ArrayList<Worker> workerArrayList = new ArrayList<>();
 
@@ -96,20 +95,22 @@ public class Worker {
         return age;
     }
 
-    public List<Expertise> getExperiences() {
-        return experiences;
+    public List<Expertise> getSkills() {
+        return skills;
     }
 
     public String getExpertiseString() {
         String ret = "";
-        int size = experiences.size();
-        if(size > 0) {
-            Log.d("getExpertiseString", String.valueOf(size));
-            for (int i = 0; i < size; i++) {
-                String name = experiences.get(i).getName();
-                if(name != null && name != "") {
-                    ret += name;
-                    if (i < size - 1) ret += ", ";
+        if(skills != null) {
+            int size = skills.size();
+            if (size > 0) {
+                Log.d("getExpertiseString", String.valueOf(size));
+                for (int i = 0; i < size; i++) {
+                    String name = skills.get(i).getName();
+                    if (name != null && name != "") {
+                        ret += name;
+                        if (i < size - 1) ret += ", ";
+                    }
                 }
             }
         }
@@ -172,8 +173,8 @@ public class Worker {
         this.age = age;
     }
 
-    public void setExperiences(List<Expertise> experiences) {
-        this.experiences = experiences;
+    public void setSkills(List<Expertise> skills) {
+        this.skills = skills;
     }
 
     public static ArrayList<Worker> getWorkerArrayList() {
