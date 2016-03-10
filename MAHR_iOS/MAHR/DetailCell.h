@@ -19,6 +19,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTo;
 
 - (void)setValueFrom:(int)startValue to:(int)finishValue;
-- (void)setSingleValue:(int)value type:(int)type;
 
 @end

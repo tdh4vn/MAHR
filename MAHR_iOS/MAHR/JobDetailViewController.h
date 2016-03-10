@@ -15,5 +15,6 @@
 @property(nonatomic,assign) int jobType;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbvDetails;
+@property (weak, nonatomic) IBOutlet UILabel *lblConnection;
 
 @end

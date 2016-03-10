@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */; };
 		891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC661C8D5AF0008BCA23 /* MoreCell.m */; };
 		891ACC691C8D5AF0008BCA23 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891ACC671C8D5AF0008BCA23 /* MoreCell.xib */; };
 		891ACC7E1C8D8746008BCA23 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACC6E1C8D8746008BCA23 /* SCLAlertView.m */; };
@@ -34,6 +33,10 @@
 		891ACCBB1C8DCBB1008BCA23 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB31C8DCBB1008BCA23 /* AFURLRequestSerialization.m */; };
 		891ACCBC1C8DCBB1008BCA23 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB51C8DCBB1008BCA23 /* AFURLResponseSerialization.m */; };
 		891ACCBD1C8DCBB1008BCA23 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB71C8DCBB1008BCA23 /* AFURLSessionManager.m */; };
+		894190981C9146B60005269B /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 894190971C9146B60005269B /* Skill.m */; };
+		8941909C1C915D9E0005269B /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941909B1C915D9E0005269B /* EducationViewController.m */; };
+		894190A01C9162340005269B /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941909F1C9162340005269B /* LanguageViewController.m */; };
+		894190A41C916CEB0005269B /* SkillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894190A31C916CEB0005269B /* SkillViewController.m */; };
 		89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C631C8CC121005148C2 /* WorkerViewController.m */; };
 		89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C661C8CC1B4005148C2 /* WorkerCell.m */; };
 		89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89505C671C8CC1B4005148C2 /* WorkerCell.xib */; };
@@ -54,8 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		891ACC621C8D53FA008BCA23 /* JobMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobMoreViewController.h; sourceTree = "<group>"; };
-		891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobMoreViewController.m; sourceTree = "<group>"; };
 		891ACC651C8D5AF0008BCA23 /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
 		891ACC661C8D5AF0008BCA23 /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
 		891ACC671C8D5AF0008BCA23 /* MoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
@@ -112,6 +113,14 @@
 		891ACCB51C8DCBB1008BCA23 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		891ACCB61C8DCBB1008BCA23 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		891ACCB71C8DCBB1008BCA23 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		894190961C9146B60005269B /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		894190971C9146B60005269B /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		8941909A1C915D9E0005269B /* EducationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewController.h; sourceTree = "<group>"; };
+		8941909B1C915D9E0005269B /* EducationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationViewController.m; sourceTree = "<group>"; };
+		8941909E1C9162340005269B /* LanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageViewController.h; sourceTree = "<group>"; };
+		8941909F1C9162340005269B /* LanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageViewController.m; sourceTree = "<group>"; };
+		894190A21C916CEB0005269B /* SkillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillViewController.h; sourceTree = "<group>"; };
+		894190A31C916CEB0005269B /* SkillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillViewController.m; sourceTree = "<group>"; };
 		89505C621C8CC121005148C2 /* WorkerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerViewController.h; sourceTree = "<group>"; };
 		89505C631C8CC121005148C2 /* WorkerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerViewController.m; sourceTree = "<group>"; };
 		89505C651C8CC1B4005148C2 /* WorkerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerCell.h; sourceTree = "<group>"; };
@@ -155,15 +164,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		891ACC611C8D53E8008BCA23 /* JobMore */ = {
-			isa = PBXGroup;
-			children = (
-				891ACC621C8D53FA008BCA23 /* JobMoreViewController.h */,
-				891ACC631C8D53FA008BCA23 /* JobMoreViewController.m */,
-			);
-			name = JobMore;
-			sourceTree = "<group>";
-		};
 		891ACC6C1C8D8746008BCA23 /* SCLAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +243,33 @@
 				891ACCB71C8DCBB1008BCA23 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		894190991C915D890005269B /* Education */ = {
+			isa = PBXGroup;
+			children = (
+				8941909A1C915D9E0005269B /* EducationViewController.h */,
+				8941909B1C915D9E0005269B /* EducationViewController.m */,
+			);
+			name = Education;
+			sourceTree = "<group>";
+		};
+		8941909D1C9162270005269B /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				8941909E1C9162340005269B /* LanguageViewController.h */,
+				8941909F1C9162340005269B /* LanguageViewController.m */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		894190A11C916CDA0005269B /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+				894190A21C916CEB0005269B /* SkillViewController.h */,
+				894190A31C916CEB0005269B /* SkillViewController.m */,
+			);
+			name = Skill;
 			sourceTree = "<group>";
 		};
 		89505C611C8CC106005148C2 /* Worker */ = {
@@ -357,7 +384,9 @@
 				89C49CB11C8C64F600A16B83 /* Region */,
 				89C0ABA31C8C7F38008F6457 /* JobType */,
 				89C0ABB51C8C9764008F6457 /* JobDetail */,
-				891ACC611C8D53E8008BCA23 /* JobMore */,
+				894190A11C916CDA0005269B /* Skill */,
+				8941909D1C9162270005269B /* Language */,
+				894190991C915D890005269B /* Education */,
 				89505C611C8CC106005148C2 /* Worker */,
 				891ACC881C8DC501008BCA23 /* WorkerDetail */,
 			);
@@ -377,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				89C49CB31C8C672600A16B83 /* Language.json */,
+				894190961C9146B60005269B /* Skill.h */,
+				894190971C9146B60005269B /* Skill.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -478,13 +509,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */,
+				894190A41C916CEB0005269B /* SkillViewController.m in Sources */,
 				89C0ABAE1C8C8A37008F6457 /* JobDetailViewController.m in Sources */,
 				891ACCA81C8DCA66008BCA23 /* UIRefreshControl+AFNetworking.m in Sources */,
 				891ACCA51C8DCA66008BCA23 /* UIButton+AFNetworking.m in Sources */,
 				891ACC851C8D8746008BCA23 /* UIImage+ImageEffects.m in Sources */,
+				894190981C9146B60005269B /* Skill.m in Sources */,
 				891ACC7F1C8D8746008BCA23 /* SCLAlertViewResponder.m in Sources */,
 				89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */,
-				891ACC641C8D53FA008BCA23 /* JobMoreViewController.m in Sources */,
 				891ACCBD1C8DCBB1008BCA23 /* AFURLSessionManager.m in Sources */,
 				89C49C9B1C8C646500A16B83 /* main.m in Sources */,
 				891ACCA11C8DCA66008BCA23 /* AFAutoPurgingImageCache.m in Sources */,
@@ -498,6 +530,7 @@
 				891ACCA41C8DCA66008BCA23 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				891ACC8B1C8DC520008BCA23 /* WorkerDetailViewController.m in Sources */,
 				89C0ABB31C8C8E2C008F6457 /* DetailCell.m in Sources */,
+				894190A01C9162340005269B /* LanguageViewController.m in Sources */,
 				89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */,
 				89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */,
 				89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */,
@@ -508,6 +541,7 @@
 				891ACC7E1C8D8746008BCA23 /* SCLAlertView.m in Sources */,
 				891ACCBA1C8DCBB1008BCA23 /* AFSecurityPolicy.m in Sources */,
 				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
+				8941909C1C915D9E0005269B /* EducationViewController.m in Sources */,
 				891ACC801C8D8746008BCA23 /* SCLAlertViewStyleKit.m in Sources */,
 				891ACC821C8D8746008BCA23 /* SCLSwitchView.m in Sources */,
 				891ACCA91C8DCA66008BCA23 /* UIWebView+AFNetworking.m in Sources */,
