@@ -19,7 +19,7 @@
      ];
     [self setTitleColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHighLightColor] forState:UIControlStateHighlighted
      ];
-    [[self layer] setCornerRadius:8.0f];
+    [[self layer] setCornerRadius:20.0f];
     [[self layer] setMasksToBounds:YES];
 }
 

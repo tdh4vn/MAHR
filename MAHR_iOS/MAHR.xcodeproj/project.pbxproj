@@ -121,7 +121,6 @@
 		891ACC7B1C8D8746008BCA23 /* SCLTimerDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLTimerDisplay.m; sourceTree = "<group>"; };
 		891ACC7C1C8D8746008BCA23 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		891ACC7D1C8D8746008BCA23 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		891ACC861C8DC1C5008BCA23 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		891ACC891C8DC520008BCA23 /* WorkerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerDetailViewController.h; sourceTree = "<group>"; };
 		891ACC8A1C8DC520008BCA23 /* WorkerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerDetailViewController.m; sourceTree = "<group>"; };
 		891ACC8D1C8DCA66008BCA23 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
@@ -621,7 +620,6 @@
 		89C49C8D1C8C646500A16B83 = {
 			isa = PBXGroup;
 			children = (
-				891ACC861C8DC1C5008BCA23 /* QuickLook.framework */,
 				89C49C981C8C646500A16B83 /* MAHR */,
 				89C49C971C8C646500A16B83 /* Products */,
 			);

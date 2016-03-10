@@ -68,14 +68,13 @@ typedef NS_ENUM(int, EducationType) {
 //MARK: Color
 
 
-#define kLanguageButtonBackgroundHexColor                   @"#4CAF50"
+#define kLanguageButtonBackgroundHexColor                   @"#29B6F6"
 
 #define kLanguageButtonBackgroundHighLightColor             @"#1B5E20"
 
+#define kNavigationBarBackGroundColor                       @"#29B6F6"
 
 
-
-#define kMainBackgroundColor                                @"#E8F5E9"
 
 #define kLanguageButtonTextColor                            @"#E8F5E9"
 

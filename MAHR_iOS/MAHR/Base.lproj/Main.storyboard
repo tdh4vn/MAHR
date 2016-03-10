@@ -55,7 +55,7 @@
                                     <action selector="btnVietNamDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="69J-pc-M4c"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_app" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
                                 <rect key="frame" x="180" y="164" width="240" height="144"/>
                                 <animations/>
                             </imageView>
@@ -536,6 +536,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="welcome" width="240" height="144"/>
+        <image name="welcome_app" width="240" height="144"/>
     </resources>
 </document>

@@ -16,9 +16,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor hx_colorWithHexRGBAString:kNavigationBarBackGroundColor]};
     
-    self.view.backgroundColor = [UIColor hx_colorWithHexRGBAString:kMainBackgroundColor];
+//    self.navigationController.navigationBar.backgroundColor = [UIColor hx_colorWithHexRGBAString:kNavigationBarBackGroundColor];
     
 }
 
