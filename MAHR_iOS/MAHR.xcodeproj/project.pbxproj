@@ -264,6 +264,8 @@
 		89505C661C8CC1B4005148C2 /* WorkerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerCell.m; sourceTree = "<group>"; };
 		89505C671C8CC1B4005148C2 /* WorkerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkerCell.xib; sourceTree = "<group>"; };
 		89A249CA1C91D56E008F6309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89A249D01C91DBC3008F6309 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		89A249D11C91DBC3008F6309 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		89C0AB981C8C7598008F6457 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		89C0AB991C8C7598008F6457 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		89C0ABA41C8C7F54008F6457 /* JobTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTypeViewController.h; sourceTree = "<group>"; };
@@ -662,6 +664,8 @@
 				89C49CA21C8C646500A16B83 /* Main.storyboard */,
 				89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */,
 				89A249CA1C91D56E008F6309 /* Assets.xcassets */,
+				89A249D01C91DBC3008F6309 /* iTunesArtwork */,
+				89A249D11C91DBC3008F6309 /* iTunesArtwork@2x */,
 				89C0ABAF1C8C8DD4008F6457 /* CustomCell */,
 				89C0AB971C8C7578008F6457 /* MainViewController */,
 				89C49CB11C8C64F600A16B83 /* Region */,
