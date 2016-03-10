@@ -80,8 +80,6 @@
     
     _tbvDetails.tableFooterView = [[UIView alloc]init];
     
-    self.navigationItem.rightBarButtonItem = _barItem;
-    
 }
 
 

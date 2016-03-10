@@ -10,6 +10,7 @@
 #import "Constant.h"
 #import "AFNetworking.h"
 #import "Skill.h"
+#import "HexColors.h"
 
 @interface AppDelegate ()
 
@@ -23,11 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //set up default navigation bar background image
-    UIImage *navBackgroundImage = [UIImage imageNamed:kNavigatiionBarBackGroundImage];
-    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    
-    [self.window setTintColor:[UIColor whiteColor]];
+    //set up default navigation bar background image    
+    [self.window setTintColor:[UIColor hx_colorWithHexRGBAString:kNavigationBarBackGroundColor]];
     
     _skills = [[NSMutableArray alloc]init];
     
