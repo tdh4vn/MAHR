@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,7 +42,7 @@ import vn.edu.techkids.mahr.enitity.Worker;
  */
 public class JobCriteriaFragment extends BaseFragment implements
         AdapterView.OnItemClickListener, JSONPreDownloadHandler, JSONPostDownloadHandler {
-    private FloatingActionButton floatingActionButton;
+    private Button floatingActionButton;
     private ListView mEmployeeProperitesListView;
     private JobCriteria mJobCriteria;
 
@@ -97,7 +98,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         mEmployeeProperitesListView = (ListView)vLayoutRoot.
                 findViewById(R.id.ltvEmployeePropetiesList);
         mLayoutInflater = getActivity().getLayoutInflater();
-        floatingActionButton = (FloatingActionButton) vLayoutRoot.findViewById(R.id.fbFilter);
+        floatingActionButton = (Button) vLayoutRoot.findViewById(R.id.button);
     }
 
     private void initData() {
