@@ -110,7 +110,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.height, R.drawable.ic_swap_vert_black_24dp, JobCriteria.HEIGHT));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.weight, R.drawable.ic_view_module_black_24dp, JobCriteria.WEIGHT));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.language, R.drawable.ic_font_download_black_24dp, JobCriteria.LANG));
-        mJobPropertyList.add(new JobCriteriaViewModel(R.string.experience, R.drawable.ic_power_black_24dp, JobCriteria.EXP));
+        /*mJobPropertyList.add(new JobCriteriaViewModel(R.string.experience, R.drawable.ic_power_black_24dp, JobCriteria.EXP));*/
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.degree, R.drawable.ic_group_work_black_24dp, JobCriteria.DEGREE));
     }
 

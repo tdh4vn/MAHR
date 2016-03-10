@@ -1,16 +1,30 @@
 package vn.edu.techkids.mahr.fragment;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.logging.Logger;
+
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.adapter.WorkerRecyclerViewAdapter;
+import vn.edu.techkids.mahr.enitity.DownoadFileTask;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
@@ -44,6 +58,29 @@ public class WorkerListFragment extends BaseFragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public WorkerListFragment() {
+
+        final DownoadFileTask downoadFileTask = new DownoadFileTask();
+
+        downoadFileTask.setWorkerListFragment(this);
+
+        mListener = new OnListFragmentInteractionListener() {
+            @Override
+            public void onListFragmentInteraction(Worker item) {
+
+                downoadFileTask.execute(item.getExcel_path());
+
+                /*new DownoadFileTask(
+                .execute();*/
+
+
+            }
+        };
+    }
+
+    public void openWorkerDetail(String excel) {
+        WorkerDetailFragment fragment = new WorkerDetailFragment();
+        fragment.setmWorkerDetailUrl(excel);
+        getScreenManager().openFragment(fragment, true);
     }
 
     @Override
@@ -52,7 +89,7 @@ public class WorkerListFragment extends BaseFragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
 
-        getScreenManager().changeTitleOfActionBar(getString(R.string.list_employee));
+        getScreenManager().setTitleOfActionBar(getString(R.string.list_employee));
     }
 
     @Override

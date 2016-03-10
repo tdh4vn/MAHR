@@ -1,7 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
 /*import android.support.app.Fragment;*/
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,7 +29,8 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
     public void onStart() {
         super.onStart();
         getScreenManager().showActionBar();
-        getScreenManager().changeTitleOfActionBar(getString(R.string.listJobMainName));
+        getScreenManager().setTitleOfActionBar(getString(R.string.listJobMainName));
+        getScreenManager().showDisplayHomeButton();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.trans_left_in,R.anim.trans_left_out);
         setHasOptionsMenu(true);
@@ -48,6 +48,8 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
         this.addListener(view);
         return view;
     }
+
+
 
     private void addListener(View view){
         Button btnMaleEmployee = (Button) view.findViewById(R.id.btnMaleEmployee);

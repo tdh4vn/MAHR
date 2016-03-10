@@ -11,9 +11,9 @@
     <string name="properties_filter">属性过滤器</string>
     <string name="list_employee">员工名单</string>
     <string name="expertise">专门 知识</string>
-    <string name="age">年 龄</string>
-    <string name="height">高 度</string>
-    <string name="weight">重 量</string>
+    <string name="age">年 齡</string>
+    <string name="height">身 高</string>
+    <string name="weight">體 重</string>
     <string name="language">语 言</string>
     <string name="experience">经 验</string>
     <string name="degree">学 位</string>
@@ -37,6 +37,10 @@
     <string name="message_download_expertise_failed">下载专长失败</string>
 
     <string name="message_download_expertise_OK">专长列表下载</string>
+    <string name="name">姓名</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

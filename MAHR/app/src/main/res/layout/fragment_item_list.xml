@@ -11,4 +11,4 @@
         android:layout_marginRight="0dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".fragment.WorkerListFragment"
-        tools:listitem="@layout/fragment_item"/>
+        tools:listitem="@layout/list_item_worker"/>
