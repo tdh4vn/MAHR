@@ -18,15 +18,14 @@ public class JobCriteria {
 
     private String nationality;
     private String major;
-    /*private int expertise = -1;*/
-    private ArrayList<Expertise> expertiseArrayList = new ArrayList<>();
+    private ArrayList<Expertise> expertiseArrayList;
     private int minAge = -1;
     private int maxAge = -1;
     private int minHeight = -1;
     private int maxHeight = -1;
     private int minWeight = -1;
     private int maxWeight = -1;
-    /*private int language = -1;*/
+
     private Lang[] langs = new Lang[]{
             new Lang(R.string.vietnam, false),
             new Lang(R.string.indonesia, false),
@@ -72,12 +71,14 @@ public class JobCriteria {
 
     public String getExpertiseString() {
         String ret = "";
-        for(int idx = 0; idx < expertiseArrayList.size(); idx++) {
-            Expertise expertise = expertiseArrayList.get(idx);
-            if(expertise.getSelected()) {
-                if (ret != "")
-                    ret += " | ";
-                ret += expertise.getName();
+        if(expertiseArrayList != null) {
+            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
+                Expertise expertise = expertiseArrayList.get(idx);
+                if (expertise.getSelected()) {
+                    if (ret != "")
+                        ret += " | ";
+                    ret += expertise.getName();
+                }
             }
         }
         return ret;
@@ -277,7 +278,7 @@ public class JobCriteria {
     public  void loadExperiseArrayList(JSONObject jsonObject) {
         try {
             JSONArray jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
-            expertiseArrayList.clear();
+            expertiseArrayList = new ArrayList<>();
             for(int i = 0; i < jsonArray.length(); i++) {
                 Expertise expertise = new Expertise(jsonArray.getJSONObject(i));
                 expertiseArrayList.add(expertise);
@@ -308,12 +309,14 @@ public class JobCriteria {
         return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);*/
 
         String ret = "";
-        for(int idx = 0; idx < expertiseArrayList.size(); idx++) {
-            Expertise expertise = expertiseArrayList.get(idx);
-            if(expertise.getSelected()) {
-                if (ret != "")
-                    ret += ",";
-                ret += expertise.getName();
+        if(expertiseArrayList != null) {
+            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
+                Expertise expertise = expertiseArrayList.get(idx);
+                if (expertise.getSelected()) {
+                    if (ret != "")
+                        ret += ",";
+                    ret += expertise.getName();
+                }
             }
         }
         return ret;

@@ -58,11 +58,13 @@ public class ExpertiseEditFragment extends DialogFragment implements View.OnClic
 
             @Override
             public int getCount() {
+                if(mExpertiseArrayList == null) return 0;
                 return mExpertiseArrayList.size();
             }
 
             @Override
             public Object getItem(int position) {
+                if(mExpertiseArrayList == null) return null;
                 return mExpertiseArrayList.get(position);
             }
 
@@ -123,10 +125,4 @@ public class ExpertiseEditFragment extends DialogFragment implements View.OnClic
         this.dismiss();
     }
 
-/*
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        JobCriteria.getInst().setExpertise(mExpertiseArrayList.get(position).getid());
-        this.dismiss();
-    }*/
 }

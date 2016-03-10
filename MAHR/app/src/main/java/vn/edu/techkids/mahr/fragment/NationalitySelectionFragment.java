@@ -8,15 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
+import vn.edu.techkids.mahr.enitity.ExpertiseJSONPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NationalitySelectionFragment extends BaseFragment implements View.OnClickListener {
+public class NationalitySelectionFragment extends BaseFragment
+        implements View.OnClickListener, JSONPostDownloadHandler {
 
     private Button mVietnamSlectButton;
     private Button mIndoSelectButton;
@@ -31,6 +40,12 @@ public class NationalitySelectionFragment extends BaseFragment implements View.O
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_nationality_selection, container, false);
         initLayout(view);
+
+        try {
+            new DownloadJSONTask(null, this, null).execute(new URL(Constants.API_URL_EXPERTISE));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         return view;
     }
@@ -61,5 +76,15 @@ public class NationalitySelectionFragment extends BaseFragment implements View.O
         }
         JobCriteria.getInst().setNationality(nationality);
         getScreenManager().openFragment(new MajorSelectionFragment(), true);
+    }
+
+    @Override
+    public void onPostDownload(JSONObject jsonObject, String tag) {
+        if(jsonObject == null) {
+            showToastMessage(getString(R.string.message_download_expertise_failed));
+        }
+        else {
+            JobCriteria.getInst().loadExperiseArrayList(jsonObject);
+        }
     }
 }

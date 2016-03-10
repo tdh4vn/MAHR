@@ -22,6 +22,7 @@ public class DownloadJSONTask extends AsyncTask<URL, Integer, JSONObject>{
     private BufferedReader bufferedReader = null;
     private JSONPostDownloadHandler jsonPostDownloadHandler = null;
     private JSONPreDownloadHandler jsonPreDownloadHandler = null;
+    private String mTag = null;
 
     public void setJsonPostDownloadHandler(JSONPostDownloadHandler jsonPostDownloadHandler) {
         this.jsonPostDownloadHandler = jsonPostDownloadHandler;
@@ -31,15 +32,17 @@ public class DownloadJSONTask extends AsyncTask<URL, Integer, JSONObject>{
     }
 
     public DownloadJSONTask(JSONPreDownloadHandler preDownloadHandler,
-                            JSONPostDownloadHandler jsonPostDownloadHandler) {
+                            JSONPostDownloadHandler jsonPostDownloadHandler,
+                            String tag) {
         this.jsonPreDownloadHandler = preDownloadHandler;
         this.jsonPostDownloadHandler = jsonPostDownloadHandler;
+        this.mTag = tag;
     }
 
     @Override
     protected void onPreExecute() {
         if(jsonPreDownloadHandler != null) {
-            jsonPreDownloadHandler.onPreDownload();
+            jsonPreDownloadHandler.onPreDownload(mTag);
         }
         super.onPreExecute();
     }
@@ -89,7 +92,7 @@ public class DownloadJSONTask extends AsyncTask<URL, Integer, JSONObject>{
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         if(jsonPostDownloadHandler != null) {
-            jsonPostDownloadHandler.onPostDownload(jsonObject);
+            jsonPostDownloadHandler.onPostDownload(jsonObject, mTag);
         }
         super.onPostExecute(jsonObject);
     }
