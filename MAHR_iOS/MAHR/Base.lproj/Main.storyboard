@@ -22,45 +22,6 @@
             </objects>
             <point key="canvasLocation" x="86" y="404"/>
         </scene>
-        <!--Job More View Controller-->
-        <scene sceneID="Bgx-HL-I4K">
-            <objects>
-                <viewController storyboardIdentifier="jobMore" id="hdi-dK-Rne" customClass="JobMoreViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gVm-aG-ogU"/>
-                        <viewControllerLayoutGuide type="bottom" id="3aB-bf-a8g"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1ya-fd-2A2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-kv-Hd5">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="hdi-dK-Rne" id="qxH-tf-ISA"/>
-                                    <outlet property="delegate" destination="hdi-dK-Rne" id="zKQ-BD-i3m"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ubh-kv-Hd5" secondAttribute="trailing" id="8Y9-S9-wRT"/>
-                            <constraint firstItem="3aB-bf-a8g" firstAttribute="top" secondItem="ubh-kv-Hd5" secondAttribute="bottom" id="EI7-yr-GdW"/>
-                            <constraint firstItem="ubh-kv-Hd5" firstAttribute="leading" secondItem="1ya-fd-2A2" secondAttribute="leading" id="OxF-G9-Uur"/>
-                            <constraint firstItem="ubh-kv-Hd5" firstAttribute="top" secondItem="1ya-fd-2A2" secondAttribute="top" id="S4U-b0-dm3"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tbvMore" destination="ubh-kv-Hd5" id="sHA-Wq-YLK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fai-qS-dDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="836" y="1133"/>
-        </scene>
         <!--Quốc gia-->
         <scene sceneID="FEf-KF-rqg">
             <objects>
@@ -119,6 +80,90 @@
             </objects>
             <point key="canvasLocation" x="836" y="411"/>
         </scene>
+        <!--Education View Controller-->
+        <scene sceneID="Ir2-Pf-PzQ">
+            <objects>
+                <viewController storyboardIdentifier="education" id="eAf-pa-eBx" customClass="EducationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Es-GW-hgc"/>
+                        <viewControllerLayoutGuide type="bottom" id="M1T-kX-s9X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WAy-2W-yUd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zra-ZB-iq7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="eAf-pa-eBx" id="a82-Bd-7f9"/>
+                                    <outlet property="delegate" destination="eAf-pa-eBx" id="aWs-ln-cJT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zra-ZB-iq7" secondAttribute="trailing" id="04S-7A-GoK"/>
+                            <constraint firstItem="M1T-kX-s9X" firstAttribute="top" secondItem="zra-ZB-iq7" secondAttribute="bottom" id="Fj1-21-CfA"/>
+                            <constraint firstItem="zra-ZB-iq7" firstAttribute="leading" secondItem="WAy-2W-yUd" secondAttribute="leading" id="SYx-Mt-exQ"/>
+                            <constraint firstItem="zra-ZB-iq7" firstAttribute="top" secondItem="7Es-GW-hgc" secondAttribute="bottom" id="ZMw-Du-Bod"/>
+                            <constraint firstItem="zra-ZB-iq7" firstAttribute="top" secondItem="WAy-2W-yUd" secondAttribute="top" id="kD4-YT-go2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZMw-Du-Bod"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tbvEducation" destination="zra-ZB-iq7" id="XJi-jM-XG4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZpO-qs-7zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="1091"/>
+        </scene>
+        <!--Language View Controller-->
+        <scene sceneID="AaM-IJ-HxG">
+            <objects>
+                <viewController storyboardIdentifier="language" id="cAU-gV-Qir" customClass="LanguageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d4Q-g7-eiQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EMk-1e-1x9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XsB-UR-pHN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-tD-oTr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cAU-gV-Qir" id="b4c-kw-24H"/>
+                                    <outlet property="delegate" destination="cAU-gV-Qir" id="ctp-bO-O2J"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Aho-tD-oTr" secondAttribute="trailing" id="9D0-dF-ayO"/>
+                            <constraint firstItem="EMk-1e-1x9" firstAttribute="top" secondItem="Aho-tD-oTr" secondAttribute="bottom" id="U6d-5V-JYb"/>
+                            <constraint firstItem="Aho-tD-oTr" firstAttribute="top" secondItem="XsB-UR-pHN" secondAttribute="top" id="aqH-u1-ZOf"/>
+                            <constraint firstItem="Aho-tD-oTr" firstAttribute="leading" secondItem="XsB-UR-pHN" secondAttribute="leading" id="sV4-po-nim"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tbvLanguage" destination="Aho-tD-oTr" id="56z-eA-z8z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1qV-sN-Pxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="1765"/>
+        </scene>
         <!--Worker View Controller-->
         <scene sceneID="SF6-SO-cIU">
             <objects>
@@ -156,7 +201,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbg-Ql-IEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1544" y="1133"/>
+            <point key="canvasLocation" x="1544" y="1076"/>
+        </scene>
+        <!--Skill View Controller-->
+        <scene sceneID="AEF-uD-bic">
+            <objects>
+                <viewController storyboardIdentifier="skill" id="r2x-qf-Qtv" customClass="SkillViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EIP-HI-f9G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kh2-Qd-e74"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8UD-F6-b4X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hGF-ih-3TR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="r2x-qf-Qtv" id="txx-Q8-ecN"/>
+                                    <outlet property="delegate" destination="r2x-qf-Qtv" id="YBO-Pd-vg6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kh2-Qd-e74" firstAttribute="top" secondItem="hGF-ih-3TR" secondAttribute="bottom" id="Bz6-36-td2"/>
+                            <constraint firstAttribute="trailing" secondItem="hGF-ih-3TR" secondAttribute="trailing" id="M1L-j4-cLv"/>
+                            <constraint firstItem="hGF-ih-3TR" firstAttribute="leading" secondItem="8UD-F6-b4X" secondAttribute="leading" id="qAv-Cp-4da"/>
+                            <constraint firstItem="hGF-ih-3TR" firstAttribute="top" secondItem="8UD-F6-b4X" secondAttribute="top" id="unn-N0-IhR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tbvSkill" destination="hGF-ih-3TR" id="EYk-zx-G6S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OuC-e5-N1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544" y="1765"/>
         </scene>
         <!--Job Type View Controller-->
         <scene sceneID="JIy-QS-W4K">
@@ -256,8 +340,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-9D-dfc">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-9D-dfc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>

@@ -8,8 +8,12 @@
 
 #import "AppDelegate.h"
 #import "Constant.h"
+#import "AFNetworking.h"
+#import "Skill.h"
 
 @interface AppDelegate ()
+
+
 
 @end
 
@@ -24,6 +28,11 @@
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     
     [self.window setTintColor:[UIColor whiteColor]];
+    
+    _skills = [[NSMutableArray alloc]init];
+    
+    [self loadSkills];
+    
     
     return YES;
 }
@@ -48,6 +57,35 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)loadSkills;
+{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
+    
+    NSString *stringUrl = [NSString stringWithFormat:kSkillUrl];
+    
+    NSURLSessionDataTask *dataTask = [httpSessionManager GET:stringUrl
+                                                  parameters:nil
+                                                    progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                        if (responseObject) {
+                                                            for (NSDictionary *jsonDict in responseObject[@"items"]) {
+                                                                Skill *newSkill = [[Skill alloc]initWithJson:jsonDict];
+                                                                [_skills addObject:newSkill];
+                                                            }
+                                                            
+                                                        }
+                                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                        if (error) {
+                                                        
+                                                            
+                                                        }
+                                                    }];
+    
+    [dataTask resume];
+    
 }
 
 @end

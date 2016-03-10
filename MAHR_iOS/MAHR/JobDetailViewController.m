@@ -10,15 +10,21 @@
 #import "DetailCell.h"
 #import "WorkerViewController.h"
 #import "Constant.h"
-#import "JobMoreViewController.h"
 #import "HexColors.h"
 #import "SCLAlertView.h"
+#import "AppDelegate.h"
+#import "Skill.h"
+#import "EducationViewController.h"
+#import "LanguageViewController.h"
+#import "SkillViewController.h"
 
 @interface JobDetailViewController ()
 
+@property(nonatomic,strong) NSMutableArray *skills;
+
 @property(nonatomic,strong) UIBarButtonItem *barItem;
 
-@property(nonatomic,assign) int expertiseType;
+@property(nonatomic,strong) NSMutableArray *expertises;
 
 @property(nonatomic,assign) int ageFrom;
 @property(nonatomic,assign) int ageTo;
@@ -29,7 +35,7 @@
 @property(nonatomic,assign) int weightFrom;
 @property(nonatomic,assign) int weightTo;
 
-@property(nonatomic,assign) int languageType;
+@property(nonatomic,strong) NSMutableArray *languages;
 
 @property(nonatomic,assign) int experienceFrom;
 @property(nonatomic,assign) int experienceTo;
@@ -45,7 +51,7 @@
     // Do any additional setup after loading the view.
     
     
-    _expertiseType = CNC;
+    _expertises = [[NSMutableArray alloc]init];
     
     _ageFrom = 18;
     _ageTo = 30;
@@ -56,7 +62,7 @@
     _weightFrom = 40;
     _weightTo = 100;
     
-    _languageType = VietNam;
+    _languages = [[NSMutableArray alloc]init];
     
     _experienceFrom = 0;
     _experienceTo = 10;
@@ -79,6 +85,15 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    
+    
+    if (!_skills) {
+        _skills = [[NSMutableArray alloc]init];
+    }
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _skills = appDelegate.skills;
     
     if (_jobType == MaleWorker) {
         self.title = @"Công xưởng nam";
@@ -106,12 +121,12 @@
 
 - (void)reloadExpertise:(NSNotification *)notification;
 {
-    _expertiseType = [[notification object] intValue];
+    _expertises = [notification object];
 }
 
 - (void)reloadLanguage:(NSNotification *)notification;
 {
-    _languageType = [[notification object] intValue];
+    _languages = [notification object];
 }
 
 - (void)reloadEducation:(NSNotification *)notification;
@@ -123,6 +138,8 @@
 - (void)btnFilterDidTouch;
 {
     WorkerViewController *workerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"worker"];
+    
+    
     
     [self.navigationController pushViewController:workerViewController animated:YES];
 }
@@ -151,7 +168,18 @@
         
         cell.lblDetail.text = @"Sở trường";
         cell.imageView.image = [UIImage imageNamed:@"0"];
-        [cell setSingleValue:_expertiseType type:CNC];
+        cell.lblFrom.hidden = YES;
+        cell.lblMinus.hidden = YES;
+        NSString *skillString = [[NSString alloc]init];
+        for (Skill *skill in _expertises) {
+            skillString = [skillString stringByAppendingString:[NSString stringWithFormat:@"%@, ",skill.name]];
+        }
+        
+        if (skillString.length>0) {
+            skillString = [skillString substringToIndex:skillString.length - 2];
+        }
+        
+        cell.lblTo.text = skillString;
         
     } else if (indexPath.row == Age){
         
@@ -175,7 +203,18 @@
         
         cell.lblDetail.text = @"Ngôn ngữ";
         cell.imageView.image = [UIImage imageNamed:@"4"];
-        [cell setSingleValue:_languageType type:Language];
+        cell.lblFrom.hidden = YES;
+        cell.lblMinus.hidden = YES;
+        NSString *languagesString = [[NSString alloc]init];
+        for (NSString *language in _languages) {
+            languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",language]];
+        }
+        
+        if (languagesString.length>0) {
+            languagesString = [languagesString substringToIndex:languagesString.length - 2];
+        }
+        
+        cell.lblTo.text = languagesString;
         
     } else if (indexPath.row == Experience){
         
@@ -187,7 +226,17 @@
         
         cell.lblDetail.text = @"Trình độ";
         cell.imageView.image = [UIImage imageNamed:@"6"];
-        [cell setSingleValue:_educationType type:Education];
+        cell.lblFrom.hidden = YES;
+        cell.lblMinus.hidden = YES;
+        if (_educationType == JuniorHigh) {
+            cell.lblTo.text = @"Trung học cơ sở";
+        } else if (_educationType == High){
+            cell.lblTo.text = @"Trung học phổ thông";
+        } else if (_educationType == College){
+            cell.lblTo.text = @"Cao đẳng";
+        } else if (_educationType == University){
+            cell.lblTo.text = @"Đại học";
+        }
         
     }
     
@@ -203,7 +252,19 @@
     
     if (indexPath.row == Expertise) {
         
-        [self showJobMoreViewWithJobDetail:Expertise type:_expertiseType];
+        SkillViewController *skillMoreViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"skill"];
+        skillMoreViewController.selectedRows = _expertises;
+        skillMoreViewController.skills = _skills;
+        
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        [skillMoreViewController setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:skillMoreViewController animated:NO];
+
         
         
     } else if (indexPath.row == Age){
@@ -301,7 +362,17 @@
         
     } else if (indexPath.row == Language){
         
-        [self showJobMoreViewWithJobDetail:Language type:_languageType];
+        LanguageViewController *languageMoreViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"language"];
+        languageMoreViewController.selectedRows = _languages;
+        
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        [languageMoreViewController setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:languageMoreViewController animated:NO];
         
     } else if (indexPath.row == Experience){
         SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
@@ -335,30 +406,24 @@
         
     } else if (indexPath.row == Education){
      
-        [self showJobMoreViewWithJobDetail:Education type:_educationType];
+        //[self showJobMoreViewWithJobDetail:Education type:_educationType];
+        EducationViewController *educationMoreViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"education"];
+        educationMoreViewController.selectedRow = _educationType - 1;
+        
+        CATransition* transition = [CATransition animation];
+        transition.duration = 0.3f;
+        transition.type = kCATransitionMoveIn;
+        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition
+                                                    forKey:kCATransition];
+        [educationMoreViewController setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:educationMoreViewController animated:NO];
         
     }
     
 }
 
 #pragma mark - Class funtion
-
-- (void)showJobMoreViewWithJobDetail:(int)detail type:(int)type;
-{
-    JobMoreViewController *jobMoreViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobMore"];
-    
-    jobMoreViewController.jobDetailType = detail;
-    jobMoreViewController.selectedRow = type;
-    
-    CATransition* transition = [CATransition animation];
-    transition.duration = 0.3f;
-    transition.type = kCATransitionMoveIn;
-    transition.subtype = kCATransitionFromTop;
-    [self.navigationController.view.layer addAnimation:transition
-                                                forKey:kCATransition];
-    [jobMoreViewController setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:jobMoreViewController animated:NO];
-}
 
 - (int)intFromString:(NSString *)string;
 {

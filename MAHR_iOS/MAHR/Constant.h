@@ -9,6 +9,10 @@
 #ifndef Constant_h
 #define Constant_h
 
+
+
+#endif /* Constant_h */
+
 //MARK: Enum
 
 typedef NS_ENUM(int, RegionType) {
@@ -49,13 +53,11 @@ typedef NS_ENUM(int, LanguageType) {
 };
 
 typedef NS_ENUM(int, EducationType) {
-    JuniorHigh,
+    JuniorHigh = 1,
     High,
     College,
     University,
 };
-
-#endif /* Constant_h */
 
 
 //MARK: Image
@@ -76,3 +78,5 @@ typedef NS_ENUM(int, EducationType) {
 #define kMainBackgroundColor                                @"#E8F5E9"
 
 #define kLanguageButtonTextColor                            @"#E8F5E9"
+
+#define kSkillUrl                                           @"http://api.mahr.adcviet.com/v1/skills"
