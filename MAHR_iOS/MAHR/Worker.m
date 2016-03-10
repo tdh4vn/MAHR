@@ -40,6 +40,11 @@
         } else {
             _avatarUrl = jsonDict[@"avatar"];
         }
+        if ([jsonDict[@"excel_path"] isKindOfClass:[NSNull class]]) {
+            _exceUrl = @"";
+        } else {
+            _exceUrl = jsonDict[@"excel_path"];
+        }
     }
     
     return self;

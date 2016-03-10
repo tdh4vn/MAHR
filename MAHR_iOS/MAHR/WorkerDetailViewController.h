@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Worker.h"
 
 @interface WorkerDetailViewController : UIViewController
 
+@property(nonatomic,strong) Worker *selectedWorker;
 @property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
 
 @end

@@ -78,9 +78,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    WorkerDetailViewController *workerDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"workDetail"];
-    
-    [self.navigationController pushViewController:workerDetailViewController animated:YES];
+    if ([[_workers[indexPath.row] exceUrl] isEqualToString:@""]) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                       message:@"没有数据"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *done = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:done];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else {
+        WorkerDetailViewController *workerDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"workDetail"];
+        workerDetailViewController.selectedWorker = _workers[indexPath.row];
+        
+        [self.navigationController pushViewController:workerDetailViewController animated:YES];
+    }
     
 }
 

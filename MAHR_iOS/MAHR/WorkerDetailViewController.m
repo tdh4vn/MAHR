@@ -24,14 +24,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Nguyễn Văn A";
+    self.title = _selectedWorker.name;
     
     _barItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStyleBordered target:self action:@selector(btnShareDidTouch)];
     
     
     _viewWeb.backgroundColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
     
-    NSString *stringUrl = @"https://docs.google.com/gview?embedded=true&url=techkids.edu.vn/YT001%20NGUYEN%20VAN%20TRUNG-修理發動機、電焊.xls";
+    NSString *stringUrl = [NSString stringWithFormat:@"https://docs.google.com/gview?embedded=true&url=%@",_selectedWorker.exceUrl];
     
     
     NSString *encoded = [stringUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

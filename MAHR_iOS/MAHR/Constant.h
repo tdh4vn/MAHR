@@ -32,7 +32,6 @@ typedef NS_ENUM(int, JobDetailType) {
     Height,
     Weight,
     Language,
-    Experience,
     Education,
 };
 

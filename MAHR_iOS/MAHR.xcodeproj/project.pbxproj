@@ -84,6 +84,7 @@
 		89505C641C8CC121005148C2 /* WorkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C631C8CC121005148C2 /* WorkerViewController.m */; };
 		89505C681C8CC1B4005148C2 /* WorkerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89505C661C8CC1B4005148C2 /* WorkerCell.m */; };
 		89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89505C671C8CC1B4005148C2 /* WorkerCell.xib */; };
+		89A249CB1C91D56E008F6309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A249CA1C91D56E008F6309 /* Assets.xcassets */; };
 		89C0AB9A1C8C7598008F6457 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0AB991C8C7598008F6457 /* MainViewController.m */; };
 		89C0ABA61C8C7F54008F6457 /* JobTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABA51C8C7F54008F6457 /* JobTypeViewController.m */; };
 		89C0ABAB1C8C821E008F6457 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C0ABAA1C8C821E008F6457 /* UIButton+Custom.m */; };
@@ -93,7 +94,6 @@
 		89C49C9B1C8C646500A16B83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49C9A1C8C646500A16B83 /* main.m */; };
 		89C49C9E1C8C646500A16B83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49C9D1C8C646500A16B83 /* AppDelegate.m */; };
 		89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA21C8C646500A16B83 /* Main.storyboard */; };
-		89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA51C8C646500A16B83 /* Assets.xcassets */; };
 		89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */; };
 		89C49CB41C8C672600A16B83 /* Language.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CB31C8C672600A16B83 /* Language.json */; };
 		89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49CB61C8C6D4700A16B83 /* RegionViewController.m */; };
@@ -263,6 +263,7 @@
 		89505C651C8CC1B4005148C2 /* WorkerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerCell.h; sourceTree = "<group>"; };
 		89505C661C8CC1B4005148C2 /* WorkerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerCell.m; sourceTree = "<group>"; };
 		89505C671C8CC1B4005148C2 /* WorkerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkerCell.xib; sourceTree = "<group>"; };
+		89A249CA1C91D56E008F6309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C0AB981C8C7598008F6457 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		89C0AB991C8C7598008F6457 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		89C0ABA41C8C7F54008F6457 /* JobTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTypeViewController.h; sourceTree = "<group>"; };
@@ -279,7 +280,6 @@
 		89C49C9C1C8C646500A16B83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		89C49C9D1C8C646500A16B83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		89C49CA31C8C646500A16B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		89C49CA51C8C646500A16B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C49CA81C8C646500A16B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C49CAA1C8C646500A16B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89C49CB31C8C672600A16B83 /* Language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Language.json; sourceTree = "<group>"; };
@@ -660,8 +660,8 @@
 			isa = PBXGroup;
 			children = (
 				89C49CA21C8C646500A16B83 /* Main.storyboard */,
-				89C49CA51C8C646500A16B83 /* Assets.xcassets */,
 				89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */,
+				89A249CA1C91D56E008F6309 /* Assets.xcassets */,
 				89C0ABAF1C8C8DD4008F6457 /* CustomCell */,
 				89C0AB971C8C7578008F6457 /* MainViewController */,
 				89C49CB11C8C64F600A16B83 /* Region */,
@@ -781,7 +781,7 @@
 				89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */,
 				89505C691C8CC1B4005148C2 /* WorkerCell.xib in Resources */,
 				89C49CB41C8C672600A16B83 /* Language.json in Resources */,
-				89C49CA61C8C646500A16B83 /* Assets.xcassets in Resources */,
+				89A249CB1C91D56E008F6309 /* Assets.xcassets in Resources */,
 				89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */,
 				89C0ABB41C8C8E2C008F6457 /* DetailCell.xib in Resources */,
 			);

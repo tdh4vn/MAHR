@@ -15,7 +15,7 @@
 @property(nonatomic,strong) NSString *height;
 @property(nonatomic,strong) NSString *weight;
 @property(nonatomic,strong) NSString *avatarUrl;
-
+@property(nonatomic,strong) NSString *exceUrl;
 - (instancetype)initWithJson:(NSDictionary *)jsonDict;
 
 @end

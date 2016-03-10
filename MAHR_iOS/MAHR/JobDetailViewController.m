@@ -38,9 +38,6 @@
 
 @property(nonatomic,strong) NSMutableArray *languages;
 
-@property(nonatomic,assign) int experienceFrom;
-@property(nonatomic,assign) int experienceTo;
-
 @property(nonatomic,assign) int educationType;
 
 @end
@@ -67,9 +64,6 @@
     _weightTo = 200;
     
     _languages = [[NSMutableArray alloc]init];
-    
-    _experienceFrom = 0;
-    _experienceTo = 100;
     
     _educationType = JuniorHigh;
     
@@ -128,7 +122,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -198,12 +192,6 @@
         }
         
         cell.lblTo.text = languagesString;
-        
-    } else if (indexPath.row == Experience){
-        
-        cell.lblDetail.text = @"经 验";
-        cell.imageView.image = [UIImage imageNamed:@"5"];
-        [cell setValueFrom:_experienceFrom to:_experienceTo];
         
     } else if (indexPath.row == Education){
         
@@ -357,36 +345,6 @@
         [languageMoreViewController setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:languageMoreViewController animated:NO];
         
-    } else if (indexPath.row == Experience){
-        SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
-        alert.tintTopCircle = NO;
-        alert.iconTintColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
-        alert.useLargerIcon = NO;
-        alert.cornerRadius = 13.0f;
-        
-        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d 年",_experienceFrom]];
-        fromField.keyboardType = UIKeyboardTypeNumberPad;
-        
-        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d 年",_experienceTo]];
-        toField.keyboardType = UIKeyboardTypeNumberPad;
-        
-        [alert addButton:@"好" actionBlock:^{
-            if (fromField.text.length != 0) {
-                _experienceFrom = [self intFromString:fromField.text];
-            }
-            
-            if (toField.text.length != 0) {
-                _experienceTo = [self intFromString:toField.text];
-            }
-            
-            [_tbvDetails reloadData];
-        }];
-        
-        
-        [alert showCustom:self image:[UIImage imageNamed:@"5"] color:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor] title:nil subTitle:nil closeButtonTitle:nil duration:0.0f];
-        
-        [fromField becomeFirstResponder];
-        
     } else if (indexPath.row == Education){
      
         //[self showJobMoreViewWithJobDetail:Education type:_educationType];
@@ -438,7 +396,12 @@
         filters = [filters substringToIndex:filters.length - 1];
     }
     
-    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=age+beetween+%d,%d",_ageFrom,_ageTo]];
+    NSDate *currentDate = [NSDate date];
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:currentDate];
+    int currentYear = (int)[components year];
+    
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=birthyear+beetween+%d,%d",(currentYear - _ageTo),(currentYear - _ageFrom)]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=height+beetween+%d,%d",_heightFrom,_heightTo]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=weight+beetween+%d,%d",_weightFrom,_weightTo]];
     if (_languages.count > 0) {
@@ -448,7 +411,6 @@
         }
         filters = [filters substringToIndex:filters.length - 1];
     }
-    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=exp_year+beetween+%d,%d",_experienceFrom,_experienceTo]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=educational_level+gte+%d",_educationType]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=major+eq+gte+%d",_jobType]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=nation+eq+%@",_region]];
