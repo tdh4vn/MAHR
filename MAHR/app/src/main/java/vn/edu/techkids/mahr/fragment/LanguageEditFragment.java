@@ -100,6 +100,7 @@ public class LanguageEditFragment extends DialogFragment implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        JobCriteria.getInst().notifyListener();
         this.dismiss();
     }
 

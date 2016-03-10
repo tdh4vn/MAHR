@@ -119,6 +119,7 @@ public class ExpertiseEditFragment extends DialogFragment implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        JobCriteria.getInst().notifyListener();
         this.dismiss();
     }
 
