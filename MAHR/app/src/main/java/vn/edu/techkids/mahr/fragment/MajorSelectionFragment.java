@@ -28,6 +28,16 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
     @Override
     public void onStart() {
         super.onStart();
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.trans_left_in,R.anim.trans_left_out);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         getScreenManager().showActionBar();
         /*getScreenManager().setTitleOfActionBar(getString(R.string.listJobMainName));*/
         String title = "";
@@ -37,14 +47,6 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
         }
         getScreenManager().setTitleOfActionBar(title);
         getScreenManager().showDisplayHomeButton();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.trans_left_in,R.anim.trans_left_out);
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
