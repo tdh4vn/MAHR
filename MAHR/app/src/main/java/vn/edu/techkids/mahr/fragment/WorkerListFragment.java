@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.adapter.WorkerRecyclerViewAdapter;
+import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
@@ -93,6 +95,25 @@ public class WorkerListFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+
+        String title = "";
+        switch (JobCriteria.getInst().getNationality()) {
+            case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
+            case Constants.API_VIETNAM: title = getString(R.string.vietnam); break;
+        }
+
+        switch (JobCriteria.getInst().getMajor()) {
+            case Constants.API_MAJOR_MALE_WORKER: title += " | " + getString(R.string.male_employee); break;
+            case Constants.API_MAJOR_FEMALE_WORKER: title = " | " +getString(R.string.female_employee); break;
+            case Constants.API_MAJOR_HOUSEMAID: title = " | " + getString(R.string.house_maid); break;
+        }
+
+        getScreenManager().setTitleOfActionBar(title);
+
+        super.onViewStateRestored(savedInstanceState);
+    }
 
     @Override
     public void onAttach(Context context) {

@@ -82,6 +82,12 @@ public class JobCriteriaFragment extends BaseFragment implements
 
         getScreenManager().showActionBar();
 
+
+    }
+
+    @Override
+    public void onStart() {
+
         String title = "";
         switch (JobCriteria.getInst().getNationality()) {
             case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
@@ -95,10 +101,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         }
 
         getScreenManager().setTitleOfActionBar(title);
-    }
 
-    @Override
-    public void onStart() {
         super.onStart();
     }
 

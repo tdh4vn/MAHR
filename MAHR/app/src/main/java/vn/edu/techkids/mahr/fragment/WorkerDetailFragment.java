@@ -39,9 +39,15 @@ public class WorkerDetailFragment extends BaseFragment {
 
         mWvWorkerDetail.loadUrl("https://docs.google.com/gview?embedded=true&url=" + mWorkerDetailUrl);
 
-        getScreenManager().setTitleOfActionBar(getString(R.string.detail));
+
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        getScreenManager().setTitleOfActionBar(getString(R.string.detail));
+        super.onStart();
     }
 
     private class AppWebViewClients extends WebViewClient {
