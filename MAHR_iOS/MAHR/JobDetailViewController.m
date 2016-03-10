@@ -17,6 +17,7 @@
 #import "EducationViewController.h"
 #import "LanguageViewController.h"
 #import "SkillViewController.h"
+#import "UIButton+Custom.h"
 
 @interface JobDetailViewController ()
 
@@ -50,6 +51,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [_btnFilter custom];
     
     _expertises = [[NSMutableArray alloc]init];
     
@@ -76,7 +80,6 @@
     
     _tbvDetails.tableFooterView = [[UIView alloc]init];
     
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Lọc" style:UIBarButtonItemStyleBordered target:self action:@selector(btnFilterDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
     
 }
@@ -423,7 +426,7 @@
     
 }
 
-- (void)btnFilterDidTouch;
+- (IBAction)btnFilterDidTouch:(id)sender;
 {
     WorkerViewController *workerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"worker"];
     
@@ -457,7 +460,14 @@
     workerViewController.filterUrl = filterUrl;
     
     
-    [self.navigationController pushViewController:workerViewController animated:YES];
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.3f;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromBottom;
+    [self.navigationController.view.layer addAnimation:transition
+                                                forKey:kCATransition];
+    [workerViewController setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:workerViewController animated:NO];
 }
 
 - (int)intFromString:(NSString *)string;

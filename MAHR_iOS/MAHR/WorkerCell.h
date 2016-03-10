@@ -6,6 +6,7 @@
 //  Copyright © 2016 Trung Đức. All rights reserved.
 //
 
+#import "Worker.h"
 #import <UIKit/UIKit.h>
 
 @interface WorkerCell : UITableViewCell
@@ -15,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAge;
 @property (weak, nonatomic) IBOutlet UILabel *lblHeight;
 @property (weak, nonatomic) IBOutlet UILabel *lblWeight;
+
+- (void)cellWithWorker:(Worker *)worker;
 
 @end

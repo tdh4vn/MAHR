@@ -21,7 +21,6 @@
     [_btnFemaleWorker custom];
     [_btnHouseMaid custom];
     
-    
     self.title = @"职位类型";
     
 }

@@ -35,40 +35,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-kh-CMd">
-                                <rect key="frame" x="50" y="384" width="500" height="70"/>
+                                <rect key="frame" x="50" y="470" width="500" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="印尼"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="50" y="450" width="300" height="42"/>
+                                </variation>
                                 <connections>
                                     <action selector="btnIndonesiaDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="pa3-zS-L9h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-7M-lcH">
-                                <rect key="frame" x="50" y="214" width="500" height="70"/>
+                                <rect key="frame" x="50" y="378" width="500" height="42"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="fzm-dp-dI8"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="越南"/>
                                 <connections>
                                     <action selector="btnVietNamDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="69J-pc-M4c"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
+                                <rect key="frame" x="180" y="164" width="240" height="144"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hgt-kh-CMd" firstAttribute="height" secondItem="LSN-7M-lcH" secondAttribute="height" id="2sb-sF-urA"/>
-                            <constraint firstItem="LSN-7M-lcH" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="ImI-hT-AuW"/>
-                            <constraint firstItem="LSN-7M-lcH" firstAttribute="top" secondItem="8Jj-hb-eD1" secondAttribute="bottom" constant="150" id="LMh-mp-RPg"/>
-                            <constraint firstItem="hgt-kh-CMd" firstAttribute="top" secondItem="LSN-7M-lcH" secondAttribute="bottom" constant="100" id="Lqp-JE-wck"/>
-                            <constraint firstItem="hgt-kh-CMd" firstAttribute="width" secondItem="LSN-7M-lcH" secondAttribute="width" id="Pj4-hD-s6n"/>
-                            <constraint firstItem="LSN-7M-lcH" firstAttribute="leading" secondItem="CQR-A2-1Aa" secondAttribute="leading" constant="50" id="bxt-v2-uRS"/>
-                            <constraint firstItem="Cha-OB-HE0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hgt-kh-CMd" secondAttribute="bottom" priority="900" constant="100" id="hoR-a8-FZm"/>
-                            <constraint firstAttribute="trailing" secondItem="LSN-7M-lcH" secondAttribute="trailing" constant="50" id="jv0-r6-R2H"/>
-                            <constraint firstItem="hgt-kh-CMd" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="nQt-9u-xsL"/>
+                            <constraint firstAttribute="trailing" secondItem="hgt-kh-CMd" secondAttribute="trailing" constant="50" id="1QG-TR-0gi"/>
+                            <constraint firstItem="7Ix-BP-uI1" firstAttribute="top" secondItem="8Jj-hb-eD1" secondAttribute="bottom" constant="100" id="3ma-OI-6Pe">
+                                <variation key="widthClass=compact" constant="50"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="hgt-kh-CMd" secondAttribute="trailing" constant="50" id="73R-mr-D0s"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="top" secondItem="LSN-7M-lcH" secondAttribute="bottom" constant="50" id="7z0-7t-rlT"/>
+                            <constraint firstItem="7Ix-BP-uI1" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="A4p-tY-VPP"/>
+                            <constraint firstItem="LSN-7M-lcH" firstAttribute="top" secondItem="7Ix-BP-uI1" secondAttribute="bottom" constant="70" id="Iax-tV-UvY"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="leading" secondItem="CQR-A2-1Aa" secondAttribute="leading" constant="50" id="IqU-IQ-ABr"/>
+                            <constraint firstAttribute="trailing" secondItem="LSN-7M-lcH" secondAttribute="trailing" constant="50" id="KDo-TC-lMe"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="top" secondItem="LSN-7M-lcH" secondAttribute="bottom" constant="50" id="TKG-nc-b4J"/>
+                            <constraint firstAttribute="trailing" secondItem="LSN-7M-lcH" secondAttribute="trailing" constant="50" id="Xl9-F2-ken"/>
+                            <constraint firstItem="LSN-7M-lcH" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="cBd-DB-oV6"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="dCV-ne-qEN"/>
+                            <constraint firstItem="LSN-7M-lcH" firstAttribute="leading" secondItem="CQR-A2-1Aa" secondAttribute="leading" constant="50" id="fXU-5a-REz"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="leading" secondItem="CQR-A2-1Aa" secondAttribute="leading" constant="50" id="iSD-0c-KFI"/>
+                            <constraint firstItem="LSN-7M-lcH" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="m4t-oW-YEK"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="top" secondItem="LSN-7M-lcH" secondAttribute="bottom" constant="50" id="mFh-pd-GX2"/>
+                            <constraint firstItem="hgt-kh-CMd" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="uaI-dH-iRE"/>
+                            <constraint firstItem="LSN-7M-lcH" firstAttribute="leading" secondItem="CQR-A2-1Aa" secondAttribute="leading" constant="50" id="xxA-jN-f8s"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xl9-F2-ken"/>
+                                <exclude reference="cBd-DB-oV6"/>
+                                <exclude reference="xxA-jN-f8s"/>
+                                <exclude reference="73R-mr-D0s"/>
+                                <exclude reference="7z0-7t-rlT"/>
+                                <exclude reference="dCV-ne-qEN"/>
+                                <exclude reference="iSD-0c-KFI"/>
+                                <exclude reference="mFh-pd-GX2"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Xl9-F2-ken"/>
+                                <exclude reference="m4t-oW-YEK"/>
+                                <exclude reference="xxA-jN-f8s"/>
+                                <exclude reference="1QG-TR-0gi"/>
+                                <include reference="73R-mr-D0s"/>
+                                <exclude reference="IqU-IQ-ABr"/>
+                                <exclude reference="TKG-nc-b4J"/>
+                                <include reference="iSD-0c-KFI"/>
+                                <include reference="mFh-pd-GX2"/>
+                                <exclude reference="uaI-dH-iRE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="地区" id="SWu-vq-rzW"/>
                     <connections>
@@ -264,6 +305,11 @@
                                 <state key="normal" title="男性厂">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="edm-ig-Av4"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="btnMaleWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="aqt-aO-aA7"/>
                                 </connections>
@@ -278,6 +324,11 @@
                                 <state key="normal" title="室友">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="3dm-a8-Sp9"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="btnHouseMaidWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="AM7-ZQ-FdE"/>
                                 </connections>
@@ -292,6 +343,11 @@
                                 <state key="normal" title="女工厂">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="onc-jK-4ta"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="btnFemaleWorkerDidTouch:" destination="alc-Wf-Cjp" eventType="touchUpInside" id="Cmo-04-wkd"/>
                                 </connections>
@@ -300,21 +356,71 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DKx-K7-bOc" firstAttribute="centerX" secondItem="tRE-QO-44F" secondAttribute="centerX" id="2dr-dg-CYO"/>
+                            <constraint firstItem="DKx-K7-bOc" firstAttribute="top" secondItem="0sk-Gv-B1w" secondAttribute="bottom" constant="40" id="7im-B9-03d"/>
+                            <constraint firstAttribute="trailing" secondItem="0sk-Gv-B1w" secondAttribute="trailing" constant="50" id="9lV-sy-LhP"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="top" secondItem="RYU-VY-SWz" secondAttribute="bottom" constant="100" id="C3y-Dd-TuR"/>
                             <constraint firstItem="0sk-Gv-B1w" firstAttribute="top" secondItem="hIE-Yb-Fg1" secondAttribute="bottom" constant="40" id="CpJ-u6-Rms"/>
+                            <constraint firstAttribute="trailing" secondItem="DKx-K7-bOc" secondAttribute="trailing" constant="50" id="Hoj-Ne-duq"/>
                             <constraint firstItem="hIE-Yb-Fg1" firstAttribute="top" secondItem="RYU-VY-SWz" secondAttribute="bottom" constant="100" id="JLx-t3-w7w"/>
+                            <constraint firstItem="0sk-Gv-B1w" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="Kht-Zv-ZCp"/>
                             <constraint firstAttribute="trailing" secondItem="DKx-K7-bOc" secondAttribute="trailing" constant="50" id="Ohq-EL-Wi7"/>
+                            <constraint firstAttribute="trailing" secondItem="hIE-Yb-Fg1" secondAttribute="trailing" constant="50" id="QSi-IJ-O8C"/>
+                            <constraint firstItem="DKx-K7-bOc" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="Qj7-aB-LI5"/>
                             <constraint firstItem="DKx-K7-bOc" firstAttribute="top" secondItem="0sk-Gv-B1w" secondAttribute="bottom" constant="40" id="Ra4-gO-qE0"/>
                             <constraint firstItem="YJb-DG-yVi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DKx-K7-bOc" secondAttribute="bottom" priority="900" constant="100" id="RfC-Sd-2oq"/>
                             <constraint firstItem="hIE-Yb-Fg1" firstAttribute="top" secondItem="RYU-VY-SWz" secondAttribute="bottom" constant="100" id="YeF-4M-C42"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="centerX" secondItem="tRE-QO-44F" secondAttribute="centerX" id="Ywa-zh-d9t"/>
+                            <constraint firstItem="hIE-Yb-Fg1" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="aRR-fN-mFL"/>
+                            <constraint firstItem="0sk-Gv-B1w" firstAttribute="centerX" secondItem="tRE-QO-44F" secondAttribute="centerX" id="dBe-Jb-4JL"/>
                             <constraint firstItem="hIE-Yb-Fg1" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="hgF-dZ-HzK"/>
                             <constraint firstAttribute="trailing" secondItem="hIE-Yb-Fg1" secondAttribute="trailing" constant="50" id="jwW-rI-wRi"/>
                             <constraint firstItem="DKx-K7-bOc" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="k9K-xj-HQg"/>
+                            <constraint firstItem="0sk-Gv-B1w" firstAttribute="top" secondItem="hIE-Yb-Fg1" secondAttribute="bottom" constant="40" id="nph-Xy-c4Z"/>
                             <constraint firstAttribute="trailing" secondItem="0sk-Gv-B1w" secondAttribute="trailing" constant="50" id="typ-G9-gp6"/>
                             <constraint firstItem="0sk-Gv-B1w" firstAttribute="leading" secondItem="tRE-QO-44F" secondAttribute="leading" constant="50" id="xVp-TM-3wf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="C3y-Dd-TuR"/>
                                 <exclude reference="JLx-t3-w7w"/>
+                                <exclude reference="QSi-IJ-O8C"/>
+                                <exclude reference="Ywa-zh-d9t"/>
+                                <exclude reference="aRR-fN-mFL"/>
+                                <exclude reference="9lV-sy-LhP"/>
+                                <exclude reference="Kht-Zv-ZCp"/>
+                                <exclude reference="dBe-Jb-4JL"/>
+                                <exclude reference="nph-Xy-c4Z"/>
+                                <exclude reference="2dr-dg-CYO"/>
+                                <exclude reference="7im-B9-03d"/>
+                                <exclude reference="Hoj-Ne-duq"/>
+                                <exclude reference="Qj7-aB-LI5"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="C3y-Dd-TuR"/>
+                                <include reference="QSi-IJ-O8C"/>
+                                <exclude reference="YeF-4M-C42"/>
+                                <include reference="Ywa-zh-d9t"/>
+                                <include reference="aRR-fN-mFL"/>
+                                <exclude reference="hgF-dZ-HzK"/>
+                                <exclude reference="jwW-rI-wRi"/>
+                                <include reference="9lV-sy-LhP"/>
+                                <exclude reference="CpJ-u6-Rms"/>
+                                <include reference="Kht-Zv-ZCp"/>
+                                <include reference="dBe-Jb-4JL"/>
+                                <include reference="nph-Xy-c4Z"/>
+                                <exclude reference="typ-G9-gp6"/>
+                                <exclude reference="xVp-TM-3wf"/>
+                                <include reference="2dr-dg-CYO"/>
+                                <include reference="7im-B9-03d"/>
+                                <include reference="Hoj-Ne-duq"/>
+                                <exclude reference="Ohq-EL-Wi7"/>
+                                <include reference="Qj7-aB-LI5"/>
+                                <exclude reference="Ra4-gO-qE0"/>
+                                <exclude reference="k9K-xj-HQg"/>
+                                <exclude reference="RfC-Sd-2oq"/>
                             </mask>
                         </variation>
                     </view>
@@ -341,7 +447,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-9D-dfc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="546"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -349,12 +455,28 @@
                                     <outlet property="delegate" destination="W3X-Vi-no3" id="qbt-G6-O2h"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tv-Sn-yA9">
+                                <rect key="frame" x="245" y="553" width="110" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mwA-FL-Wx1"/>
+                                </constraints>
+                                <state key="normal" title="          搜尋          "/>
+                                <connections>
+                                    <action selector="btnFilterDidTouch:" destination="W3X-Vi-no3" eventType="touchUpInside" id="0I7-R7-u2w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TpQ-Qk-yrI" firstAttribute="top" secondItem="f7q-9D-dfc" secondAttribute="bottom" id="4OI-Mf-2t7"/>
+                            <constraint firstItem="9Tv-Sn-yA9" firstAttribute="centerX" secondItem="tdk-Ij-tIU" secondAttribute="centerX" id="Dzv-jO-rSi"/>
+                            <constraint firstAttribute="trailing" secondItem="9Tv-Sn-yA9" secondAttribute="trailing" constant="150" id="QBv-g2-MDo"/>
                             <constraint firstAttribute="trailing" secondItem="f7q-9D-dfc" secondAttribute="trailing" id="U1h-dc-osc"/>
+                            <constraint firstItem="9Tv-Sn-yA9" firstAttribute="top" secondItem="f7q-9D-dfc" secondAttribute="bottom" constant="7" id="ffl-Oy-eqY"/>
+                            <constraint firstItem="9Tv-Sn-yA9" firstAttribute="leading" secondItem="tdk-Ij-tIU" secondAttribute="leading" constant="150" id="gwt-23-tUT"/>
+                            <constraint firstItem="TpQ-Qk-yrI" firstAttribute="top" secondItem="9Tv-Sn-yA9" secondAttribute="bottom" constant="7" id="hhv-WB-f1G"/>
                             <constraint firstItem="f7q-9D-dfc" firstAttribute="top" secondItem="jgA-Bo-RCk" secondAttribute="bottom" id="nPV-iT-FHP"/>
                             <constraint firstItem="f7q-9D-dfc" firstAttribute="top" secondItem="tdk-Ij-tIU" secondAttribute="top" id="pDm-15-eBB"/>
                             <constraint firstItem="f7q-9D-dfc" firstAttribute="leading" secondItem="tdk-Ij-tIU" secondAttribute="leading" id="qhy-jL-Js4"/>
@@ -362,10 +484,14 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="nPV-iT-FHP"/>
+                                <exclude reference="4OI-Mf-2t7"/>
+                                <exclude reference="QBv-g2-MDo"/>
+                                <exclude reference="gwt-23-tUT"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="btnFilter" destination="9Tv-Sn-yA9" id="4QI-8Z-pTp"/>
                         <outlet property="tbvDetails" destination="f7q-9D-dfc" id="bmm-EP-ZW8"/>
                     </connections>
                 </viewController>
@@ -409,4 +535,7 @@
             <point key="canvasLocation" x="2262" y="1076"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="welcome" width="240" height="144"/>
+    </resources>
 </document>

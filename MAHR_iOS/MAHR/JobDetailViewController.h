@@ -16,5 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tbvDetails;
 @property (weak, nonatomic) IBOutlet UILabel *lblConnection;
+@property (weak, nonatomic) IBOutlet UIButton *btnFilter;
+- (IBAction)btnFilterDidTouch:(id)sender;
+
 
 @end
