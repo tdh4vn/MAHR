@@ -47,7 +47,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="73dp"
-            android:src="@mipmap/inspira_logo_small1" />
+            android:src="@mipmap/welcome_app" />
     </RelativeLayout>
 
 

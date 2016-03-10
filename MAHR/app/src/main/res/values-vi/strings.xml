@@ -32,5 +32,7 @@
     <string name="university">Đại học</string>
     <string name="weld">Hàn</string>
     <string name="woodwork">Đồ mộc</string>
+    <string name="worker">Nhân công</string>
+    <string name="loading">Đang tải...</string>
 
 </resources>

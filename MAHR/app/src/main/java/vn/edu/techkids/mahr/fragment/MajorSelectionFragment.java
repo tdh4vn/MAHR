@@ -5,14 +5,14 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 
 /**
@@ -20,9 +20,9 @@ import vn.edu.techkids.mahr.R;
  */
 
 
-public class ListJobsActivityFragment extends BaseFragment {
+public class MajorSelectionFragment extends BaseFragment implements OnClickListener{
 
-    public ListJobsActivityFragment() {
+    public MajorSelectionFragment() {
 
     }
 
@@ -53,23 +53,46 @@ public class ListJobsActivityFragment extends BaseFragment {
         Button btnMaleEmployee = (Button) view.findViewById(R.id.btnMaleEmployee);
         Button btnFemaleEmployee = (Button) view.findViewById(R.id.btnFemaleEmployee);
         Button btnHousemaid = (Button) view.findViewById(R.id.btnHousemaid);
-        btnMaleEmployee.setOnClickListener(new View.OnClickListener() {
+
+        btnMaleEmployee.setOnClickListener(this);
+        btnFemaleEmployee.setOnClickListener(this);
+        btnHousemaid.setOnClickListener(this);
+
+        /*btnMaleEmployee.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
         });
-        btnFemaleEmployee.setOnClickListener(new View.OnClickListener() {
+        btnFemaleEmployee.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
         });
-        btnHousemaid.setOnClickListener(new View.OnClickListener() {
+        btnHousemaid.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                getScreenManager().openFragment(new EmployeePropertiesFragment(), true);
+                getScreenManager().openFragment(new JobCriteriaFragment(), true);
             }
-        });
+        });*/
+    }
+
+    @Override
+    public void onClick(View v) {
+        String major = null;
+        switch (v.getId()) {
+            case R.id.btnMaleEmployee:
+                major = Constants.API_MAJOR_MALE_WORKER;
+                break;
+            case R.id.btnFemaleEmployee:
+                major = Constants.API_MAJOR_FEMALE_WORKER;
+                break;
+            case R.id.btnHousemaid:
+                major = Constants.API_MAJOR_HOUSEMAID;
+                break;
+        }
+        JobCriteria.getInst().setMajor(major);
+        getScreenManager().openFragment(new JobCriteriaFragment(), true);
     }
 }

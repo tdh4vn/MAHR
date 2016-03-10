@@ -9,12 +9,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.fragment.EmployeePropertiesFragment;
-import vn.edu.techkids.mahr.fragment.ItemFragment;
+import vn.edu.techkids.mahr.fragment.WorkerListFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
 import vn.edu.techkids.mahr.fragment.ScreenManager;
 
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
             onBackPressed();
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         } else if (item.getItemId() == R.id.action_filter){
-            openFragment(new ItemFragment(), true);
+            openFragment(new WorkerListFragment(), true);
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         }
         return true;

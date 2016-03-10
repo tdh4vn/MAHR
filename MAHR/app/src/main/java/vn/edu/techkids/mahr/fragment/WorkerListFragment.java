@@ -3,7 +3,6 @@ package vn.edu.techkids.mahr.fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.enitity.dummy.DummyContent;
+import vn.edu.techkids.mahr.adapter.WorkerRecyclerViewAdapter;
+import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
  * A fragment representing a list of Items.
@@ -19,7 +19,7 @@ import vn.edu.techkids.mahr.enitity.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ItemFragment extends BaseFragment {
+public class WorkerListFragment extends BaseFragment {
 
     // TODO: Customize parameters
     private int mColumnCount = 1;
@@ -31,8 +31,8 @@ public class ItemFragment extends BaseFragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ItemFragment newInstance(int columnCount) {
-        ItemFragment fragment = new ItemFragment();
+    public static WorkerListFragment newInstance(int columnCount) {
+        WorkerListFragment fragment = new WorkerListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -43,7 +43,7 @@ public class ItemFragment extends BaseFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ItemFragment() {
+    public WorkerListFragment() {
     }
 
     @Override
@@ -51,6 +51,7 @@ public class ItemFragment extends BaseFragment {
         super.onStart();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
+
         getScreenManager().changeTitleOfActionBar(getString(R.string.list_employee));
     }
 
@@ -77,7 +78,7 @@ public class ItemFragment extends BaseFragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new WorkerRecyclerViewAdapter(mListener));
         }
         return view;
     }
@@ -112,6 +113,6 @@ public class ItemFragment extends BaseFragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyContent.Person item);
+        void onListFragmentInteraction(Worker item);
     }
 }

@@ -2,6 +2,7 @@ package vn.edu.techkids.mahr.fragment;
 
 
 import android.app.DialogFragment;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
@@ -16,21 +17,32 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
+import vn.edu.techkids.mahr.enitity.Expertise;
+import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
+import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EmployeePropertiesFragment extends BaseFragment implements
-        AdapterView.OnItemClickListener {
+public class JobCriteriaFragment extends BaseFragment implements
+        AdapterView.OnItemClickListener, JSONPreDownloadHandler, JSONPostDownloadHandler {
     private FloatingActionButton floatingActionButton;
     private ListView mEmployeeProperitesListView;
     private JobCriteria mJobCriteria;
+
+    private ArrayList<Expertise> expertiseArrayList;
 
     //private String[] mEmployeeProperites;
 
@@ -38,27 +50,25 @@ public class EmployeePropertiesFragment extends BaseFragment implements
 
     private ArrayList<JobCriteriaViewModel> mJobPropertyList;
 
-    public EmployeePropertiesFragment() {
+    /*private DownloadJSONTask downloadJSONTask;*/
+
+    private ProgressDialog progress;
+
+    public JobCriteriaFragment() {
         // Required empty public constructor
         mJobCriteria = JobCriteria.getInst();
-        mJobPropertyList = new ArrayList<JobCriteriaViewModel>();
+        mJobPropertyList = new ArrayList<>();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vRet =  inflater.inflate(R.layout.fragment_employee_properties, container, false);
+        View vRet =  inflater.inflate(R.layout.fragment_job_criteria, container, false);
         initData();
         getIntances(vRet);
         setupView();
-        floatingActionButton = (FloatingActionButton) vRet.findViewById(R.id.fbFilter);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getScreenManager().openFragment(new ItemFragment(), true);
-            }
-        });
+
         return vRet;
     }
 
@@ -81,11 +91,13 @@ public class EmployeePropertiesFragment extends BaseFragment implements
     private void getIntances(View vLayoutRoot) {
         mEmployeeProperitesListView = (ListView)vLayoutRoot.
                 findViewById(R.id.ltvEmployeePropetiesList);
-        //mEmployeeProperites = getResources().getStringArray(R.array.employee_property_names);
         mLayoutInflater = getActivity().getLayoutInflater();
+        floatingActionButton = (FloatingActionButton) vLayoutRoot.findViewById(R.id.fbFilter);
     }
 
     private void initData() {
+        expertiseArrayList = JobCriteria.getInst().getExpertiseArrayList();
+
         mJobPropertyList.clear();
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.expertise, R.drawable.ic_build_black_24dp, JobCriteria.EXPERTISE));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.age, R.drawable.ic_person_black_24dp,JobCriteria.AGE));
@@ -101,13 +113,38 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         mJobCriteria.setJobCriteriaListener(jobCriteriaAdapter);
         mEmployeeProperitesListView.setAdapter(jobCriteriaAdapter);
         mEmployeeProperitesListView.setOnItemClickListener(this);
+
+        floatingActionButton.setOnClickListener(new FloatingActionClickListener(this, this));
+    }
+
+    private class FloatingActionClickListener implements View.OnClickListener {
+
+        private JSONPreDownloadHandler jsonPreDownloadHandler;
+        private JSONPostDownloadHandler jsonPostDownloadHandler;
+
+        public FloatingActionClickListener(JSONPreDownloadHandler preDownloadHandler,
+                                           JSONPostDownloadHandler postDownloadHandler) {
+            this.jsonPreDownloadHandler = preDownloadHandler;
+            this.jsonPostDownloadHandler = postDownloadHandler;
+        }
+
+        @Override
+        public void onClick(View v) {
+            try {
+                Log.d("floatingActionButton", JobCriteria.getInst().getAPIString());
+                DownloadJSONTask downloadJSONTask = new DownloadJSONTask(jsonPreDownloadHandler,
+                        jsonPostDownloadHandler);
+                downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private String getStringFromCriteria(int criteria) {
         switch (criteria) {
             case JobCriteria.EXPERTISE:
-                if (mJobCriteria.getExpertise() == -1) return null;
-                return getString(mJobCriteria.getExpertise());
+                return mJobCriteria.getExpertiseString();
             case JobCriteria.AGE:
                 return mJobCriteria.getAgeRange();
             case JobCriteria.HEIGHT:
@@ -115,8 +152,9 @@ public class EmployeePropertiesFragment extends BaseFragment implements
             case JobCriteria.WEIGHT:
                 return mJobCriteria.getWeightRange();
             case JobCriteria.LANG:
-                if (mJobCriteria.getLanguage() == -1) return null;
-                return getString(mJobCriteria.getLanguage());
+                /*if (mJobCriteria.getLanguage() == -1) return null;
+                return getString(mJobCriteria.getLanguage());*/
+                return mJobCriteria.getLangString();
             case JobCriteria.EXP:
                 return mJobCriteria.getExpRange();
             case JobCriteria.DEGREE:
@@ -160,6 +198,25 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         if(dialogFragment != null) {
             getScreenManager().showDialogFragment(dialogFragment, "");
         }
+    }
+
+    @Override
+    public void onPreDownload() {
+        progress = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+                getString(R.string.loading), true);
+    }
+
+    @Override
+    public void onPostDownload(JSONObject jsonObject) {
+        /* Parse JSON to WorkerList */
+        Log.d("onPostDownload", jsonObject.toString());
+        Worker.loadJsonToList(jsonObject);
+
+        if(progress != null) {
+            progress.dismiss();
+        }
+        /* Change screen */
+        getScreenManager().openFragment(new WorkerListFragment(), true);
     }
 
     private class JobCriteriaAdapter extends BaseAdapter implements JobCriteriaListener {
@@ -215,4 +272,3 @@ public class EmployeePropertiesFragment extends BaseFragment implements
         }
     }
 }
-

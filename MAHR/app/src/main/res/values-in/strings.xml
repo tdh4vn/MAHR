@@ -32,5 +32,7 @@
     <string name="university">Universitas</string>
     <string name="weld">Las</string>
     <string name="woodwork">Kayu</string>
+    <string name="worker">Pekerja</string>
+    <string name="loading">Pemuatan...</string>
 
 </resources>

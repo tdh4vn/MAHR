@@ -6,11 +6,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 
 /**
@@ -50,16 +50,16 @@ public class NationalitySelectionFragment extends BaseFragment implements View.O
 
     @Override
     public void onClick(View v) {
-        String key = "";
+        String nationality = null;
         switch (v.getId()) {
             case R.id.btnIndonesia:
-                key = Constants.KEY_INDONESIA;
+                nationality = Constants.API_INDONESIA;
                 break;
             case R.id.btnVietnam:
-                key = Constants.KEY_VIETNAM;
+                nationality = Constants.API_VIETNAM;
                 break;
         }
-
-        getScreenManager().openFragment(new ListJobsActivityFragment(), true);
+        JobCriteria.getInst().setNationality(nationality);
+        getScreenManager().openFragment(new MajorSelectionFragment(), true);
     }
 }

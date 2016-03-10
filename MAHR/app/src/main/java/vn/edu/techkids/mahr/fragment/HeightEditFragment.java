@@ -26,8 +26,7 @@ public class HeightEditFragment extends InRangeEditFragment {
 
     @Override
     public void onClick(View v) {
-        JobCriteria.getInst().setMinHeight(mFromPicker.getValue());
-        JobCriteria.getInst().setMaxHeight(mToPicker.getValue());
+        JobCriteria.getInst().setHeightRange(mFromPicker.getValue(), mToPicker.getValue());
         super.onClick(v);
     }
 }

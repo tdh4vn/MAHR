@@ -10,5 +10,5 @@
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="vn.edu.techkids.mahr.fragment.ItemFragment"
+        tools:context=".fragment.WorkerListFragment"
         tools:listitem="@layout/fragment_item"/>
