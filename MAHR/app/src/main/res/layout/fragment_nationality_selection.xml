@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ColorMainBackground">
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,12 +15,12 @@
             android:layout_gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="82dp">
+            android:layout_marginBottom="100dp">
             <Button
                 android:id="@+id/btnIndonesia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/main_activity_button_padding"
+
                 android:layout_margin="@dimen/main_activity_button_margin"
                 android:textAllCaps="false"
                 android:background="@drawable/selector_main_button"
@@ -31,7 +31,7 @@
                 android:id="@+id/btnVietnam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/main_activity_button_padding"
+
                 android:layout_margin="@dimen/main_activity_button_margin"
                 android:textAllCaps="false"
                 android:background="@drawable/selector_main_button"

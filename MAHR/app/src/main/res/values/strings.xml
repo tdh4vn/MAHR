@@ -1,53 +1,42 @@
 <resources>
     <string name="app_name">MA HR</string>
-    <string name="title_activity_list_jobs">ListJobsActivity</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="vietnam">Vietnam</string>
-    <string name="indonesia">Indonesia</string>
-    <string name="taiwan">Taiwan</string>
-    <string name="default_type_filter">Default"</string>
-    <string name="listJobMainName">Job type</string>
-    <string name="male_employee">Male Workers</string>
-    <string name="female_employee">Female Workers</string>
-    <string name="house_mate">Housemate</string>
-   
-    <string name="list_employee">List Employee</string>
-    <string name="properties_filter">Properties Filter</string>
-    <string name="expertise">Expertise</string>
-    <string name="age">Age</string>
-    <string name="height">Height</string>
-    <string name="weight">Weight</string>
-    <string name="language">Language</string>
-    <string name="experience">Experience</string>
-    <string name="degree">Degree</string>
-
+    <string name="search">搜尋</string>
+    <string name="vietnam">越南</string>
+    <string name="indonesia">印尼</string>
+    <string name="listJobMainName">职位类型</string>
+    <string name="male_employee">男性厂</string>
+    <string name="female_employee">女工厂</string>
+    <string name="house_mate">室友</string>
+    <string name="default_type_filter">默认</string>
+    <string name="properties_filter">属性过滤器</string>
+    <string name="list_employee">员工名单</string>
+    <string name="expertise">专门 知识</string>
+    <string name="age">年 龄</string>
+    <string name="height">高 度</string>
+    <string name="weight">重 量</string>
+    <string name="language">语 言</string>
+    <string name="experience">经 验</string>
+    <string name="degree">学 位</string>
+    <string name="college">學院</string>
     <string name="cnc">CNC</string>
-    <string name="textile">Textile</string>
-    <string name="mechanic">Mechanic</string>
-    <string name="woodwork">Woodwork</string>
-    <string name="weld">Weld</string>
-    <string name="electronics">Electronics</string>
-    <string name="food">Food</string>
+    <string name="electronics">電子</string>
+    <string name="food">食品</string>
+    <string name="from">從</string>
+    <string name="high_school">高中</string>
+    <string name="mechanic">機械</string>
+    <string name="ok">好</string>
+    <string name="secondary_school">中學</string>
+    <string name="taiwan">台灣</string>
+    <string name="textile">紡織品</string>
+    <string name="to">至</string>
+    <string name="university">大學</string>
+    <string name="weld">焊接</string>
+    <string name="woodwork">木工</string>
+    <string name="worker">工人</string>
+    <string name="loading">载入中...</string>
+    <string name="message_download_expertise_failed">下载专长失败</string>
 
-    <string name="from">From</string>
-    <string name="to">To</string>
+    <string name="message_download_expertise_OK">专长列表下载</string>
 
-    <string name="ok">OK</string>
 
-    <string name="worker">Worker</string>
-
-    <string name="secondary_school">Secondary school</string>
-    <string name="high_school">High school</string>
-    <string name="college">College</string>
-    <string name="university">University</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="loading">Loading...</string>
-
-    <string name="message_download_worker_failed">Downloading worker failed</string>
-    <string name="message_download_expertise_failed">Downloading expertise failed</string>
-
-    <string name="message_download_expertise_OK">Expertise list downloaded</string>
 </resources>
