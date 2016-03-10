@@ -26,7 +26,7 @@
                 android:background="@drawable/selector_main_button"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/main_activity_button_text_size"
-                android:text="@string/vietnam"/>
+                android:text="@string/indonesia"/>
             <Button
                 android:id="@+id/btnVietnam"
                 android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:background="@drawable/selector_main_button"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/main_activity_button_text_size"
-                android:text="@string/indonesia" />
+                android:text="@string/vietnam" />
         </LinearLayout>
 
         <ImageView
@@ -46,7 +46,7 @@
             android:id="@+id/imageLogo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="73dp"
+            android:layout_marginTop="50dp"
             android:src="@mipmap/welcome_app" />
     </RelativeLayout>
 

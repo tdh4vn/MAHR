@@ -14,5 +14,6 @@ public interface ScreenManager {
     void hideDisplayHomeButton();
     void showDisplayHomeButton();
     void hideActionBar();
+    void setActionBarColor(String color);
     void setTitleOfActionBar(String titles);
 }

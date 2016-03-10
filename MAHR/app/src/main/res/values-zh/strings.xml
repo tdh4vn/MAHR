@@ -6,12 +6,12 @@
     <string name="listJobMainName">职位类型</string>
     <string name="male_employee">男性厂</string>
     <string name="female_employee">女工厂</string>
-    <string name="house_mate">室友</string>
+    <string name="house_maid">室友</string>
     <string name="default_type_filter">默认</string>
     <string name="properties_filter">属性过滤器</string>
     <string name="list_employee">员工名单</string>
     <string name="expertise">专门 知识</string>
-    <string name="age">年 龄</string>
+    <string name="age">年齡</string>
     <string name="height">高 度</string>
     <string name="weight">重 量</string>
     <string name="language">语 言</string>

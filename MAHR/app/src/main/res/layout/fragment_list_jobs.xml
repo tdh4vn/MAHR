@@ -39,7 +39,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/house_mate"
+            android:text="@string/house_maid"
             android:textAllCaps="false"
             android:textColor="@color/color_white"
             android:textSize="@dimen/list_job_activity_button_text_size"

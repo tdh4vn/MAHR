@@ -20,9 +20,9 @@ public class Constants {
 
 
 
-    public static String API_VIETNAM = "VN";
-    public static String API_INDONESIA = "IN";
-    public static String API_TAIWAN = "CH";
+    public final static String API_VIETNAM = "VN";
+    public final static String API_INDONESIA = "IN";
+    public final static String API_TAIWAN = "CH";
 
     public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "1";
     public static String API_PARAM_DEGREE_HIGH_SCHOOL = "2";
@@ -32,9 +32,9 @@ public class Constants {
     /*public static final String KEY_VIETNAM = "KEYVIETNAM";
     public static final String KEY_INDONESIA = "KEYINDONESIA";*/
 
-    public static String API_MAJOR_MALE_WORKER = "1";
-    public static String API_MAJOR_FEMALE_WORKER = "2";
-    public static String API_MAJOR_HOUSEMAID = "3";
+    public static final String API_MAJOR_MALE_WORKER = "1";
+    public static final String API_MAJOR_FEMALE_WORKER = "2";
+    public static final String API_MAJOR_HOUSEMAID = "3";
 
     public static final String API_URL_ROOT = "http://api.mahr.adcviet.com/v1";
     public static final String API_URL_EXPERTISE = API_URL_ROOT + "/skills";

@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#29B6F6")));
+
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#29B6F6")));
 
         /*hideActionBar();*/
 
@@ -102,6 +103,11 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     @Override
     public void hideActionBar() {
         getSupportActionBar().hide();
+    }
+
+    @Override
+    public void setActionBarColor(String color) {
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(color)));
     }
 
 
