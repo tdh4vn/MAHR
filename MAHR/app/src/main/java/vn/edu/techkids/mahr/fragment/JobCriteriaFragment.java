@@ -3,6 +3,7 @@ package vn.edu.techkids.mahr.fragment;
 
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
@@ -24,8 +25,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
 import vn.edu.techkids.mahr.enitity.Expertise;
+import vn.edu.techkids.mahr.enitity.ExpertiseJSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
@@ -50,7 +53,9 @@ public class JobCriteriaFragment extends BaseFragment implements
 
     private ArrayList<JobCriteriaViewModel> mJobPropertyList;
 
-    /*private DownloadJSONTask downloadJSONTask;*/
+    private final String DOWNLOAD_TAG_EXPERTISE = "expertise";
+    private final String DOWNLOAD_TAG_WORKER = "worker";
+    private boolean mDownloadExpertisePending = false;
 
     private ProgressDialog progress;
 
@@ -133,7 +138,7 @@ public class JobCriteriaFragment extends BaseFragment implements
             try {
                 Log.d("floatingActionButton", JobCriteria.getInst().getAPIString());
                 DownloadJSONTask downloadJSONTask = new DownloadJSONTask(jsonPreDownloadHandler,
-                        jsonPostDownloadHandler);
+                        jsonPostDownloadHandler, DOWNLOAD_TAG_WORKER);
                 downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -169,9 +174,20 @@ public class JobCriteriaFragment extends BaseFragment implements
         Log.d("onItemClick", "onItemClick");
         JobCriteriaViewModel jobProperty = mJobPropertyList.get(position);
         DialogFragment dialogFragment = null;
+        mDownloadExpertisePending = false;
         switch (jobProperty.getPropertyNameId()) {
             case R.string.expertise:
-                dialogFragment = new ExpertiseEditFragment();
+                if(JobCriteria.getInst().getExpertiseArrayList() == null) {
+                    try {
+                        mDownloadExpertisePending = true;
+                        new DownloadJSONTask(this, this, DOWNLOAD_TAG_EXPERTISE).execute(new URL(Constants.API_URL_EXPERTISE));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    dialogFragment = new ExpertiseEditFragment();
+                }
                 break;
             case R.string.age:
                 dialogFragment = new AgeEditFragment();
@@ -201,22 +217,52 @@ public class JobCriteriaFragment extends BaseFragment implements
     }
 
     @Override
-    public void onPreDownload() {
-        progress = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
-                getString(R.string.loading), true);
+    public void onPreDownload(String tag) {
+        switch (tag) {
+            case DOWNLOAD_TAG_WORKER:
+                progress = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+                    getString(R.string.loading), true);
+                break;
+            case DOWNLOAD_TAG_EXPERTISE:
+                progress = ProgressDialog.show(this.getActivity(), getString(R.string.expertise),
+                        getString(R.string.loading), true);
+                break;
+        }
     }
 
     @Override
-    public void onPostDownload(JSONObject jsonObject) {
-        /* Parse JSON to WorkerList */
-        Log.d("onPostDownload", jsonObject.toString());
-        Worker.loadJsonToList(jsonObject);
+    public void onPostDownload(JSONObject jsonObject, String tag) {
+        switch (tag) {
+            case DOWNLOAD_TAG_WORKER:
+                /* Parse JSON to WorkerList */
+                if (jsonObject == null) {
+                    showToastMessage(getString(R.string.message_download_worker_failed));
+                } else {
+            /* Log.d("onPostDownload", jsonObject.toString()); */
+                    Worker.loadJsonToList(jsonObject);
 
-        if(progress != null) {
-            progress.dismiss();
+
+            /* Change screen */
+                    getScreenManager().openFragment(new WorkerListFragment(), true);
+                }
+                if (progress != null) {
+                    progress.dismiss();
+                }
+                break;
+            case DOWNLOAD_TAG_EXPERTISE:
+                if (progress != null) {
+                    progress.dismiss();
+                }
+                if(jsonObject == null) {
+                    showToastMessage(getString(R.string.message_download_expertise_failed));
+                }
+                else {
+                    JobCriteria.getInst().loadExperiseArrayList(jsonObject);
+                    DialogFragment dialogFragment = new ExpertiseEditFragment();
+                    getScreenManager().showDialogFragment(dialogFragment, "");
+                }
+                break;
         }
-        /* Change screen */
-        getScreenManager().openFragment(new WorkerListFragment(), true);
     }
 
     private class JobCriteriaAdapter extends BaseAdapter implements JobCriteriaListener {
@@ -271,4 +317,5 @@ public class JobCriteriaFragment extends BaseFragment implements
             notifyDataSetChanged();
         }
     }
+
 }
