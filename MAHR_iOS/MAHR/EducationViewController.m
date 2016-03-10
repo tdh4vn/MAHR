@@ -22,15 +22,15 @@
     // Do any additional setup after loading the view.
     
     [self.navigationItem setHidesBackButton:TRUE];
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Huỷ" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"背部" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
     self.navigationItem.leftBarButtonItem = _barItem;
     
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Xong" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"好" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
     
     _tbvEducation.tableFooterView = [[UIView alloc]init];
     
-    self.title = @"Trình độ";
+    self.title = @"学 位";
     
     [_tbvEducation reloadData];
 }
@@ -56,13 +56,13 @@
     }
     
     if (indexPath.row == JuniorHigh - 1) {
-        cell.lblTitle.text = @"Trung học cơ sở";
+        cell.lblTitle.text = @"中學";
     } else if (indexPath.row == High - 1) {
-        cell.lblTitle.text = @"Trung học phổ thông";
+        cell.lblTitle.text = @"高中";
     } else if (indexPath.row == College - 1) {
-        cell.lblTitle.text = @"Cao đẳng";
+        cell.lblTitle.text = @"學院";
     } else if (indexPath.row == University - 1) {
-        cell.lblTitle.text = @"Đại học";
+        cell.lblTitle.text = @"大學";
     }
     
     if (indexPath.row != _selectedRow) {

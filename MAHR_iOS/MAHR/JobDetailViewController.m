@@ -53,19 +53,19 @@
     
     _expertises = [[NSMutableArray alloc]init];
     
-    _ageFrom = 18;
-    _ageTo = 30;
+    _ageFrom = 0;
+    _ageTo = 100;
     
-    _heightFrom = 100;
+    _heightFrom = 0;
     _heightTo = 200;
     
-    _weightFrom = 40;
-    _weightTo = 100;
+    _weightFrom = 0;
+    _weightTo = 200;
     
     _languages = [[NSMutableArray alloc]init];
     
     _experienceFrom = 0;
-    _experienceTo = 10;
+    _experienceTo = 100;
     
     _educationType = JuniorHigh;
     
@@ -96,11 +96,11 @@
     _skills = appDelegate.skills;
     
     if (_jobType == MaleWorker) {
-        self.title = @"Công xưởng nam";
+        self.title = @"男性厂";
     } else if (_jobType == FemaleWorker){
-        self.title = @"Công xưởng nữ";
+        self.title = @"女工厂";
     } else if (_jobType == HouseMaid){
-        self.title = @"Giúp việc gia đình";
+        self.title = @"室友";
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -119,30 +119,6 @@
     [_tbvDetails reloadData];
 }
 
-- (void)reloadExpertise:(NSNotification *)notification;
-{
-    _expertises = [notification object];
-}
-
-- (void)reloadLanguage:(NSNotification *)notification;
-{
-    _languages = [notification object];
-}
-
-- (void)reloadEducation:(NSNotification *)notification;
-{
-    _educationType = [[notification object] intValue];
-
-}
-
-- (void)btnFilterDidTouch;
-{
-    WorkerViewController *workerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"worker"];
-    
-    
-    
-    [self.navigationController pushViewController:workerViewController animated:YES];
-}
 
 #pragma mark - Tableview Datasource
 
@@ -166,13 +142,13 @@
     
     if (indexPath.row == Expertise) {
         
-        cell.lblDetail.text = @"Sở trường";
+        cell.lblDetail.text = @"专门 知识";
         cell.imageView.image = [UIImage imageNamed:@"0"];
         cell.lblFrom.hidden = YES;
         cell.lblMinus.hidden = YES;
         NSString *skillString = [[NSString alloc]init];
         for (Skill *skill in _expertises) {
-            skillString = [skillString stringByAppendingString:[NSString stringWithFormat:@"%@, ",skill.name]];
+            skillString = [skillString stringByAppendingString:[NSString stringWithFormat:@"%@, ",skill.chineseName]];
         }
         
         if (skillString.length>0) {
@@ -183,31 +159,37 @@
         
     } else if (indexPath.row == Age){
         
-        cell.lblDetail.text = @"Tuổi";
+        cell.lblDetail.text = @"年 龄";
         cell.imageView.image = [UIImage imageNamed:@"1"];
         [cell setValueFrom:_ageFrom to:_ageTo];
         
     } else if (indexPath.row == Height){
         
-        cell.lblDetail.text = @"Chiều cao";
+        cell.lblDetail.text = @"高 度";
         cell.imageView.image = [UIImage imageNamed:@"2"];
         [cell setValueFrom:_heightFrom to:_heightTo];
         
     } else if (indexPath.row == Weight){
         
-        cell.lblDetail.text = @"Cân nặng";
+        cell.lblDetail.text = @"重 量";
         cell.imageView.image = [UIImage imageNamed:@"3"];
         [cell setValueFrom:_weightFrom to:_weightTo];
         
     } else if (indexPath.row == Language){
         
-        cell.lblDetail.text = @"Ngôn ngữ";
+        cell.lblDetail.text = @"语 言";
         cell.imageView.image = [UIImage imageNamed:@"4"];
         cell.lblFrom.hidden = YES;
         cell.lblMinus.hidden = YES;
         NSString *languagesString = [[NSString alloc]init];
         for (NSString *language in _languages) {
-            languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"%@, ",language]];
+            if([language isEqualToString:@"VN"]){
+                languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"越南, "]];
+            } else if ([language isEqualToString:@"CN"]){
+                languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"中国, "]];
+            } else if ([language isEqualToString:@"ID"]){
+                languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"印尼, "]];
+            }
         }
         
         if (languagesString.length>0) {
@@ -218,24 +200,24 @@
         
     } else if (indexPath.row == Experience){
         
-        cell.lblDetail.text = @"Kinh nghiệm";
+        cell.lblDetail.text = @"经 验";
         cell.imageView.image = [UIImage imageNamed:@"5"];
         [cell setValueFrom:_experienceFrom to:_experienceTo];
         
     } else if (indexPath.row == Education){
         
-        cell.lblDetail.text = @"Trình độ";
+        cell.lblDetail.text = @"学 位";
         cell.imageView.image = [UIImage imageNamed:@"6"];
         cell.lblFrom.hidden = YES;
         cell.lblMinus.hidden = YES;
         if (_educationType == JuniorHigh) {
-            cell.lblTo.text = @"Trung học cơ sở";
+            cell.lblTo.text = @"中學";
         } else if (_educationType == High){
-            cell.lblTo.text = @"Trung học phổ thông";
+            cell.lblTo.text = @"高中";
         } else if (_educationType == College){
-            cell.lblTo.text = @"Cao đẳng";
+            cell.lblTo.text = @"學院";
         } else if (_educationType == University){
-            cell.lblTo.text = @"Đại học";
+            cell.lblTo.text = @"大學";
         }
         
     }
@@ -275,13 +257,13 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d tuổi",_ageFrom]];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d 岁的",_ageFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d tuổi",_ageTo]];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d 岁的",_ageTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [alert addButton:@"Xong" actionBlock:^{
+        [alert addButton:@"好" actionBlock:^{
             if (fromField.text.length != 0) {
                 _ageFrom = [self intFromString:fromField.text];
             }
@@ -312,7 +294,7 @@
         SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d cm",_heightTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [alert addButton:@"Xong" actionBlock:^{
+        [alert addButton:@"好" actionBlock:^{
             if (fromField.text.length != 0) {
                 _heightFrom = [self intFromString:fromField.text];
             }
@@ -343,7 +325,7 @@
         SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d kg",_weightTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [alert addButton:@"Xong" actionBlock:^{
+        [alert addButton:@"好" actionBlock:^{
             if (fromField.text.length != 0) {
                 _weightFrom = [self intFromString:fromField.text];
             }
@@ -381,13 +363,13 @@
         alert.useLargerIcon = NO;
         alert.cornerRadius = 13.0f;
         
-        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d năm",_experienceFrom]];
+        SCLTextView *fromField = [alert addTextField:[NSString stringWithFormat:@"%d 年",_experienceFrom]];
         fromField.keyboardType = UIKeyboardTypeNumberPad;
         
-        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d năm",_experienceTo]];
+        SCLTextView *toField = [alert addTextField:[NSString stringWithFormat:@"%d 年",_experienceTo]];
         toField.keyboardType = UIKeyboardTypeNumberPad;
         
-        [alert addButton:@"Xong" actionBlock:^{
+        [alert addButton:@"好" actionBlock:^{
             if (fromField.text.length != 0) {
                 _experienceFrom = [self intFromString:fromField.text];
             }
@@ -424,6 +406,59 @@
 }
 
 #pragma mark - Class funtion
+
+- (void)reloadExpertise:(NSNotification *)notification;
+{
+    _expertises = [notification object];
+}
+
+- (void)reloadLanguage:(NSNotification *)notification;
+{
+    _languages = [notification object];
+}
+
+- (void)reloadEducation:(NSNotification *)notification;
+{
+    _educationType = [[notification object] intValue];
+    
+}
+
+- (void)btnFilterDidTouch;
+{
+    WorkerViewController *workerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"worker"];
+    
+    NSString *filters = [[NSString alloc]init];
+    
+    if (_expertises.count > 0) {
+        filters = [filters stringByAppendingString:@"&filter[]=exps+include+"];
+        for (Skill *skill in _expertises) {
+            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"%@,",skill.id]];
+        }
+        filters = [filters substringToIndex:filters.length - 1];
+    }
+    
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=age+beetween+%d,%d",_ageFrom,_ageTo]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=height+beetween+%d,%d",_heightFrom,_heightTo]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=weight+beetween+%d,%d",_weightFrom,_weightTo]];
+    if (_languages.count > 0) {
+        filters = [filters stringByAppendingString:@"&filter[]=langs+include+"];
+        for (NSString *language in _languages) {
+            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"%@,",language]];
+        }
+        filters = [filters substringToIndex:filters.length - 1];
+    }
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=exp_year+beetween+%d,%d",_experienceFrom,_experienceTo]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=educational_level+gte+%d",_educationType]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=major+eq+gte+%d",_jobType]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=nation+eq+%@",_region]];
+    
+    NSString *filterUrl = [NSString stringWithFormat:kFilterUrl,filters];
+    
+    workerViewController.filterUrl = filterUrl;
+    
+    
+    [self.navigationController pushViewController:workerViewController animated:YES];
+}
 
 - (int)intFromString:(NSString *)string;
 {

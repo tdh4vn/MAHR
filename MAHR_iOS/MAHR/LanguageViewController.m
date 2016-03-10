@@ -21,16 +21,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     [self.navigationItem setHidesBackButton:TRUE];
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Huỷ" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"背部" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
     self.navigationItem.leftBarButtonItem = _barItem;
     
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Xong" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"好" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
     
     _tbvLanguage.tableFooterView = [[UIView alloc]init];
     
-    self.title = @"Ngôn ngữ";
+    self.title = @"语 言";
     
     [_tbvLanguage reloadData];
 }
@@ -58,21 +59,21 @@
     }
     
     if (indexPath.row == VietNam) {
-        cell.lblTitle.text = @"Việt Nam";
+        cell.lblTitle.text = @"越南";
         if ([_selectedRows containsObject:@"VN"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;
             [cell.imvCheck setTintColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]];
         }
     } else if (indexPath.row == Taiwan) {
-        cell.lblTitle.text = @"Đài Loan";
+        cell.lblTitle.text = @"中国";
         if ([_selectedRows containsObject:@"CN"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;
             [cell.imvCheck setTintColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]];
         }
     } else if (indexPath.row == Indonesia) {
-        cell.lblTitle.text = @"Indonesia";
+        cell.lblTitle.text = @"印尼";
         if ([_selectedRows containsObject:@"ID"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;

@@ -11,6 +11,7 @@
 #import "HexColors.h"
 #import "MoreCell.h"
 #import "Constant.h"
+#import "Skill.h"
 
 @interface SkillViewController ()
 @property(nonatomic,strong) UIBarButtonItem *barItem;
@@ -23,15 +24,15 @@
     // Do any additional setup after loading the view.
     
     [self.navigationItem setHidesBackButton:TRUE];
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Huỷ" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"背部" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
     self.navigationItem.leftBarButtonItem = _barItem;
     
-    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"Xong" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
+    _barItem = [[UIBarButtonItem alloc]initWithTitle:@"好" style:UIBarButtonItemStyleBordered target:self action:@selector(btnDoneDidTouch)];
     self.navigationItem.rightBarButtonItem = _barItem;
     
     _tbvSkill.tableFooterView = [[UIView alloc]init];
     
-    self.title = @"Sở trường";
+    self.title = @"专门 知识";
     
     [_tbvSkill reloadData];
 }
@@ -56,7 +57,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.lblTitle.text = [_skills[indexPath.row] name];
+    cell.lblTitle.text = [_skills[indexPath.row] chineseName];
     if ([_selectedRows containsObject:_skills[indexPath.row]]) {
         UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.imvCheck.image = image;

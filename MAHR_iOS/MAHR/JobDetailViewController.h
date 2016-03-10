@@ -11,7 +11,7 @@
 
 @interface JobDetailViewController : MainViewController<UITabBarDelegate,UITableViewDataSource>
 
-@property(nonatomic,assign) int regionType;
+@property(nonatomic,assign) NSString *region;
 @property(nonatomic,assign) int jobType;
 
 @property (weak, nonatomic) IBOutlet UITableView *tbvDetails;

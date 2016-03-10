@@ -11,7 +11,7 @@
 
 @interface JobTypeViewController : MainViewController
 
-@property(nonatomic,assign) int regionType;
+@property(nonatomic,strong) NSString *region;
 @property (weak, nonatomic) IBOutlet UIButton *btnMaleWorker;
 @property (weak, nonatomic) IBOutlet UIButton *btnFemaleWorker;
 @property (weak, nonatomic) IBOutlet UIButton *btnHouseMaid;

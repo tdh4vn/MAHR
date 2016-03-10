@@ -47,7 +47,7 @@
     
     JobTypeViewController *jobTypeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobType"];
     
-    jobTypeViewController.regionType = VN;
+    jobTypeViewController.region = @"VN";
     
     [self.navigationController pushViewController:jobTypeViewController animated:YES];
 
@@ -58,7 +58,7 @@
     
     JobTypeViewController *jobTypeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobType"];
     
-    jobTypeViewController.regionType = IND;
+    jobTypeViewController.region = @"ID";
     
     [self.navigationController pushViewController:jobTypeViewController animated:YES];
     

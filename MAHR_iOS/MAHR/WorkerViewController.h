@@ -11,6 +11,8 @@
 
 @interface WorkerViewController : MainViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong) NSString *filterUrl;
+
 @property (weak, nonatomic) IBOutlet UITableView *tbvWorker;
 
 @end

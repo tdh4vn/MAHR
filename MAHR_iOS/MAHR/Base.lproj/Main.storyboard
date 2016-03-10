@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="86" y="404"/>
         </scene>
-        <!--Quốc gia-->
+        <!--地区-->
         <scene sceneID="FEf-KF-rqg">
             <objects>
                 <viewController id="PTB-eY-RHG" customClass="RegionViewController" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="50" y="384" width="500" height="70"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Indonesia"/>
+                                <state key="normal" title="印尼"/>
                                 <connections>
                                     <action selector="btnIndonesiaDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="pa3-zS-L9h"/>
                                 </connections>
@@ -50,7 +50,7 @@
                                     <constraint firstAttribute="height" constant="70" id="fzm-dp-dI8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Việt  Nam"/>
+                                <state key="normal" title="越南"/>
                                 <connections>
                                     <action selector="btnVietNamDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="69J-pc-M4c"/>
                                 </connections>
@@ -70,7 +70,7 @@
                             <constraint firstItem="hgt-kh-CMd" firstAttribute="centerX" secondItem="CQR-A2-1Aa" secondAttribute="centerX" id="nQt-9u-xsL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Quốc gia" id="SWu-vq-rzW"/>
+                    <navigationItem key="navigationItem" title="地区" id="SWu-vq-rzW"/>
                     <connections>
                         <outlet property="btnIndonesia" destination="hgt-kh-CMd" id="iUn-8H-EAi"/>
                         <outlet property="btnVietNam" destination="LSN-7M-lcH" id="Kly-1u-59a"/>
@@ -261,7 +261,7 @@
                                     <constraint firstAttribute="height" constant="70" id="edm-ig-Av4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Công xưởng nam">
+                                <state key="normal" title="男性厂">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -275,7 +275,7 @@
                                     <constraint firstAttribute="height" constant="70" id="3dm-a8-Sp9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Giúp việc gia đình">
+                                <state key="normal" title="室友">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -289,7 +289,7 @@
                                     <constraint firstAttribute="height" constant="70" id="onc-jK-4ta"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Công xưởng nữ">
+                                <state key="normal" title="女工厂">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

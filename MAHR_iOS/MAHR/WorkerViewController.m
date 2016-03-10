@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Lọc";
-    _tbvWorker.rowHeight = 65.0f;
+    _tbvWorker.rowHeight = 80.0f;
     
     _tbvWorker.tableFooterView = [[UIView alloc]init];
     
@@ -50,9 +50,9 @@
     }
     
     cell.imageView.image = [UIImage imageNamed:@"1"];
-    cell.lblName.text = @"Nguyễn Văn A";
-    cell.lblAge.text = @"20";
-    cell.lblExpertise.text = @"Cơ khí";
+//    cell.lblName.text = @"Nguyễn Văn A";
+//    cell.lblAge.text = @"20";
+//    cell.lblExpertise.text = @"Cơ khí";
     
     return cell;
     

@@ -12,8 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UILabel *lblExpertise;
 @property (weak, nonatomic) IBOutlet UILabel *lblAge;
-
+@property (weak, nonatomic) IBOutlet UILabel *lblHeight;
+@property (weak, nonatomic) IBOutlet UILabel *lblWeight;
 
 @end

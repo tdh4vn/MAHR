@@ -21,7 +21,7 @@ typedef NS_ENUM(int, RegionType) {
 };
 
 typedef NS_ENUM(int, JobType) {
-    MaleWorker,
+    MaleWorker = 1,
     FemaleWorker,
     HouseMaid,
 };
@@ -79,4 +79,8 @@ typedef NS_ENUM(int, EducationType) {
 
 #define kLanguageButtonTextColor                            @"#E8F5E9"
 
+//MARK: API
+
 #define kSkillUrl                                           @"http://api.mahr.adcviet.com/v1/skills"
+
+#define kFilterUrl                                          @"http://api.mahr.adcviet.com/v1/profiles?expand=skills%@"

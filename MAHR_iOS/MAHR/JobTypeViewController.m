@@ -22,11 +22,7 @@
     [_btnHouseMaid custom];
     
     
-    if (_regionType == VN) {
-        self.title = @"Việt Nam";
-    } else if (_regionType == IND){
-        self.title = @"Indonesia";
-    }
+    self.title = @"职位类型";
     
 }
 
@@ -34,7 +30,7 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.regionType = _regionType;
+    jobDetailViewController.region = _region;
     jobDetailViewController.jobType = MaleWorker;
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
@@ -46,7 +42,7 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.regionType = _regionType;
+    jobDetailViewController.region = _region;
     jobDetailViewController.jobType = FemaleWorker;
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
@@ -59,7 +55,7 @@
     
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
-    jobDetailViewController.regionType = _regionType;
+    jobDetailViewController.region = _region;
 
     jobDetailViewController.jobType = HouseMaid;
     
