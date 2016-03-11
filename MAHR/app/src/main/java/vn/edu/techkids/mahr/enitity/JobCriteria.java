@@ -237,7 +237,7 @@ public class JobCriteria {
             case R.string.secondary_school: return Constants.API_PARAM_DEGREE_SECONDARY_SCHOOL;
             case R.string.high_school: return Constants.API_PARAM_DEGREE_HIGH_SCHOOL;
             case R.string.college: return Constants.API_PARAM_DEGREE_COLLEGE;
-            case R.string.university: return Constants.API_PARAM_DEGREE_UNIVERISTY;
+            case R.string.university: return Constants.API_PARAM_DEGREE_UNIVERSITY;
         }
         return "";
     }

@@ -18,14 +18,14 @@ public class Constants {
     public static final int MIN_XP = 0;
     public static final int MAX_XP = 10;
 
-    public final static String API_VIETNAM = "VN";
-    public final static String API_INDONESIA = "IN";
-    public final static String API_TAIWAN = "CN";
+    public final static String API_VIETNAM = "vn";
+    public final static String API_INDONESIA = "in";
+    public final static String API_TAIWAN = "cn";
 
     public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "1";
     public static String API_PARAM_DEGREE_HIGH_SCHOOL = "2";
     public static String API_PARAM_DEGREE_COLLEGE = "3";
-    public static String API_PARAM_DEGREE_UNIVERISTY = "4";
+    public static String API_PARAM_DEGREE_UNIVERSITY = "4";
 
     /*public static final String KEY_VIETNAM = "KEYVIETNAM";
     public static final String KEY_INDONESIA = "KEYINDONESIA";*/
