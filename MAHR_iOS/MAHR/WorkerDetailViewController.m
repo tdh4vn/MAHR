@@ -54,7 +54,7 @@
 
 - (void)btnShareDidTouch;
 {
-    NSString *textToShare = @"https://docs.google.com/gview?embedded=true&url=techkids.edu.vn/YT001%20NGUYEN%20VAN%20TRUNG-修理發動機、電焊.xls";
+    NSString *textToShare = _selectedWorker.exceUrl;
     
     NSArray *objectsToShare = @[textToShare];
     
