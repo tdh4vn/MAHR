@@ -16,4 +16,6 @@ public interface ScreenManager {
     void hideActionBar();
     void setActionBarColor(String color);
     void setTitleOfActionBar(String titles);
+    void showShareButtonOnRightActionBar();
+    void hidenButtonActionBar();
 }

@@ -4,14 +4,21 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.Cloud;
 import vn.edu.techkids.mahr.fragment.WorkerListFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
 import vn.edu.techkids.mahr.fragment.ScreenManager;
@@ -19,6 +26,8 @@ import vn.edu.techkids.mahr.fragment.ScreenManager;
 public class MainActivity extends AppCompatActivity implements ScreenManager {
 
     private FragmentManager mFragmentManager;
+    private Menu menu;
+    private MenuItem mShareMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
         getIntances();
         openFragment(new NationalitySelectionFragment(), true);
+
     }
 
     private void getIntances() {
@@ -46,11 +56,16 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() != R.id.action_filter){
+        if(item.getItemId() != R.id.action_share){
             onBackPressed();
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-        } else if (item.getItemId() == R.id.action_filter){
-            openFragment(new WorkerListFragment(), true);
+        } else if (item.getItemId() == R.id.action_share){
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Cloud.getInstance().getUrlLink());
+            startActivity(Intent.createChooser(sharingIntent, Cloud.getInstance().getUrlLink()));
+            //openFragment(new WorkerListFragment(), true);
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         }
         return true;
@@ -119,6 +134,33 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     @Override
     public void setTitleOfActionBar(String titles) {
         getSupportActionBar().setTitle(titles);
+    }
+
+
+
+    @Override
+    public void showShareButtonOnRightActionBar() {
+//        MenuItem item = (MenuItem)this.menu.findItem(R.id.action_share);
+//        item.setVisible(true);
+
+        mShareMenuItem.setVisible(true);
+        this.invalidateOptionsMenu();
+    }
+
+    @Override
+    public void hidenButtonActionBar() {
+
+        MenuItem itemShare = (MenuItem) menu.findItem(R.id.action_share);
+        itemShare.setVisible(false);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_list_jobs, menu);
+        this.menu = menu;
+        mShareMenuItem = (MenuItem) menu.findItem(R.id.action_share);
+        mShareMenuItem.setVisible(false);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
