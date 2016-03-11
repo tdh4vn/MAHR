@@ -1,7 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
 /*import android.support.app.Fragment;*/
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,8 +28,19 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
     @Override
     public void onStart() {
         super.onStart();
+
+
         getScreenManager().showActionBar();
-        getScreenManager().changeTitleOfActionBar(getString(R.string.listJobMainName));
+        /*getScreenManager().setTitleOfActionBar(getString(R.string.listJobMainName));*/
+        String title = "";
+        switch (JobCriteria.getInst().getNationality()) {
+            case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
+            case Constants.API_VIETNAM: title = getString(R.string.vietnam); break;
+        }
+        getScreenManager().setTitleOfActionBar(title);
+        getScreenManager().showDisplayHomeButton();
+
+
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.trans_left_in,R.anim.trans_left_out);
         setHasOptionsMenu(true);
@@ -39,6 +49,7 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -48,6 +59,8 @@ public class MajorSelectionFragment extends BaseFragment implements OnClickListe
         this.addListener(view);
         return view;
     }
+
+
 
     private void addListener(View view){
         Button btnMaleEmployee = (Button) view.findViewById(R.id.btnMaleEmployee);

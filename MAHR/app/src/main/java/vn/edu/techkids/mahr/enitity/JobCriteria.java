@@ -369,9 +369,10 @@ public class JobCriteria {
                 getHeightAPIString() +
                 getWeightAPIString() +
                 getLangAPIString() +
-                getExperienceAPIString() +
                 getDegreeAPIString() +
                 getMajorAPIString() +
                 getNationalityString();
+
+        /* getExperienceAPIString() + */
     }
 }

@@ -9,8 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.adapter.WorkerRecyclerViewAdapter;
+import vn.edu.techkids.mahr.constants.Constants;
+import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
@@ -44,6 +47,15 @@ public class WorkerListFragment extends BaseFragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public WorkerListFragment() {
+
+        mListener = new OnListFragmentInteractionListener() {
+            @Override
+            public void onListFragmentInteraction(Worker item) {
+                WorkerDetailFragment fragment = new WorkerDetailFragment();
+                fragment.setWorkerDetailUrl(item.getExcel_path());
+                getScreenManager().openFragment(fragment, true);
+            }
+        };
     }
 
     @Override
@@ -52,7 +64,7 @@ public class WorkerListFragment extends BaseFragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
 
-        getScreenManager().changeTitleOfActionBar(getString(R.string.list_employee));
+        //getScreenManager().setTitleOfActionBar(getString(R.string.list_employee));
     }
 
     @Override
@@ -83,6 +95,25 @@ public class WorkerListFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+
+        String title = "";
+        switch (JobCriteria.getInst().getNationality()) {
+            case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
+            case Constants.API_VIETNAM: title = getString(R.string.vietnam); break;
+        }
+
+        switch (JobCriteria.getInst().getMajor()) {
+            case Constants.API_MAJOR_MALE_WORKER: title += " | " + getString(R.string.male_employee); break;
+            case Constants.API_MAJOR_FEMALE_WORKER: title = " | " +getString(R.string.female_employee); break;
+            case Constants.API_MAJOR_HOUSEMAID: title = " | " + getString(R.string.house_maid); break;
+        }
+
+        getScreenManager().setTitleOfActionBar(title);
+
+        super.onViewStateRestored(savedInstanceState);
+    }
 
     @Override
     public void onAttach(Context context) {

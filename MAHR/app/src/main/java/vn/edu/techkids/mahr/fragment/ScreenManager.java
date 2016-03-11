@@ -11,6 +11,9 @@ public interface ScreenManager {
     void showDialogFragment(DialogFragment dialogFragment, String tag);
     boolean back();
     void showActionBar();
+    void hideDisplayHomeButton();
+    void showDisplayHomeButton();
     void hideActionBar();
-    void changeTitleOfActionBar(String titles);
+    void setActionBarColor(String color);
+    void setTitleOfActionBar(String titles);
 }

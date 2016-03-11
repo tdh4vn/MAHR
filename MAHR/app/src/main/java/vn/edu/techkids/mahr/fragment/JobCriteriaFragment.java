@@ -3,10 +3,8 @@ package vn.edu.techkids.mahr.fragment;
 
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -29,7 +27,6 @@ import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
 import vn.edu.techkids.mahr.enitity.Expertise;
-import vn.edu.techkids.mahr.enitity.ExpertiseJSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
@@ -82,13 +79,33 @@ public class JobCriteriaFragment extends BaseFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        getScreenManager().showActionBar();
+
+
     }
 
     @Override
     public void onStart() {
-        getScreenManager().showActionBar();
+
+        String title = "";
+        switch (JobCriteria.getInst().getNationality()) {
+            case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
+            case Constants.API_VIETNAM: title = getString(R.string.vietnam); break;
+        }
+
+        switch (JobCriteria.getInst().getMajor()) {
+            case Constants.API_MAJOR_MALE_WORKER: title += " | " + getString(R.string.male_employee); break;
+            case Constants.API_MAJOR_FEMALE_WORKER: title = " | " +getString(R.string.female_employee); break;
+            case Constants.API_MAJOR_HOUSEMAID: title = " | " + getString(R.string.house_maid); break;
+        }
+
+        getScreenManager().setTitleOfActionBar(title);
+
         super.onStart();
     }
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return true;
@@ -110,7 +127,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.height, R.drawable.ic_swap_vert_black_24dp, JobCriteria.HEIGHT));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.weight, R.drawable.ic_view_module_black_24dp, JobCriteria.WEIGHT));
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.language, R.drawable.ic_font_download_black_24dp, JobCriteria.LANG));
-        mJobPropertyList.add(new JobCriteriaViewModel(R.string.experience, R.drawable.ic_power_black_24dp, JobCriteria.EXP));
+        /*mJobPropertyList.add(new JobCriteriaViewModel(R.string.experience, R.drawable.ic_power_black_24dp, JobCriteria.EXP));*/
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.degree, R.drawable.ic_group_work_black_24dp, JobCriteria.DEGREE));
     }
 
@@ -235,20 +252,17 @@ public class JobCriteriaFragment extends BaseFragment implements
     public void onPostDownload(JSONObject jsonObject, String tag) {
         switch (tag) {
             case DOWNLOAD_TAG_WORKER:
+                if (progress != null) {
+                    progress.dismiss();
+                }
                 /* Parse JSON to WorkerList */
                 if (jsonObject == null) {
                     showToastMessage(getString(R.string.message_download_worker_failed));
                 } else {
-            /* Log.d("onPostDownload", jsonObject.toString()); */
                     Worker.loadJsonToList(jsonObject);
-
-
-            /* Change screen */
                     getScreenManager().openFragment(new WorkerListFragment(), true);
                 }
-                if (progress != null) {
-                    progress.dismiss();
-                }
+
                 break;
             case DOWNLOAD_TAG_EXPERTISE:
                 if (progress != null) {

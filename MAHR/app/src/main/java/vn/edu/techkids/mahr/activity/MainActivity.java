@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#29B6F6")));
 
-        hideActionBar();
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#29B6F6")));
+
+        /*hideActionBar();*/
 
         getIntances();
         openFragment(new NationalitySelectionFragment(), true);
@@ -90,8 +91,23 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     }
 
     @Override
+    public void hideDisplayHomeButton() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public void showDisplayHomeButton() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
     public void hideActionBar() {
         getSupportActionBar().hide();
+    }
+
+    @Override
+    public void setActionBarColor(String color) {
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(color)));
     }
 
 
@@ -101,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     }
 
     @Override
-    public void changeTitleOfActionBar(String titles) {
+    public void setTitleOfActionBar(String titles) {
         getSupportActionBar().setTitle(titles);
     }
 

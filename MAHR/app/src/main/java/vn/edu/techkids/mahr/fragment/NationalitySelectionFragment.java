@@ -52,7 +52,9 @@ public class NationalitySelectionFragment extends BaseFragment
 
     @Override
     public void onStart() {
-        getScreenManager().hideActionBar();
+        /*getScreenManager().hideActionBar();*/
+        getScreenManager().hideDisplayHomeButton();
+        getScreenManager().setTitleOfActionBar("Moving Angels HR");
         super.onStart();
     }
 

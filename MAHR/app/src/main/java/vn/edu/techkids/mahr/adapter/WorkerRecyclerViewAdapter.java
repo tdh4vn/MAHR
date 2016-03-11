@@ -34,58 +34,68 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item, parent, false);
+                .inflate(R.layout.list_item_worker, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Worker worker = mWorkerArrayList.get(position);
+        final Worker worker = mWorkerArrayList.get(position);
 
-        holder.txtName.setText(worker.getName());
-        holder.txtAge.setText(String.valueOf(worker.getAge()));
-        holder.txtExpersion.setText(worker.getExpertiseString());
+        holder.txtName.setText(" : " + worker.getName());
+        holder.txtAge.setText(" : " + String.valueOf(worker.getAge()));
+        holder.txtHeight.setText(" : " + String.valueOf(worker.getHeight()));
+        holder.txtWeight.setText(" : " + String.valueOf(worker.getWeight()));
+
         new DownloadImageTask(holder.imgViewPersonPhoto).execute(worker.getAvatar());
-
-        /*
-        holder.txtName.setText(worker.getName());
-        holder.txtAge.setText(worker.getAge());
-        holder.txtExpersion.setText(worker.getCode());*/
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Click", "Click");
                 if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    //mListener.onListFragmentInteraction(holder.mItem);
+                    Log.d("Click", "null != mListener");
+                    mListener.onListFragmentInteraction(worker);
                 }
             }
         });
     }
+
+
 
     @Override
     public int getItemCount() {
         return mWorkerArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
         CardView cv;
         TextView txtName;
         TextView txtAge;
-        TextView txtExpersion;
+        TextView txtHeight;
+        TextView txtWeight;
         ImageView imgViewPersonPhoto;
 
         public ViewHolder(View view) {
             super(view);
+
             cv = (CardView)view.findViewById(R.id.cv);
             txtName = (TextView) view.findViewById(R.id.person_name);
+
             txtAge = (TextView) view.findViewById(R.id.person_age);
-            txtExpersion = (TextView) view.findViewById(R.id.person_expersion);
+            txtHeight = (TextView) view.findViewById(R.id.person_height);
+            txtWeight = (TextView) view.findViewById(R.id.person_weight);
             (imgViewPersonPhoto) = (ImageView) view.findViewById(R.id.person_photo);
+
+            view.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v) {
+
+        }
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
