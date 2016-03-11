@@ -33,6 +33,8 @@
     
     self.title = @"语 言";
     
+    _tbvLanguage.allowsMultipleSelection = YES;
+    
     [_tbvLanguage reloadData];
 }
 
@@ -60,21 +62,21 @@
     
     if (indexPath.row == VietNam) {
         cell.lblTitle.text = @"越南";
-        if ([_selectedRows containsObject:@"VN"]) {
+        if ([_selectedRows containsObject:@"vn"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;
             [cell.imvCheck setTintColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]];
         }
     } else if (indexPath.row == Taiwan) {
         cell.lblTitle.text = @"中国";
-        if ([_selectedRows containsObject:@"CN"]) {
+        if ([_selectedRows containsObject:@"cn"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;
             [cell.imvCheck setTintColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]];
         }
     } else if (indexPath.row == Indonesia) {
         cell.lblTitle.text = @"印尼";
-        if ([_selectedRows containsObject:@"ID"]) {
+        if ([_selectedRows containsObject:@"id"]) {
             UIImage *image = [[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             cell.imvCheck.image = image;
             [cell.imvCheck setTintColor:[UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor]];
@@ -92,24 +94,25 @@
 #pragma mark - Tableview Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+
     
     if (indexPath.row == VietNam) {
-        if ([_selectedRows containsObject:@"VN"]) {
-            [_selectedRows removeObject:@"VN"];
+        if ([_selectedRows containsObject:@"vn"]) {
+            [_selectedRows removeObject:@"vn"];
         } else {
-            [_selectedRows addObject:@"VN"];
+            [_selectedRows addObject:@"vn"];
         }
     } else if (indexPath.row == Taiwan) {
-        if ([_selectedRows containsObject:@"CN"]) {
-            [_selectedRows removeObject:@"CN"];
+        if ([_selectedRows containsObject:@"cn"]) {
+            [_selectedRows removeObject:@"cn"];
         } else {
-            [_selectedRows addObject:@"CN"];
+            [_selectedRows addObject:@"cn"];
         }
     } else if (indexPath.row == Indonesia) {
-        if ([_selectedRows containsObject:@"ID"]) {
-            [_selectedRows removeObject:@"ID"];
+        if ([_selectedRows containsObject:@"id"]) {
+            [_selectedRows removeObject:@"id"];
         } else {
-            [_selectedRows addObject:@"ID"];
+            [_selectedRows addObject:@"id"];
         }
     }
     

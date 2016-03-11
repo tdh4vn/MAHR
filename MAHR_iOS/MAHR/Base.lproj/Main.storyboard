@@ -34,19 +34,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-kh-CMd">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-kh-CMd">
                                 <rect key="frame" x="50" y="470" width="500" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="印尼"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="50" y="450" width="300" height="42"/>
-                                </variation>
                                 <connections>
                                     <action selector="btnIndonesiaDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="pa3-zS-L9h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-7M-lcH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-7M-lcH">
                                 <rect key="frame" x="50" y="378" width="500" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -55,7 +52,7 @@
                                     <action selector="btnVietNamDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="69J-pc-M4c"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_app" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_app" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
                                 <rect key="frame" x="180" y="164" width="240" height="144"/>
                                 <animations/>
                             </imageView>
@@ -302,7 +299,7 @@
                                     <constraint firstAttribute="height" constant="70" id="edm-ig-Av4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="男性厂">
+                                <state key="normal" title="廠男">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact">
@@ -321,7 +318,7 @@
                                     <constraint firstAttribute="height" constant="70" id="3dm-a8-Sp9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="室友">
+                                <state key="normal" title="家庭類">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact">
@@ -340,7 +337,7 @@
                                     <constraint firstAttribute="height" constant="70" id="onc-jK-4ta"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="女工厂">
+                                <state key="normal" title="廠女">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact">

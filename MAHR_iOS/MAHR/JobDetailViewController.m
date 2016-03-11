@@ -18,6 +18,7 @@
 #import "LanguageViewController.h"
 #import "SkillViewController.h"
 #import "UIButton+Custom.h"
+#import "AFNetworking/AFNetworking.h"
 
 @interface JobDetailViewController ()
 
@@ -90,12 +91,40 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _skills = appDelegate.skills;
     
-    if (_jobType == MaleWorker) {
-        self.title = @"男性厂";
-    } else if (_jobType == FemaleWorker){
-        self.title = @"女工厂";
-    } else if (_jobType == HouseMaid){
-        self.title = @"室友";
+    if (_skills.count == 0) {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        
+        AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
+        
+        NSString *stringUrl = [NSString stringWithFormat:kSkillUrl];
+        
+        NSURLSessionDataTask *dataTask = [httpSessionManager GET:stringUrl
+                                                      parameters:nil
+                                                        progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                                            if (responseObject) {
+                                                                for (NSDictionary *jsonDict in responseObject[@"items"]) {
+                                                                    Skill *newSkill = [[Skill alloc]initWithJson:jsonDict];
+                                                                    [_skills addObject:newSkill];
+                                                                }
+                                                                
+                                                            }
+                                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                                            if (error) {
+                                                                
+                                                                NSLog(@"%@",error);
+                                                                
+                                                            }
+                                                        }];
+        
+        [dataTask resume];
+    }
+    
+    if ([_jobType isEqualToString:@"job_worker_male"]) {
+        self.title = @"廠男";
+    } else if ([_jobType isEqualToString:@"job_worker_female"]){
+        self.title = @"廠女";
+    } else if ([_jobType isEqualToString:@"job_house_cleaner"]){
+        self.title = @"家庭類";
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -178,11 +207,11 @@
         cell.lblMinus.hidden = YES;
         NSString *languagesString = [[NSString alloc]init];
         for (NSString *language in _languages) {
-            if([language isEqualToString:@"VN"]){
+            if([language isEqualToString:@"vn"]){
                 languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"越南, "]];
-            } else if ([language isEqualToString:@"CN"]){
+            } else if ([language isEqualToString:@"cn"]){
                 languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"中国, "]];
-            } else if ([language isEqualToString:@"ID"]){
+            } else if ([language isEqualToString:@"id"]){
                 languagesString = [languagesString stringByAppendingString:[NSString stringWithFormat:@"印尼, "]];
             }
         }
@@ -389,9 +418,9 @@
     NSString *filters = [[NSString alloc]init];
     
     if (_expertises.count > 0) {
-        filters = [filters stringByAppendingString:@"&filter[]=exps+include+"];
+        
         for (Skill *skill in _expertises) {
-            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"%@,",skill.id]];
+            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=skill_%@+eq+1",skill.id]];
         }
         filters = [filters substringToIndex:filters.length - 1];
     }
@@ -401,18 +430,18 @@
     NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:currentDate];
     int currentYear = (int)[components year];
     
-    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=birthyear+beetween+%d,%d",(currentYear - _ageTo),(currentYear - _ageFrom)]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=birthyear%%20beetween%%20%d,%d",(currentYear - _ageTo),(currentYear - _ageFrom)]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=height+beetween+%d,%d",_heightFrom,_heightTo]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=weight+beetween+%d,%d",_weightFrom,_weightTo]];
     if (_languages.count > 0) {
-        filters = [filters stringByAppendingString:@"&filter[]=langs+include+"];
+
         for (NSString *language in _languages) {
-            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"%@,",language]];
+            filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=lang_%@+eq+1",language]];
         }
         filters = [filters substringToIndex:filters.length - 1];
     }
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=educational_level+gte+%d",_educationType]];
-    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=major+eq+gte+%d",_jobType]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=%@+eq+1",_jobType]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=nation+eq+%@",_region]];
     
     NSString *filterUrl = [NSString stringWithFormat:kFilterUrl,filters];

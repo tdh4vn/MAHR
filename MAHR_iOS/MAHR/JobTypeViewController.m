@@ -30,7 +30,7 @@
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
     jobDetailViewController.region = _region;
-    jobDetailViewController.jobType = MaleWorker;
+    jobDetailViewController.jobType = @"job_worker_male";
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     
@@ -42,7 +42,7 @@
     JobDetailViewController *jobDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"jobDetail"];
     
     jobDetailViewController.region = _region;
-    jobDetailViewController.jobType = FemaleWorker;
+    jobDetailViewController.jobType = @"job_worker_female";
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     
@@ -56,7 +56,7 @@
     
     jobDetailViewController.region = _region;
 
-    jobDetailViewController.jobType = HouseMaid;
+    jobDetailViewController.jobType = @"job_house_cleaner";
     
     [self.navigationController pushViewController:jobDetailViewController animated:YES];
     
