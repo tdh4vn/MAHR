@@ -13,7 +13,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/female_employee"
+            android:text="@string/male_employee"
             android:id="@+id/btnMaleEmployee"
             android:layout_alignParentTop="true"
             android:textAllCaps="false"
@@ -26,7 +26,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/male_employee"
+            android:text="@string/female_employee"
             android:id="@+id/btnFemaleEmployee"
             android:textAllCaps="false"
             android:textColor="@color/color_white"

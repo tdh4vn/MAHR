@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
@@ -209,13 +210,13 @@ public class JobCriteria {
         notifyListener();
     }*/
 
-    public String getLanguageAPIParam() {
-        /*switch (language){
+    /*public String getLanguageAPIParam() {
+        *//*switch (language){
             case R.string.vietnam: return Constants.API_VIETNAM;
             case R.string.indonesia: return Constants.API_INDONESIA;
             case R.string.taiwan: return Constants.API_TAIWAN;
         }
-        return "";*/
+        return "";*//*
 
         String ret = "";
         for (int idx = 0; idx < langs.length; idx++) {
@@ -225,7 +226,7 @@ public class JobCriteria {
             }
         }
         return ret;
-    }
+    }*/
 
     public int getDegree() {
         return degree;
@@ -298,33 +299,58 @@ public class JobCriteria {
     /******************************************* API ***********************************************/
     /***********************************************************************************************/
     private String getExpertiseAPIString() {
-        String param = getExpertiseAPIParam();
+        /*String param = getExpertiseAPIParam();
         if(param != null && param != "") return String.format(Constants.API_FILTER_EXPERTISE_FORMAT,
                 param);
-        return "";
-    }
-
-    private String getExpertiseAPIParam() {
-        /*if(expertise == -1) return "";
-        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);*/
-
+        return "";*/
         String ret = "";
-        if(expertiseArrayList != null) {
-            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
-                Expertise expertise = expertiseArrayList.get(idx);
-                if (expertise.getSelected()) {
-                    if (ret != "")
-                        ret += ",";
-                    ret += expertise.getName();
-                }
+
+        for(Expertise expertise : expertiseArrayList) {
+            if(expertise.getSelected()) {
+                ret += String.format(Constants.API_FILTER_EXPERTISE_FORMAT, expertise.getId());
             }
         }
+
         return ret;
     }
+
+//    private String getExpertiseAPIParam() {
+//        /*if(expertise == -1) return "";
+//        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);*/
+//
+//        String ret = "";
+//        if(expertiseArrayList != null) {
+//            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
+//                Expertise expertise = expertiseArrayList.get(idx);
+//                if (expertise.getSelected()) {
+//                    if (ret != "")
+//                        ret += ",";
+//                    ret += expertise.getName();
+//                }
+//            }
+//        }
+//        return ret;
+//    }
 
     private String getAgeAPIString() {
         if(this.minAge == -1 || this.maxAge == -1) return "";
         return String.format(Constants.API_FILTER_AGE_FORMAT, this.minAge, this.maxAge);
+    }
+
+    private String getBirthyearAPIString() {
+        String ret = "";
+
+        if(minAge != -1 && maxAge != 1) {
+
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+
+            int birthyear_low = year - maxAge;
+            int birthyear_high = year - minAge;
+            ret = String.format(Constants.API_FILTER_BIRTH_YEAR_FORMAT, birthyear_low, birthyear_high);
+        }
+
+        return ret;
     }
 
     private String getHeightAPIString() {
@@ -338,8 +364,17 @@ public class JobCriteria {
     }
 
     private String getLangAPIString() {
-        if(this.getLanguageAPIParam() == "") return "";
-        return String.format(Constants.API_FILTER_LANG_FORMAT, this.getLanguageAPIParam());
+        String ret = "";
+        for(Lang lang : this.langs) {
+            if(lang.isSelected()) {
+                ret += String.format(Constants.API_FILTER_LANG_FORMAT,
+                        lang.getAPIParam().toLowerCase());
+            }
+        }
+        return ret;
+
+        /*if(this.getLanguageAPIParam() == "") return "";
+        return String.format(Constants.API_FILTER_LANG_FORMAT, this.getLanguageAPIParam());*/
     }
 
     private String getExperienceAPIString() {
@@ -365,7 +400,7 @@ public class JobCriteria {
     public String getAPIString() {
         return Constants.API_URL_PROFILE +
                 getExpertiseAPIString() +
-                getAgeAPIString() +
+                getBirthyearAPIString() +
                 getHeightAPIString() +
                 getWeightAPIString() +
                 getLangAPIString() +

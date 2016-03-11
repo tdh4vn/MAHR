@@ -154,7 +154,7 @@ public class JobCriteriaFragment extends BaseFragment implements
         @Override
         public void onClick(View v) {
             try {
-                Log.d("floatingActionButton", JobCriteria.getInst().getAPIString());
+                Log.d("APILoadWorker", JobCriteria.getInst().getAPIString());
                 DownloadJSONTask downloadJSONTask = new DownloadJSONTask(jsonPreDownloadHandler,
                         jsonPostDownloadHandler, DOWNLOAD_TAG_WORKER);
                 downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
