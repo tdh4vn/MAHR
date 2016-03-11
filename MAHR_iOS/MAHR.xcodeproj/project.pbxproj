@@ -33,6 +33,7 @@
 		891ACCBB1C8DCBB1008BCA23 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB31C8DCBB1008BCA23 /* AFURLRequestSerialization.m */; };
 		891ACCBC1C8DCBB1008BCA23 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB51C8DCBB1008BCA23 /* AFURLResponseSerialization.m */; };
 		891ACCBD1C8DCBB1008BCA23 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ACCB71C8DCBB1008BCA23 /* AFURLSessionManager.m */; };
+		8941148E1C9275B400E43D58 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941148D1C9275B400E43D58 /* RegionViewController.m */; };
 		894190981C9146B60005269B /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 894190971C9146B60005269B /* Skill.m */; };
 		8941909C1C915D9E0005269B /* EducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941909B1C915D9E0005269B /* EducationViewController.m */; };
 		894190A01C9162340005269B /* LanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8941909F1C9162340005269B /* LanguageViewController.m */; };
@@ -96,7 +97,6 @@
 		89C49CA41C8C646500A16B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA21C8C646500A16B83 /* Main.storyboard */; };
 		89C49CA91C8C646500A16B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CA71C8C646500A16B83 /* LaunchScreen.storyboard */; };
 		89C49CB41C8C672600A16B83 /* Language.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C49CB31C8C672600A16B83 /* Language.json */; };
-		89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49CB61C8C6D4700A16B83 /* RegionViewController.m */; };
 		89C49CBC1C8C71CF00A16B83 /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C49CBB1C8C71CF00A16B83 /* HexColors.m */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +156,8 @@
 		891ACCB51C8DCBB1008BCA23 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		891ACCB61C8DCBB1008BCA23 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		891ACCB71C8DCBB1008BCA23 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		8941148C1C9275B400E43D58 /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionViewController.h; sourceTree = "<group>"; };
+		8941148D1C9275B400E43D58 /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionViewController.m; sourceTree = "<group>"; };
 		894190961C9146B60005269B /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
 		894190971C9146B60005269B /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
 		8941909A1C915D9E0005269B /* EducationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationViewController.h; sourceTree = "<group>"; };
@@ -283,8 +285,6 @@
 		89C49CA81C8C646500A16B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C49CAA1C8C646500A16B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89C49CB31C8C672600A16B83 /* Language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Language.json; sourceTree = "<group>"; };
-		89C49CB51C8C6D4700A16B83 /* RegionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegionViewController.h; path = ../../MAHR/RegionViewController.h; sourceTree = "<group>"; };
-		89C49CB61C8C6D4700A16B83 /* RegionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegionViewController.m; path = ../../MAHR/RegionViewController.m; sourceTree = "<group>"; };
 		89C49CB81C8C700100A16B83 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		89C49CBA1C8C71CF00A16B83 /* HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColors.h; sourceTree = "<group>"; };
 		89C49CBB1C8C71CF00A16B83 /* HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColors.m; sourceTree = "<group>"; };
@@ -679,8 +679,8 @@
 		89C49CB11C8C64F600A16B83 /* Region */ = {
 			isa = PBXGroup;
 			children = (
-				89C49CB51C8C6D4700A16B83 /* RegionViewController.h */,
-				89C49CB61C8C6D4700A16B83 /* RegionViewController.m */,
+				8941148C1C9275B400E43D58 /* RegionViewController.h */,
+				8941148D1C9275B400E43D58 /* RegionViewController.m */,
 			);
 			name = Region;
 			sourceTree = "<group>";
@@ -862,10 +862,10 @@
 				891ACCB81C8DCBB1008BCA23 /* AFHTTPSessionManager.m in Sources */,
 				8941912F1C91A1910005269B /* UIButton+WebCache.m in Sources */,
 				894191231C91A1910005269B /* MagicalRecord+Setup.m in Sources */,
+				8941148E1C9275B400E43D58 /* RegionViewController.m in Sources */,
 				891ACC681C8D5AF0008BCA23 /* MoreCell.m in Sources */,
 				891ACC7E1C8D8746008BCA23 /* SCLAlertView.m in Sources */,
 				891ACCBA1C8DCBB1008BCA23 /* AFSecurityPolicy.m in Sources */,
-				89C49CB71C8C6D4700A16B83 /* RegionViewController.m in Sources */,
 				8941909C1C915D9E0005269B /* EducationViewController.m in Sources */,
 				894191271C91A1910005269B /* NSData+ImageContentType.m in Sources */,
 				891ACC801C8D8746008BCA23 /* SCLAlertViewStyleKit.m in Sources */,
