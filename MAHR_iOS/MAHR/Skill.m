@@ -12,7 +12,7 @@
 
 - (instancetype)initWithJson:(NSDictionary *)jsonDict;
 {
-    self = [self init];
+    self = [super init];
     
     if (self) {
         if ([jsonDict[@"id"] isKindOfClass:[NSNull class]]) {
