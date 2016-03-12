@@ -22,10 +22,12 @@ public class Constants {
     public final static String API_INDONESIA = "in";
     public final static String API_TAIWAN = "cn";
 
-    public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "1";
-    public static String API_PARAM_DEGREE_HIGH_SCHOOL = "2";
-    public static String API_PARAM_DEGREE_COLLEGE = "3";
-    public static String API_PARAM_DEGREE_UNIVERSITY = "4";
+    public static String API_PARAM_DEGREE_PRIMARY_SCHOOL = "1";
+    public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "2";
+    public static String API_PARAM_DEGREE_HIGH_SCHOOL = "3";
+    public static String API_PARAM_DEGREE_VOCATIONAL = "4";
+    public static String API_PARAM_DEGREE_COLLEGE = "5";
+    public static String API_PARAM_DEGREE_UNIVERSITY = "6";
 
     /*public static final String KEY_VIETNAM = "KEYVIETNAM";
     public static final String KEY_INDONESIA = "KEYINDONESIA";*/
@@ -36,16 +38,19 @@ public class Constants {
 
     public static final String API_URL_ROOT = "http://api.mahr.adcviet.com/v1";
     public static final String API_URL_EXPERTISE = API_URL_ROOT + "/skills";
-    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?expand=skills";
+    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?";
 
     public static final String API_KEY_ITEMS ="items";
 
     public static final String API_DEFAULT_PHOTO_LINK = "http://rs829.pbsrc.com/albums/zz219/vinadragon/Son16.jpg~c200";
 
+    public static final String HEIGHT_UNIT = "cm";
+    public static final String WEIGHT_UINT = "kg";
+
     public static String API_FILTER_PREFIX = "&filter[]=";
     public static String API_FILTER_EXPERTISE_FORMAT = API_FILTER_PREFIX + "skill_%s+eq+1";
     public static String API_FILTER_AGE_FORMAT = API_FILTER_PREFIX + "age+beetween+%s,%s";
-    public static String API_FILTER_BIRTH_YEAR_FORMAT = API_FILTER_PREFIX + "birthyear%%20between%%%s,%s";
+    public static String API_FILTER_BIRTH_YEAR_FORMAT = API_FILTER_PREFIX + "birthyear+between+%s,%s";
     public static String API_FILTER_HEIGHT_FORMAT = API_FILTER_PREFIX + "height+beetween+%s,%s";
     public static String API_FILTER_WEIGHT_FORMAT = API_FILTER_PREFIX + "weight+beetween+%s,%s";
     public static String API_FILTER_LANG_FORMAT = API_FILTER_PREFIX + "lang_%s+eq+1";

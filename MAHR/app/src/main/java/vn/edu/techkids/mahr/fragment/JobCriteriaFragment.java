@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
@@ -32,6 +33,7 @@ import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
+import vn.edu.techkids.mahr.enitity.Lang;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
@@ -175,9 +177,15 @@ public class JobCriteriaFragment extends BaseFragment implements
             case JobCriteria.WEIGHT:
                 return mJobCriteria.getWeightRange();
             case JobCriteria.LANG:
-                /*if (mJobCriteria.getLanguage() == -1) return null;
-                return getString(mJobCriteria.getLanguage());*/
-                return mJobCriteria.getLangString();
+                List<Integer> idList = mJobCriteria.getLangIds();
+                String ret = "";
+                for (int id : idList) {
+                    if(ret != "")
+                        ret += " | ";
+                    ret += getString(id);
+                }
+
+                return ret;
             case JobCriteria.EXP:
                 return mJobCriteria.getExpRange();
             case JobCriteria.DEGREE:

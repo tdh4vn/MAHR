@@ -62,8 +62,6 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
         });
     }
 
-
-
     @Override
     public int getItemCount() {
         return mWorkerArrayList.size();

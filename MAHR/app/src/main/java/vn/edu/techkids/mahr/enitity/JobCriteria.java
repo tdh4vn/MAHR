@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
@@ -90,7 +91,7 @@ public class JobCriteria {
         for (int idx = 0; idx < langs.length; idx++) {
             if (langs[idx].isSelected()) {
                 if (ret != "") ret += " | ";
-                ret += langs[idx].getAPIParam();
+                ret += langs[idx].getid();
             }
         }
         return ret;
@@ -234,8 +235,10 @@ public class JobCriteria {
 
     private String getDegreeAPIParam() {
         switch (degree) {
+            case R.string.primary_school: return Constants.API_PARAM_DEGREE_PRIMARY_SCHOOL;
             case R.string.secondary_school: return Constants.API_PARAM_DEGREE_SECONDARY_SCHOOL;
             case R.string.high_school: return Constants.API_PARAM_DEGREE_HIGH_SCHOOL;
+            case R.string.vocational: return Constants.API_PARAM_DEGREE_VOCATIONAL;
             case R.string.college: return Constants.API_PARAM_DEGREE_COLLEGE;
             case R.string.university: return Constants.API_PARAM_DEGREE_UNIVERSITY;
         }
@@ -269,12 +272,6 @@ public class JobCriteria {
         this.maxWeight = maxWeight;
         notifyListener();
     }
-
-    /*private void toAPIParam()
-
-    public String getAPIParams() {
-
-    }*/
 
     public  void loadExperiseArrayList(JSONObject jsonObject) {
         try {
@@ -375,6 +372,17 @@ public class JobCriteria {
 
         /*if(this.getLanguageAPIParam() == "") return "";
         return String.format(Constants.API_FILTER_LANG_FORMAT, this.getLanguageAPIParam());*/
+    }
+
+    public List<Integer> getLangIds() {
+        ArrayList<Integer> retList = new ArrayList<>();
+
+        for(Lang lang : this.langs) {
+            if(lang.isSelected()) {
+                retList.add(lang.getid());
+            }
+        }
+        return retList;
     }
 
     private String getExperienceAPIString() {

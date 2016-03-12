@@ -43,6 +43,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="detail">详情</string>
+    <string name="primary_school">小學</string>
+    <string name="vocational">中級</string>
 
 
 </resources>
