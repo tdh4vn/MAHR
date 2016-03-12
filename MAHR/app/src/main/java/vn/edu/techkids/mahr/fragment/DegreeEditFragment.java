@@ -21,6 +21,7 @@ public class DegreeEditFragment extends DialogFragment implements AdapterView.On
 
     private ListView mListView;
     private final int[] mItems = new int[]{
+            R.string.primary_school,
             R.string.secondary_school,
             R.string.high_school,
             R.string.college,

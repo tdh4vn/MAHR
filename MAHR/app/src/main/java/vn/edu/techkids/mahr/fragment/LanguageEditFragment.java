@@ -71,6 +71,8 @@ public class LanguageEditFragment extends DialogFragment implements View.OnClick
                     convertView = getActivity().getLayoutInflater().inflate(
                             R.layout.list_item_multi_choice, parent, false);
                 }
+
+
                 TextView txvExpertise = (TextView) convertView.findViewById(R.id.txvTitle);
                 CheckBox chbSelect = (CheckBox)convertView.findViewById(R.id.chbSelect);
                 chbSelect.setChecked(lang.isSelected());
