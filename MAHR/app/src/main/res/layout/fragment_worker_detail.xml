@@ -3,12 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="vn.edu.techkids.mahr.fragment.WorkerDetailFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <WebView
-        android:id="@+id/wvWorkerDetail"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </WebView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+        <WebView
+            android:id="@+id/wvWorkerDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </WebView>
 
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rowCount="1"
+            android:columnCount="3"
+            android:layout_gravity="center_horizontal|bottom"
+            android:padding="@dimen/dialog_padding">
+            <Button
+                android:background="@drawable/selector_main_button"
+                android:textColor="@color/color_white"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_column="0"
+                android:layout_row="0"/>
+            <Button
+                android:id="@+id/btnShare"
+                android:background="@drawable/selector_main_button"
+                android:textColor="@color/color_white"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:text="@string/share"/>
+            <Button
+                android:background="@drawable/selector_main_button"
+                android:textColor="@color/color_white"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_column="2"
+                android:layout_row="0"/>
+        </GridLayout>
+    </LinearLayout>
 </FrameLayout>

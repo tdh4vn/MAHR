@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.Cloud;
@@ -26,8 +27,9 @@ public class WorkerDetailFragment extends BaseFragment {
         // Required empty public constructor
     }
 
-    public void setWorkerDetailUrl(String mWorkerDetailUrl) {
-        this.mWorkerDetailUrl = mWorkerDetailUrl;
+    public void setWorkerDetailUrl(String workerDetailUrl) {
+        this.mWorkerDetailUrl = workerDetailUrl;
+        Log.d("setWorkerDetailUrl", workerDetailUrl);
     }
 
 
@@ -51,16 +53,21 @@ public class WorkerDetailFragment extends BaseFragment {
         mWvWorkerDetail.loadUrl("https://docs.google.com/gview?embedded=true&url=" + mWorkerDetailUrl);
         Cloud.getInstance().setUrlLink(mWorkerDetailUrl);
 
-
+        view.findViewById(R.id.btnShare).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareExcelLink();
+            }
+        });
 
         return view;
     }
 
-    @Override
+    /*@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_list_jobs, menu);
         super.onCreateOptionsMenu(menu, inflater);
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -75,6 +82,15 @@ public class WorkerDetailFragment extends BaseFragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void shareExcelLink() {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mWorkerDetailUrl);
+        startActivity(Intent.createChooser(sharingIntent, mWorkerDetailUrl));
+    }
+
 
     @Override
     public void onStart() {
@@ -97,7 +113,6 @@ public class WorkerDetailFragment extends BaseFragment {
         public void onPageFinished(WebView view, String url) {
             // TODO Auto-generated method stub
             super.onPageFinished(view, url);
-
         }
     }
 }

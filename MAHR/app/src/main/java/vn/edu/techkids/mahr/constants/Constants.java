@@ -49,12 +49,12 @@ public class Constants {
 
     public static String API_FILTER_PREFIX = "&filter[]=";
     public static String API_FILTER_EXPERTISE_FORMAT = API_FILTER_PREFIX + "skill_%s+eq+1";
-    public static String API_FILTER_AGE_FORMAT = API_FILTER_PREFIX + "age+beetween+%s,%s";
+    public static String API_FILTER_AGE_FORMAT = API_FILTER_PREFIX + "age+between+%s,%s";
     public static String API_FILTER_BIRTH_YEAR_FORMAT = API_FILTER_PREFIX + "birthyear+between+%s,%s";
-    public static String API_FILTER_HEIGHT_FORMAT = API_FILTER_PREFIX + "height+beetween+%s,%s";
-    public static String API_FILTER_WEIGHT_FORMAT = API_FILTER_PREFIX + "weight+beetween+%s,%s";
+    public static String API_FILTER_HEIGHT_FORMAT = API_FILTER_PREFIX + "height+between+%s,%s";
+    public static String API_FILTER_WEIGHT_FORMAT = API_FILTER_PREFIX + "weight+between+%s,%s";
     public static String API_FILTER_LANG_FORMAT = API_FILTER_PREFIX + "lang_%s+eq+1";
-    public static String API_FILTER_EXP_FORMAT = API_FILTER_PREFIX + "exp_year+beetween+%s,%s";
+    public static String API_FILTER_EXP_FORMAT = API_FILTER_PREFIX + "exp_year+between+%s,%s";
     public static String API_FILTER_DEGREE_FORMAT = API_FILTER_PREFIX + "educational_level+gte+%s";
     public static String API_FILTER_MAJOR_FORMAT = API_FILTER_PREFIX + "job_%s+eq+1";
     public static String API_FILTER_NATION_FORMAT = API_FILTER_PREFIX + "nation+eq+%s";
