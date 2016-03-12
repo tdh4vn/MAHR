@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _tbvEducation.rowHeight = 50.0f;
     
     [self.navigationItem setHidesBackButton:TRUE];
     _barItem = [[UIBarButtonItem alloc]initWithTitle:@"背部" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];
@@ -42,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,13 +55,16 @@
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"MoreCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
-    if (indexPath.row == JuniorHigh - 1) {
+    if (indexPath.row == Primary - 1) {
+        cell.lblTitle.text = @"小學";
+    } else if (indexPath.row == JuniorHigh - 1) {
         cell.lblTitle.text = @"中學";
     } else if (indexPath.row == High - 1) {
         cell.lblTitle.text = @"高中";
+    } else if (indexPath.row == Vocational - 1) {
+        cell.lblTitle.text = @"中級";
     } else if (indexPath.row == College - 1) {
-        cell.lblTitle.text = @"學院";
+        cell.lblTitle.text = @"二專";
     } else if (indexPath.row == University - 1) {
         cell.lblTitle.text = @"大學";
     }

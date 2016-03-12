@@ -52,8 +52,10 @@ typedef NS_ENUM(int, LanguageType) {
 };
 
 typedef NS_ENUM(int, EducationType) {
-    JuniorHigh = 1,
+    Primary = 1,
+    JuniorHigh,
     High,
+    Vocational,
     College,
     University,
 };
@@ -81,4 +83,4 @@ typedef NS_ENUM(int, EducationType) {
 
 #define kSkillUrl                                           @"http://api.mahr.adcviet.com/v1/skills"
 
-#define kFilterUrl                                          @"http://api.mahr.adcviet.com/v1/profiles?expand=skills%@"
+#define kFilterUrl                                          @"http://api.mahr.adcviet.com/v1/profiles?%@"

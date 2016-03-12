@@ -21,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _tbvLanguage.rowHeight = 50.0f;
+    
     
     [self.navigationItem setHidesBackButton:TRUE];
     _barItem = [[UIBarButtonItem alloc]initWithTitle:@"背部" style:UIBarButtonItemStyleBordered target:self action:@selector(btnCancelDidTouch)];

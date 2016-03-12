@@ -66,7 +66,7 @@
     
     _languages = [[NSMutableArray alloc]init];
     
-    _educationType = JuniorHigh;
+    _educationType = Primary;
     
     
     
@@ -228,12 +228,17 @@
         cell.imageView.image = [UIImage imageNamed:@"6"];
         cell.lblFrom.hidden = YES;
         cell.lblMinus.hidden = YES;
-        if (_educationType == JuniorHigh) {
+        
+        if (_educationType == Primary) {
+            cell.lblTo.text = @"小學";
+        } else if (_educationType == JuniorHigh) {
             cell.lblTo.text = @"中學";
         } else if (_educationType == High){
             cell.lblTo.text = @"高中";
+        } else if (_educationType == Vocational) {
+            cell.lblTo.text = @"中級";
         } else if (_educationType == College){
-            cell.lblTo.text = @"學院";
+            cell.lblTo.text = @"二專";
         } else if (_educationType == University){
             cell.lblTo.text = @"大學";
         }
@@ -430,7 +435,7 @@
     NSDateComponents* components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:currentDate];
     int currentYear = (int)[components year];
     
-    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=birthyear%%20beetween%%20%d,%d",(currentYear - _ageTo),(currentYear - _ageFrom)]];
+    filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filters[]=birthyear+beetween+%d,%d",(currentYear - _ageTo),(currentYear - _ageFrom)]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=height+beetween+%d,%d",_heightFrom,_heightTo]];
     filters = [filters stringByAppendingString:[NSString stringWithFormat:@"&filter[]=weight+beetween+%d,%d",_weightFrom,_weightTo]];
     if (_languages.count > 0) {
