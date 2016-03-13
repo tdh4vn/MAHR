@@ -35,6 +35,8 @@
     <string name="worker">工人</string>
     <string name="loading">载入中...</string>
     <string name="vocational">中級</string>
+    <string name="use">使用</string>
+    <string name="share">分享</string>
 
 
 </resources>

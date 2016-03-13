@@ -48,6 +48,24 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
         holder.txtHeight.setText(" : " + String.valueOf(worker.getHeight()));
         holder.txtWeight.setText(" : " + String.valueOf(worker.getWeight()));
 
+        int imgStatusId = -1;
+        switch (worker.getStatus()) {
+            case Worker.STATUS_FREE:
+                imgStatusId = R.mipmap.free;
+                break;
+            case Worker.STATUS_WAITING:
+                imgStatusId = R.mipmap.waiting;
+                break;
+            case Worker.STATUS_CONFIRM:
+                imgStatusId = R.mipmap.confirm;
+                break;
+        }
+
+        Log.d("onBindViewHolder", String.format("Status = %d", worker.getStatus()));
+
+        if(imgStatusId != -1)
+            holder.imgViewStatus.setImageResource(imgStatusId);
+
         new DownloadImageTask(holder.imgViewPersonPhoto).execute(worker.getAvatar());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +85,7 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
         return mWorkerArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
         TextView txtName;
@@ -75,6 +93,7 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
         TextView txtHeight;
         TextView txtWeight;
         ImageView imgViewPersonPhoto;
+        ImageView imgViewStatus;
 
         public ViewHolder(View view) {
             super(view);
@@ -85,15 +104,16 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
             txtAge = (TextView) view.findViewById(R.id.person_age);
             txtHeight = (TextView) view.findViewById(R.id.person_height);
             txtWeight = (TextView) view.findViewById(R.id.person_weight);
-            (imgViewPersonPhoto) = (ImageView) view.findViewById(R.id.person_photo);
+            imgViewPersonPhoto = (ImageView) view.findViewById(R.id.person_photo);
+            imgViewStatus = (ImageView)view.findViewById(R.id.person_status);
 
-            view.setOnClickListener(this);
+            /*view.setOnClickListener(this);*/
         }
 
-        @Override
+        /*@Override
         public void onClick(View v) {
 
-        }
+        }*/
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

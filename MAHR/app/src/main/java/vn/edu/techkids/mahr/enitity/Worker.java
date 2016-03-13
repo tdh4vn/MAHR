@@ -18,6 +18,10 @@ import vn.edu.techkids.mahr.constants.Constants;
  */
 public class Worker {
 
+    public final static int STATUS_FREE = 1;
+    public final static int STATUS_WAITING = 2;
+    public final static int STATUS_CONFIRM = 3;
+
     private int id;
     private String code;
     private String name;
@@ -31,6 +35,7 @@ public class Worker {
     private int education_level;
     private String avatar;
     private String excel_path;
+    private int status;
     private int age;
 
     private List<Expertise> skills;
@@ -89,6 +94,10 @@ public class Worker {
 
     public String getExcel_path() {
         return excel_path;
+    }
+
+    public int getStatus() {
+        return status;
     }
 
     public int getAge() {
@@ -169,6 +178,10 @@ public class Worker {
         this.excel_path = excel_path;
     }
 
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -197,62 +210,4 @@ public class Worker {
         }
     }
 
-    /*private String photoLink;
-
-
-    private int age;
-    private ArrayList<Expertise> expertiseArrayList;
-    private String mobileNumber;
-    private int degree;
-
-
-    private String expersion;*/
-
-    /*public Worker(int id, String photoLink, String name, String expersion, int age) {
-        this.id = id;
-        this.photoLink = photoLink;
-        this.name = name;
-        this.expersion = expersion;
-        this.age = age;
-    }*/
-
-    /*public static final String API_KEY_ID = "id";
-    public static final String API_KEY_CODE = "code";
-    public static final String API_KEY_NAME = "name";
-    public static final String API_KEY_GENDER = "gender";
-    public static final String API_KEY_NATIONALITY = "nationality";
-    public static final String API_KEY_BIRTHYEAR = "birthyear";
-    public static final String API_KEY_BIRTHDAY = "birthday";
-    public static final String API_KEY_HEIGHT = "height";
-    public static final String API_KEY_WEIGHT = "weight";
-    public static final String API_KEY_MOBILE_NUMBER = "mobile_number";
-    public static final String API_KEY_DEGREE = "educational_level";
-    public static final String API_KEY_EXCEL_PATH = "excel_path";
-    public static final String API_KEY_CREATED_AT = "created_at";
-    public static final String API_KEY_AGE = "age";
-
-    public Worker(JSONObject jsonObject) {
-        try {
-            this.id = jsonObject.getInt(API_KEY_ID);
-            this.code = jsonObject.getString(API_KEY_CODE);
-            this.name = jsonObject.getString(API_KEY_NAME);
-            this.gender = jsonObject.getInt(API_KEY_GENDER);
-            this.nationality = jsonObject.getString(API_KEY_NATIONALITY);
-            this.birthYear = jsonObject.getInt(API_KEY_BIRTHYEAR);
-            this.birthDay = jsonObject.getString(API_KEY_BIRTHDAY);
-            this.height = jsonObject.getInt(API_KEY_HEIGHT);
-            this.weight = jsonObject.getInt(API_KEY_WEIGHT);
-            this.mobileNumber = jsonObject.getString(API_KEY_MOBILE_NUMBER);
-            this.degree = jsonObject.getInt(API_KEY_DEGREE);
-            *//*this.excelPath = jsonObject.getString()*//*
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }*/
-/*
-    @Override
-    public String toString() {
-        return name;
-    }*/
 }
