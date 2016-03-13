@@ -65,6 +65,12 @@ typedef NS_ENUM(int, EducationType) {
 
 #define kNavigatiionBarBackGroundImage                      @"background_navigationbar"
 
+#define kStatusGreenImage                                   @"free"
+
+#define kStatusYellowImage                                  @"waiting"
+
+#define kStatusRedImage                                     @"confirm"
+
 
 //MARK: Color
 

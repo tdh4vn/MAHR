@@ -45,6 +45,11 @@
         } else {
             _exceUrl = jsonDict[@"excel_path"];
         }
+        if ([jsonDict[@"status"] isKindOfClass:[NSNull class]]) {
+            _status = -1;
+        } else {
+            _status = [jsonDict[@"status"] integerValue];
+        }
     }
     
     return self;
