@@ -48,9 +48,11 @@ public class WorkerDetailFragment extends BaseFragment {
         mWvWorkerDetail.getSettings().setSupportZoom(true);
         //mWvWorkerDetail.getSettings().setUseWideViewPort(true);
         mWvWorkerDetail.getSettings().setJavaScriptEnabled(true);
+        mWvWorkerDetail.getSettings().setDisplayZoomControls(false);
         //mWvWorkerDetail.getSettings().setUseWideViewPort(true);
 
         mWvWorkerDetail.loadUrl("https://docs.google.com/gview?embedded=true&url=" + mWorkerDetailUrl);
+
         Cloud.getInstance().setUrlLink(mWorkerDetailUrl);
 
         view.findViewById(R.id.btnShare).setOnClickListener(new View.OnClickListener() {
@@ -71,9 +73,9 @@ public class WorkerDetailFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.e("FUCK", "2");
+        Log.e("onOptionsItemSelected", "2");
         if (item.getItemId() == R.id.action_share){
-            Log.e("FUCK", "3");
+            Log.e("onOptionsItemSelected", "3");
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
             sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
