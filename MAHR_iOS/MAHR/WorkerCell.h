@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAge;
 @property (weak, nonatomic) IBOutlet UILabel *lblHeight;
 @property (weak, nonatomic) IBOutlet UILabel *lblWeight;
+@property (weak, nonatomic) IBOutlet UIImageView *imvStatus;
 
 - (void)cellWithWorker:(Worker *)worker;
 

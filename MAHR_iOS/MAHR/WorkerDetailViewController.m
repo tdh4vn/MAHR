@@ -11,10 +11,9 @@
 #import "AFNetworking.h"
 #import "Constant.h"
 #import "HexColors.h"
+#import "UIButton+Custom.h"
 
 @interface WorkerDetailViewController ()
-
-@property(nonatomic,strong) UIBarButtonItem *barItem;
 
 @end
 
@@ -24,9 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = _selectedWorker.name;
+    [_btnConfirm custom];
+    [_btnShare custom];
+    [_btnUse custom];
     
-    _barItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStyleBordered target:self action:@selector(btnShareDidTouch)];
+    self.title = _selectedWorker.name;
     
     
     _viewWeb.backgroundColor = [UIColor hx_colorWithHexRGBAString:kLanguageButtonBackgroundHexColor];
@@ -42,8 +43,6 @@
         
         [_viewWeb loadHTMLString:HTML baseURL:nil];
         
-        self.navigationItem.rightBarButtonItem = _barItem;
-        
         return HTML;
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -51,9 +50,26 @@
     
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
-- (void)btnShareDidTouch;
-{
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (IBAction)btnUseDidTouch:(id)sender {
+}
+
+- (IBAction)btnShareDidTouch:(id)sender {
+    
     NSString *textToShare = _selectedWorker.exceUrl;
     
     NSArray *objectsToShare = @[textToShare];
@@ -72,21 +88,9 @@
     activityVC.excludedActivityTypes = excludeActivities;
     
     [self presentViewController:activityVC animated:YES completion:nil];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)btnConfirmDidTouch:(id)sender {
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

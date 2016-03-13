@@ -90,6 +90,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fzb-kD-5ME">
+                        <rect key="frame" x="432.5" y="40" width="76.5" height="76.5"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Fzb-kD-5ME" secondAttribute="height" multiplier="1:1" id="JUq-ng-GAS"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -97,6 +104,7 @@
                     <constraint firstItem="IaO-Fw-dR9" firstAttribute="leading" secondItem="HNu-I0-Nxf" secondAttribute="leading" id="0q4-Fc-Cc1"/>
                     <constraint firstItem="HNu-I0-Nxf" firstAttribute="leading" secondItem="FGU-of-zm7" secondAttribute="trailing" constant="3" id="1CH-ec-DnH"/>
                     <constraint firstItem="TUn-e7-8fi" firstAttribute="centerY" secondItem="K90-rh-N8n" secondAttribute="centerY" id="2bM-it-ddR"/>
+                    <constraint firstItem="Fzb-kD-5ME" firstAttribute="bottom" secondItem="s2y-9E-zMc" secondAttribute="bottom" id="6aS-aH-Vma"/>
                     <constraint firstItem="s2y-9E-zMc" firstAttribute="top" secondItem="K90-rh-N8n" secondAttribute="bottom" id="Ak5-tr-5w0"/>
                     <constraint firstItem="tch-vd-o4O" firstAttribute="top" secondItem="FGU-of-zm7" secondAttribute="bottom" id="C6Y-o2-MVy"/>
                     <constraint firstItem="FGU-of-zm7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="CgX-J7-Kre"/>
@@ -108,11 +116,15 @@
                     <constraint firstItem="IaO-Fw-dR9" firstAttribute="top" secondItem="HNu-I0-Nxf" secondAttribute="top" id="MA7-L1-2Lz"/>
                     <constraint firstItem="UYO-DK-JrO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NEb-Cd-Q2c"/>
                     <constraint firstItem="VM4-WZ-9B1" firstAttribute="top" secondItem="HNu-I0-Nxf" secondAttribute="top" id="PVX-8N-Siy"/>
+                    <constraint firstAttribute="trailing" secondItem="Fzb-kD-5ME" secondAttribute="trailing" constant="10" id="Qus-C0-agi"/>
                     <constraint firstAttribute="bottom" secondItem="UYO-DK-JrO" secondAttribute="bottom" constant="2" id="QzQ-O9-4kf"/>
                     <constraint firstItem="HNu-I0-Nxf" firstAttribute="centerY" secondItem="FGU-of-zm7" secondAttribute="centerY" id="THk-gX-YIo"/>
+                    <constraint firstAttribute="bottom" secondItem="Fzb-kD-5ME" secondAttribute="bottom" constant="7" id="V3C-Dh-npo"/>
                     <constraint firstItem="VM4-WZ-9B1" firstAttribute="leading" secondItem="HNu-I0-Nxf" secondAttribute="leading" id="VYa-q1-noL"/>
                     <constraint firstItem="UYO-DK-JrO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="cNA-Ij-uBO"/>
                     <constraint firstItem="VM4-WZ-9B1" firstAttribute="centerY" secondItem="tch-vd-o4O" secondAttribute="centerY" id="i6m-To-rPj"/>
+                    <constraint firstItem="Fzb-kD-5ME" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="lyq-6T-cZ3"/>
+                    <constraint firstItem="Fzb-kD-5ME" firstAttribute="top" secondItem="K90-rh-N8n" secondAttribute="top" id="rSm-P9-NJ3"/>
                     <constraint firstItem="K90-rh-N8n" firstAttribute="leading" secondItem="FGU-of-zm7" secondAttribute="leading" id="s2z-fU-v3L"/>
                     <constraint firstItem="s2y-9E-zMc" firstAttribute="leading" secondItem="FGU-of-zm7" secondAttribute="leading" id="vjU-BC-GBs"/>
                     <constraint firstItem="K90-rh-N8n" firstAttribute="top" secondItem="tch-vd-o4O" secondAttribute="bottom" id="wrh-JS-U6M"/>
@@ -123,12 +135,15 @@
                         <exclude reference="PVX-8N-Siy"/>
                         <exclude reference="EK5-yz-FfZ"/>
                         <exclude reference="MA7-L1-2Lz"/>
+                        <exclude reference="6aS-aH-Vma"/>
+                        <exclude reference="rSm-P9-NJ3"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="imView" destination="UYO-DK-JrO" id="SJH-2C-rS2"/>
+                <outlet property="imvStatus" destination="Fzb-kD-5ME" id="Ova-D0-Zca"/>
                 <outlet property="lblAge" destination="VM4-WZ-9B1" id="Prs-FE-AIE"/>
                 <outlet property="lblHeight" destination="TUn-e7-8fi" id="uZT-Pw-LWf"/>
                 <outlet property="lblName" destination="HNu-I0-Nxf" id="G2L-hm-fd5"/>

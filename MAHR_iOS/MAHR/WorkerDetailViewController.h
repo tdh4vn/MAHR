@@ -13,5 +13,15 @@
 
 @property(nonatomic,strong) Worker *selectedWorker;
 @property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
+@property (weak, nonatomic) IBOutlet UIButton *btnUse;
+@property (weak, nonatomic) IBOutlet UIButton *btnShare;
+@property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
+
+
+- (IBAction)btnUseDidTouch:(id)sender;
+- (IBAction)btnShareDidTouch:(id)sender;
+- (IBAction)btnConfirmDidTouch:(id)sender;
+
+
 
 @end

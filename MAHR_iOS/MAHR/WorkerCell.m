@@ -8,6 +8,7 @@
 
 #import "WorkerCell.h"
 #import "UIImageView+WebCache.h"
+#import "Constant.h"
 
 @implementation WorkerCell
 
@@ -37,6 +38,14 @@
     _lblAge.text = worker.age;
     _lblHeight.text = [NSString stringWithFormat:@"%@ cm",worker.height];
     _lblWeight.text = [NSString stringWithFormat:@"%@ kg",worker.weight];
+    
+    if (worker.status == 1) {
+        _imvStatus.image = [UIImage imageNamed:kStatusGreenImage];
+    } else if (worker.status == 2) {
+        _imvStatus.image = [UIImage imageNamed:kStatusYellowImage];
+    } else if (worker.status == 3) {
+        _imvStatus.image = [UIImage imageNamed:kStatusRedImage];
+    }
 }
 
 @end

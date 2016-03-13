@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-kh-CMd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-kh-CMd">
                                 <rect key="frame" x="50" y="470" width="500" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -43,7 +43,7 @@
                                     <action selector="btnIndonesiaDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="pa3-zS-L9h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-7M-lcH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-7M-lcH">
                                 <rect key="frame" x="50" y="378" width="500" height="42"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -52,7 +52,7 @@
                                     <action selector="btnVietNamDidTouch:" destination="PTB-eY-RHG" eventType="touchUpInside" id="69J-pc-M4c"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_app" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_app" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-BP-uI1">
                                 <rect key="frame" x="180" y="164" width="240" height="144"/>
                                 <animations/>
                             </imageView>
@@ -513,17 +513,58 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-mF-VYS">
+                                <rect key="frame" x="160.5" y="545" width="80" height="40"/>
+                                <animations/>
+                                <state key="normal" title="使用"/>
+                                <connections>
+                                    <action selector="btnUseDidTouch:" destination="5Y7-BQ-izG" eventType="touchUpInside" id="A2v-wR-mae"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksa-PL-obR">
+                                <rect key="frame" x="360.5" y="545" width="80" height="40"/>
+                                <animations/>
+                                <state key="normal" title="確工"/>
+                                <connections>
+                                    <action selector="btnConfirmDidTouch:" destination="5Y7-BQ-izG" eventType="touchUpInside" id="A25-E3-DQG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSX-0X-7gT">
+                                <rect key="frame" x="260.5" y="545" width="80" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LT0-O5-78C"/>
+                                    <constraint firstAttribute="width" constant="80" id="N2p-sa-DgN"/>
+                                </constraints>
+                                <state key="normal" title="分享"/>
+                                <connections>
+                                    <action selector="btnShareDidTouch:" destination="5Y7-BQ-izG" eventType="touchUpInside" id="otN-1K-gHL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aSX-0X-7gT" firstAttribute="width" secondItem="Z3K-mF-VYS" secondAttribute="width" id="4VV-XP-Eop"/>
+                            <constraint firstItem="Ksa-PL-obR" firstAttribute="height" secondItem="Z3K-mF-VYS" secondAttribute="height" id="9tG-dp-3Ub"/>
                             <constraint firstAttribute="bottom" secondItem="dp1-Dv-igS" secondAttribute="bottom" id="EC7-Qm-KY0"/>
+                            <constraint firstItem="aSX-0X-7gT" firstAttribute="centerX" secondItem="CuR-WK-GN4" secondAttribute="centerX" id="Gvd-lQ-oSv"/>
+                            <constraint firstItem="aSX-0X-7gT" firstAttribute="height" secondItem="Z3K-mF-VYS" secondAttribute="height" id="HbL-6C-0qP"/>
+                            <constraint firstItem="Ksa-PL-obR" firstAttribute="leading" secondItem="aSX-0X-7gT" secondAttribute="trailing" constant="20" id="Ipi-pv-atP"/>
+                            <constraint firstItem="s0j-Fd-npe" firstAttribute="top" secondItem="aSX-0X-7gT" secondAttribute="bottom" constant="15" id="MeN-hG-aJ5"/>
+                            <constraint firstItem="Ksa-PL-obR" firstAttribute="width" secondItem="Z3K-mF-VYS" secondAttribute="width" id="R0Y-wK-Qh8"/>
+                            <constraint firstItem="Ksa-PL-obR" firstAttribute="centerY" secondItem="Z3K-mF-VYS" secondAttribute="centerY" id="UZo-a4-7cK"/>
+                            <constraint firstItem="aSX-0X-7gT" firstAttribute="centerY" secondItem="Z3K-mF-VYS" secondAttribute="centerY" id="ds3-BS-aA9"/>
                             <constraint firstAttribute="trailing" secondItem="dp1-Dv-igS" secondAttribute="trailing" id="gme-hf-jkq"/>
+                            <constraint firstItem="aSX-0X-7gT" firstAttribute="leading" secondItem="Z3K-mF-VYS" secondAttribute="trailing" constant="20" id="m1q-Iz-mUQ"/>
                             <constraint firstItem="dp1-Dv-igS" firstAttribute="leading" secondItem="CuR-WK-GN4" secondAttribute="leading" id="no3-1L-fah"/>
                             <constraint firstItem="dp1-Dv-igS" firstAttribute="top" secondItem="CuR-WK-GN4" secondAttribute="top" id="rlL-SK-49h"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnConfirm" destination="Ksa-PL-obR" id="lOF-rN-6t3"/>
+                        <outlet property="btnShare" destination="aSX-0X-7gT" id="t50-N1-gD6"/>
+                        <outlet property="btnUse" destination="Z3K-mF-VYS" id="mm4-2J-0qI"/>
                         <outlet property="viewWeb" destination="dp1-Dv-igS" id="wpr-vR-fZq"/>
                     </connections>
                 </viewController>
