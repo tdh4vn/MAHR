@@ -38,7 +38,8 @@ public class Constants {
 
     public static final String API_URL_ROOT = "http://api.mahr.adcviet.com/v1";
     public static final String API_URL_EXPERTISE = API_URL_ROOT + "/skills";
-    public static final String API_URL_PROFILE = API_URL_ROOT + "/profiles?";
+    public static final String API_URL_PROFILE_GET = API_URL_ROOT + "/profiles?";
+    public static final String API_URL_PROFILE_PUT = API_URL_ROOT + "/profiles/";
 
     public static final String API_KEY_ITEMS ="items";
 
@@ -58,4 +59,9 @@ public class Constants {
     public static String API_FILTER_DEGREE_FORMAT = API_FILTER_PREFIX + "educational_level+gte+%s";
     public static String API_FILTER_MAJOR_FORMAT = API_FILTER_PREFIX + "job_%s+eq+1";
     public static String API_FILTER_NATION_FORMAT = API_FILTER_PREFIX + "nation+eq+%s";
+
+    public static String API_URL_PROFILE_PUT_FORMAT = API_URL_PROFILE_PUT + "%s";
+    public static String API_PUT_STATUS = "status";
+    public static String API_PUT_STATUS_CONFIRM = "2";
+    public static String API_PUT_STATUS_USE = "3";
 }

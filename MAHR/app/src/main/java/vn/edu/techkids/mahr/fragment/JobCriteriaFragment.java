@@ -184,7 +184,6 @@ public class JobCriteriaFragment extends BaseFragment implements
                         ret += " | ";
                     ret += getString(id);
                 }
-
                 return ret;
             case JobCriteria.EXP:
                 return mJobCriteria.getExpRange();

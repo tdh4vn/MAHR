@@ -19,6 +19,8 @@ import android.view.View;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.Cloud;
+import vn.edu.techkids.mahr.enitity.Worker;
+import vn.edu.techkids.mahr.fragment.WorkerDetailFragment;
 import vn.edu.techkids.mahr.fragment.WorkerListFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
 import vn.edu.techkids.mahr.fragment.ScreenManager;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setTheme(R.style.AppTheme_NoActionBar);
-        setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,8 +48,15 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
         /*hideActionBar();*/
 
         getIntances();
-        openFragment(new NationalitySelectionFragment(), true);
 
+//        openFragment(new NationalitySelectionFragment(), true);
+//        Worker worker = new Worker();
+//        worker.setId(0);
+//        worker.setExcel_path("");
+//
+        WorkerDetailFragment workerDetailFragment = new WorkerDetailFragment();
+//        workerDetailFragment.setWorker(worker);
+        openFragment(workerDetailFragment, true);
     }
 
     private void getIntances() {
@@ -59,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
         if(item.getItemId() != R.id.action_share){
             onBackPressed();
             overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
-        } else if (item.getItemId() == R.id.action_share){
+        } else if (item.getItemId() == R.id.action_share) {
             Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
             sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");

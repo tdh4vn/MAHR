@@ -406,7 +406,7 @@ public class JobCriteria {
     }
 
     public String getAPIString() {
-        return Constants.API_URL_PROFILE +
+        return Constants.API_URL_PROFILE_GET +
                 getExpertiseAPIString() +
                 getBirthyearAPIString() +
                 getHeightAPIString() +

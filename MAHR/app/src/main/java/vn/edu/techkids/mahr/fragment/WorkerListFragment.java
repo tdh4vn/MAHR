@@ -52,7 +52,7 @@ public class WorkerListFragment extends BaseFragment {
             @Override
             public void onListFragmentInteraction(Worker item) {
                 WorkerDetailFragment fragment = new WorkerDetailFragment();
-                fragment.setWorkerDetailUrl(item.getExcel_path());
+                fragment.setWorker(item);
                 getScreenManager().openFragment(fragment, true);
             }
         };
