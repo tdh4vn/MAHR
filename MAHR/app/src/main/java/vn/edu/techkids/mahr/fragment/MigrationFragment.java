@@ -1,70 +1,57 @@
 package vn.edu.techkids.mahr.fragment;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 
 import vn.edu.techkids.mahr.R;
-import vn.edu.techkids.mahr.adapter.WorkerRecyclerViewAdapter;
-import vn.edu.techkids.mahr.constants.Constants;
-import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.Worker;
+import vn.edu.techkids.mahr.fragment.dummy.DummyContent;
+import vn.edu.techkids.mahr.fragment.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
- * <p />
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class WorkerListFragment extends BaseFragment {
+public class MigrationFragment extends BaseFragment {
 
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    private Worker mWorker;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-
+    // TODO: Customize parameters
+    private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static WorkerListFragment newInstance(int columnCount) {
-        WorkerListFragment fragment = new WorkerListFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public WorkerListFragment() {
-
-        mListener = new OnListFragmentInteractionListener() {
-            @Override
-            public void onListFragmentInteraction(Worker item) {
-                WorkerDetailFragment fragment = new WorkerDetailFragment();
-                fragment.setWorker(item);
-                getScreenManager().openFragment(fragment, true);
-            }
-        };
+    public MigrationFragment() {
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.trans_left_in, R.anim.trans_left_out);
+    public void setWorker(Worker worker) {
+        this.mWorker = worker;
+    }
 
-        //getScreenManager().setTitleOfActionBar(getString(R.string.list_employee));
+
+    // TODO: Customize parameter initialization
+    @SuppressWarnings("unused")
+    public static MigrationFragment newInstance(int columnCount) {
+        MigrationFragment fragment = new MigrationFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -79,7 +66,7 @@ public class WorkerListFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_worker_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_migration, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -90,30 +77,11 @@ public class WorkerListFragment extends BaseFragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new WorkerRecyclerViewAdapter(mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }
 
-    @Override
-    public void onViewStateRestored(Bundle savedInstanceState) {
-
-        String title = "";
-        switch (JobCriteria.getInst().getNationality()) {
-            case Constants.API_INDONESIA: title = getString(R.string.indonesia); break;
-            case Constants.API_VIETNAM: title = getString(R.string.vietnam); break;
-        }
-
-        switch (JobCriteria.getInst().getMajor()) {
-            case Constants.API_MAJOR_MALE_WORKER: title += " | " + getString(R.string.male_employee); break;
-            case Constants.API_MAJOR_FEMALE_WORKER: title = " | " +getString(R.string.female_employee); break;
-            case Constants.API_MAJOR_HOUSEMAID: title = " | " + getString(R.string.house_maid); break;
-        }
-
-        getScreenManager().setTitleOfActionBar(title);
-
-        super.onViewStateRestored(savedInstanceState);
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -144,6 +112,6 @@ public class WorkerListFragment extends BaseFragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Worker item);
+        void onListFragmentInteraction(DummyItem item);
     }
 }

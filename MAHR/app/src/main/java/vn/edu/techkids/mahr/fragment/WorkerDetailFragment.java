@@ -16,6 +16,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,6 +31,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
@@ -36,7 +39,8 @@ import vn.edu.techkids.mahr.enitity.Cloud;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 
-public class WorkerDetailFragment extends BaseFragment implements View.OnClickListener{
+public class WorkerDetailFragment extends BaseFragment implements View.OnClickListener,
+        HttpPutOnPostHandler {
 
     /*private String mWorkerDetailUrl;*/
     private Worker mWorker;
@@ -45,6 +49,8 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
     private Button mBtnConfirm;
     private Button mBtnUse;
 
+    private final String HTTP_PUT_ON_POST_CONFIRM_TAG = "confirm";
+    private final String HTTP_PUT_ON_POST_USE_TAG = "use";
 
     public WorkerDetailFragment() {
         // Required empty public constructor
@@ -88,12 +94,6 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         mBtnShare.setOnClickListener(this);
         mBtnConfirm.setOnClickListener(this);
 
-//        view.findViewById(R.id.btnShare).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                shareExcelLink();
-//            }
-//        });
     }
 
     @Override
@@ -125,7 +125,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
             getScreenManager().setTitleOfActionBar(getString(R.string.detail));
             getScreenManager().showShareButtonOnRightActionBar();
             setHasOptionsMenu(true);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -155,54 +155,15 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                     String query = builder.build().getEncodedQuery();
                     return query;
                 }
-            });
+            },
+            this,
+            HTTP_PUT_ON_POST_USE_TAG);
 
             httpPutTask.execute(new URL(String.format(Constants.API_URL_PROFILE_PUT_FORMAT,
                     mWorker.getId())));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
-//        try {
-//            URL url = new URL();
-//            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-//            httpURLConnection.setRequestMethod("PUT");
-//            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-//            httpURLConnection.setUseCaches(false);
-//            httpURLConnection.setDoInput(true);
-//            httpURLConnection.setDoOutput(true);
-//
-//            Uri.Builder builder = new Uri.Builder()
-//                    .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_CONFIRM);
-//            String query = builder.build().getEncodedQuery();
-//            Log.d("sendUseCommand", query);
-//            OutputStream os = httpURLConnection.getOutputStream();
-//            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-//            writer.write(query);
-//
-//            writer.flush();
-//            writer.close();
-//            os.close();
-//
-//            httpURLConnection.connect();
-//
-//            int responseCode = httpURLConnection.getResponseCode();
-//            if(responseCode == HttpURLConnection.HTTP_OK) {
-//                InputStream is = httpURLConnection.getInputStream();
-//                BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-//                String line;
-//                StringBuffer response = new StringBuffer();
-//                while((line = rd.readLine()) != null) {
-//                    response.append(line);
-//                    response.append('\r');
-//                }
-//                rd.close();
-//            }
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     private void sendConfirmCommand() {
@@ -215,12 +176,23 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                     String query = builder.build().getEncodedQuery();
                     return query;
                 }
-            });
+            },
+            this,
+            HTTP_PUT_ON_POST_CONFIRM_TAG);
 
             httpPutTask.execute(new URL(String.format(Constants.API_URL_PROFILE_PUT_FORMAT,
                     mWorker.getId())));
         } catch (MalformedURLException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onPost(String tag, Object result) {
+        switch (tag) {
+            case HTTP_PUT_ON_POST_CONFIRM_TAG:
+                    getScreenManager().openFragment(new MigrationFragment(), true);
+                break;
         }
     }
 
@@ -244,16 +216,20 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         String buildQuery();
     }
 
-    private class HttpPutTask extends AsyncTask<URL, Integer, Void> {
+    private class HttpPutTask extends AsyncTask<URL, Integer, Worker> {
 
         private HttpPutQueryBuilder mHttpPutQueryBuilder;
+        private HttpPutOnPostHandler mHttpPutOnPostHandler;
+        private String mTag;
 
-        public HttpPutTask(HttpPutQueryBuilder httpPutQueryBuilder) {
+        public HttpPutTask(HttpPutQueryBuilder httpPutQueryBuilder, HttpPutOnPostHandler httpPutOnPostHandler, String tag) {
             this.mHttpPutQueryBuilder = httpPutQueryBuilder;
+            this.mHttpPutOnPostHandler = httpPutOnPostHandler;
+            this.mTag = tag;
         }
 
         @Override
-        protected Void doInBackground(URL... params) {
+        protected Worker doInBackground(URL... params) {
             try {
                 URL url = params[0];
 
@@ -263,10 +239,6 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
-
-//                Uri.Builder builder = new Uri.Builder()
-//                        .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_CONFIRM);
-//                String query = builder.build().getEncodedQuery();
 
                 if(mHttpPutQueryBuilder != null) {
                     String query = mHttpPutQueryBuilder.buildQuery();
@@ -283,14 +255,19 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 int responseCode = httpURLConnection.getResponseCode();
                 if(responseCode == HttpURLConnection.HTTP_OK) {
                     InputStream inputStream = httpURLConnection.getInputStream();
-                    StringBuffer response = new StringBuffer();
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        response.append(line);
-                    }
+                    InputStreamReader reader = new InputStreamReader(inputStream);
+                    Worker updatedWorker = (new Gson()).fromJson(reader, Worker.class);
+                    Log.d("doInBackground", updatedWorker.getName());
+//                    StringBuffer response = new StringBuffer();
+//                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+//                    String line;
+//                    while ((line = bufferedReader.readLine()) != null) {
+//                        response.append(line);
+//                    }
+//
+//                    Log.d("HttpPutTask", response.toString());
 
-                    Log.d("HttpPutTask", response.toString());
+                    /* Check OK or not here */
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -300,5 +277,20 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Worker worker) {
+            if(mHttpPutOnPostHandler != null) {
+                mHttpPutOnPostHandler.onPost(mTag, worker);
+            }
+
+            super.onPostExecute(worker);
+        }
     }
+}
+
+interface HttpPutOnPostHandler {
+    Integer NOT_OK = 0;
+    Integer OK = 1;
+    void onPost(String tag, Object result);
 }

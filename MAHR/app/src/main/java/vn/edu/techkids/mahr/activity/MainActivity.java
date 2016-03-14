@@ -49,14 +49,13 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
         getIntances();
 
-//        openFragment(new NationalitySelectionFragment(), true);
 //        Worker worker = new Worker();
 //        worker.setId(0);
 //        worker.setExcel_path("");
 //
-        WorkerDetailFragment workerDetailFragment = new WorkerDetailFragment();
-//        workerDetailFragment.setWorker(worker);
-        openFragment(workerDetailFragment, true);
+
+//        openFragment(new NationalitySelectionFragment(), true);
+        openFragment(new WorkerDetailFragment(), true);
     }
 
     private void getIntances() {

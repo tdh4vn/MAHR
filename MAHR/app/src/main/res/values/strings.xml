@@ -50,4 +50,7 @@
     <string name="confirm">確工</string>
     <string name="use">使用</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
