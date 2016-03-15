@@ -36,4 +36,20 @@
     <string name="loading">Đang tải...</string>
     <string name="vocational">Trung Cấp</string>
 
+    <string name="name_woker">Họ tên</string>
+    <string name="number_id">Mã số</string>
+    <string name="bone_name">Tên xưởng</string>
+    <string name="branch">Chi nhánh</string>
+    <string name="vietnam_company">Công ty Việt Nam</string>
+    <string name="passport">Hộ chiếu</string>
+    <string name="justice">Tư pháp</string>
+    <string name="checkup">Khám sức khoẻ</string>
+    <string name="received_papers">Nhận giấy tờ</string>
+    <string name="work_department">Trình cục</string>
+    <string name="visa">Visa</string>
+    <string name="schedule_flight">Dự kiến bay</string>
+    <string name="end">Kết thúc</string>
+    <string name="workday">Ngày làm</string>
+    <string name="field_day">Ngày lĩnh</string>
+    <string name="date_range">Ngày cấp</string>
 </resources>

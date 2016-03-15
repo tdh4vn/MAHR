@@ -53,4 +53,23 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- sreen 5-->
+    <string name="name_woker">工人姓名</string>
+    <string name="number_id">編號</string>
+    <string name="bone_name">工廠名字</string>
+    <string name="branch">區域</string>
+    <string name="vietnam_company">越南仲介</string>
+    <string name="passport">護照</string>
+    <string name="justice">良民證</string>
+    <string name="checkup">體檢</string>
+    <string name="received_papers">收文件日</string>
+    <string name="work_department">勞工局</string>
+    <string name="visa">簽證</string>
+    <string name="schedule_flight">預計入境日</string>
+    <string name="end">結案</string>
+    <string name="workday">辦件日</string>
+    <string name="field_day">領件日</string>
+    <string name="date_range">發照日</string>
+
+
 </resources>
