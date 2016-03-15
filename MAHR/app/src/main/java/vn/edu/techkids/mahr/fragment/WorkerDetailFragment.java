@@ -192,7 +192,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
     public void onPost(String tag, Object result) {
         switch (tag) {
             case HTTP_PUT_ON_POST_CONFIRM_TAG:
-                    getScreenManager().openFragment(new MigrationFragment(), true);
+                    getScreenManager().openFragment(new ImigrationFragment(), true);
                 break;
         }
     }
