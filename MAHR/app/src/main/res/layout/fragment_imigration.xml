@@ -20,7 +20,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageViewScreen5"
                 android:layout_centerVertical="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:src="@mipmap/dummyimage" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -34,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Ho va Ten : Nguyen Van A"
                     android:id="@+id/txtS5Name"
                     android:layout_weight="1"
                     android:gravity="center_vertical" />
@@ -43,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Mã số: YT123"
                     android:id="@+id/txtS5ID"
                     android:layout_weight="1"
                     android:gravity="center_vertical" />
@@ -52,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Tên xưởng: Xưởng A"
                     android:id="@+id/txtS5Bone"
                     android:layout_weight="1"
                     android:gravity="center_vertical" />
@@ -61,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Chi nhánh: Hoàn Kiếm"
                     android:id="@+id/txtS5Branch"
                     android:layout_weight="1"
                     android:gravity="center_vertical" />
@@ -70,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
+                    android:text="Công ty: Hanlen"
                     android:id="@+id/txtS5Company"
                     android:layout_weight="1"
                     android:gravity="center_vertical" />
@@ -95,18 +96,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDone"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Hộ chiếu"
                             android:id="@+id/textViewHoChieu"
                             android:layout_toEndOf="@+id/imageDone" />
 
@@ -114,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Hoàn thành: 10/03/2016"
                             android:id="@+id/textViewTimeHoChieu"
                             android:layout_below="@+id/textViewHoChieu"
                             android:layout_toEndOf="@+id/imageDone" />
@@ -127,18 +129,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDoneTuPhap"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Tư pháp"
                             android:id="@+id/textViewTuPhap"
                             android:layout_toEndOf="@+id/imageDoneTuPhap" />
 
@@ -146,7 +149,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Hoàn thành: 10/3/2016"
                             android:id="@+id/textViewTimeTuPhap"
                             android:layout_below="@+id/textViewTuPhap"
                             android:layout_toEndOf="@+id/imageDoneTuPhap" />
@@ -160,18 +163,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDoneKhamSK"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Khám sức khoẻ"
                             android:id="@+id/textViewKhamSK"
                             android:layout_toEndOf="@+id/imageDoneKhamSK" />
 
@@ -179,7 +183,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Hoàn thành: 10/3/2016"
                             android:id="@+id/textViewTimeKhamSK"
                             android:layout_below="@+id/textViewKhamSK"
                             android:layout_toEndOf="@+id/imageDoneKhamSK" />
@@ -194,18 +198,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDoneNhanGT"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Nhận giấy tờ"
                             android:id="@+id/textViewNhanGT"
                             android:layout_toEndOf="@+id/imageDoneNhanGT" />
 
@@ -213,7 +218,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Hoàn thành: 10/3/2016"
                             android:id="@+id/textViewTimeNhanGT"
                             android:layout_below="@+id/textViewNhanGT"
                             android:layout_toEndOf="@+id/imageDoneNhanGT" />
@@ -228,18 +233,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDoneTrinhCuc"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Trình cục"
                             android:id="@+id/textViewTrinhCuc"
                             android:layout_toEndOf="@+id/imageDoneTrinhCuc" />
 
@@ -247,7 +253,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Trình: 10/3/2016 - Lĩnh 20/3/2016"
                             android:id="@+id/textViewTimeTrinhCuc"
                             android:layout_below="@+id/textViewTrinhCuc"
                             android:layout_toEndOf="@+id/imageDoneTrinhCuc" />
@@ -262,18 +268,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
+                        <CheckBox
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:id="@+id/imageDoneVisa"
-                            android:layout_margin="20dp" />
+                            android:layout_margin="20dp"
+                            android:checked="true" />
 
                         <TextView
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Visa"
                             android:id="@+id/textViewVisa"
                             android:layout_toEndOf="@+id/imageDoneVisa" />
 
@@ -281,7 +288,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="Small Text"
+                            android:text="Làm:10/3/2016 - Lĩnh: 20/3/2016 "
                             android:id="@+id/textViewTimeVisa"
                             android:layout_below="@+id/textViewVisa"
                             android:layout_toEndOf="@+id/imageDoneVisa" />
@@ -296,9 +303,9 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:id="@+id/imageDoneDuKienBay"
                             android:layout_margin="20dp" />
 
@@ -307,7 +314,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
+                            android:text="Dự kiến bay"
                             android:id="@+id/textViewTuPhapDuKienBay"
                             android:layout_toEndOf="@+id/imageDoneDuKienBay" />
 
@@ -321,7 +328,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                        <ImageView
+                        <CheckBox
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:id="@+id/imageDoneKetThuc"
@@ -332,8 +339,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/textViewTuPhapKetThuc"
+                            android:text="Kết Thúc"
+                            android:id="@+id/textViewKetThuc"
                             android:layout_toEndOf="@+id/imageDoneKetThuc" />
 
                     </RelativeLayout>

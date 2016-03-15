@@ -42,7 +42,14 @@ public class ImigrationFragment extends BaseFragment {
     private String mParam2;
 
     private void connectView(View view){
-
+        cardHoChieu = (CardView) view.findViewById(R.id.cardHoChieu);
+        cardTuPhap = (CardView) view.findViewById(R.id.cardTuPhap);
+        cardKhamSK = (CardView) view.findViewById(R.id.cardKhamSK);
+        cardNhanGT = (CardView) view.findViewById(R.id.cardNhanGiayTo);
+        cardTrinhCuc = (CardView) view.findViewById(R.id.cardTrinhCuc);
+        cardVisa = (CardView) view.findViewById(R.id.cardVisa);
+        cardDuKienBay = (CardView) view.findViewById(R.id.cardDuKienBay);
+        cardDone = (CardView) view.findViewById(R.id.cardKetThuc);
     }
 
     private OnFragmentInteractionListener mListener;
