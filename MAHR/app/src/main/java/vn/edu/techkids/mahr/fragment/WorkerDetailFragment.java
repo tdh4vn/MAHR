@@ -182,6 +182,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
             httpPutTask.execute(new URL(String.format(Constants.API_URL_PROFILE_PUT_FORMAT,
                     mWorker.getId())));
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
