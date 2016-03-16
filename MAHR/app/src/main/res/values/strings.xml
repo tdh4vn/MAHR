@@ -73,6 +73,8 @@
     <string name="workday">辦件日</string>
     <string name="field_day">領件日</string>
     <string name="date_range">發照日</string>
-
-
+    <string name="office_start">过程</string>
+    <string name="office_end">范围</string>
+    <string name="complete">成就</string>
+    <string name="visa_start">做</string>
 </resources>
