@@ -4,11 +4,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import vn.edu.techkids.mahr.constants.Constants;
@@ -40,7 +36,7 @@ public class Worker {
 
     private List<Expertise> skills;
 
-    private static ArrayList<Worker> workerArrayList = new ArrayList<>();
+    private static List<Worker> workerList;
 
     public int getId() {
         return id;
@@ -190,24 +186,32 @@ public class Worker {
         this.skills = skills;
     }
 
-    public static ArrayList<Worker> getWorkerArrayList() {
-        return workerArrayList;
+    public static List<Worker> getWorkerList() {
+        return workerList;
     }
 
-    public static void loadJsonToList(JSONObject jsonObject) {
-        JSONArray jsonArray = null;
-        Gson gson = new Gson();
-        workerArrayList.clear();
-        try {
-            jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
-            for(int idx = 0; idx < jsonArray.length(); idx++) {
-                JSONObject jsonWorker = jsonArray.getJSONObject(idx);
-                Worker worker = gson.fromJson(jsonWorker.toString(), Worker.class);
-                workerArrayList.add(worker);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+    /*public static void setWorkerList()*/
+
+    public static List<Worker> loadJsonToList(InputStreamReader inputStreamReader) {
+        WorkerList workerList = (new Gson()).fromJson(inputStreamReader, WorkerList.class);
+        Worker.workerList = workerList.getList();
+        return Worker.workerList;
     }
+
+//    public static void loadJsonToList(JSONObject jsonObject) {
+//        JSONArray jsonArray = null;
+//        Gson gson = new Gson();
+//        workerList.clear();
+//        try {
+//            jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
+//            for(int idx = 0; idx < jsonArray.length(); idx++) {
+//                JSONObject jsonWorker = jsonArray.getJSONObject(idx);
+//                Worker worker = gson.fromJson(jsonWorker.toString(), Worker.class);
+//                workerList.add(worker);
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 }

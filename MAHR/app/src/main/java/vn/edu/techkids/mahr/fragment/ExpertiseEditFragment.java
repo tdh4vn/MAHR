@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.Expertise;
@@ -27,10 +27,10 @@ public class ExpertiseEditFragment extends DialogFragment implements View.OnClic
 
     private ListView mListView;
     private Button mBtnOK;
-    private ArrayList<Expertise> mExpertiseArrayList;
+    private List<Expertise> mExpertiseArrayList;
 
     public ExpertiseEditFragment() {
-        this.mExpertiseArrayList = JobCriteria.getInst().getExpertiseArrayList();
+        this.mExpertiseArrayList = JobCriteria.getInst().getExpertiseList();
     }
 
     /*private final int[] mItems = new int[]{

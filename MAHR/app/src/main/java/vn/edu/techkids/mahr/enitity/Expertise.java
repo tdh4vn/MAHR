@@ -67,7 +67,7 @@ public class Expertise {
         this.chinese_name = chinese_name;
     }
 
-    /*public static ArrayList<Expertise> getExpertiseArrayList() {
+    /*public static ArrayList<Expertise> getExpertiseList() {
         return expertiseArrayList;
     }*/
 

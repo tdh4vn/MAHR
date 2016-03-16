@@ -1,9 +1,10 @@
 package vn.edu.techkids.mahr.enitity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.renderscript.ScriptGroup;
 
+import com.google.gson.Gson;
+
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -20,7 +21,10 @@ public class JobCriteria {
 
     private String nationality;
     private String major;
-    private ArrayList<Expertise> expertiseArrayList;
+
+//    private ArrayList<Expertise> expertiseList;
+    private List<Expertise> mExpertiseList;
+
     private int minAge = -1;
     private int maxAge = -1;
     private int minHeight = -1;
@@ -73,9 +77,9 @@ public class JobCriteria {
 
     public String getExpertiseString() {
         String ret = "";
-        if(expertiseArrayList != null) {
-            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
-                Expertise expertise = expertiseArrayList.get(idx);
+        if(mExpertiseList != null) {
+            for (int idx = 0; idx < mExpertiseList.size(); idx++) {
+                Expertise expertise = mExpertiseList.get(idx);
                 if (expertise.getSelected()) {
                     if (ret != "")
                         ret += " | ";
@@ -167,8 +171,18 @@ public class JobCriteria {
         return maxHeight;
     }
 
-    public ArrayList<Expertise> getExpertiseArrayList() {
-        return this.expertiseArrayList;
+    public List<Expertise> getExpertiseList() {
+        return this.mExpertiseList;
+    }
+
+//    public void setExpertiseList(List<Expertise> expertiseList) {
+//        this.mExpertiseList = expertiseList;
+//    }
+
+    public Object fromJsonToList(InputStreamReader inputStreamReader) {
+        ExpertiseList expertiseList = (new Gson()).fromJson(inputStreamReader, ExpertiseList.class);
+        this.mExpertiseList = expertiseList.getList();
+        return this.mExpertiseList;
     }
 
     public Lang[] getLangs() { return this.langs; }
@@ -273,17 +287,27 @@ public class JobCriteria {
         notifyListener();
     }
 
-    public  void loadExperiseArrayList(JSONObject jsonObject) {
-        try {
-            JSONArray jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
-            expertiseArrayList = new ArrayList<>();
-            for(int i = 0; i < jsonArray.length(); i++) {
-                Expertise expertise = new Expertise(jsonArray.getJSONObject(i));
-                expertiseArrayList.add(expertise);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//    public  void loadExperiseArrayList(JSONObject jsonObject) {
+//
+//    }
+
+
+
+//    public  void loadExperiseArrayList(JSONObject jsonObject) {
+//        try {
+//            JSONArray jsonArray = jsonObject.getJSONArray(Constants.API_KEY_ITEMS);
+//            expertiseList = new ArrayList<>();
+//            for(int i = 0; i < jsonArray.length(); i++) {
+//                Expertise expertise = new Expertise(jsonArray.getJSONObject(i));
+//                expertiseList.add(expertise);
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void setExpertiseArrayList() {
+
     }
 
     public void notifyListener() {
@@ -302,9 +326,11 @@ public class JobCriteria {
         return "";*/
         String ret = "";
 
-        for(Expertise expertise : expertiseArrayList) {
-            if(expertise.getSelected()) {
-                ret += String.format(Constants.API_FILTER_EXPERTISE_FORMAT, expertise.getId());
+        if(mExpertiseList != null) {
+            for (Expertise expertise : mExpertiseList) {
+                if (expertise.getSelected()) {
+                    ret += String.format(Constants.API_FILTER_EXPERTISE_FORMAT, expertise.getId());
+                }
             }
         }
 
@@ -316,9 +342,9 @@ public class JobCriteria {
 //        return String.format(Constants.API_FILTER_EXPERTISE_FORMAT, this.expertise);*/
 //
 //        String ret = "";
-//        if(expertiseArrayList != null) {
-//            for (int idx = 0; idx < expertiseArrayList.size(); idx++) {
-//                Expertise expertise = expertiseArrayList.get(idx);
+//        if(expertiseList != null) {
+//            for (int idx = 0; idx < expertiseList.size(); idx++) {
+//                Expertise expertise = expertiseList.get(idx);
 //                if (expertise.getSelected()) {
 //                    if (ret != "")
 //                        ret += ",";

@@ -17,8 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.json.JSONObject;
-
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,10 +25,12 @@ import java.util.List;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
-import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
 import vn.edu.techkids.mahr.enitity.Expertise;
-import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
-import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
+import vn.edu.techkids.mahr.enitity.ExpertiseList;
+import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
+import vn.edu.techkids.mahr.enitity.JSONObjectParser;
+import vn.edu.techkids.mahr.enitity.JSONObjectPreDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONObjectPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
@@ -39,12 +40,14 @@ import vn.edu.techkids.mahr.enitity.Worker;
  * A simple {@link Fragment} subclass.
  */
 public class JobCriteriaFragment extends BaseFragment implements
-        AdapterView.OnItemClickListener, JSONPreDownloadHandler, JSONPostDownloadHandler {
+        AdapterView.OnItemClickListener, JSONObjectParser,
+        JSONObjectPreDownloadHandler, JSONObjectPostDownloadHandler,View.OnClickListener {
+
     private Button floatingActionButton;
     private ListView mEmployeeProperitesListView;
     private JobCriteria mJobCriteria;
 
-    private ArrayList<Expertise> expertiseArrayList;
+    private List<Expertise> expertiseArrayList;
 
     //private String[] mEmployeeProperites;
 
@@ -116,11 +119,11 @@ public class JobCriteriaFragment extends BaseFragment implements
         mEmployeeProperitesListView = (ListView)vLayoutRoot.
                 findViewById(R.id.ltvEmployeePropetiesList);
         mLayoutInflater = getActivity().getLayoutInflater();
-        floatingActionButton = (Button) vLayoutRoot.findViewById(R.id.button);
+        floatingActionButton = (Button) vLayoutRoot.findViewById(R.id.btnLoadWorker);
     }
 
     private void initData() {
-        expertiseArrayList = JobCriteria.getInst().getExpertiseArrayList();
+        expertiseArrayList = JobCriteria.getInst().getExpertiseList();
 
         mJobPropertyList.clear();
         mJobPropertyList.add(new JobCriteriaViewModel(R.string.expertise, R.drawable.ic_build_black_24dp, JobCriteria.EXPERTISE));
@@ -138,32 +141,74 @@ public class JobCriteriaFragment extends BaseFragment implements
         mEmployeeProperitesListView.setAdapter(jobCriteriaAdapter);
         mEmployeeProperitesListView.setOnItemClickListener(this);
 
-        floatingActionButton.setOnClickListener(new FloatingActionClickListener(this, this));
+//        floatingActionButton.setOnClickListener(new FloatingActionClickListener(this, this, this));
+        floatingActionButton.setOnClickListener(this);
     }
 
-    private class FloatingActionClickListener implements View.OnClickListener {
-
-        private JSONPreDownloadHandler jsonPreDownloadHandler;
-        private JSONPostDownloadHandler jsonPostDownloadHandler;
-
-        public FloatingActionClickListener(JSONPreDownloadHandler preDownloadHandler,
-                                           JSONPostDownloadHandler postDownloadHandler) {
-            this.jsonPreDownloadHandler = preDownloadHandler;
-            this.jsonPostDownloadHandler = postDownloadHandler;
+    @Override
+    public Object parse(String tag, InputStreamReader inputStreamReader) {
+        switch (tag) {
+            case DOWNLOAD_TAG_WORKER:
+                List<Worker> workerList = Worker.loadJsonToList(inputStreamReader);
+                return workerList;
+            case DOWNLOAD_TAG_EXPERTISE:
+                Object object = JobCriteria.getInst().fromJsonToList(inputStreamReader);
+                return object;
         }
+        return null;
+    }
 
-        @Override
-        public void onClick(View v) {
-            try {
-                Log.d("APILoadWorker", JobCriteria.getInst().getAPIString());
-                DownloadJSONTask downloadJSONTask = new DownloadJSONTask(jsonPreDownloadHandler,
-                        jsonPostDownloadHandler, DOWNLOAD_TAG_WORKER);
-                downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnLoadWorker:
+                try {
+                    Log.d("APILoadWorker", JobCriteria.getInst().getAPIString());
+                    JSONObjectDownloadTask downloadJSONTask = new JSONObjectDownloadTask(DOWNLOAD_TAG_WORKER,
+                            this,
+                            this,
+                            this);
+                    downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
+
+//    @Override
+//    public void onPostDownload(String tag, Object object) {
+//
+//    }
+
+//    private class FloatingActionClickListener implements View.OnClickListener {
+//
+//        private JSONObjectParser jsonObjectParser;
+//        private JSONObjectPreDownloadHandler jsonPreDownloadHandler;
+//        private JSONObjectPostDownloadHandler jsonPostDownloadHandler;
+//
+//        public FloatingActionClickListener(JSONObjectParser jsonObjectParser,
+//                JSONObjectPreDownloadHandler preDownloadHandler,
+//                                           JSONObjectPostDownloadHandler postDownloadHandler) {
+//            this.jsonObjectParser = jsonObjectParser;
+//            this.jsonPreDownloadHandler = preDownloadHandler;
+//            this.jsonPostDownloadHandler = postDownloadHandler;
+//        }
+//
+//        @Override
+//        public void onClick(View v) {
+//            try {
+//                Log.d("APILoadWorker", JobCriteria.getInst().getAPIString());
+//                JSONObjectDownloadTask downloadJSONTask = new JSONObjectDownloadTask(DOWNLOAD_TAG_WORKER,
+//                        jsonPreDownloadHandler,
+//                        jsonObjectParser,
+//                        jsonPostDownloadHandler);
+//                downloadJSONTask.execute(new URL(JobCriteria.getInst().getAPIString()));
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     private String getStringFromCriteria(int criteria) {
         switch (criteria) {
@@ -201,10 +246,11 @@ public class JobCriteriaFragment extends BaseFragment implements
         mDownloadExpertisePending = false;
         switch (jobProperty.getPropertyNameId()) {
             case R.string.expertise:
-                if(JobCriteria.getInst().getExpertiseArrayList() == null) {
+                if(JobCriteria.getInst().getExpertiseList() == null) {
                     try {
                         mDownloadExpertisePending = true;
-                        new DownloadJSONTask(this, this, DOWNLOAD_TAG_EXPERTISE).execute(new URL(Constants.API_URL_EXPERTISE));
+                        new JSONObjectDownloadTask(DOWNLOAD_TAG_EXPERTISE, this, this, this).
+                                execute(new URL(Constants.API_URL_EXPERTISE));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
@@ -255,17 +301,16 @@ public class JobCriteriaFragment extends BaseFragment implements
     }
 
     @Override
-    public void onPostDownload(JSONObject jsonObject, String tag) {
+    public void onPostDownload(String tag, Object object) {
         switch (tag) {
             case DOWNLOAD_TAG_WORKER:
                 if (progress != null) {
                     progress.dismiss();
                 }
                 /* Parse JSON to WorkerList */
-                if (jsonObject == null) {
+                if (object == null) {
                     showToastMessage(getString(R.string.message_download_failed));
                 } else {
-                    Worker.loadJsonToList(jsonObject);
                     getScreenManager().openFragment(new WorkerListFragment(), true);
                 }
 
@@ -274,11 +319,10 @@ public class JobCriteriaFragment extends BaseFragment implements
                 if (progress != null) {
                     progress.dismiss();
                 }
-                if(jsonObject == null) {
+                if(object == null) {
                     showToastMessage(getString(R.string.message_download_expertise_failed));
                 }
                 else {
-                    JobCriteria.getInst().loadExperiseArrayList(jsonObject);
                     DialogFragment dialogFragment = new ExpertiseEditFragment();
                     getScreenManager().showDialogFragment(dialogFragment, "");
                 }

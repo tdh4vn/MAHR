@@ -8,16 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import org.json.JSONObject;
-
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
-import vn.edu.techkids.mahr.enitity.DownloadJSONTask;
-import vn.edu.techkids.mahr.enitity.ExpertiseJSONPostDownloadHandler;
-import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
+
+import vn.edu.techkids.mahr.enitity.Expertise;
+import vn.edu.techkids.mahr.enitity.ExpertiseList;
+import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
+import vn.edu.techkids.mahr.enitity.JSONObjectParser;
+import vn.edu.techkids.mahr.enitity.JSONObjectPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONObjectPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 
 
@@ -25,7 +28,7 @@ import vn.edu.techkids.mahr.enitity.JobCriteria;
  * A simple {@link Fragment} subclass.
  */
 public class NationalitySelectionFragment extends BaseFragment
-        implements View.OnClickListener, JSONPostDownloadHandler {
+        implements View.OnClickListener, JSONObjectPreDownloadHandler, JSONObjectParser, JSONObjectPostDownloadHandler {
 
     private Button mVietnamSlectButton;
     private Button mIndoSelectButton;
@@ -42,7 +45,7 @@ public class NationalitySelectionFragment extends BaseFragment
         initLayout(view);
 
         try {
-            new DownloadJSONTask(null, this, null).execute(new URL(Constants.API_URL_EXPERTISE));
+            new JSONObjectDownloadTask(null, this, this, this).execute(new URL(Constants.API_URL_EXPERTISE));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -81,12 +84,28 @@ public class NationalitySelectionFragment extends BaseFragment
     }
 
     @Override
-    public void onPostDownload(JSONObject jsonObject, String tag) {
-        if(jsonObject == null) {
+    public void onPreDownload(String tag) {
+
+    }
+
+    @Override
+    public Object parse(String tag, InputStreamReader inputStreamReader) {
+        Object object = JobCriteria.getInst().fromJsonToList(inputStreamReader);
+        return object;
+    }
+
+    @Override
+    public void onPostDownload(String tag, Object object) {
+        if(object == null) {
             showToastMessage(getString(R.string.message_download_expertise_failed));
         }
         else {
-            JobCriteria.getInst().loadExperiseArrayList(jsonObject);
+//            ExpertiseList expertiseList = (ExpertiseList)object;
+//            JobCriteria.getInst().setExpertiseList(expertiseList.getList());
         }
     }
+
+
+
+
 }

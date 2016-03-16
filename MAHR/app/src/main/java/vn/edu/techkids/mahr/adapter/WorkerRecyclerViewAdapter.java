@@ -17,18 +17,18 @@ import vn.edu.techkids.mahr.enitity.Worker;
 import vn.edu.techkids.mahr.fragment.WorkerListFragment.OnListFragmentInteractionListener;
 
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecyclerViewAdapter.ViewHolder> {
 
     /*private final List<Person> mValues;*/
     private final OnListFragmentInteractionListener mListener;
-    private ArrayList<Worker> mWorkerArrayList;
+    private List<Worker> mWorkerArrayList;
 
     public WorkerRecyclerViewAdapter(/*List<Person> items, */OnListFragmentInteractionListener listener) {
         /*mValues = items;*/
         mListener = listener;
-        mWorkerArrayList = Worker.getWorkerArrayList();
+        mWorkerArrayList = Worker.getWorkerList();
     }
 
     @Override
