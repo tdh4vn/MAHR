@@ -21,7 +21,6 @@ import vn.edu.techkids.mahr.enitity.MigrationProgress;
  * create an instance of this fragment.
  */
 public class MigrationProcessFragment extends BaseFragment {
-    //card view
 
     CardView cardPassport;
     CardView cardLegal;
@@ -34,8 +33,8 @@ public class MigrationProcessFragment extends BaseFragment {
 
     private MigrationProgress mMigrationProgress;
 
-    public void setmMigrationProgress(MigrationProgress mMigrationProgress) {
-        this.mMigrationProgress = mMigrationProgress;
+    public void setMigrationProgress(MigrationProgress migrationProgress) {
+        this.mMigrationProgress = migrationProgress;
     }
 
     // TODO: Rename parameter arguments, choose names that match
@@ -63,7 +62,6 @@ public class MigrationProcessFragment extends BaseFragment {
     public MigrationProcessFragment() {
         // Required empty public constructor
     }
-
 
     public static MigrationProcessFragment newInstance(String param1, String param2) {
         MigrationProcessFragment fragment = new MigrationProcessFragment();

@@ -16,8 +16,6 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +32,6 @@ import vn.edu.techkids.mahr.enitity.Cloud;
 import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
 import vn.edu.techkids.mahr.enitity.JSONObjectParser;
 import vn.edu.techkids.mahr.enitity.JSONObjectPostDownloadHandler;
-import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
 import vn.edu.techkids.mahr.enitity.Worker;
 
@@ -226,7 +223,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         MigrationProgress migrationProgress = (MigrationProgress)object;
         if(migrationProgress != null) { /* OK */
             MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
-            migrationProcessFragment.setmMigrationProgress(migrationProgress);
+            migrationProcessFragment.setMigrationProgress(migrationProgress);
             getScreenManager().openFragment(migrationProcessFragment, true);
         }
         else {
