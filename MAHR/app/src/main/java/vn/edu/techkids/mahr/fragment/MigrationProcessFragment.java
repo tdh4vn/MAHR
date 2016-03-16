@@ -73,8 +73,6 @@ public class MigrationProcessFragment extends BaseFragment {
     TextView textViewTimeNhanGT;
     TextView textViewTimeTrinhCuc;
     TextView textViewTimeVisa;
-    TextView textViewTimeTuPhapDuKienBay;
-    TextView textViewTimeKetThuc;
 
     private MigrationProgress mMigrationProgress;
 
