@@ -1,13 +1,24 @@
 package vn.edu.techkids.mahr.fragment;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.io.InputStream;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
@@ -30,6 +41,40 @@ public class MigrationProcessFragment extends BaseFragment {
     CardView cardVisa;
     CardView cardFlight;
     CardView cardFinish;
+    ImageView avatar;
+
+    CheckBox imageDone;
+    CheckBox imageDoneTuPhap;
+    CheckBox imageDoneKhamSK;
+    CheckBox imageDoneNhanGT;
+    CheckBox imageDoneTrinhCuc;
+    CheckBox imageDoneVisa;
+    CheckBox imageDoneDuKienBay;
+    CheckBox imageDoneKetThuc;
+
+    TextView txtS5Name;
+    TextView txtS5ID;
+    TextView txtS5Bone;
+    TextView txtS5Branch;
+    TextView txtS5Company;
+
+    TextView textViewHoChieu;
+    TextView textViewTuPhap;
+    TextView textViewKhamSK;
+    TextView textViewNhanGT;
+    TextView textViewTrinhCuc;
+    TextView textViewVisa;
+    TextView textViewTuPhapDuKienBay;
+    TextView textViewKetThuc;
+
+    TextView textViewTimeHoChieu;
+    TextView textViewTimeTuPhap;
+    TextView textViewTimeKhamSK;
+    TextView textViewTimeNhanGT;
+    TextView textViewTimeTrinhCuc;
+    TextView textViewTimeVisa;
+    TextView textViewTimeTuPhapDuKienBay;
+    TextView textViewTimeKetThuc;
 
     private MigrationProgress mMigrationProgress;
 
@@ -47,6 +92,7 @@ public class MigrationProcessFragment extends BaseFragment {
     private String mParam2;
 
     private void connectView(View view){
+        avatar = (ImageView) view.findViewById(R.id.imageViewScreen5);
         cardPassport = (CardView) view.findViewById(R.id.cardPassport);
         cardLegal = (CardView) view.findViewById(R.id.cardLegal);
         cardHeath = (CardView) view.findViewById(R.id.cardHealth);
@@ -55,6 +101,81 @@ public class MigrationProcessFragment extends BaseFragment {
         cardVisa = (CardView) view.findViewById(R.id.cardVisa);
         cardFlight = (CardView) view.findViewById(R.id.cardFlight);
         cardFinish = (CardView) view.findViewById(R.id.cardFinish);
+
+        imageDone = (CheckBox) view.findViewById(R.id.imageDone);
+        imageDoneTuPhap = (CheckBox) view.findViewById(R.id.imageDoneTuPhap);
+        imageDoneKhamSK = (CheckBox) view.findViewById(R.id.imageDoneKhamSK);
+        imageDoneNhanGT = (CheckBox) view.findViewById(R.id.imageDoneNhanGT);
+        imageDoneTrinhCuc = (CheckBox) view.findViewById(R.id.imageDoneTrinhCuc);
+        imageDoneVisa = (CheckBox) view.findViewById(R.id.imageDoneVisa);
+        imageDoneDuKienBay = (CheckBox) view.findViewById(R.id.imageDoneDuKienBay);
+        imageDoneKetThuc = (CheckBox) view.findViewById(R.id.imageDoneKetThuc);
+
+        txtS5Name = (TextView) view.findViewById(R.id.txtS5Name);
+        txtS5ID = (TextView) view.findViewById(R.id.txtS5ID);
+        txtS5Bone = (TextView) view.findViewById(R.id.txtS5Bone);
+        txtS5Branch = (TextView) view.findViewById(R.id.txtS5Branch);
+        txtS5Company = (TextView) view.findViewById(R.id.txtS5Company);
+
+        textViewHoChieu = (TextView) view.findViewById(R.id.textViewHoChieu);
+        textViewTuPhap = (TextView) view.findViewById(R.id.textViewTuPhap);
+        textViewKhamSK = (TextView) view.findViewById(R.id.textViewKhamSK);
+        textViewNhanGT = (TextView) view.findViewById(R.id.textViewNhanGT);
+        textViewTrinhCuc = (TextView) view.findViewById(R.id.textViewTrinhCuc);
+        textViewVisa = (TextView) view.findViewById(R.id.textViewVisa);
+        textViewTuPhapDuKienBay = (TextView) view.findViewById(R.id.textViewTuPhapDuKienBay);
+        textViewKetThuc = (TextView) view.findViewById(R.id.textViewKetThuc);
+
+
+        textViewTimeHoChieu = (TextView) view.findViewById(R.id.textViewTimeHoChieu);
+        textViewTimeTuPhap = (TextView) view.findViewById(R.id.textViewTimeTuPhap);
+        textViewTimeKhamSK = (TextView) view.findViewById(R.id.textViewTimeKhamSK);
+        textViewTimeNhanGT = (TextView) view.findViewById(R.id.textViewTimeNhanGT);
+        textViewTimeTrinhCuc = (TextView) view.findViewById(R.id.textViewTimeTrinhCuc);
+        textViewTimeVisa= (TextView) view.findViewById(R.id.textViewTimeVisa);
+    }
+
+    private void connectData(){
+        new DownloadImageTask(avatar).execute(mMigrationProgress.getProfile().getAvatar());
+
+        txtS5Name.setText(getString(R.string.name) + ": " +mMigrationProgress.getProfile().getName());
+        txtS5ID.setText(getString(R.string.number_id) + ": " + String.valueOf(mMigrationProgress.getProfileId()));
+        txtS5Bone.setText(getString(R.string.bone_name) + ": " +mMigrationProgress.getFactory());
+        txtS5Branch.setText(getString(R.string.branch) + ": " +mMigrationProgress.getDepartment());
+        txtS5Company.setText(getString(R.string.vietnam_company) + ": " +mMigrationProgress.getCompany());
+
+
+
+        textViewTimeHoChieu.setText(getString(R.string.complete) + " " + mMigrationProgress.getPassportEndDate());
+        textViewTimeTuPhap.setText(getString(R.string.complete) + " " + mMigrationProgress.getLegalEndDate());
+        textViewTimeKhamSK.setText(getString(R.string.complete) + " " + mMigrationProgress.getHealthEndDate());
+        textViewTimeNhanGT.setText(getString(R.string.complete) + " " + mMigrationProgress.getFileEndDate());
+        textViewTimeTrinhCuc.setText(getString(R.string.office_start) + " " + mMigrationProgress.getOfficeStartDate()
+                + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getOfficeEndDate());
+        textViewTimeVisa.setText(getString(R.string.visa_start) + " " + mMigrationProgress.getVisaStartDate()
+                + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getVisaEndDate());
+        textViewTuPhapDuKienBay.setText(getString(R.string.schedule_flight));
+        textViewKetThuc.setText(getString(R.string.end));
+
+        textViewHoChieu.setText(getString(R.string.passport));
+        textViewTuPhap.setText(getString(R.string.justice));
+        textViewKhamSK.setText(getString(R.string.checkup));
+        textViewNhanGT.setText(getString(R.string.received_papers));
+        textViewTrinhCuc.setText(getString(R.string.work_department));
+        textViewVisa.setText(getString(R.string.visa));
+
+//        imageDone.setEnabled(intToBoolean(mMigrationProgress.getPassportStatus()));
+//        imageDoneTuPhap.setEnabled(intToBoolean(mMigrationProgress.getLegalStatus()));
+//        imageDoneKhamSK.setEnabled(intToBoolean(mMigrationProgress.getHealthStatus()));
+//        imageDoneNhanGT.setEnabled(intToBoolean(mMigrationProgress.getFileStatus()));
+//        imageDoneTrinhCuc.setEnabled(intToBoolean(mMigrationProgress.getOfficeStatus()));
+//        imageDoneVisa.setEnabled(intToBoolean(mMigrationProgress.getVisaStatus()));
+//        imageDoneDuKienBay.setEnabled(intToBoolean(mMigrationProgress.getFlightStatus()));
+//        imageDoneKetThuc.setEnabled(intToBoolean(mMigrationProgress.getFinish()));
+    }
+
+    private boolean intToBoolean(int input){
+        return input > 0 ? true : false;
     }
 
     private OnFragmentInteractionListener mListener;
@@ -87,6 +208,7 @@ public class MigrationProcessFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_migration_process, container, false);
         connectView(view);
+        connectData();
         return view;
     }
 
@@ -119,4 +241,29 @@ public class MigrationProcessFragment extends BaseFragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 }

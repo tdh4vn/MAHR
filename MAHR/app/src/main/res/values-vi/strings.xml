@@ -31,7 +31,7 @@
     <string name="to">Đến</string>
     <string name="university">Đại học</string>
     <string name="weld">Hàn</string>
-    <string name="woodwork">Đồ mộc</string>
+    <string name="woodwork">Đồ mộc</string>Làm
     <string name="worker">Nhân công</string>
     <string name="loading">Đang tải...</string>
     <string name="vocational">Trung Cấp</string>
@@ -52,4 +52,8 @@
     <string name="workday">Ngày làm</string>
     <string name="field_day">Ngày lĩnh</string>
     <string name="date_range">Ngày cấp</string>
+    <string name="office_start">Trình</string>
+    <string name="office_end">Lĩnh</string>
+    <string name="complete">Hoàn thành</string>
+    <string name="visa_start">Làm</string>
 </resources>
