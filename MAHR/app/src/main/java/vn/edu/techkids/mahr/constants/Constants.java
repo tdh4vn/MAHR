@@ -41,6 +41,9 @@ public class Constants {
     public static final String API_URL_PROFILE_GET = API_URL_ROOT + "/profiles?";
     public static final String API_URL_PROFILE_PUT = API_URL_ROOT + "/profiles/";
 
+    public static final String API_URL_PROGRESSES_GET = API_URL_ROOT + "/progresses/";
+
+
     public static final String API_KEY_ITEMS ="items";
 
     public static final String API_DEFAULT_PHOTO_LINK = "http://rs829.pbsrc.com/albums/zz219/vinadragon/Son16.jpg~c200";
@@ -64,4 +67,8 @@ public class Constants {
     public static String API_PUT_STATUS = "status";
     public static String API_PUT_STATUS_CONFIRM = "2";
     public static String API_PUT_STATUS_USE = "3";
+
+    public static String API_URL_PROGRESSES_GET_FORMAT =  API_URL_PROGRESSES_GET +  "%s?expand=profile";
+
+
 }

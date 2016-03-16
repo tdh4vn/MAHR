@@ -7,8 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +16,8 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,16 +27,20 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Objects;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.Cloud;
+import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
+import vn.edu.techkids.mahr.enitity.JSONObjectParser;
+import vn.edu.techkids.mahr.enitity.JSONObjectPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.MigrationProgress;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 
 public class WorkerDetailFragment extends BaseFragment implements View.OnClickListener,
-        HttpPutOnPostHandler {
+        HttpPutOnPostHandler, JSONObjectParser, JSONObjectPostDownloadHandler {
 
     /*private String mWorkerDetailUrl;*/
     private Worker mWorker;
@@ -51,6 +51,8 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
     private final String HTTP_PUT_ON_POST_CONFIRM_TAG = "confirm";
     private final String HTTP_PUT_ON_POST_USE_TAG = "use";
+
+    private final  String HTTP_GET_MIGRATION_PROCESS = "migration process";
 
     public WorkerDetailFragment() {
         // Required empty public constructor
@@ -93,7 +95,6 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         mBtnUse.setOnClickListener(this);
         mBtnShare.setOnClickListener(this);
         mBtnConfirm.setOnClickListener(this);
-
     }
 
     @Override
@@ -116,6 +117,16 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mWorker.getExcel_path());
         startActivity(Intent.createChooser(sharingIntent, mWorker.getExcel_path()));
+    }
+
+    private void startMigrationProcessDownload() {
+        try {
+            new JSONObjectDownloadTask(HTTP_GET_MIGRATION_PROCESS, this, this).execute(
+                    new URL(String.format(Constants.API_URL_PROGRESSES_GET_FORMAT, mWorker.getId()))
+            );
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -192,8 +203,34 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
     public void onPost(String tag, Object result) {
         switch (tag) {
             case HTTP_PUT_ON_POST_CONFIRM_TAG:
-                    getScreenManager().openFragment(new ImigrationFragment(), true);
+//                    getScreenManager().openFragment(new MigrationProcessFragment(), true);
+                startMigrationProcessDownload();
                 break;
+
+        }
+    }
+
+    @Override
+    public Object parse(String tag, InputStreamReader inputStreamReader) {
+        MigrationProgress migrationProgress = (new Gson()).fromJson(inputStreamReader,
+                MigrationProgress.class);
+        if(migrationProgress != null) {
+            Log.d("ParseJSON", "OK");
+            Log.d("ParseJSON", String.valueOf(migrationProgress.getProfileId()));
+        }
+        return migrationProgress;
+    }
+
+    @Override
+    public void onPostDownload(String tag, Object object) {
+        MigrationProgress migrationProgress = (MigrationProgress)object;
+        if(migrationProgress != null) { /* OK */
+            MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
+            migrationProcessFragment.setmMigrationProgress(migrationProgress);
+            getScreenManager().openFragment(migrationProcessFragment, true);
+        }
+        else {
+
         }
     }
 

@@ -10,27 +10,33 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.MigrationProgress;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ImigrationFragment.OnFragmentInteractionListener} interface
+ * {@link MigrationProcessFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ImigrationFragment#newInstance} factory method to
+ * Use the {@link MigrationProcessFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ImigrationFragment extends BaseFragment {
+public class MigrationProcessFragment extends BaseFragment {
     //card view
 
-    CardView cardHoChieu;
-    CardView cardTuPhap;
-    CardView cardKhamSK;
-    CardView cardNhanGT;
-    CardView cardTrinhCuc;
+    CardView cardPassport;
+    CardView cardLegal;
+    CardView cardHeath;
+    CardView cardFile;
+    CardView cardOffice;
     CardView cardVisa;
-    CardView cardDuKienBay;
-    CardView cardDone;
+    CardView cardFlight;
+    CardView cardFinish;
 
+    private MigrationProgress mMigrationProgress;
+
+    public void setmMigrationProgress(MigrationProgress mMigrationProgress) {
+        this.mMigrationProgress = mMigrationProgress;
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,25 +48,25 @@ public class ImigrationFragment extends BaseFragment {
     private String mParam2;
 
     private void connectView(View view){
-        cardHoChieu = (CardView) view.findViewById(R.id.cardHoChieu);
-        cardTuPhap = (CardView) view.findViewById(R.id.cardTuPhap);
-        cardKhamSK = (CardView) view.findViewById(R.id.cardKhamSK);
-        cardNhanGT = (CardView) view.findViewById(R.id.cardNhanGiayTo);
-        cardTrinhCuc = (CardView) view.findViewById(R.id.cardTrinhCuc);
+        cardPassport = (CardView) view.findViewById(R.id.cardPassport);
+        cardLegal = (CardView) view.findViewById(R.id.cardLegal);
+        cardHeath = (CardView) view.findViewById(R.id.cardHealth);
+        cardFile = (CardView) view.findViewById(R.id.cardFile);
+        cardOffice = (CardView) view.findViewById(R.id.cardOffice);
         cardVisa = (CardView) view.findViewById(R.id.cardVisa);
-        cardDuKienBay = (CardView) view.findViewById(R.id.cardDuKienBay);
-        cardDone = (CardView) view.findViewById(R.id.cardKetThuc);
+        cardFlight = (CardView) view.findViewById(R.id.cardFlight);
+        cardFinish = (CardView) view.findViewById(R.id.cardFinish);
     }
 
     private OnFragmentInteractionListener mListener;
 
-    public ImigrationFragment() {
+    public MigrationProcessFragment() {
         // Required empty public constructor
     }
 
 
-    public static ImigrationFragment newInstance(String param1, String param2) {
-        ImigrationFragment fragment = new ImigrationFragment();
+    public static MigrationProcessFragment newInstance(String param1, String param2) {
+        MigrationProcessFragment fragment = new MigrationProcessFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,7 +87,7 @@ public class ImigrationFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_imigration, container, false);
+        View view = inflater.inflate(R.layout.fragment_migration_process, container, false);
         connectView(view);
         return view;
     }

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="vn.edu.techkids.mahr.fragment.ImigrationFragment">
+    tools:context=".fragment.MigrationProcessFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -92,7 +92,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardHoChieu">
+                    android:id="@+id/cardPassport">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -125,7 +125,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardTuPhap">
+                    android:id="@+id/cardLegal">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -159,7 +159,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardKhamSK">
+                    android:id="@+id/cardHealth">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -194,7 +194,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardNhanGiayTo">
+                    android:id="@+id/cardFile">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -229,7 +229,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardTrinhCuc">
+                    android:id="@+id/cardOffice">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -299,7 +299,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardDuKienBay">
+                    android:id="@+id/cardFlight">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -324,7 +324,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:id="@+id/cardKetThuc">
+                    android:id="@+id/cardFinish">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
