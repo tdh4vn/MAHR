@@ -16,6 +16,8 @@ import java.net.URL;
 public class JSONObjectDownloadTask extends AsyncTask<URL, Integer, Object> {
 
     private String mTag;
+
+    private JSONObjectPreDownloadHandler mJsonObjectPreDownloadHandler;
     private JSONObjectParser mJsonObjectParser;
     private JSONObjectPostDownloadHandler mJsonPostDownloadHandler;
 
@@ -27,11 +29,21 @@ public class JSONObjectDownloadTask extends AsyncTask<URL, Integer, Object> {
     public JSONObjectDownloadTask() {
     }
 
-    public JSONObjectDownloadTask(String tag, JSONObjectParser jsonObjectParser, JSONObjectPostDownloadHandler
+    public JSONObjectDownloadTask(String tag, JSONObjectPreDownloadHandler jsonObjectPreDownloadHandler,
+                                  JSONObjectParser jsonObjectParser, JSONObjectPostDownloadHandler
             jsonObjectPostDownloadHandler) {
         this.mTag = tag;
+        this.mJsonObjectPreDownloadHandler = jsonObjectPreDownloadHandler;
         this.mJsonObjectParser = jsonObjectParser;
         this.mJsonPostDownloadHandler = jsonObjectPostDownloadHandler;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        if(mJsonObjectPreDownloadHandler != null) {
+            mJsonObjectPreDownloadHandler.onPreDownload(mTag);
+        }
+        super.onPreExecute();
     }
 
     @Override

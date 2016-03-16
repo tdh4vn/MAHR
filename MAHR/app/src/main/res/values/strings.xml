@@ -34,11 +34,14 @@
     <string name="woodwork">木工</string>
     <string name="worker">工人</string>
     <string name="loading">载入中...</string>
+    <string name="sending">發出...</string>
+
+    <string name="immigration">移民</string>
     <string name="message_download_expertise_failed">下载专长失败</string>
 
     <string name="message_download_expertise_OK">专长列表下载</string>
 
-    <string name="message_download_worker_failed">下载工人失败</string>
+    <string name="message_download_failed">下載失敗</string>
     <string name="name">姓名</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -70,6 +73,8 @@
     <string name="workday">辦件日</string>
     <string name="field_day">領件日</string>
     <string name="date_range">發照日</string>
+
+
 
 
 </resources>

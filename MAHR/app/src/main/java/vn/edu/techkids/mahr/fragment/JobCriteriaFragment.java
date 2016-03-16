@@ -33,7 +33,6 @@ import vn.edu.techkids.mahr.enitity.JSONPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
-import vn.edu.techkids.mahr.enitity.Lang;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 /**
@@ -264,7 +263,7 @@ public class JobCriteriaFragment extends BaseFragment implements
                 }
                 /* Parse JSON to WorkerList */
                 if (jsonObject == null) {
-                    showToastMessage(getString(R.string.message_download_worker_failed));
+                    showToastMessage(getString(R.string.message_download_failed));
                 } else {
                     Worker.loadJsonToList(jsonObject);
                     getScreenManager().openFragment(new WorkerListFragment(), true);

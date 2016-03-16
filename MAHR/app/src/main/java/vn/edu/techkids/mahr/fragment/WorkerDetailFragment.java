@@ -1,6 +1,7 @@
 package vn.edu.techkids.mahr.fragment;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -32,12 +33,13 @@ import vn.edu.techkids.mahr.enitity.Cloud;
 import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
 import vn.edu.techkids.mahr.enitity.JSONObjectParser;
 import vn.edu.techkids.mahr.enitity.JSONObjectPostDownloadHandler;
+import vn.edu.techkids.mahr.enitity.JSONObjectPreDownloadHandler;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
 import vn.edu.techkids.mahr.enitity.Worker;
 
 
 public class WorkerDetailFragment extends BaseFragment implements View.OnClickListener,
-        HttpPutOnPostHandler, JSONObjectParser, JSONObjectPostDownloadHandler {
+        HttpPutOnPostHandler, JSONObjectParser, JSONObjectPostDownloadHandler, JSONObjectPreDownloadHandler{
 
     /*private String mWorkerDetailUrl;*/
     private Worker mWorker;
@@ -50,6 +52,8 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
     private final String HTTP_PUT_ON_POST_USE_TAG = "use";
 
     private final  String HTTP_GET_MIGRATION_PROCESS = "migration process";
+
+    private ProgressDialog mProgressDialog = null;
 
     public WorkerDetailFragment() {
         // Required empty public constructor
@@ -116,9 +120,31 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         startActivity(Intent.createChooser(sharingIntent, mWorker.getExcel_path()));
     }
 
+    private void sendConfirmCommand() {
+        try {
+            HttpPutTask httpPutTask = new HttpPutTask(new HttpPutQueryBuilder() {
+                @Override
+                public String buildQuery() {
+                    Uri.Builder builder = new Uri.Builder()
+                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_USE);
+                    String query = builder.build().getEncodedQuery();
+                    return query;
+                }
+            },
+                    this,
+                    HTTP_PUT_ON_POST_CONFIRM_TAG);
+
+            httpPutTask.execute(new URL(String.format(Constants.API_URL_PROFILE_PUT_FORMAT,
+                    mWorker.getId())));
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void startMigrationProcessDownload() {
         try {
-            new JSONObjectDownloadTask(HTTP_GET_MIGRATION_PROCESS, this, this).execute(
+            new JSONObjectDownloadTask(HTTP_GET_MIGRATION_PROCESS, this, this, this).execute(
                     new URL(String.format(Constants.API_URL_PROGRESSES_GET_FORMAT, mWorker.getId()))
             );
         } catch (MalformedURLException e) {
@@ -174,27 +200,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         }
     }
 
-    private void sendConfirmCommand() {
-        try {
-            HttpPutTask httpPutTask = new HttpPutTask(new HttpPutQueryBuilder() {
-                @Override
-                public String buildQuery() {
-                    Uri.Builder builder = new Uri.Builder()
-                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_USE);
-                    String query = builder.build().getEncodedQuery();
-                    return query;
-                }
-            },
-            this,
-            HTTP_PUT_ON_POST_CONFIRM_TAG);
 
-            httpPutTask.execute(new URL(String.format(Constants.API_URL_PROFILE_PUT_FORMAT,
-                    mWorker.getId())));
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void onPost(String tag, Object result) {
@@ -220,14 +226,33 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public void onPostDownload(String tag, Object object) {
-        MigrationProgress migrationProgress = (MigrationProgress)object;
-        if(migrationProgress != null) { /* OK */
-            MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
-            migrationProcessFragment.setMigrationProgress(migrationProgress);
-            getScreenManager().openFragment(migrationProcessFragment, true);
+        switch (tag) {
+            case HTTP_GET_MIGRATION_PROCESS:
+                if(mProgressDialog != null) {
+                    mProgressDialog.dismiss();
+                    mProgressDialog = null;
+                }
+                MigrationProgress migrationProgress = (MigrationProgress)object;
+                if(migrationProgress != null) { /* OK */
+                    MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
+                    migrationProcessFragment.setMigrationProgress(migrationProgress);
+                    getScreenManager().openFragment(migrationProcessFragment, true);
+                }
+                else {
+                    showToastMessage(getString(R.string.message_download_failed));
+                }
+                break;
         }
-        else {
 
+    }
+
+    @Override
+    public void onPreDownload(String tag) {
+        switch (tag) {
+            case HTTP_GET_MIGRATION_PROCESS:
+                mProgressDialog = ProgressDialog.show(this.getActivity(), getString(R.string.immigration),
+                        getString(R.string.loading), true);
+                break;
         }
     }
 
@@ -251,7 +276,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         String buildQuery();
     }
 
-    private class HttpPutTask extends AsyncTask<URL, Integer, Worker> {
+    private class HttpPutTask extends AsyncTask<URL, Integer, Object> {
 
         private HttpPutQueryBuilder mHttpPutQueryBuilder;
         private HttpPutOnPostHandler mHttpPutOnPostHandler;
@@ -266,6 +291,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         @Override
         protected Worker doInBackground(URL... params) {
             try {
+
                 URL url = params[0];
 
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -314,18 +340,16 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         }
 
         @Override
-        protected void onPostExecute(Worker worker) {
+        protected void onPostExecute(Object object) {
             if(mHttpPutOnPostHandler != null) {
-                mHttpPutOnPostHandler.onPost(mTag, worker);
+                mHttpPutOnPostHandler.onPost(mTag, object);
             }
 
-            super.onPostExecute(worker);
+            super.onPostExecute(object);
         }
     }
 }
 
 interface HttpPutOnPostHandler {
-    Integer NOT_OK = 0;
-    Integer OK = 1;
     void onPost(String tag, Object result);
 }
