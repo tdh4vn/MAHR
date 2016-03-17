@@ -181,14 +181,15 @@ public class MigrationProcessFragment extends BaseFragment
         textViewOffice.setText(getString(R.string.work_department));
         textViewVisa.setText(getString(R.string.visa));
 
-//        imageDone.setEnabled(intToBoolean(mMigrationProgress.getPassportStatus()));
-//        imageDoneLegal.setEnabled(intToBoolean(mMigrationProgress.getLegalStatus()));
-//        imageDoneHealth.setEnabled(intToBoolean(mMigrationProgress.getHealthStatus()));
-//        imageDoneFile.setEnabled(intToBoolean(mMigrationProgress.getFileStatus()));
-//        imageDoneTrinhCuc.setEnabled(intToBoolean(mMigrationProgress.getOfficeStatus()));
-//        imageDoneVisa.setEnabled(intToBoolean(mMigrationProgress.getVisaStatus()));
-//        imageDoneDuKienBay.setEnabled(intToBoolean(mMigrationProgress.getFlightStatus()));
-//        imageDoneKetThuc.setEnabled(intToBoolean(mMigrationProgress.getFinish()));
+
+        imageDone.setChecked(intToBoolean(mMigrationProgress.getPassportStatus()));
+        imageDoneLegal.setChecked(intToBoolean(mMigrationProgress.getLegalStatus()));
+        imageDoneHealth.setChecked(intToBoolean(mMigrationProgress.getHealthStatus()));
+        imageDoneFile.setChecked(intToBoolean(mMigrationProgress.getFileStatus()));
+        imageDoneTrinhCuc.setChecked(intToBoolean(mMigrationProgress.getOfficeStatus()));
+        imageDoneVisa.setChecked(intToBoolean(mMigrationProgress.getVisaStatus()));
+        imageDoneDuKienBay.setChecked(intToBoolean(mMigrationProgress.getFlightStatus()));
+        imageDoneKetThuc.setChecked(intToBoolean(mMigrationProgress.getFinish()));
     }
 
     private boolean intToBoolean(int input){
