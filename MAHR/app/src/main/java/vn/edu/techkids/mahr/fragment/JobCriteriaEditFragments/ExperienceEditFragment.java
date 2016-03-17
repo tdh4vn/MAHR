@@ -1,17 +1,11 @@
-package vn.edu.techkids.mahr.fragment;
+package vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments;
 
-import android.app.DialogFragment;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.NumberPicker;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
+import vn.edu.techkids.mahr.fragment.InRangeEditFragment;
 
 /**
  * Created by qhuydtvt on 3/7/2016.

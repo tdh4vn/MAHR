@@ -1,5 +1,6 @@
 package vn.edu.techkids.mahr.fragment;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,14 @@ import java.io.InputStream;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FileDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FinishDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FlightDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.HealthDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.LegalDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.OfficeDatePickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.PassportPickerFragment;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.VisaDatePickerFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +39,8 @@ import vn.edu.techkids.mahr.enitity.MigrationProgress;
  * Use the {@link MigrationProcessFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MigrationProcessFragment extends BaseFragment {
+public class MigrationProcessFragment extends BaseFragment
+        implements View.OnClickListener {
 
     CardView cardPassport;
     CardView cardLegal;
@@ -43,9 +53,9 @@ public class MigrationProcessFragment extends BaseFragment {
     ImageView avatar;
 
     CheckBox imageDone;
-    CheckBox imageDoneTuPhap;
-    CheckBox imageDoneKhamSK;
-    CheckBox imageDoneNhanGT;
+    CheckBox imageDoneLegal;
+    CheckBox imageDoneHealth;
+    CheckBox imageDoneFile;
     CheckBox imageDoneTrinhCuc;
     CheckBox imageDoneVisa;
     CheckBox imageDoneDuKienBay;
@@ -53,24 +63,24 @@ public class MigrationProcessFragment extends BaseFragment {
 
     TextView txtS5Name;
     TextView txtS5ID;
-    TextView txtS5Bone;
-    TextView txtS5Branch;
+    TextView txtS5Factory;
+    TextView txtS5Department;
     TextView txtS5Company;
 
-    TextView textViewHoChieu;
-    TextView textViewTuPhap;
-    TextView textViewKhamSK;
-    TextView textViewNhanGT;
-    TextView textViewTrinhCuc;
+    TextView textViewPassport;
+    TextView textViewLegal;
+    TextView textViewHealth;
+    TextView textViewFile;
+    TextView textViewOffice;
     TextView textViewVisa;
-    TextView textViewTuPhapDuKienBay;
-    TextView textViewKetThuc;
+    TextView textViewFlight;
+    TextView textViewFinish;
 
-    TextView textViewTimeHoChieu;
-    TextView textViewTimeTuPhap;
-    TextView textViewTimeKhamSK;
-    TextView textViewTimeNhanGT;
-    TextView textViewTimeTrinhCuc;
+    TextView textViewTimePassport;
+    TextView textViewLegalEndDate;
+    TextView textViewHealthEndDate;
+    TextView textViewTimeFileEndDate;
+    TextView textViewTimeOfficeEndDate;
     TextView textViewTimeVisa;
 
     private MigrationProgress mMigrationProgress;
@@ -88,8 +98,9 @@ public class MigrationProcessFragment extends BaseFragment {
     private String mParam1;
     private String mParam2;
 
-    private void connectView(View view){
+    private void initLayout(View view){
         avatar = (ImageView) view.findViewById(R.id.imageViewScreen5);
+
         cardPassport = (CardView) view.findViewById(R.id.cardPassport);
         cardLegal = (CardView) view.findViewById(R.id.cardLegal);
         cardHeath = (CardView) view.findViewById(R.id.cardHealth);
@@ -100,36 +111,47 @@ public class MigrationProcessFragment extends BaseFragment {
         cardFinish = (CardView) view.findViewById(R.id.cardFinish);
 
         imageDone = (CheckBox) view.findViewById(R.id.imageDone);
-        imageDoneTuPhap = (CheckBox) view.findViewById(R.id.imageDoneTuPhap);
-        imageDoneKhamSK = (CheckBox) view.findViewById(R.id.imageDoneKhamSK);
-        imageDoneNhanGT = (CheckBox) view.findViewById(R.id.imageDoneNhanGT);
-        imageDoneTrinhCuc = (CheckBox) view.findViewById(R.id.imageDoneTrinhCuc);
+        imageDoneLegal = (CheckBox) view.findViewById(R.id.imageDoneLegal);
+        imageDoneHealth = (CheckBox) view.findViewById(R.id.imageDoneHealth);
+        imageDoneFile = (CheckBox) view.findViewById(R.id.imageDoneFile);
+        imageDoneTrinhCuc = (CheckBox) view.findViewById(R.id.imageDoneOffice);
         imageDoneVisa = (CheckBox) view.findViewById(R.id.imageDoneVisa);
-        imageDoneDuKienBay = (CheckBox) view.findViewById(R.id.imageDoneDuKienBay);
-        imageDoneKetThuc = (CheckBox) view.findViewById(R.id.imageDoneKetThuc);
+        imageDoneDuKienBay = (CheckBox) view.findViewById(R.id.imageDoneFlight);
+        imageDoneKetThuc = (CheckBox) view.findViewById(R.id.imageDoneFinish);
 
         txtS5Name = (TextView) view.findViewById(R.id.txtS5Name);
         txtS5ID = (TextView) view.findViewById(R.id.txtS5ID);
-        txtS5Bone = (TextView) view.findViewById(R.id.txtS5Bone);
-        txtS5Branch = (TextView) view.findViewById(R.id.txtS5Branch);
+        txtS5Factory = (TextView) view.findViewById(R.id.txtS5Bone);
+        txtS5Department = (TextView) view.findViewById(R.id.txtS5Branch);
         txtS5Company = (TextView) view.findViewById(R.id.txtS5Company);
 
-        textViewHoChieu = (TextView) view.findViewById(R.id.textViewHoChieu);
-        textViewTuPhap = (TextView) view.findViewById(R.id.textViewTuPhap);
-        textViewKhamSK = (TextView) view.findViewById(R.id.textViewKhamSK);
-        textViewNhanGT = (TextView) view.findViewById(R.id.textViewNhanGT);
-        textViewTrinhCuc = (TextView) view.findViewById(R.id.textViewTrinhCuc);
+        textViewPassport = (TextView) view.findViewById(R.id.textViewPassport);
+        textViewLegal = (TextView) view.findViewById(R.id.textViewLegal);
+        textViewHealth = (TextView) view.findViewById(R.id.textViewHealth);
+        textViewFile = (TextView) view.findViewById(R.id.textViewFile);
+        textViewOffice = (TextView) view.findViewById(R.id.textViewOffice);
         textViewVisa = (TextView) view.findViewById(R.id.textViewVisa);
-        textViewTuPhapDuKienBay = (TextView) view.findViewById(R.id.textViewTuPhapDuKienBay);
-        textViewKetThuc = (TextView) view.findViewById(R.id.textViewKetThuc);
+        textViewFlight = (TextView) view.findViewById(R.id.textViewFlight);
+        textViewFinish = (TextView) view.findViewById(R.id.textViewFinish);
 
 
-        textViewTimeHoChieu = (TextView) view.findViewById(R.id.textViewTimeHoChieu);
-        textViewTimeTuPhap = (TextView) view.findViewById(R.id.textViewTimeTuPhap);
-        textViewTimeKhamSK = (TextView) view.findViewById(R.id.textViewTimeKhamSK);
-        textViewTimeNhanGT = (TextView) view.findViewById(R.id.textViewTimeNhanGT);
-        textViewTimeTrinhCuc = (TextView) view.findViewById(R.id.textViewTimeTrinhCuc);
+        textViewTimePassport = (TextView) view.findViewById(R.id.textViewPassportEndDate);
+        textViewLegalEndDate = (TextView) view.findViewById(R.id.textViewLegalEndDate);
+        textViewHealthEndDate = (TextView) view.findViewById(R.id.textViewHealthEndDate);
+        textViewTimeFileEndDate = (TextView) view.findViewById(R.id.textViewTimeFileEndDate);
+        textViewTimeOfficeEndDate = (TextView) view.findViewById(R.id.textViewTimeOfficeEndDate);
         textViewTimeVisa= (TextView) view.findViewById(R.id.textViewTimeVisa);
+    }
+
+    private void setListeners() {
+        cardPassport.setOnClickListener(this);
+        cardLegal.setOnClickListener(this);
+        cardHeath.setOnClickListener(this);
+        cardFile.setOnClickListener(this);
+        cardOffice.setOnClickListener(this);
+        cardVisa.setOnClickListener(this);
+        cardFlight.setOnClickListener(this);
+        cardFinish.setOnClickListener(this);
     }
 
     private void connectData(){
@@ -137,34 +159,32 @@ public class MigrationProcessFragment extends BaseFragment {
 
         txtS5Name.setText(getString(R.string.name) + ": " +mMigrationProgress.getProfile().getName());
         txtS5ID.setText(getString(R.string.number_id) + ": " + String.valueOf(mMigrationProgress.getProfileId()));
-        txtS5Bone.setText(getString(R.string.bone_name) + ": " +mMigrationProgress.getFactory());
-        txtS5Branch.setText(getString(R.string.branch) + ": " +mMigrationProgress.getDepartment());
+        txtS5Factory.setText(getString(R.string.factory) + ": " + mMigrationProgress.getFactory());
+        txtS5Department.setText(getString(R.string.department) + ": " + mMigrationProgress.getDepartment());
         txtS5Company.setText(getString(R.string.vietnam_company) + ": " +mMigrationProgress.getCompany());
 
-
-
-        textViewTimeHoChieu.setText(getString(R.string.complete) + " " + mMigrationProgress.getPassportEndDate());
-        textViewTimeTuPhap.setText(getString(R.string.complete) + " " + mMigrationProgress.getLegalEndDate());
-        textViewTimeKhamSK.setText(getString(R.string.complete) + " " + mMigrationProgress.getHealthEndDate());
-        textViewTimeNhanGT.setText(getString(R.string.complete) + " " + mMigrationProgress.getFileEndDate());
-        textViewTimeTrinhCuc.setText(getString(R.string.office_start) + " " + mMigrationProgress.getOfficeStartDate()
+        textViewTimePassport.setText(getString(R.string.finish) + " " + mMigrationProgress.getPassportEndDate());
+        textViewLegalEndDate.setText(getString(R.string.finish) + " " + mMigrationProgress.getLegalEndDate());
+        textViewHealthEndDate.setText(getString(R.string.finish) + " " + mMigrationProgress.getHealthEndDate());
+        textViewTimeFileEndDate.setText(getString(R.string.finish) + " " + mMigrationProgress.getFileEndDate());
+        textViewTimeOfficeEndDate.setText(getString(R.string.office_start) + " " + mMigrationProgress.getOfficeStartDate()
                 + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getOfficeEndDate());
         textViewTimeVisa.setText(getString(R.string.visa_start) + " " + mMigrationProgress.getVisaStartDate()
                 + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getVisaEndDate());
-        textViewTuPhapDuKienBay.setText(getString(R.string.schedule_flight));
-        textViewKetThuc.setText(getString(R.string.end));
+        textViewFlight.setText(getString(R.string.flight));
+        textViewFinish.setText(getString(R.string.end));
 
-        textViewHoChieu.setText(getString(R.string.passport));
-        textViewTuPhap.setText(getString(R.string.justice));
-        textViewKhamSK.setText(getString(R.string.checkup));
-        textViewNhanGT.setText(getString(R.string.received_papers));
-        textViewTrinhCuc.setText(getString(R.string.work_department));
+        textViewPassport.setText(getString(R.string.passport));
+        textViewLegal.setText(getString(R.string.legal));
+        textViewHealth.setText(getString(R.string.health));
+        textViewFile.setText(getString(R.string.file));
+        textViewOffice.setText(getString(R.string.work_department));
         textViewVisa.setText(getString(R.string.visa));
 
 //        imageDone.setEnabled(intToBoolean(mMigrationProgress.getPassportStatus()));
-//        imageDoneTuPhap.setEnabled(intToBoolean(mMigrationProgress.getLegalStatus()));
-//        imageDoneKhamSK.setEnabled(intToBoolean(mMigrationProgress.getHealthStatus()));
-//        imageDoneNhanGT.setEnabled(intToBoolean(mMigrationProgress.getFileStatus()));
+//        imageDoneLegal.setEnabled(intToBoolean(mMigrationProgress.getLegalStatus()));
+//        imageDoneHealth.setEnabled(intToBoolean(mMigrationProgress.getHealthStatus()));
+//        imageDoneFile.setEnabled(intToBoolean(mMigrationProgress.getFileStatus()));
 //        imageDoneTrinhCuc.setEnabled(intToBoolean(mMigrationProgress.getOfficeStatus()));
 //        imageDoneVisa.setEnabled(intToBoolean(mMigrationProgress.getVisaStatus()));
 //        imageDoneDuKienBay.setEnabled(intToBoolean(mMigrationProgress.getFlightStatus()));
@@ -204,8 +224,9 @@ public class MigrationProcessFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_migration_process, container, false);
-        connectView(view);
+        initLayout(view);
         connectData();
+        setListeners();
         return view;
     }
 
@@ -233,11 +254,55 @@ public class MigrationProcessFragment extends BaseFragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v) {
+        DialogFragment dialogFragment = null;
+        switch (v.getId()) {
+            case R.id.cardPassport:
+                dialogFragment = new PassportPickerFragment().
+                        setTitle(getString(R.string.passport));
+                break;
+            case R.id.cardLegal:
+                dialogFragment = new LegalDatePickerFragment().
+                        setTitle(getString(R.string.legal));
+                break;
+            case R.id.cardHealth:
+                dialogFragment = new HealthDatePickerFragment().
+                        setTitle(getString(R.string.health));
+                break;
+            case R.id.cardFile:
+                dialogFragment = new FileDatePickerFragment().
+                        setTitle(getString(R.string.file));
+                break;
+            case R.id.cardOffice:
+                dialogFragment = new OfficeDatePickerFragment().
+                        setTitle(getString(R.string.office));
+                break;
+            case R.id.cardVisa:
+                dialogFragment = new VisaDatePickerFragment().
+                        setTitle(getString(R.string.visa));
+                break;
+            case R.id.cardFlight:
+                dialogFragment = new FlightDatePickerFragment().
+                        setTitle(getString(R.string.flight));
+                break;
+            case R.id.cardFinish:
+                dialogFragment = new FinishDatePickerFragment().
+                        setTitle(getString(R.string.finish));
+                break;
+        }
+
+        if(dialogFragment != null) {
+            getScreenManager().showDialogFragment(dialogFragment, "");
+        }
+    }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 

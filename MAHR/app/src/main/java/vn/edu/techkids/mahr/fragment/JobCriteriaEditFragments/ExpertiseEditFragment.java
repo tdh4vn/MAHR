@@ -1,4 +1,4 @@
-package vn.edu.techkids.mahr.fragment;
+package vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments;
 
 import android.app.DialogFragment;
 import android.os.Bundle;

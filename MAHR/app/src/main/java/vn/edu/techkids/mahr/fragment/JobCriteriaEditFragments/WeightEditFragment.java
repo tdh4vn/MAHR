@@ -1,33 +1,28 @@
-package vn.edu.techkids.mahr.fragment;
+package vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments;
 
-import android.app.DialogFragment;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.NumberPicker;
 
-import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.JobCriteria;
+import vn.edu.techkids.mahr.fragment.InRangeEditFragment;
 
 /**
  * Created by qhuydtvt on 3/7/2016.
  */
-public class AgeEditFragment extends InRangeEditFragment {
+public class WeightEditFragment extends InRangeEditFragment {
+
     @Override
     protected void initLayout(View view) {
         super.initLayout(view);
-        setRange(Constants.MIN_AGE, Constants.MAX_AGE);
-        setTitle(getString(R.string.age));
+        setRange(Constants.MIN_WEIGHT, Constants.MAX_WEIGHT);
     }
 
     @Override
     public void onClick(View v) {
-        JobCriteria.getInst().setAgeRange(mFromPicker.getValue(), mToPicker.getValue());
+        JobCriteria.getInst().setWeightRange(mFromPicker.getValue(), mToPicker.getValue());
         super.onClick(v);
+        /*JobCriteria.getInst().setMinWeight();
+        JobCriteria.getInst().setMaxWeight();*/
     }
 }
 
@@ -41,34 +36,34 @@ public class AgeEditFragment extends InRangeEditFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_edit_age, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit_weight, container, false);
         initLayout(view);
         return view;
     }
 
-    private void initLayout(View view) {
+
+
+    *//*private void initLayout(View view) {
         mFromPicker = (NumberPicker)view.findViewById(R.id.npFrom);
         mToPicker = (NumberPicker)view.findViewById(R.id.npTo);
         mOKButton = (Button)view.findViewById(R.id.btnOK);
 
-        mFromPicker.setMinValue(Constants.MIN_AGE);
-        mFromPicker.setMaxValue(Constants.MAX_AGE);
-        mToPicker.setMinValue(Constants.MIN_AGE);
-        mToPicker.setMaxValue(Constants.MAX_AGE);
+        mFromPicker.setMinValue(Constants.MIN_WEIGHT);
+        mFromPicker.setMaxValue(Constants.MAX_WEIGHT);
+        mToPicker.setMinValue(Constants.MIN_WEIGHT);
+        mToPicker.setMaxValue(Constants.MAX_WEIGHT);
 
         mOKButton.setOnClickListener(this);
-    }
+    }*//*
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getDialog().setTitle(getString(R.string.age));
+        getDialog().setTitle(getString(R.string.weight));
     }
 
     @Override
     public void onClick(View v) {
-        JobCriteria.getInst().setMinAge(mFromPicker.getValue());
-        JobCriteria.getInst().setMaxAge(mToPicker.getValue());
         this.dismiss();
     }
 }*/

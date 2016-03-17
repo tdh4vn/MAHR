@@ -35,5 +35,6 @@
     <string name="worker">Pekerja</string>
     <string name="loading">Pemuatan...</string>
     <string name="vocational">Kejuruan</string>
+    <string name="confirm"></string>
 
 </resources>

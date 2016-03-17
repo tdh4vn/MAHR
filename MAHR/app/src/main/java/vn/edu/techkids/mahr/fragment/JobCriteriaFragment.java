@@ -26,7 +26,6 @@ import java.util.List;
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.constants.Constants;
 import vn.edu.techkids.mahr.enitity.Expertise;
-import vn.edu.techkids.mahr.enitity.ExpertiseList;
 import vn.edu.techkids.mahr.enitity.JSONObjectDownloadTask;
 import vn.edu.techkids.mahr.enitity.JSONObjectParser;
 import vn.edu.techkids.mahr.enitity.JSONObjectPreDownloadHandler;
@@ -35,6 +34,13 @@ import vn.edu.techkids.mahr.enitity.JobCriteria;
 import vn.edu.techkids.mahr.enitity.JobCriteriaListener;
 import vn.edu.techkids.mahr.enitity.JobCriteriaViewModel;
 import vn.edu.techkids.mahr.enitity.Worker;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.AgeEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.DegreeEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.ExperienceEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.ExpertiseEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.HeightEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.LanguageEditFragment;
+import vn.edu.techkids.mahr.fragment.JobCriteriaEditFragments.WeightEditFragment;
 
 /**
  * A simple {@link Fragment} subclass.

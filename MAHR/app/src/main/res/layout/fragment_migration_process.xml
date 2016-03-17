@@ -93,14 +93,18 @@
                     android:layout_height="70dp"
                     android:id="@+id/cardPassport">
                     <RelativeLayout
+                        android:id="@+id/rl_passport"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+
+                        >
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/imageDone"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -108,17 +112,19 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Hộ chiếu"
-                            android:id="@+id/textViewHoChieu"
-                            android:layout_toEndOf="@+id/imageDone" />
+                            android:id="@+id/textViewPassport"
+                            android:layout_toEndOf="@+id/imageDone"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Hoàn thành: 10/03/2016"
-                            android:id="@+id/textViewTimeHoChieu"
-                            android:layout_below="@+id/textViewHoChieu"
-                            android:layout_toEndOf="@+id/imageDone" />
+                            android:id="@+id/textViewPassportEndDate"
+                            android:layout_below="@+id/textViewPassport"
+                            android:layout_toEndOf="@+id/imageDone"
+                            android:clickable="false"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
@@ -131,9 +137,10 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageDoneTuPhap"
+                            android:id="@+id/imageDoneLegal"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -141,17 +148,19 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Tư pháp"
-                            android:id="@+id/textViewTuPhap"
-                            android:layout_toEndOf="@+id/imageDoneTuPhap" />
+                            android:id="@+id/textViewLegal"
+                            android:layout_toEndOf="@+id/imageDoneLegal"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Hoàn thành: 10/3/2016"
-                            android:id="@+id/textViewTimeTuPhap"
-                            android:layout_below="@+id/textViewTuPhap"
-                            android:layout_toEndOf="@+id/imageDoneTuPhap" />
+                            android:id="@+id/textViewLegalEndDate"
+                            android:layout_below="@+id/textViewLegal"
+                            android:layout_toEndOf="@+id/imageDoneLegal"
+                            android:clickable="false"/>
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -165,9 +174,10 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageDoneKhamSK"
+                            android:id="@+id/imageDoneHealth"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -175,17 +185,19 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Khám sức khoẻ"
-                            android:id="@+id/textViewKhamSK"
-                            android:layout_toEndOf="@+id/imageDoneKhamSK" />
+                            android:id="@+id/textViewHealth"
+                            android:layout_toEndOf="@+id/imageDoneHealth"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Hoàn thành: 10/3/2016"
-                            android:id="@+id/textViewTimeKhamSK"
-                            android:layout_below="@+id/textViewKhamSK"
-                            android:layout_toEndOf="@+id/imageDoneKhamSK" />
+                            android:id="@+id/textViewHealthEndDate"
+                            android:layout_below="@+id/textViewHealth"
+                            android:layout_toEndOf="@+id/imageDoneHealth"
+                            android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -200,9 +212,10 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageDoneNhanGT"
+                            android:id="@+id/imageDoneFile"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -210,17 +223,19 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Nhận giấy tờ"
-                            android:id="@+id/textViewNhanGT"
-                            android:layout_toEndOf="@+id/imageDoneNhanGT" />
+                            android:id="@+id/textViewFile"
+                            android:layout_toEndOf="@+id/imageDoneFile"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Hoàn thành: 10/3/2016"
-                            android:id="@+id/textViewTimeNhanGT"
-                            android:layout_below="@+id/textViewNhanGT"
-                            android:layout_toEndOf="@+id/imageDoneNhanGT" />
+                            android:id="@+id/textViewTimeFileEndDate"
+                            android:layout_below="@+id/textViewFile"
+                            android:layout_toEndOf="@+id/imageDoneFile"
+                            android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -235,9 +250,10 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageDoneTrinhCuc"
+                            android:id="@+id/imageDoneOffice"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -245,17 +261,19 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Trình cục"
-                            android:id="@+id/textViewTrinhCuc"
-                            android:layout_toEndOf="@+id/imageDoneTrinhCuc" />
+                            android:id="@+id/textViewOffice"
+                            android:layout_toEndOf="@+id/imageDoneOffice"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Trình: 10/3/2016 - Lĩnh 20/3/2016"
-                            android:id="@+id/textViewTimeTrinhCuc"
-                            android:layout_below="@+id/textViewTrinhCuc"
-                            android:layout_toEndOf="@+id/imageDoneTrinhCuc" />
+                            android:id="@+id/textViewTimeOfficeEndDate"
+                            android:layout_below="@+id/textViewOffice"
+                            android:layout_toEndOf="@+id/imageDoneOffice"
+                            android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -272,7 +290,8 @@
                             android:layout_height="30dp"
                             android:id="@+id/imageDoneVisa"
                             android:layout_margin="20dp"
-                            android:checked="true" />
+                            android:checked="true"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -281,7 +300,8 @@
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Visa"
                             android:id="@+id/textViewVisa"
-                            android:layout_toEndOf="@+id/imageDoneVisa" />
+                            android:layout_toEndOf="@+id/imageDoneVisa"
+                            android:clickable="false" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -290,7 +310,8 @@
                             android:text="Làm:10/3/2016 - Lĩnh: 20/3/2016 "
                             android:id="@+id/textViewTimeVisa"
                             android:layout_below="@+id/textViewVisa"
-                            android:layout_toEndOf="@+id/imageDoneVisa" />
+                            android:layout_toEndOf="@+id/imageDoneVisa"
+                            android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -305,8 +326,9 @@
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageDoneDuKienBay"
-                            android:layout_margin="20dp" />
+                            android:id="@+id/imageDoneFlight"
+                            android:layout_margin="20dp"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -314,8 +336,9 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Dự kiến bay"
-                            android:id="@+id/textViewTuPhapDuKienBay"
-                            android:layout_toEndOf="@+id/imageDoneDuKienBay" />
+                            android:id="@+id/textViewFlight"
+                            android:layout_toEndOf="@+id/imageDoneFlight"
+                            android:clickable="false" />
 
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -330,8 +353,9 @@
                         <CheckBox
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:id="@+id/imageDoneKetThuc"
-                            android:layout_margin="20dp" />
+                            android:id="@+id/imageDoneFinish"
+                            android:layout_margin="20dp"
+                            android:clickable="false"/>
 
                         <TextView
                             android:layout_marginTop="15dp"
@@ -339,8 +363,9 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Kết Thúc"
-                            android:id="@+id/textViewKetThuc"
-                            android:layout_toEndOf="@+id/imageDoneKetThuc" />
+                            android:id="@+id/textViewFinish"
+                            android:layout_toEndOf="@+id/imageDoneFinish"
+                            android:clickable="false" />
 
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>

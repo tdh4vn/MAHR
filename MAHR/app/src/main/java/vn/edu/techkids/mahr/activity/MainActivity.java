@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,6 +21,7 @@ import android.view.View;
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.Cloud;
 import vn.edu.techkids.mahr.enitity.Worker;
+import vn.edu.techkids.mahr.fragment.BaseDialogFragment;
 import vn.edu.techkids.mahr.fragment.WorkerDetailFragment;
 import vn.edu.techkids.mahr.fragment.WorkerListFragment;
 import vn.edu.techkids.mahr.fragment.NationalitySelectionFragment;
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 //
 
         openFragment(new NationalitySelectionFragment(), true);
+
+        BaseDialogFragment.setScreenManager(this);
         //openFragment(new WorkerDetailFragment(), true);
     }
 
@@ -160,6 +164,11 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
 
         MenuItem itemShare = (MenuItem) menu.findItem(R.id.action_share);
         itemShare.setVisible(false);
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
