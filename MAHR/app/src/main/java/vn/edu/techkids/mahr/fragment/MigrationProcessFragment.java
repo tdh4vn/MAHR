@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ import java.io.InputStream;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
+import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.EditProfilesFragment;
 import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FileDatePickerFragment;
 import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FinishDatePickerFragment;
 import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FlightDatePickerFragment;
@@ -83,6 +86,8 @@ public class MigrationProcessFragment extends BaseFragment
     TextView textViewTimeOfficeEndDate;
     TextView textViewTimeVisa;
 
+    ImageButton buttonEdit;
+
     private MigrationProgress mMigrationProgress;
 
     public void setMigrationProgress(MigrationProgress migrationProgress) {
@@ -100,6 +105,7 @@ public class MigrationProcessFragment extends BaseFragment
 
     private void initLayout(View view){
         avatar = (ImageView) view.findViewById(R.id.imageViewScreen5);
+        buttonEdit = (ImageButton) view.findViewById(R.id.buttonEdit);
 
         cardPassport = (CardView) view.findViewById(R.id.cardPassport);
         cardLegal = (CardView) view.findViewById(R.id.cardLegal);
@@ -157,7 +163,7 @@ public class MigrationProcessFragment extends BaseFragment
     private void connectData(){
         new DownloadImageTask(avatar).execute(mMigrationProgress.getProfile().getAvatar());
 
-        txtS5Name.setText(getString(R.string.name) + ": " +mMigrationProgress.getProfile().getName());
+        txtS5Name.setText(getString(R.string.name) + ": " + mMigrationProgress.getProfile().getName());
         txtS5ID.setText(getString(R.string.number_id) + ": " + String.valueOf(mMigrationProgress.getProfileId()));
         txtS5Factory.setText(getString(R.string.factory) + ": " + mMigrationProgress.getFactory());
         txtS5Department.setText(getString(R.string.department) + ": " + mMigrationProgress.getDepartment());
@@ -190,6 +196,8 @@ public class MigrationProcessFragment extends BaseFragment
         imageDoneVisa.setChecked(intToBoolean(mMigrationProgress.getVisaStatus()));
         imageDoneDuKienBay.setChecked(intToBoolean(mMigrationProgress.getFlightStatus()));
         imageDoneKetThuc.setChecked(intToBoolean(mMigrationProgress.getFinish()));
+
+        buttonEdit.setOnClickListener(this);
     }
 
     private boolean intToBoolean(int input){
@@ -259,6 +267,10 @@ public class MigrationProcessFragment extends BaseFragment
     public void onClick(View v) {
         DialogFragment dialogFragment = null;
         switch (v.getId()) {
+            case R.id.buttonEdit:
+                dialogFragment = new EditProfilesFragment().
+                        setTitle(getString(R.string.edit_profile));
+                break;
             case R.id.cardPassport:
                 dialogFragment = new PassportPickerFragment().
                         setTitle(getString(R.string.passport));
