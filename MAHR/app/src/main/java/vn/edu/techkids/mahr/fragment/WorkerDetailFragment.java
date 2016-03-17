@@ -41,7 +41,6 @@ import vn.edu.techkids.mahr.enitity.Worker;
 public class WorkerDetailFragment extends BaseFragment implements View.OnClickListener,
         HttpPutOnPostHandler, JSONObjectParser, JSONObjectPostDownloadHandler, JSONObjectPreDownloadHandler{
 
-    /*private String mWorkerDetailUrl;*/
     private Worker mWorker;
     private WebView mWvWorkerDetail;
     private Button mBtnShare;
@@ -126,7 +125,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 @Override
                 public String buildQuery() {
                     Uri.Builder builder = new Uri.Builder()
-                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_USE);
+                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_WORKER_STATUS_USE);
                     String query = builder.build().getEncodedQuery();
                     return query;
                 }
@@ -185,7 +184,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 @Override
                 public String buildQuery() {
                     Uri.Builder builder = new Uri.Builder()
-                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_STATUS_CONFIRM);
+                            .appendQueryParameter(Constants.API_PUT_STATUS, Constants.API_PUT_WORKER_STATUS_CONFIRM);
                     String query = builder.build().getEncodedQuery();
                     return query;
                 }
@@ -200,39 +199,18 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         }
     }
 
-
-
     @Override
     public void onPost(String tag, Object result) {
         switch (tag) {
             case HTTP_PUT_ON_POST_CONFIRM_TAG:
-//                    getScreenManager().openFragment(new MigrationProcessFragment(), true);
                 startMigrationProcessDownload();
                 break;
-
-        }
-    }
-
-    @Override
-    public Object parse(String tag, InputStreamReader inputStreamReader) {
-        MigrationProgress migrationProgress = (new Gson()).fromJson(inputStreamReader,
-                MigrationProgress.class);
-        if(migrationProgress != null) {
-            Log.d("ParseJSON", "OK");
-            Log.d("ParseJSON", String.valueOf(migrationProgress.getProfileId()));
-        }
-        return migrationProgress;
-    }
-
-    @Override
-    public void onPostDownload(String tag, Object object) {
-        switch (tag) {
             case HTTP_GET_MIGRATION_PROCESS:
                 if(mProgressDialog != null) {
                     mProgressDialog.dismiss();
                     mProgressDialog = null;
                 }
-                MigrationProgress migrationProgress = (MigrationProgress)object;
+                MigrationProgress migrationProgress = (MigrationProgress)result;
                 if(migrationProgress != null) { /* OK */
                     MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
                     migrationProcessFragment.setMigrationProgress(migrationProgress);
@@ -242,8 +220,13 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                     showToastMessage(getString(R.string.message_download_failed));
                 }
                 break;
-        }
 
+        }
+    }
+
+    @Override
+    public Object parse(String tag, InputStreamReader inputStreamReader) {
+        return MigrationProgress.loadFromJSON(inputStreamReader);
     }
 
     @Override

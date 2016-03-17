@@ -95,7 +95,7 @@ public class NationalitySelectionFragment extends BaseFragment
     }
 
     @Override
-    public void onPostDownload(String tag, Object object) {
+    public void onPost(String tag, Object object) {
         if(object == null) {
             showToastMessage(getString(R.string.message_download_expertise_failed));
         }

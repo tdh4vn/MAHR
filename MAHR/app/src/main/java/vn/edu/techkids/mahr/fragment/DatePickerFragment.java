@@ -56,6 +56,12 @@ public class DatePickerFragment extends DialogFragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        if(mOnDateSetListener != null) {
+            int y = mDatePicker.getYear();
+            int mm = mDatePicker.getMonth();
+            int dd = mDatePicker.getDayOfMonth();
+            mOnDateSetListener.onDateSet(mDatePicker, y, mm, dd);
+        }
         this.dismiss();
     }
 }

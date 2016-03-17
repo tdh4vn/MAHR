@@ -22,6 +22,8 @@ public class Constants {
     public final static String API_INDONESIA = "in";
     public final static String API_TAIWAN = "cn";
 
+    public static String API_DATE_FORMAT = "%s/%s/%s";
+
     public static String API_PARAM_DEGREE_PRIMARY_SCHOOL = "1";
     public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "2";
     public static String API_PARAM_DEGREE_HIGH_SCHOOL = "3";
@@ -42,6 +44,7 @@ public class Constants {
     public static final String API_URL_PROFILE_PUT = API_URL_ROOT + "/profiles/";
 
     public static final String API_URL_PROGRESSES_GET = API_URL_ROOT + "/progresses/";
+    public static final String API_URL_PROGRESSES_PUT = API_URL_ROOT + "/progresses/";
 
 
     public static final String API_KEY_ITEMS ="items";
@@ -65,10 +68,14 @@ public class Constants {
 
     public static String API_URL_PROFILE_PUT_FORMAT = API_URL_PROFILE_PUT + "%s";
     public static String API_PUT_STATUS = "status";
-    public static String API_PUT_STATUS_CONFIRM = "2";
-    public static String API_PUT_STATUS_USE = "3";
+    public static String API_PUT_WORKER_STATUS_CONFIRM = "2";
+    public static String API_PUT_WORKER_STATUS_USE = "3";
+
+    public static String API_PUT_STATUS_NOT_DONE = "0";
+    public static String API_PUT_STATUS_DONE = "1";
+
 
     public static String API_URL_PROGRESSES_GET_FORMAT =  API_URL_PROGRESSES_GET +  "%s?expand=profile";
-
+    public static String API_URL_PROGRESSES_PUT_FORMAT = API_URL_PROGRESSES_PUT + "%s";
 
 }

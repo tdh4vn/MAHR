@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import vn.edu.techkids.mahr.R;
 import vn.edu.techkids.mahr.enitity.Cloud;
@@ -169,6 +170,14 @@ public class MainActivity extends AppCompatActivity implements ScreenManager {
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public void showMessage(String text) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

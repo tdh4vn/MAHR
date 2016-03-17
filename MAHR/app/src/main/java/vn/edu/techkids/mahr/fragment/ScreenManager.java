@@ -20,4 +20,5 @@ public interface ScreenManager {
     void showShareButtonOnRightActionBar();
     void hidenButtonActionBar();
     Context getContext();
+    void showMessage(String text);
 }

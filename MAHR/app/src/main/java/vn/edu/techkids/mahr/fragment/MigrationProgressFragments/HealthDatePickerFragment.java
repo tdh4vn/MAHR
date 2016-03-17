@@ -1,9 +1,29 @@
 package vn.edu.techkids.mahr.fragment.MigrationProgressFragments;
 
-import vn.edu.techkids.mahr.fragment.OneDateTimePickerFragment;
+import android.net.Uri;
+
+import vn.edu.techkids.mahr.enitity.MigrationProgress;
+import vn.edu.techkids.mahr.fragment.TypeOneMigrationParamFragment;
 
 /**
  * Created by qhuydtvt on 3/17/2016.
  */
-public class HealthDatePickerFragment extends OneDateTimePickerFragment {
+public class HealthDatePickerFragment extends TypeOneMigrationParamFragment {
+
+    @Override
+    protected void fillData() {
+        mCheckBoxDone.setChecked(MigrationProgress.getInst().getHealthStatus() != 0);
+        mEndDateTextView.setText(MigrationProgress.getInst().getHealthEndDate());
+    }
+
+    @Override
+    public String buildQuery() {
+        Uri.Builder builder = new Uri.Builder()
+                .appendQueryParameter(MigrationProgress.API_MIG_PROG_HEALTH_STATUS,
+                        getCheckedString())
+                .appendQueryParameter(MigrationProgress.API_MIG_PROG_HEALTH_END_DATE,
+                        getEndDateString());
+        String query = builder.build().getEncodedQuery();
+        return query;
+    }
 }

@@ -1,77 +1,109 @@
 package vn.edu.techkids.mahr.enitity;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+
+import java.io.InputStreamReader;
 
 /**
  * Created by qhuydtvt on 3/16/2016.
  */
 public class MigrationProgress {
 
-    @SerializedName("profile_id")
+    public final static String API_MIG_PROG_PROFILE_ID = "profile_id";
+    public final static String API_MIG_PROG_FACTORY = "factory";
+    public final static String API_MIG_PROG_DEPARTMENT = "department";
+    public final static String API_MIG_PROG_COMPANY = "company";
+    public final static String API_MIG_PROG_PASSPORT_STATUS = "1_passport_status";
+    public final static String API_MIG_PROG_PASSPORT_END_DATE = "1_passport_end_date";
+    public final static String API_MIG_PROG_LEGAL_STATUS = "2_legal_status";
+    public final static String API_MIG_PROG_LEGAL_END_DATE = "2_legel_end_date";
+    public final static String API_MIG_PROG_HEALTH_STATUS = "3_health_status";
+    public final static String API_MIG_PROG_HEALTH_END_DATE = "3_health_end_date";
+    public final static String API_MIG_PROG_FILE_STATUS = "4_file_status";
+    public final static String API_MIG_PROG_FILE_END_DATE = "4_file_end_date";
+    public final static String API_MIG_PROG_OFFICE_STATUS = "5_office_status";
+    public final static String API_MIG_PROG_OFFICE_START_DATE = "5_office_start_date";
+    public final static String API_MIG_PROG_OFFICE_END_DATE = "5_office_end_date";
+    public final static String API_MIG_PROG_VISA_STATUS = "6_visa_status";
+    public final static String API_MIG_PROG_VISA_START_DATE = "6_visa_start_date";
+    public final static String API_MIG_PROG_VISA_END_DATE = "6_visa_end_date";
+    public final static String API_MIG_PROG_FLIGHT_STATUS = "7_flight_status";
+    public final static String API_MIG_PROG_FLIGHT_END_DATE = "7_flight_end_date";
+    public final static String API_MIG_PROG_FINISH = "8_finish";
+    public final static String API_MIG_PROG_PROFILE = "profile";
+
+    private DataChangeListener mDataChangeListener;
+
+    @SerializedName(API_MIG_PROG_PROFILE_ID)
     private int profileId;
 
-    @SerializedName("factory")
+    @SerializedName(API_MIG_PROG_FACTORY)
     private String factory;
 
-    @SerializedName("department")
+    @SerializedName(API_MIG_PROG_DEPARTMENT)
     private String department;
 
-    @SerializedName("company")
+    @SerializedName(API_MIG_PROG_COMPANY)
     private String company;
 
-    @SerializedName("1_passport_status")
+    @SerializedName(API_MIG_PROG_PASSPORT_STATUS)
     private int passportStatus;
 
-    @SerializedName("1_passport_end_date")
+    @SerializedName(API_MIG_PROG_PASSPORT_END_DATE)
     private String passportEndDate;
 
-    @SerializedName("2_legal_status")
+    @SerializedName(API_MIG_PROG_LEGAL_STATUS)
     private int legalStatus;
 
-    @SerializedName("2_legel_end_date")
+    @SerializedName(API_MIG_PROG_LEGAL_END_DATE)
     private String legalEndDate;
 
-    @SerializedName("3_health_status")
+    @SerializedName(API_MIG_PROG_HEALTH_STATUS)
     private int healthStatus;
 
-    @SerializedName("3_health_end_date")
+    @SerializedName(API_MIG_PROG_HEALTH_END_DATE)
     private String healthEndDate;
 
-    @SerializedName("4_file_status")
+    @SerializedName(API_MIG_PROG_FILE_STATUS)
     private int fileStatus;
 
-    @SerializedName("4_file_end_date")
+    @SerializedName(API_MIG_PROG_FILE_END_DATE)
     private String fileEndDate;
 
-    @SerializedName("5_office_status")
+    @SerializedName(API_MIG_PROG_OFFICE_STATUS)
     private int officeStatus;
 
-    @SerializedName("5_office_start_date")
+    @SerializedName(API_MIG_PROG_OFFICE_START_DATE)
     private String officeStartDate;
 
-    @SerializedName("5_office_end_date")
+    @SerializedName(API_MIG_PROG_OFFICE_END_DATE)
     private String officeEndDate;
 
-    @SerializedName("6_visa_status")
+    @SerializedName(API_MIG_PROG_VISA_STATUS)
     private int visaStatus;
 
-    @SerializedName("6_visa_start_date")
+    @SerializedName(API_MIG_PROG_VISA_START_DATE)
     private String visaStartDate;
 
-    @SerializedName("6_visa_end_date")
+    @SerializedName(API_MIG_PROG_VISA_END_DATE)
     private String visaEndDate;
 
-    @SerializedName("7_flight_status")
+    @SerializedName(API_MIG_PROG_FLIGHT_STATUS)
     private int flightStatus;
 
-    @SerializedName("7_flight_end_date")
+    @SerializedName(API_MIG_PROG_FLIGHT_END_DATE)
     private String flightEndDate;
 
-    @SerializedName("8_finish")
+    @SerializedName(API_MIG_PROG_FINISH)
     private int finish;
 
-    @SerializedName("profile")
+    @SerializedName(API_MIG_PROG_PROFILE)
     private Worker profile;
+
+    public void setmDataChangeListener(DataChangeListener mDataChangeListener) {
+        this.mDataChangeListener = mDataChangeListener;
+    }
 
     public int getProfileId() {
         return profileId;
@@ -247,5 +279,22 @@ public class MigrationProgress {
 
     public void setProfile(Worker profile) {
         this.profile = profile;
+    }
+
+    public void notifyDataChanged(){
+        if(mDataChangeListener != null){
+            mDataChangeListener.onDataChange(this);
+        }
+    }
+
+    private static MigrationProgress inst;
+
+    public static MigrationProgress getInst() {
+        return inst;
+    }
+
+    public static MigrationProgress loadFromJSON(InputStreamReader inputStreamReader) {
+        inst = (new Gson()).fromJson(inputStreamReader, MigrationProgress.class);
+        return inst;
     }
 }

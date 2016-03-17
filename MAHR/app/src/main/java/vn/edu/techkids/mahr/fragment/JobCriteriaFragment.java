@@ -183,7 +183,7 @@ public class JobCriteriaFragment extends BaseFragment implements
     }
 
 //    @Override
-//    public void onPostDownload(String tag, Object object) {
+//    public void onPost(String tag, Object object) {
 //
 //    }
 
@@ -307,7 +307,7 @@ public class JobCriteriaFragment extends BaseFragment implements
     }
 
     @Override
-    public void onPostDownload(String tag, Object object) {
+    public void onPost(String tag, Object object) {
         switch (tag) {
             case DOWNLOAD_TAG_WORKER:
                 if (progress != null) {
