@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="ColorLanguageButtonBackground">#29B6F6</color>
+    <color name="color_button_clicked">#01579B</color>
     <color name="color_action_bar">#29B6F6</color>
     <color name="ColorLanguageButtonBackgroundHighLight">#1B5E20</color>
     <color name="color_white">#FFFFFF</color>
