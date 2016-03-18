@@ -33,7 +33,7 @@ public class MigrationProgress {
     public final static String API_MIG_PROG_FINISH = "8_finish";
     public final static String API_MIG_PROG_PROFILE = "profile";
 
-    private DataChangeListener mDataChangeListener;
+
 
     @SerializedName(API_MIG_PROG_PROFILE_ID)
     private int profileId;
@@ -281,11 +281,17 @@ public class MigrationProgress {
         this.profile = profile;
     }
 
-    public void notifyDataChanged(){
+    public static void notifyDataChanged(){
         if(mDataChangeListener != null){
-            mDataChangeListener.onDataChange(this);
+            mDataChangeListener.onDataChange(inst);
         }
     }
+
+    public static void setDataChangeListener(DataChangeListener dataChangeListener) {
+        mDataChangeListener = dataChangeListener;
+    }
+
+    private static DataChangeListener mDataChangeListener;
 
     private static MigrationProgress inst;
 
@@ -295,6 +301,7 @@ public class MigrationProgress {
 
     public static MigrationProgress loadFromJSON(InputStreamReader inputStreamReader) {
         inst = (new Gson()).fromJson(inputStreamReader, MigrationProgress.class);
+//        notifyDataChanged();
         return inst;
     }
 }

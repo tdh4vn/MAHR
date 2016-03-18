@@ -1,32 +1,19 @@
 package vn.edu.techkids.mahr.fragment.MigrationProgressFragments;
 
 import android.net.Uri;
-import android.view.View;
 
-import com.google.gson.Gson;
-
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import vn.edu.techkids.mahr.constants.Constants;
-import vn.edu.techkids.mahr.enitity.DataChangeListener;
-import vn.edu.techkids.mahr.enitity.HttpQueryBuilder;
-import vn.edu.techkids.mahr.enitity.JSONObjectParser;
-import vn.edu.techkids.mahr.enitity.JSONObjectPutTask;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
-import vn.edu.techkids.mahr.fragment.TypeOneMigrationParamFragment;
+import vn.edu.techkids.mahr.fragment.MigrationParam1Fragment;
 
 /**
  * Created by qhuydtvt on 3/17/2016.
  */
-public class PassportPickerFragment extends TypeOneMigrationParamFragment {
+public class PassportPickerFragment extends MigrationParam1Fragment {
 
     @Override
     protected void fillData() {
         mCheckBoxDone.setChecked(MigrationProgress.getInst().getPassportStatus() != 0);
-        mEndDateTextView.setText(MigrationProgress.getInst().getPassportEndDate());
+        mEndDateTextView.setText(getDateString(MigrationProgress.getInst().getPassportEndDate()));
     }
 
     @Override
@@ -39,6 +26,7 @@ public class PassportPickerFragment extends TypeOneMigrationParamFragment {
         String query = builder.build().getEncodedQuery();
         return query;
     }
+
 //    @Override
 //    protected void initLayout(View view) {
 //        super.initLayout(view);
@@ -46,7 +34,7 @@ public class PassportPickerFragment extends TypeOneMigrationParamFragment {
 //    }
 //
 //    @Override
-//    protected void handleOKClick() {
+//    protected void callPutAPI() {
 //        JSONObjectPutTask putTask = new JSONObjectPutTask(this, this);
 //        try {
 //            putTask.execute(new URL(

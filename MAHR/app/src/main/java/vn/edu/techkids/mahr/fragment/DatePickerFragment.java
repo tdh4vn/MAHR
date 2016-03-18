@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import java.util.Calendar;
+
 import vn.edu.techkids.mahr.R;
 
 /**
@@ -21,10 +23,16 @@ public class DatePickerFragment extends DialogFragment implements View.OnClickLi
     private DatePickerDialog.OnDateSetListener mOnDateSetListener;
     private Button mButtonOK;
     private DatePicker mDatePicker;
+    private String mTag;
+    private String mTitle;
 
     private int year;
     private int month;
     private int day;
+
+    public void setTagForDatePicker(String tag) {
+        mTag = tag;
+    }
 
     public DatePickerFragment() {
     }
@@ -33,10 +41,22 @@ public class DatePickerFragment extends DialogFragment implements View.OnClickLi
         mOnDateSetListener = onDateSetListener;
     }
 
+    public void setTitle(String title) {
+        mTitle = title;
+    }
+
     public void setDate(int yy, int mm, int dd) {
-        year = yy;
-        month = mm;
-        day = dd;
+        if(yy == 0) {
+            Calendar calendar = Calendar.getInstance();
+            year = calendar.get(Calendar.YEAR);
+            month = calendar.get(Calendar.MONTH);
+            day = calendar.get(Calendar.DATE);
+        }
+        else {
+            year = yy;
+            month = mm;
+            day = dd;
+        }
     }
 
     @Override
@@ -52,6 +72,10 @@ public class DatePickerFragment extends DialogFragment implements View.OnClickLi
         mButtonOK.setOnClickListener(this);
         mDatePicker = (DatePicker)view.findViewById(R.id.date_picker);
         mDatePicker.updateDate(year, month, day);
+        mDatePicker.setTag(mTag);
+        if(mTitle != null) {
+            getDialog().setTitle(mTitle);
+        }
     }
 
     @Override

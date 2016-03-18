@@ -3,17 +3,17 @@ package vn.edu.techkids.mahr.fragment.MigrationProgressFragments;
 import android.net.Uri;
 
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
-import vn.edu.techkids.mahr.fragment.TypeOneMigrationParamFragment;
+import vn.edu.techkids.mahr.fragment.MigrationParam1Fragment;
 
 /**
  * Created by qhuydtvt on 3/17/2016.
  */
-public class HealthDatePickerFragment extends TypeOneMigrationParamFragment {
+public class HealthDatePickerFragment extends MigrationParam1Fragment {
 
     @Override
     protected void fillData() {
         mCheckBoxDone.setChecked(MigrationProgress.getInst().getHealthStatus() != 0);
-        mEndDateTextView.setText(MigrationProgress.getInst().getHealthEndDate());
+        mEndDateTextView.setText(getDateString((MigrationProgress.getInst().getHealthEndDate())));
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Constants {
     public final static String API_INDONESIA = "in";
     public final static String API_TAIWAN = "cn";
 
-    public static String API_DATE_FORMAT = "%s/%s/%s";
+    public static String API_DATE_FORMAT = "%04s-%02s-%02s";
 
     public static String API_PARAM_DEGREE_PRIMARY_SCHOOL = "1";
     public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "2";
@@ -76,6 +76,6 @@ public class Constants {
 
 
     public static String API_URL_PROGRESSES_GET_FORMAT =  API_URL_PROGRESSES_GET +  "%s?expand=profile";
-    public static String API_URL_PROGRESSES_PUT_FORMAT = API_URL_PROGRESSES_PUT + "%s";
+    public static String API_URL_PROGRESSES_PUT_FORMAT = API_URL_PROGRESSES_PUT + "%s?expand=profile";
 
 }

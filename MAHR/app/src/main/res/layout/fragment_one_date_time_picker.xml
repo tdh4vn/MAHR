@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.TypeOneMigrationParamFragment">
+    tools:context=".fragment.MigrationParam1Fragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:id="@+id/tv_end_date"
                 android:layout_column="1"
                 android:layout_row="1"
-                android:text="17/03/2016"
+                android:text=""
                 android:textSize="@dimen/dialog_text_size"
                 android:layout_margin="@dimen/dialog_text_margin"
                 />

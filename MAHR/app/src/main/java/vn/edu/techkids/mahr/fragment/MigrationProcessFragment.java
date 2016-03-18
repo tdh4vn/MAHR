@@ -20,9 +20,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.io.InputStream;
 
 import vn.edu.techkids.mahr.R;
+import vn.edu.techkids.mahr.enitity.DataChangeListener;
 import vn.edu.techkids.mahr.enitity.MigrationProgress;
 import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.EditProfilesFragment;
 import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.FileDatePickerFragment;
@@ -43,7 +46,7 @@ import vn.edu.techkids.mahr.fragment.MigrationProgressFragments.VisaDatePickerFr
  * create an instance of this fragment.
  */
 public class MigrationProcessFragment extends BaseFragment
-        implements View.OnClickListener {
+        implements View.OnClickListener, DataChangeListener {
 
     CardView cardPassport;
     CardView cardLegal;
@@ -85,14 +88,15 @@ public class MigrationProcessFragment extends BaseFragment
     TextView textViewTimeFileEndDate;
     TextView textViewTimeOfficeEndDate;
     TextView textViewTimeVisa;
+    TextView textViewTimeFlight;
 
     ImageButton buttonEdit;
 
     private MigrationProgress mMigrationProgress;
-
-    public void setMigrationProgress(MigrationProgress migrationProgress) {
-        this.mMigrationProgress = migrationProgress;
-    }
+//
+//    public void setMigrationProgress(MigrationProgress migrationProgress) {
+//        this.mMigrationProgress = migrationProgress;
+//    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -147,6 +151,7 @@ public class MigrationProcessFragment extends BaseFragment
         textViewTimeFileEndDate = (TextView) view.findViewById(R.id.textViewTimeFileEndDate);
         textViewTimeOfficeEndDate = (TextView) view.findViewById(R.id.textViewTimeOfficeEndDate);
         textViewTimeVisa= (TextView) view.findViewById(R.id.textViewTimeVisa);
+        textViewTimeFlight = (TextView) view.findViewById(R.id.textViewTimeFlight);
     }
 
     private void setListeners() {
@@ -158,9 +163,13 @@ public class MigrationProcessFragment extends BaseFragment
         cardVisa.setOnClickListener(this);
         cardFlight.setOnClickListener(this);
         cardFinish.setOnClickListener(this);
+
+        MigrationProgress.setDataChangeListener(this);
     }
 
-    private void connectData(){
+    private void connectData() {
+        mMigrationProgress = MigrationProgress.getInst();
+
         new DownloadImageTask(avatar).execute(mMigrationProgress.getProfile().getAvatar());
 
         txtS5Name.setText(getString(R.string.name) + ": " + mMigrationProgress.getProfile().getName());
@@ -175,6 +184,7 @@ public class MigrationProcessFragment extends BaseFragment
         textViewTimeFileEndDate.setText(getString(R.string.finish) + " " + mMigrationProgress.getFileEndDate());
         textViewTimeOfficeEndDate.setText(getString(R.string.office_start) + " " + mMigrationProgress.getOfficeStartDate()
                 + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getOfficeEndDate());
+        textViewTimeFlight.setText(getString(R.string.flight) + " " + mMigrationProgress.getFlightEndDate());
         textViewTimeVisa.setText(getString(R.string.visa_start) + " " + mMigrationProgress.getVisaStartDate()
                 + " - " + getString(R.string.office_end) + " " + mMigrationProgress.getVisaEndDate());
         textViewFlight.setText(getString(R.string.flight));
@@ -308,6 +318,12 @@ public class MigrationProcessFragment extends BaseFragment
         if(dialogFragment != null) {
             getScreenManager().showDialogFragment(dialogFragment, "");
         }
+    }
+
+    @Override
+    public void onDataChange(Object object) {
+//        updateStatuses(object);
+        connectData();
     }
 
     public interface OnFragmentInteractionListener {

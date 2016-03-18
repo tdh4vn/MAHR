@@ -212,7 +212,6 @@
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
-
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
@@ -250,7 +249,6 @@
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
-
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
@@ -287,7 +285,6 @@
                             android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
-
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
@@ -351,6 +348,15 @@
                             android:layout_toEndOf="@+id/imageDoneFlight"
                             android:clickable="false" />
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="xxx-xx-xx"
+                            android:id="@+id/textViewTimeFlight"
+                            android:layout_below="@+id/textViewFlight"
+                            android:layout_toEndOf="@+id/imageDoneFlight"
+                            android:clickable="false" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
