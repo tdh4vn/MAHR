@@ -121,6 +121,8 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
     private void sendConfirmCommand() {
         try {
+            mProgressDialog = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+                    getString(R.string.loading), true);
             HttpPutTask httpPutTask = new HttpPutTask(new HttpPutQueryBuilder() {
                 @Override
                 public String buildQuery() {
@@ -201,9 +203,12 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public void onPost(String tag, Object result) {
+
+
         switch (tag) {
             case HTTP_PUT_ON_POST_CONFIRM_TAG:
                 startMigrationProcessDownload();
+
                 break;
             case HTTP_GET_MIGRATION_PROCESS:
                 if(mProgressDialog != null) {
@@ -212,6 +217,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 }
                 MigrationProgress migrationProgress = (MigrationProgress)result;
                 if(migrationProgress != null) { /* OK */
+                    //mProgressDialog.dismiss();
                     MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
                     //migrationProcessFragment.setMigrationProgress(migrationProgress);
                     getScreenManager().openFragment(migrationProcessFragment, true);
@@ -229,12 +235,27 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
         return MigrationProgress.loadFromJSON(inputStreamReader);
     }
 
+
+//    public void onPreDownload(String tag) {
+//        switch (tag) {
+//            case DOWNLOAD_TAG_WORKER:
+//                progress = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+//                        getString(R.string.loading), true);
+//                break;
+//            case DOWNLOAD_TAG_EXPERTISE:
+//                progress = ProgressDialog.show(this.getActivity(), getString(R.string.expertise),
+//                        getString(R.string.loading), true);
+//                break;
+//        }
+//    }
     @Override
     public void onPreDownload(String tag) {
+//        mProgressDialog = ProgressDialog.show(this.getActivity(), getString(R.string.worker),
+//                        getString(R.string.loading), true);
         switch (tag) {
             case HTTP_GET_MIGRATION_PROCESS:
-                mProgressDialog = ProgressDialog.show(this.getActivity(), getString(R.string.immigration),
-                        getString(R.string.loading), true);
+//                mProgressDialog = ProgressDialog.show(this.getActivity(), getString(R.string.immigration),
+//                        getString(R.string.loading), true);
                 break;
         }
     }

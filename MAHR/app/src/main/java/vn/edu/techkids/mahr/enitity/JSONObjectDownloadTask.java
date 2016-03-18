@@ -95,6 +95,11 @@ public class JSONObjectDownloadTask extends AsyncTask<URL, Integer, Object> {
     }
 
     @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+    }
+
+    @Override
     protected void onPostExecute(Object o) {
         if(mJsonPostDownloadHandler != null) {
             mJsonPostDownloadHandler.onPost(mTag, o);
