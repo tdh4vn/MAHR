@@ -22,7 +22,7 @@ public class Constants {
     public final static String API_INDONESIA = "in";
     public final static String API_TAIWAN = "cn";
 
-    public static String API_DATE_FORMAT = "%04s-%02s-%02s";
+    public static String API_DATE_FORMAT = "%04d-%02d-%02d";
 
     public static String API_PARAM_DEGREE_PRIMARY_SCHOOL = "1";
     public static String API_PARAM_DEGREE_SECONDARY_SCHOOL = "2";
