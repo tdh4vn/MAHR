@@ -85,6 +85,7 @@ public abstract class MigrationParamFragment extends BaseDialogFragment implemen
 
     protected void callPutAPI() {
         JSONObjectPutTask jsonObjectPutTask = new JSONObjectPutTask(this, new MigrationProgresJSONParser());
+        jsonObjectPutTask.setJSONObjectPreDownloadHandler(this);
         jsonObjectPutTask.setJSONObjectPostDownloadHandler(this);
         try {
             jsonObjectPutTask.execute(new URL(String.format(
