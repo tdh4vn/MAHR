@@ -50,6 +50,7 @@
     </GridLayout>
 
     <Button
+        android:minWidth="350dp"
         android:id="@+id/btnOK"
         android:text="@string/ok"
         android:layout_width="match_parent"

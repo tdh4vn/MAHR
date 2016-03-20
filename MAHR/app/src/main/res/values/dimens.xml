@@ -32,6 +32,8 @@
 
     <dimen name="img_status_width">20dp</dimen>
     <dimen name="img_status_height">20dp</dimen>
+    <dimen name="avatar_height">200dp</dimen>
+    <dimen name="item_card_padding">7dp</dimen>
 
 </resources>
 

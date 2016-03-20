@@ -217,7 +217,7 @@ public class WorkerDetailFragment extends BaseFragment implements View.OnClickLi
                 }
                 MigrationProgress migrationProgress = (MigrationProgress)result;
                 if(migrationProgress != null) { /* OK */
-                    //mProgressDialog.dismiss();
+                    // bị/mProgressDialog.dismiss();
                     MigrationProcessFragment migrationProcessFragment = new MigrationProcessFragment();
                     //migrationProcessFragment.setMigrationProgress(migrationProgress);
                     getScreenManager().openFragment(migrationProcessFragment, true);

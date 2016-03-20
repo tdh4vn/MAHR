@@ -111,6 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/imageDone"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:layout_margin="20dp"
                             android:checked="true"
                             android:clickable="false"/>
@@ -149,6 +150,7 @@
                             android:id="@+id/imageDoneLegal"
                             android:layout_margin="20dp"
                             android:checked="true"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -186,6 +188,7 @@
                             android:id="@+id/imageDoneHealth"
                             android:layout_margin="20dp"
                             android:checked="true"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -223,6 +226,7 @@
                             android:id="@+id/imageDoneFile"
                             android:layout_margin="20dp"
                             android:checked="true"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -260,6 +264,7 @@
                             android:id="@+id/imageDoneOffice"
                             android:layout_margin="20dp"
                             android:checked="true"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -297,6 +302,7 @@
                             android:id="@+id/imageDoneVisa"
                             android:layout_margin="20dp"
                             android:checked="true"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -334,6 +340,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/imageDoneFlight"
                             android:layout_margin="20dp"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView
@@ -370,6 +377,7 @@
                             android:layout_height="30dp"
                             android:id="@+id/imageDoneFinish"
                             android:layout_margin="20dp"
+                            android:buttonTint="@color/ColorLanguageButtonBackgroundHighLight"
                             android:clickable="false"/>
 
                         <TextView

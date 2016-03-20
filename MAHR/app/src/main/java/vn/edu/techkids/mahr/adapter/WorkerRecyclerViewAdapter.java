@@ -41,12 +41,13 @@ public class WorkerRecyclerViewAdapter extends RecyclerView.Adapter<WorkerRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
         final Worker worker = mWorkerArrayList.get(position);
 
-        holder.txtName.setText(" : " + worker.getName());
+        holder.txtName.setText(worker.getName());
         holder.txtAge.setText(" : " + String.valueOf(worker.getAge()));
-        holder.txtHeight.setText(" : " + String.valueOf(worker.getHeight()));
-        holder.txtWeight.setText(" : " + String.valueOf(worker.getWeight()));
+        holder.txtHeight.setText(" : " + String.valueOf(worker.getHeight()) + " cm");
+        holder.txtWeight.setText(" : " + String.valueOf(worker.getWeight()) + " kg");
 
         int imgStatusId = -1;
         switch (worker.getStatus()) {

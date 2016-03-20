@@ -40,6 +40,7 @@
                 android:layout_marginRight="@dimen/small_selection_margin"
                 android:text="@string/share"/>
             <Button
+
                 android:id="@+id/btnConfirm"
                 android:background="@drawable/selector_main_button"
                 android:layout_height="wrap_content"
